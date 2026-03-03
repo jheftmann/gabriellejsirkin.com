@@ -1,14 +1,10 @@
-:root {
-  --side: 96px;
-}
-
 .hero { padding: 60px var(--side) 60px; max-width: 1440px; margin: 0 auto; }
 .hero-eyebrow { font-size: 13px; font-weight: 400; color: var(--accent-dark); margin-bottom: 20px; }
 .hero-title { font-size: clamp(39px, 5vw, 71px); font-weight: 300; line-height: 1.08; color: var(--charcoal); letter-spacing: -0.01em; }
 .hero-title em { font-style: italic; color: var(--accent-dark); }
 
 .productions-wrap { padding: 80px var(--side) 40px; max-width: 1440px; margin: 0 auto; }
-.section-eyebrow { font-size: 12px; font-weight: 500; color: var(--accent-dark); margin-bottom: 28px; }
+.section-eyebrow { font-size: 12px; font-weight: 500; color: var(--accent-dark); margin-bottom: 20px; }
 
 .prod-table { width: 100%; border-collapse: collapse; }
 .prod-table thead tr { border-bottom: 1px solid var(--charcoal); }
@@ -22,8 +18,8 @@
 .prod-table td.year { text-align: right; color: var(--mid-gray); font-size: 14px; letter-spacing: 0.06em; }
 .prod-table td .role-tag { display: inline-block; font-size: 12px; font-weight: 400; padding: 2px 8px; background: var(--skill-bg); border: 1px solid var(--light-gray); border-radius: 2px; color: var(--mid-gray); margin-right: 4px; margin-top: 2px; }
 
-.brands-wrap { padding: 80px var(--side) 140px; max-width: 1440px; margin: 0 auto; }
+.brands-wrap { padding: 80px var(--side) 120px; max-width: 1440px; margin: 0 auto; }
 .brands-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 .brand-chip { font-size: 14px; font-weight: 400; letter-spacing: 0.06em; padding: 10px 18px; border: 1px solid var(--light-gray); color: var(--mid-gray); border-radius: 2px; }
 
-@media (max-width: 700px) { :root { --side: 28px; } .prod-table td.location, .prod-table th:nth-child(3) { display: none; } }
+@media (max-width: 700px) { :root { --side: 20px; } .prod-table td.location, .prod-table th:nth-child(3) { display: none; } }

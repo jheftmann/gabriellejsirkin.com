@@ -104,22 +104,43 @@ function loadProjects() {
         meta = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
       }
 
+      const baseUrl = `content/projects/${id}/`;
+
+      // Auto-discover image files in the project folder
+      const folderImages = fs.readdirSync(path.join(dir, id))
+        .filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f))
+        .sort();
+
+      // Use first image as card thumbnail if available
+      if (folderImages.length > 0) {
+        meta.cardImage.src = `${baseUrl}${folderImages[0]}`;
+      }
+
       let contentHtml = null;
-      if (bodyText.trim()) {
+      if (bodyText.trim() || folderImages.length > 0) {
         const lines     = bodyText.split('\n');
         const descLines = [], imgLines = [];
         lines.forEach(l => (/!\[.*\]\(/.test(l) ? imgLines : descLines).push(l));
 
-        const baseUrl  = `content/projects/${id}/`;
         const descHtml = descLines.join('\n').trim()
           ? marked.parse(descLines.join('\n').trim())
           : null;
-        const imgsHtml = imgLines.length
-          ? marked.parse(imgLines.join('\n')).replace(
-              /(<img[^>]+src=")(?!https?:\/\/|\/|data:)/g,
-              `$1${baseUrl}`
-            )
-          : null;
+
+        let imgsHtml;
+        if (imgLines.length > 0) {
+          // Explicit markdown images take priority
+          imgsHtml = marked.parse(imgLines.join('\n')).replace(
+            /(<img[^>]+src=")(?!https?:\/\/|\/|data:)/g,
+            `$1${baseUrl}`
+          );
+        } else if (folderImages.length > 0) {
+          // Auto-discovered images from the project folder
+          imgsHtml = folderImages
+            .map(f => `<img src="${baseUrl}${f}" alt="">`)
+            .join('\n');
+        } else {
+          imgsHtml = null;
+        }
 
         contentHtml = { desc: descHtml, images: imgsHtml };
       }
@@ -131,14 +152,18 @@ function loadProjects() {
 // ─── Card HTML ───────────────────────────────────────────────────────────────
 
 function renderCard(p) {
-  const pub  = p.client || p.cat;
-  const tags = p.skills.map(s => `<span class="tag">${s}</span>`).join('');
-  const cs   = p.comingSoon ? '<span class="cs-badge">Coming Soon</span>' : '';
-  const r    = p.cardImage && p.cardImage.ratio       || 'r-4-3';
-  const ph   = p.cardImage && p.cardImage.placeholder || '';
+  const pub   = p.client || p.cat;
+  const tags  = p.skills.map(s => `<span class="tag">${s}</span>`).join('');
+  const cs    = p.comingSoon ? '<span class="cs-badge">Coming Soon</span>' : '';
+  const r     = p.cardImage && p.cardImage.ratio       || 'r-4-3';
+  const ph    = p.cardImage && p.cardImage.placeholder || '';
+  const src   = p.cardImage && p.cardImage.src;
+  const inner = src
+    ? `<img src="${src}" class="card-img-photo" alt="${p.title}">`
+    : `<div class="card-ph">${ph}</div>`;
   return (
     `    <a class="card" data-cat="${p.filter}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
-    `      <div class="card-img ${r}"><div class="card-ph">${ph}</div></div>\n` +
+    `      <div class="card-img ${r}">${inner}</div>\n` +
     `      <div class="card-caption">${cs}<span class="card-pub">${pub}</span>` +
     `<p class="card-name">${p.title}</p>` +
     `<div class="tags">${tags}</div></div>\n` +
