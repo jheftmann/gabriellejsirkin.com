@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Gabrielle J. Sirkin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --warm-white: #FAF8F5;
+  --cream: #F0EDE8;
+  --charcoal: #1A1A18;
+  --mid-gray: #8A8680;
+  --light-gray: #D4D0CA;
+  --accent: #C8A882;
+  --accent-dark: #9E7D5A;
+  --skill-bg: #EDEAE4;
+  --side: 96px;
+  --label-w: 1fr;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--warm-white); color: var(--charcoal); font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 17px; overflow-x: hidden; }
+
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px var(--side); background: var(--warm-white);
+}
+.nav-brand { text-decoration: none; }
+.nav-name { font-size: 16px; font-weight: 400; letter-spacing: 0; color: var(--charcoal); display: block; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 400; color: var(--mid-gray); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+
+/* PAGE */
+.about-page { padding: 60px var(--side) 140px; }
+
+/* HEADLINE — full width, above the grid */
+.about-headline {
+  font-size: clamp(39px, 4.5vw, 61px); font-weight: 300;
+  line-height: 1.0; color: var(--charcoal); letter-spacing: -0.01em;
+  margin-bottom: 48px;
+}
+.about-headline em { font-style: italic; color: var(--accent-dark); }
+
+/* LEAD — full width */
+.lead { font-size: 19px; font-weight: 400; color: var(--charcoal); line-height: 1.4; margin-bottom: 72px; max-width: 50%; }
+
+/* TWO-COLUMN ROW: label left, content right */
+.about-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+  margin-bottom: 60px;
+  align-items: start;
+}
+@media (max-width: 700px) {
+  .about-row { grid-template-columns: 1fr; gap: 16px; }
+  :root { --side: 32px; }
+}
+
+.row-label { font-size: 17px; font-weight: 300; color: var(--mid-gray); padding-top: 2px; }
+.row-content { }
+
+/* SKILLS */
+.skill-item { margin-bottom: 20px; }
+.skill-item:last-child { margin-bottom: 0; }
+.skill-name { font-size: 17px; font-weight: 300; color: var(--mid-gray); margin-bottom: 3px; }
+.skill-desc { font-size: 17px; font-weight: 300; line-height: 1.4; color: var(--charcoal); }
+
+/* SERVICES */
+.services-text { font-size: 17px; font-weight: 300; line-height: 1.4; color: var(--charcoal); }
+
+/* BIO */
+.bio-para { font-size: 17px; font-weight: 300; line-height: 1.4; color: var(--charcoal); margin-bottom: 20px; }
+.bio-para:last-child { margin-bottom: 0; }
+
+/* CONTACT */
+.contact-links { display: flex; gap: 32px; }
+.contact-link { font-size: 17px; font-weight: 300; color: var(--charcoal); text-decoration: none; transition: color 0.2s; }
+.contact-link:hover { color: var(--mid-gray); }
+
+footer { padding: 36px var(--side); text-align: center; }
+.fc { font-size: 13px; font-weight: 300; color: var(--light-gray); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="gabrielle-sirkin-portfolio.html" class="nav-brand">
+    <span class="nav-name">Gabrielle J. Sirkin</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="gabrielle-sirkin-portfolio.html">Work</a></li>
+    <li><a href="productions.html">Productions</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+</nav>
+
+<div class="about-page">
+
+  <h1 class="about-headline">Creative vision.<br><em>Operational precision.</em></h1>
+
+  <p class="lead">Gabrielle J. Sirkin is a Visual Director, Producer, and Curator based in Los Angeles.</p>
+
+  <!-- SKILLS -->
+  <div class="about-row">
+    <p class="row-label">Areas of Expertise</p>
+    <div class="row-content">
+      <div class="skill-item">
+        <p class="skill-name">Visual Direction</p>
+        <p class="skill-desc">Shapes the visual creative language and identity for global campaigns to tell compelling stories and build brand resonance and impact from concept through final delivery.</p>
+      </div>
+      <div class="skill-item">
+        <p class="skill-name">Production</p>
+        <p class="skill-desc">Direct on set production and shoot supervision fostering highly collaborative environments while driving innovative, scalable cost effective solutions.</p>
+      </div>
+      <div class="skill-item">
+        <p class="skill-name">Project Management</p>
+        <p class="skill-desc">Scalable systems and strategic thinking that keep complex, multi channel and market projects on time and visually aligned.</p>
+      </div>
+      <div class="skill-item">
+        <p class="skill-name">Curation</p>
+        <p class="skill-desc">A deeply considered editorial eye applied to brand visual libraries, cultural projects and artist portfolios.</p>
+      </div>
+      <div class="skill-item">
+        <p class="skill-name">Content Creation</p>
+        <p class="skill-desc">Immersive travel photography and short films exploring the original culture and character of places and experiences with curiosity.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISUAL CREATIVE SERVICES -->
+  <div class="about-row">
+    <p class="row-label">Visual Creative Services</p>
+    <div class="row-content">
+      <p class="services-text">Available for creative direction and brand strategy consulting for travel and hospitality brands, as well as independent artists seeking support with creative vision and portfolio development.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about-row">
+    <p class="row-label">About</p>
+    <div class="row-content">
+      <p class="bio-para">Gabrielle J. Sirkin brings a rare integration of creative vision and operational precision to every project with a proven ability to craft cohesive, high impact, multidisciplinary work that elevates brands and inspires audiences.</p>
+      <p class="bio-para">With two decades of experience spanning major publications, global agencies, and in house at some of the world's most recognized tech brands, Gabrielle has shaped the visual identity of campaigns for Expedia, Hotels.com, Vrbo, Beats by Dre, Apple, Gatorade, and the LA Philharmonic. She currently serves as Director of Photography at Expedia Group.</p>
+      <p class="bio-para">Her background across fashion, editorial, and branded content, combined with sharp instincts and a deep commitment to craft, allows her to deliver excellence at every stage. Her process is scalable and strategic. Her style is bold, timeless, and rooted in care, driving visual impact and genuine connection. She is also a prolific traveler and storyteller, and her original content work documents the world with the same curiosity and intention she brings to branded productions.</p>
+      <p class="bio-para">Her work has been recognized with a Cannes Silver Lion, Emmy Nomination, ADC Awards, American Photography, and Gold, Silver & Merit awards from the Society of Publication Designers.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="about-row">
+    <p class="row-label">Contact</p>
+    <div class="row-content">
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#e08781829289858c8c859389928b898ea0878d81898cce838f8d" class="contact-link">Email</a>
+        <a href="https://www.instagram.com/gabril" target="_blank" class="contact-link">Instagram</a>
+        <a href="https://www.linkedin.com/in/gabriellesirkin" target="_blank" class="contact-link">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer><span cla
