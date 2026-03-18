@@ -29,13 +29,22 @@ function parseFrontmatter(text) {
     for (const line of lines) {
       if (arrayKey !== null) {
         const item = line.match(/^\s+-\s+(.*)$/);
-        if (item) { fm[arrayKey].push(item[1].trim()); continue; }
+        if (item) {
+          const v = item[1].trim();
+          // Handle "key: value" object-style list items — extract just the value
+          const kv2 = v.match(/^\w+:\s*(.+)$/);
+          fm[arrayKey].push(kv2 ? kv2[1].trim() : v);
+          continue;
+        }
         arrayKey = null; // end of array — fall through to check for new key
       }
       const ka = line.match(/^(\w+):\s*$/);
       if (ka) { arrayKey = ka[1]; fm[arrayKey] = []; continue; }
       const kv = line.match(/^(\w+):\s*(.+)$/);
-      if (kv) fm[kv[1].trim()] = kv[2].trim();
+      if (kv) {
+        const val = kv[2].trim();
+        fm[kv[1].trim()] = (val === "''" || val === '""') ? '' : val;
+      }
     }
     body = m[2];
   }
@@ -106,9 +115,11 @@ function loadProjects() {
                           : (Array.isArray(fm.skills) ? fm.skills : []),
           cardImage:    { ratio: fm.card_ratio || 'r-4-3', placeholder: fm.card_placeholder || '' },
           comingSoon:   fm.coming_soon === 'true',
-          images:       fm.placeholder_count
-                          ? Array.from({ length: parseInt(fm.placeholder_count) }, () => ({ r: 'r-4-3' }))
-                          : [],
+          images:       Array.isArray(fm.images) && fm.images.length > 0
+                          ? fm.images
+                          : (fm.placeholder_count
+                              ? Array.from({ length: parseInt(fm.placeholder_count) }, () => ({ r: 'r-4-3' }))
+                              : []),
         };
       } else {
         meta = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
@@ -116,18 +127,25 @@ function loadProjects() {
 
       const baseUrl = `content/projects/${id}/`;
 
-      // Auto-discover image files in the project folder
-      const folderImages = fs.readdirSync(path.join(dir, id))
+      // Resolve image list: frontmatter images list > auto-discovered folder images
+      const fmImages = Array.isArray(meta.images) && meta.images.length > 0 ? meta.images : null;
+      const folderImages = fmImages ? [] : fs.readdirSync(path.join(dir, id))
         .filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f))
         .sort();
+      const resolvedImages = fmImages
+        ? fmImages.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`)
+        : folderImages.map(f => `${baseUrl}${f}`);
 
       // Use first image as card thumbnail if available
-      if (folderImages.length > 0) {
-        meta.cardImage.src = `${baseUrl}${folderImages[0]}`;
+      if (resolvedImages.length > 0) {
+        meta.cardImage.src = resolvedImages[0];
       }
 
+      // Remove raw images array from meta (replaced by resolvedImages below)
+      delete meta.images;
+
       let contentHtml = null;
-      if (bodyText.trim() || folderImages.length > 0) {
+      if (bodyText.trim() || resolvedImages.length > 0) {
         const lines     = bodyText.split('\n');
         const descLines = [], imgLines = [];
         lines.forEach(l => (/!\[.*\]\(/.test(l) ? imgLines : descLines).push(l));
@@ -143,10 +161,9 @@ function loadProjects() {
             /(<img[^>]+src=")(?!https?:\/\/|\/|data:)/g,
             `$1${baseUrl}`
           );
-        } else if (folderImages.length > 0) {
-          // Auto-discovered images from the project folder
-          imgsHtml = folderImages
-            .map(f => `<img src="${baseUrl}${f}" alt="">`)
+        } else if (resolvedImages.length > 0) {
+          imgsHtml = resolvedImages
+            .map(src => `<img src="${src}" alt="">`)
             .join('\n');
         } else {
           imgsHtml = null;

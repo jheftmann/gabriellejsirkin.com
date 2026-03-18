@@ -3,6 +3,8 @@
 Portfolio website for Gabrielle J. Sirkin.
 
 **Live site:** https://gabriellesirkin.github.io/gabriellejsirkin.com
+**CMS:** https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
+**Local preview:** http://localhost:3000 (run `npm start`)
 
 ---
 
@@ -12,8 +14,27 @@ Portfolio website for Gabrielle J. Sirkin.
 |------|-----|
 | `index.html` | Home / Work |
 | `about.html` | About |
-| `productions.html` | Productions |
+| `travel.html` | Travel Creative Services |
 | `project.html` | Individual project (loaded dynamically) |
+
+---
+
+## CMS
+
+Content is managed via [Sveltia CMS](https://github.com/sveltia/sveltia-cms) at `/admin/`.
+
+**CMS URL:** https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
+
+Login with GitHub. The CMS lets you edit:
+- **Projects** — all metadata fields
+- **Home** — hero text
+- **Settings** — site title, description, nav links
+
+Changes made in the CMS are committed directly to the `main` branch on GitHub, which triggers an automatic rebuild of the HTML files.
+
+**Auth worker:** `https://sveltia-cms-auth.orsa.workers.dev` (Cloudflare Worker — handles GitHub OAuth)
+
+> Note: Images cannot yet be uploaded via the CMS. Add images by dropping them into the project folder in `content/projects/{slug}/` and pushing to GitHub.
 
 ---
 
@@ -35,18 +56,16 @@ npm start
 
 This opens the site at **http://localhost:3000** and automatically reloads the browser whenever you save a file in `src/` or `content/`.
 
-You can also open the built HTML files directly in your browser (no server needed) — just run `npm run build` once after making changes, then open `index.html`, `about.html`, etc.
-
 ---
 
 ## Adding or editing a project
 
-Every project lives in its own folder inside `content/projects/`. Each folder contains an `index.md` file that holds all the project's information and images.
+Every project lives in its own folder inside `content/projects/`. Each folder contains an `index.md` file that holds all the project's metadata.
 
 ```
 content/projects/
-  expedia-one-key-launch/
-    index.md        ← all metadata + images for this project
+  all-in-the-family/
+    index.md        ← all metadata for this project
     hero.jpg
     detail-1.jpg
 ```
@@ -55,23 +74,17 @@ content/projects/
 
 ```
 ---
-title: One Key Launch
-client: Expedia
-cat: Brand Work
-filter: brand
-photographer: Ronan Gallagher
-date: June 2023
-skills: Visual Direction, Production
-card_ratio: r-16-9
-card_placeholder: Egypt · Mallorca · Madrid
-placeholder_count: 5
+title: All in the Family
+client: Bon Appétit
+cat: Editorial
+photographer: Julia Stotz
+date: 2024
+description: Pasta is the true language of Italy...
+credits: Creative Direction & Concept: Gabrielle J Sirkin — Photography: Julia Stotz
+skills: Visual Direction, Creative Direction, Production
+card_ratio: r-4-3
+coming_soon: false
 ---
-
-Optional description paragraph that appears above the images.
-
-![](hero.jpg)
-![](detail-1.jpg)
-![](detail-2.jpg)
 ```
 
 **Frontmatter fields:**
@@ -80,19 +93,17 @@ Optional description paragraph that appears above the images.
 |-------|----------|-------|
 | `title` | yes | Project name |
 | `client` | no | Client or publication |
-| `cat` | yes | Display category (`Brand Work`, `Editorial`, `Personal`, `Curation`, `Content Creation`) |
-| `filter` | yes | Filter key (`brand`, `editorial`, `personal`, `curation`, `content`) |
+| `cat` | yes | `Brand Work`, `Editorial`, `Content Creation`, or `Personal` |
 | `photographer` | no | Photographer credit |
-| `date` | no | Month and year |
+| `date` | no | Year |
+| `description` | no | Prose paragraph shown above meta fields |
+| `credits` | no | Full credits line shown after the year |
+| `destination` | no | For Content Creation projects only |
 | `skills` | yes | Comma-separated list |
-| `card_ratio` | no | Card aspect ratio (`r-16-9`, `r-4-3`, `r-3-4`) |
-| `card_placeholder` | no | Text shown on the card while image is empty |
-| `placeholder_count` | no | Number of placeholder boxes to show when no images are added yet |
+| `card_ratio` | no | Card aspect ratio (`r-16-9`, `r-4-3`, `r-3-4`, `r-3-2`, `r-2-3`, `r-1-1`) |
 | `coming_soon` | no | Set to `true` to add a Coming Soon badge |
 
-- Copy `content/projects/_template.md` as a starting point.
-- Images go in the same folder as `index.md`.
-- If a project has no body content, placeholder boxes are shown automatically.
+Images go in the same folder as `index.md` and are displayed automatically in the order they appear on disk.
 
 ---
 
@@ -110,49 +121,35 @@ git push
 
 ## Editing global settings
 
-Site-wide values live in `content/settings.md`:
+Site-wide values live in `content/settings.md` (or edit via the CMS under Settings → Global):
 
 ```
 ---
 site_title: Gabrielle J. Sirkin
 site_description: Visual Director and photographer based in Los Angeles.
 site_url: https://gabriellesirkin.github.io/gabriellejsirkin.com
-sharecard_url: https://gabriellesirkin.github.io/gabriellejsirkin.com/sharecard.jpg
 footer_year: 2026
 nav:
   - Work|index.html
-  - Productions|productions.html
+  - Travel Creative Services|travel.html
   - About|about.html
 ---
 ```
-
-To add or remove a nav link, edit the `nav:` list. Each line is `Label|page.html`.
 
 ---
 
 ## Editing homepage text
 
-The text on the homepage hero is in `content/pages/home.md`:
-
-```
----
-hero_main: Visual Director in Los&nbsp;Angeles.
-hero_accent: Directing vision and shaping stories globally.
----
-```
-
-The filter bar and project grid are generated automatically — no editing needed.
-
-After saving any content file, run `npm run build` (or restart `npm start`) for the changes to appear.
+The homepage hero text is in `content/pages/home.md` (or edit via the CMS under Pages → Home).
 
 ---
 
 ## Sharecard (link preview image)
 
-When the site is shared on social media, it will use the image at `sharecard.jpg` in the root folder. This file doesn't exist yet — to add one, save a **1200 × 630 px** JPG as `sharecard.jpg` in the root of the project.
+When the site is shared on social media it uses `sharecard.jpg` in the root folder. Save a **1200 × 630 px** JPG there to enable it.
 
 ---
 
 ## Favicon
 
-The favicon (`favicon.svg`) is a temporary placeholder. Replace it with a proper version when the brand is ready.
+The favicon (`favicon.svg`) is a temporary placeholder. Replace it with a proper version when ready.

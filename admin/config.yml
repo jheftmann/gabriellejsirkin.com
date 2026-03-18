@@ -69,6 +69,13 @@ collections:
 
       - { name: coming_soon, label: Coming Soon, widget: boolean, required: false, default: false }
 
+      - name: images
+        label: Images
+        widget: list
+        required: false
+        hint: 'Project images in display order. Upload or select from the media library.'
+        field: { name: image, label: Image, widget: image }
+
   # ── Home page ──────────────────────────────────────────────────────────────
   - name: pages
     label: Pages
