@@ -2,7 +2,7 @@ backend:
   name: github
   repo: gabriellesirkin/gabriellejsirkin.com
   branch: main
-  base_url: https://YOUR_AUTH_WORKER.workers.dev
+  base_url: https://gabriellejsirkin.gabriellesirkin.workers.dev/
 
 # Images upload to the project's own folder
 media_folder: assets/images
