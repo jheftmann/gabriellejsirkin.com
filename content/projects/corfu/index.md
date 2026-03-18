@@ -1,10 +1,16 @@
 ---
-title: Corfu
+title: Corfus
 cat: Content Creation
-filter: content
+client: ''
+photographer: ''
+date: ''
+description: ''
+credits: ''
+destination: ''
 skills: Visual Direction, Creative Direction
 card_ratio: r-16-9
-card_placeholder: Coming Soon
 coming_soon: true
+filter: content
+card_placeholder: Coming Soon
 placeholder_count: 1
 ---
