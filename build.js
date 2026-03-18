@@ -153,20 +153,20 @@ function loadProjects() {
 
 function renderCard(p) {
   const pub   = p.client || p.cat;
-  const tags  = p.skills.map(s => `<span class="tag">${s}</span>`).join('');
+  const pills = p.skills.map(s => `<span class="pill">${s}</span>`).join('');
   const cs    = p.comingSoon ? '<span class="cs-badge">Coming Soon</span>' : '';
-  const r     = p.cardImage && p.cardImage.ratio       || 'r-4-3';
+  const r     = (p.cardImage && p.cardImage.ratio || 'r-4-3').replace(/^r-(\d+)-(\d+)$/, 'ratio-$1x$2');
   const ph    = p.cardImage && p.cardImage.placeholder || '';
   const src   = p.cardImage && p.cardImage.src;
   const inner = src
-    ? `<img src="${src}" class="card-img-photo" alt="${p.title}">`
-    : `<div class="card-ph">${ph}</div>`;
+    ? `<img src="${src}" alt="${p.title}">`
+    : `<div class="thumb-ph">${ph}</div>`;
   return (
-    `    <a class="card" data-cat="${p.filter}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
-    `      <div class="card-img ${r}">${inner}</div>\n` +
-    `      <div class="card-caption">${cs}<span class="card-pub">${pub}</span>` +
-    `<p class="card-name">${p.title}</p>` +
-    `<div class="tags">${tags}</div></div>\n` +
+    `    <a class="project-card" data-category="${p.filter}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
+    `      <div class="thumb ${r}">${inner}</div>\n` +
+    `      <div class="card-info">${cs}<p class="card-title">${p.title}</p>` +
+    `<p class="card-subtitle">${pub}</p>` +
+    `<div class="pills">${pills}</div></div>\n` +
     `    </a>`
   );
 }
@@ -183,9 +183,9 @@ function renderFilterBar(projects) {
     }
   });
   const btns = filters
-    .map(f => `    <button class="fbtn" id="f-${f.filter}">${f.label}</button>`)
+    .map(f => `    <button class="filter-btn" data-filter="${f.filter}" data-scheme="${f.filter}">${f.label}</button>`)
     .join('\n');
-  return `    <button class="fbtn on" id="f-all">All</button>\n${btns}`;
+  return `    <button class="filter-btn active" data-filter="all" data-scheme="all">All</button>\n${btns}`;
 }
 
 // ─── Build ───────────────────────────────────────────────────────────────────
@@ -209,7 +209,7 @@ function build() {
   // Apply settings tokens inside partials (so {{SETTING:...}} works in _nav.html etc.)
   Object.keys(partials).forEach(k => { partials[k] = applySettings(partials[k], settings); });
 
-  const pages = ['index', 'about', 'productions', 'project'];
+  const pages = ['index', 'about', 'productions', 'project', 'travel'];
   pages.forEach(page => {
     let html = fs.readFileSync(`src/${page}.html`, 'utf8');
 

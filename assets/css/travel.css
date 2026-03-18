@@ -1,0 +1,13 @@
+.travel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--gap);
+}
+.travel-grid span {
+  font-size: .88rem;
+  line-height: 2;
+  color: var(--text);
+  display: block;
+  transition: color var(--transition);
+}
+@media (max-width: 700px) { .travel-grid { grid-template-columns: 1fr; } }

@@ -1,29 +1,47 @@
-var filterMap    = { 'f-all': 'all', 'f-brand': 'brand', 'f-editorial': 'editorial', 'f-personal': 'personal', 'f-curation': 'curation', 'f-content': 'content' };
-var filterIdMap  = { 'all': 'f-all', 'brand': 'f-brand', 'editorial': 'f-editorial', 'personal': 'f-personal', 'curation': 'f-curation', 'content': 'f-content' };
+var GAP_VAL   = '5rem';
+var STAGGER_2 = '9rem';
 
-var staggerOffsets = [120,55,175,40,150,80,165,45,130,70,180,60,140,90,160,50,110,75,155,65,145,85,170,48,125,95,135,58,115,78];
+var allCards = Array.from(document.querySelectorAll('.project-card'));
 
-function applyStagger() {
-  var visible = Array.prototype.filter.call(
-    document.querySelectorAll('.card'),
-    function (c) { return c.style.display !== 'none'; }
-  );
-  visible.forEach(function (card, i) {
-    card.style.marginTop = (i % 2 === 1)
-      ? staggerOffsets[Math.floor((i - 1) / 2) % staggerOffsets.length] + 'px'
-      : '';
+function applyStagger(visibleCards) {
+  visibleCards.forEach(function (el, i) {
+    el.style.marginBottom = GAP_VAL;
+    el.style.marginTop    = (i % 2 === 1) ? STAGGER_2 : '0px';
   });
 }
 
-function applyFilter(f) {
-  document.querySelectorAll('.fbtn').forEach(function (b) { b.classList.remove('on'); });
-  var btn = document.getElementById(filterIdMap[f] || 'f-all');
-  if (btn) btn.classList.add('on');
-  document.querySelectorAll('.card').forEach(function (c) {
-    c.style.display = (f === 'all' || c.dataset.cat === f) ? '' : 'none';
-    c.style.marginTop = '';
-  });
-  applyStagger();
+function applyFilter(f, animate) {
+  document.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+  var btn = document.querySelector('.filter-btn[data-filter="' + f + '"]');
+  if (btn) {
+    btn.classList.add('active');
+    document.body.dataset.scheme = btn.dataset.scheme || f;
+  }
+
+  if (!animate) {
+    allCards.forEach(function (el) {
+      var match = f === 'all' || el.dataset.category === f;
+      match ? el.classList.remove('hidden') : el.classList.add('hidden');
+      el.style.marginTop = '';
+    });
+    var visible = allCards.filter(function (el) { return !el.classList.contains('hidden'); });
+    applyStagger(visible);
+    requestAnimationFrame(function () {
+      visible.forEach(function (el, i) { setTimeout(function () { el.classList.add('visible'); }, i * 52); });
+    });
+  } else {
+    allCards.forEach(function (el) { el.classList.remove('visible'); });
+    setTimeout(function () {
+      allCards.forEach(function (el) {
+        var match = f === 'all' || el.dataset.category === f;
+        match ? el.classList.remove('hidden') : el.classList.add('hidden');
+        el.style.marginTop = '';
+      });
+      var visible = allCards.filter(function (el) { return !el.classList.contains('hidden'); });
+      applyStagger(visible);
+      visible.forEach(function (el, i) { setTimeout(function () { el.classList.add('visible'); }, i * 60); });
+    }, 270);
+  }
 }
 
 // Restore filter from URL on load
@@ -32,12 +50,11 @@ function applyFilter(f) {
   if (!search && window.location.hash && window.location.hash.indexOf('?') !== -1) {
     search = window.location.hash.substring(window.location.hash.indexOf('?'));
   }
-  applyFilter(new URLSearchParams(search).get('filter') || 'all');
+  applyFilter(new URLSearchParams(search).get('filter') || 'all', false);
 })();
 
 document.getElementById('filterBar').addEventListener('click', function (e) {
-  var btn = e.target.closest('.fbtn');
+  var btn = e.target.closest('.filter-btn');
   if (!btn) return;
-  var f = filterMap[btn.id];
-  if (f) applyFilter(f);
+  applyFilter(btn.dataset.filter || 'all', true);
 });

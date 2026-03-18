@@ -19,6 +19,9 @@ function getParams() {
 
   if (!p) { document.getElementById('pTitle').textContent = 'Project not found'; return; }
 
+  // Apply color scheme from project filter
+  if (p.filter) document.body.dataset.scheme = p.filter;
+
   document.title = p.title + ' — Gabrielle J. Sirkin';
   document.getElementById('pCat').textContent = p.cat;
   document.getElementById('pTitle').textContent = (p.client ? p.client + ' — ' : '') + p.title;
@@ -37,8 +40,8 @@ function getParams() {
   } else if (cat === 'Content Creation') {
     if (p.destination)  meta += field('Destination',  p.destination);
   }
-  meta += '<div class="meta-group"><p class="meta-label">Areas of Expertise</p><div class="meta-tags">' +
-    p.skills.map(function (s) { return '<span class="meta-tag">' + s + '</span>'; }).join('') +
+  meta += '<div class="meta-group"><p class="meta-label">Areas of Expertise</p><div class="pills">' +
+    p.skills.map(function (s) { return '<span class="pill">' + s + '</span>'; }).join('') +
     '</div></div>';
   document.getElementById('pMeta').innerHTML = meta;
 
