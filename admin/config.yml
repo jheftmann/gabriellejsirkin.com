@@ -1,0 +1,99 @@
+backend:
+  name: github
+  repo: gabriellesirkin/gabriellejsirkin.com
+  branch: main
+  base_url: https://YOUR_AUTH_WORKER.workers.dev
+
+# Images upload to the project's own folder
+media_folder: assets/images
+public_folder: assets/images
+
+collections:
+
+  # ── Projects ──────────────────────────────────────────────────────────────
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: content/projects
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    summary: '{{title}} — {{cat}}'
+    sortable_fields: [title, date, cat]
+    fields:
+      - { name: title, label: Title, widget: string }
+
+      - name: cat
+        label: Category
+        widget: select
+        options:
+          - { label: Brand Work,       value: Brand Work       }
+          - { label: Editorial,        value: Editorial        }
+          - { label: Content Creation, value: Content Creation }
+          - { label: Personal,         value: Personal         }
+
+      - { name: client,       label: Client,       widget: string,  required: false }
+      - { name: photographer, label: Photographer, widget: string,  required: false }
+      - { name: date,         label: Year,         widget: string,  required: false }
+
+      - { name: description, label: Description, widget: text, required: false,
+          hint: 'Shown in the project header above the meta fields.' }
+
+      - { name: credits, label: Credits, widget: text, required: false,
+          hint: 'Full credits line shown after the year, e.g. "Photography: X — Styling: Y"' }
+
+      - { name: destination, label: Destination, widget: string, required: false,
+          hint: 'For Content Creation projects only.' }
+
+      - name: skills
+        label: Areas of Expertise
+        widget: list
+        required: false
+        hint: 'Tags shown on the card and project page, e.g. Visual Direction, Production'
+
+      - name: card_ratio
+        label: Card Image Ratio
+        widget: select
+        default: r-4-3
+        options:
+          - { label: '4:3  (landscape)',  value: r-4-3  }
+          - { label: '16:9 (wide)',       value: r-16-9 }
+          - { label: '3:4  (portrait)',   value: r-3-4  }
+          - { label: '3:2  (landscape)',  value: r-3-2  }
+          - { label: '2:3  (portrait)',   value: r-2-3  }
+          - { label: '1:1  (square)',     value: r-1-1  }
+
+      - { name: coming_soon, label: Coming Soon, widget: boolean, required: false, default: false }
+
+  # ── Home page ──────────────────────────────────────────────────────────────
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home
+        file: content/pages/home.md
+        fields:
+          - { name: hero_main,   label: Hero — Line 1, widget: string }
+          - { name: hero_accent, label: Hero — Line 2, widget: string }
+
+  # ── Site settings ──────────────────────────────────────────────────────────
+  - name: settings
+    label: Settings
+    files:
+      - name: global
+        label: Global
+        file: content/settings.md
+        fields:
+          - { name: site_title,       label: Site Title,       widget: string }
+          - { name: site_description, label: Site Description, widget: string }
+          - { name: site_url,         label: Site URL,         widget: string }
+          - { name: footer_year,      label: Footer Year,      widget: string }
+          - name: nav
+            label: Navigation
+            widget: list
+            hint: 'Format each item as "Label|page.html", e.g. "Work|index.html"'
+            field: { name: item, label: Nav Item, widget: string }

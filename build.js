@@ -7,6 +7,15 @@ const { marked } = require('marked');
 
 const WATCH = process.argv.includes('--watch');
 
+// ─── Category → filter key mapping ───────────────────────────────────────────
+
+const CAT_TO_FILTER = {
+  'Brand Work':       'brand',
+  'Editorial':        'editorial',
+  'Content Creation': 'content',
+  'Personal':         'personal',
+};
+
 // ─── Frontmatter parser ──────────────────────────────────────────────────────
 // Handles flat key: value pairs and simple YAML arrays (key: / - item)
 
@@ -86,7 +95,7 @@ function loadProjects() {
           title:        fm.title        || id,
           client:       fm.client       || '',
           cat:          fm.cat          || '',
-          filter:       fm.filter       || 'personal',
+          filter:       fm.filter || CAT_TO_FILTER[fm.cat] || 'personal',
           photographer: fm.photographer || '',
           date:         fm.date         || '',
           description:  fm.description  || '',
