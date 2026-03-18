@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabrielle J Sirkin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #f2ede6;
+    --header-bg:  #f2ede6;
+    --text:       #1c1a17;
+    --muted:      #7a7570;
+    --underline:  #1c1a17;
+    --margin:     5rem;
+    --gap:        5rem;
+    --transition: 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  body[data-scheme="brand"]     { --bg:#d4b896; --header-bg:#d4b896; --text:#1a2a56; --muted:#3a4a76; --underline:#1a2a56; }
+  body[data-scheme="editorial"] { --bg:#e8e87c; --header-bg:#e8e87c; --text:#1a1f56; --muted:#2a2f6a; --underline:#1a1f56; }
+  body[data-scheme="content"]   { --bg:#f0b8c8; --header-bg:#f0b8c8; --text:#1a3424; --muted:#2c4e36; --underline:#1a3424; }
+  body[data-scheme="personal"]  { --bg:#b8cdc8; --header-bg:#b8cdc8; --text:#1e2a28; --muted:#3a4c48; --underline:#1e2a28; }
+  body[data-scheme="about"]   { --bg:#c4b8d4; --header-bg:#c4b8d4; --text:#3d2f5a; --muted:#5a4878; --underline:#3d2f5a; }
+  body[data-scheme="travel"]  { --bg:#cdf0a0; --header-bg:#cdf0a0; --text:#2a3d1a; --muted:#4a5c30; --underline:#2a3d1a; }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    transition: background var(--transition), color var(--transition);
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  /* ── Cursor ── */
+  .cursor {
+    width: 7px; height: 7px; background: var(--text); border-radius: 50%;
+    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: width .16s, height .16s, background var(--transition), border-color var(--transition);
+  }
+  .cursor.large { width:32px; height:32px; background:transparent; border:1px solid var(--text); }
+
+  /* ── Header ── */
+  header {
+    position: fixed; top:0; left:0; right:0; z-index:101;
+    background: var(--header-bg); transition: background var(--transition);
+  }
+  .header-inner {
+    display:flex; align-items:center; justify-content:space-between;
+    height:60px; padding:0 var(--margin);
+  }
+  .site-name {
+    font-family:'EB Garamond',serif; font-size:1rem; font-weight:400;
+    text-decoration:none; color:var(--text); transition:color var(--transition); letter-spacing:.01em;
+    cursor:none;
+  }
+  nav { display:flex; align-items:center; gap:2rem; }
+  nav a {
+    font-size:.78rem; letter-spacing:0;
+    text-decoration:none; color:var(--muted); transition:color .2s; cursor:none;
+  }
+  nav a:hover { color:var(--text); }
+
+  /*
+    ── Tagline bar ──
+    Locked to exactly top:60px on every page.
+    Consistent padding so tagline sits at the same vertical position
+    whether you're on Work, About, or Travel Creative Services.
+  */
+  .tagline-bar {
+    position: fixed; top:60px; left:0; right:0; z-index:100;
+    background: var(--header-bg); transition: background var(--transition);
+    padding: 2.4rem var(--margin) 2.6rem;
+  }
+  .tagline-bar p {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    transition: color var(--transition);
+    display: block;
+  }
+
+  /*
+    ── Filter bar ──
+    60px header + 2.4rem top pad + 2 lines tagline (2.2rem × 1.2 × 2) + 2.6rem bottom pad
+    = 60px + 2.4rem + 5.28rem + 2.6rem = 60px + 10.28rem
+  */
+  .filter-bar {
+    position:fixed; top:calc(60px + 10.28rem); left:0; right:0; z-index:99;
+    background:var(--header-bg); transition:background var(--transition);
+    border-bottom:1px solid rgba(0,0,0,0.09);
+  }
+  .filter-inner { display:flex; align-items:center; height:44px; padding:0 var(--margin); gap:1.8rem; }
+  .filter-btn {
+    background:none; border:none; cursor:none;
+    font-family:'DM Sans',sans-serif; font-size:.78rem; font-weight:300;
+    letter-spacing:0; color:var(--muted);
+    padding:0; height:100%; transition:color .2s; position:relative; white-space:nowrap;
+  }
+  .filter-btn::after {
+    content:''; position:absolute; bottom:0; left:0; right:0;
+    height:1px; background:var(--underline); transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+  }
+  .filter-btn:hover { color:var(--text); }
+  .filter-btn.active { color:var(--text); }
+  .filter-btn.active::after { transform:scaleX(1); }
+
+  /* ── Main — push content below header + tagline + filter ── */
+  main {
+    padding-top: calc(60px + 10.28rem + 44px + var(--gap));
+    padding-bottom:5rem;
+    padding-left:var(--margin); padding-right:var(--margin);
+  }
+  .back-btn {
+    position: fixed;
+    bottom: 2.4rem;
+    left: var(--margin);
+    z-index: 300;
+    background: none; border: none; cursor: none;
+    font-size:.78rem; letter-spacing:0;
+    color:var(--muted); transition:color .2s;
+    display:flex; align-items:center; gap:.4rem;
+  }
+  .back-btn:hover { color:var(--text); }
+  .back-arrow { font-size:.8rem; line-height:1; }
+
+  /* ── Index grid (2-col staggered) ── */
+  .index-grid {
+    display:grid; grid-template-columns:repeat(2,1fr);
+    column-gap:var(--gap); row-gap:0; align-items:start;
+  }
+  @media(max-width:600px){ .index-grid{ grid-template-columns:1fr; } }
+
+  /* ── Index card ── */
+  .project-card {
+    display:flex; flex-direction:column; cursor:none;
+    opacity:0; transform:translateY(14px);
+    transition:opacity .44s ease, transform .44s ease;
+  }
+  .project-card.visible { opacity:1; transform:translateY(0); }
+  .project-card.hidden  { display:none !important; }
+
+  /* Aspect ratios */
+  .thumb { width:100%; overflow:hidden; position:relative; background:rgba(0,0,0,0.06); }
+  .ratio-9x16 { aspect-ratio:9/16; }
+  .ratio-16x9 { aspect-ratio:16/9; }
+  .ratio-4x3  { aspect-ratio:4/3;  }
+  .ratio-3x4  { aspect-ratio:3/4;  }
+
+  .thumb img {
+    display:block; width:100%; height:100%; object-fit:cover;
+    transition:transform .7s cubic-bezier(.25,.46,.45,.94);
+  }
+  .project-card:hover .thumb img { transform:scale(1.04); }
+
+  /* Card info below thumb */
+  .card-info { margin-top:.55rem; }
+
+  .card-title {
+    font-family:'EB Garamond',serif; font-size:.93rem; font-weight:400;
+    color:var(--text); line-height:1.25; transition:color var(--transition);
+  }
+  .card-subtitle {
+    font-size:.72rem; color:var(--muted); margin-top:3px;
+    font-family:'EB Garamond',serif; transition:color var(--transition);
+  }
+
+  /* Expertise pills */
+  .pills {
+    display:flex; flex-wrap:wrap; gap:5px; margin-top:.55rem;
+  }
+  .pill {
+    font-size:.58rem; letter-spacing:.07em; text-transform:uppercase;
+    padding:3px 9px; border:1px solid var(--text); color:var(--text);
+    border-radius:99px; white-space:nowrap; opacity:.7;
+    transition:color var(--transition), border-color var(--transition);
+  }
+
+  /* ── Project detail panel ── */
+  .detail-panel {
+    position:fixed; inset:0; z-index:200;
+    background:var(--bg); color:var(--text);
+    overflow-y:auto;
+    opacity:0; pointer-events:none;
+    transition:opacity .4s ease, background var(--transition), color var(--transition);
+  }
+  .detail-panel.open { opacity:1; pointer-events:all; }
+
+  /* Detail header */
+  .detail-header {
+    padding:calc(60px + 10.28rem + 2.5rem) var(--margin) 2.5rem;
+    border-bottom:1px solid rgba(0,0,0,0.10);
+    display:flex; flex-direction:column; gap:.35rem;
+  }
+  .detail-back {
+    position:fixed; top:0; left:0; right:0; z-index:201;
+    background:var(--header-bg); transition:background var(--transition);
+    display:flex; align-items:center; justify-content:space-between;
+    height:60px; padding:0 var(--margin);
+  }
+
+  .detail-title-text {
+    font-family:'EB Garamond',serif; font-size:2.4rem; font-weight:400; line-height:1.05;
+    margin-bottom: 1.2rem;
+  }
+  .detail-meta {
+    font-size:.82rem; color:var(--text); line-height:2;
+  }
+  .detail-meta span { display:block; }
+  .detail-meta span span { display:inline; }
+  .meta-label {
+    color: var(--muted); font-size: .72rem;
+    margin-right: .3rem;
+  }
+  .detail-desc-text {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-size: .9rem; line-height: 1.75;
+    color: var(--text); opacity: .85;
+    max-width: 520px; margin-bottom: .6rem;
+  }
+  .detail-credits {
+    display: block;
+    font-size: .72rem; color: var(--muted);
+    line-height: 1.8; margin-top: .4rem;
+  }
+  .detail-pills {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    margin-top: 1.2rem;
+  }
+  .detail-pill {
+    font-size: .58rem; letter-spacing: .07em; text-transform: uppercase;
+    padding: 3px 9px; border: 1px solid var(--text); color: var(--text);
+    border-radius: 99px; white-space: nowrap; opacity: .7;
+    transition: color var(--transition), border-color var(--transition);
+  }
+
+  /* Detail gallery — 3-col staggered, same spacing as index */
+  .detail-gallery {
+    padding:var(--margin) var(--margin) 5rem;
+    display:grid; grid-template-columns:repeat(3,1fr);
+    column-gap:var(--gap); row-gap:0; align-items:start;
+  }
+  @media(max-width:900px){ .detail-gallery{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:540px){ .detail-gallery{ grid-template-columns:1fr; } }
+
+  .gallery-item {
+    margin-bottom:var(--gap);
+    opacity:0; transform:translateY(14px);
+    transition:opacity .44s ease, transform .44s ease;
+  }
+  .gallery-item.visible { opacity:1; transform:translateY(0); }
+
+  .gallery-item img {
+    display:block; width:100%; height:100%; object-fit:cover;
+  }
+  .gallery-thumb { width:100%; overflow:hidden; background:rgba(0,0,0,0.06); }
+
+
+
+  /* ── About page ── */
+  .about-panel {
+    position: fixed; inset: 0; z-index: 200;
+    background: var(--bg); color: var(--text);
+    overflow-y: auto;
+    opacity: 0; pointer-events: none;
+    transition: opacity .4s ease, background var(--transition), color var(--transition);
+  }
+  .about-panel.open { opacity: 1; pointer-events: all; }
+
+  .about-back {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 201;
+    background: var(--header-bg); transition: background var(--transition);
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px; padding: 0 var(--margin);
+  }
+
+  .about-content {
+    padding: calc(60px + var(--margin)) var(--margin) 8rem;
+  }
+
+  /* Tagline on About + Travel pages — fixed, same position as index tagline-bar */
+  .about-panel .about-tagline,
+  #travelPanel .about-tagline {
+    position: fixed;
+    top: 60px;
+    left: 0; right: 0;
+    z-index: 200;
+    background: var(--header-bg);
+    transition: background var(--transition);
+    padding: 2.4rem var(--margin) 2.6rem;
+    margin-bottom: 0;
+    pointer-events: none;
+  }
+  .about-panel .about-tagline p,
+  #travelPanel .about-tagline p {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    transition: color var(--transition);
+    display: block;
+  }
+  /* Push about-content below the fixed tagline */
+  .about-panel .about-content,
+  #travelPanel .about-content {
+    padding-top: calc(60px + 10.28rem + var(--gap));
+  }
+
+  /* Bio intro */
+  .about-bio-intro {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--text);
+    max-width: 480px;
+    margin-bottom: 4rem;
+    transition: color var(--transition);
+  }
+
+  /* Two-col expertise section */
+  .about-expertise {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--gap);
+    margin-bottom: 4rem;
+    align-items: start;
+  }
+  .about-expertise-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    transition: color var(--transition);
+    padding-top: 0.1rem;
+  }
+  .about-expertise-items { display: flex; flex-direction: column; gap: 1.6rem; }
+  .about-expertise-item {}
+  .about-expertise-item-title {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+    transition: color var(--transition);
+  }
+  .about-expertise-item-desc {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text);
+    transition: color var(--transition);
+  }
+
+  /* Visual Creative Services + About bio */
+  .about-section {
+    margin-bottom: 3rem;
+    max-width: 640px;
+  }
+  .about-section-title {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    transition: color var(--transition);
+  }
+  .about-section-body {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--text);
+    transition: color var(--transition);
+  }
+  .about-section-body p + p { margin-top: 1rem; }
+
+  /* Contact */
+  .about-contact {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.10);
+  }
+  .about-contact-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+    transition: color var(--transition);
+  }
+  .about-contact-links {
+    display: flex; gap: 1.6rem;
+  }
+  .about-contact-links a {
+    font-size: 0.88rem;
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--transition), opacity 0.2s;
+    opacity: 0.75;
+  }
+  .about-contact-links a:hover { opacity: 1; }
+
+  /* ── Travel Creative Services page (reuses about-panel styles) ── */
+  #travelPanel { z-index: 202; } /* sits above about panel */
+  .travel-back {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 203;
+    background: var(--header-bg); transition: background var(--transition);
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px; padding: 0 var(--margin);
+  }
+
+  /* Services and guides columns */
+  .travel-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--gap);
+    align-items: start;
+  }
+  .travel-col-list {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.88rem;
+    line-height: 2;
+    color: var(--text);
+    transition: color var(--transition);
+  }
+  .travel-col-list span {
+    display: block;
+    color: var(--text);
+    transition: color var(--transition);
+  }
+  .travel-guides-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--gap);
+  }
+  .travel-guides-grid span {
+    font-size: 0.88rem;
+    line-height: 2;
+    color: var(--text);
+    display: block;
+    transition: color var(--transition);
+  }
+
+  @media (max-width: 700px) {
+    .travel-cols        { grid-template-columns: 1fr; }
+    .travel-guides-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-scheme="all">
+
+<div class="cursor" id="cursor"></div>
+
+<header>
+  <div class="header-inner">
+    <a class="site-name" href="#" id="homeLink">Gabrielle J Sirkin</a>
+    <nav>
+      <a href="#" id="workLink">Work</a>
+      <a href="#">Travel Creative Services</a>
+      <a href="#">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tagline-bar">
+  <p>Directing vision and</p>
+  <p>Shaping stories globally.</p>
+</div>
+
+<div class="filter-bar" id="filterBar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all"       data-scheme="all">All</button>
+    <button class="filter-btn"        data-filter="brand"     data-scheme="brand">Brand Work</button>
+    <button class="filter-btn"        data-filter="editorial" data-scheme="editorial">Editorial</button>
+    <button class="filter-btn"        data-filter="content"   data-scheme="content">Content Creation</button>
+    <button class="filter-btn"        data-filter="personal"  data-scheme="personal">Personal</button>
+  </div>
+</div>
+
+<main id="indexMain">
+
+  <div class="index-grid" id="indexGrid">
+
+    <!-- BRAND WORK -->
+
+    <div class="project-card" data-category="brand"
+      data-title="Expedia Group One Key"
+      data-campaign="One Key Credit Card"
+      data-photographer="Ronan Gallagher"
+      data-bts="Gabrielle J Sirkin"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2023"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management,Brand Strategy"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" alt="Expedia Group One Key" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Expedia Group One Key</div>
+        <div class="card-subtitle">One Key Credit Card</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="brand"
+      data-title="Hotels.com"
+      data-campaign="Hotels.com Library"
+      data-photographer="Maureen M Evans, Robert Rieger, Simon Watson"
+      data-bts="Gabrielle J Sirkin"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2022"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Creative Direction,Production,Project Management"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="Hotels.com" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Hotels.com</div>
+        <div class="card-subtitle">Hotels.com Library</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Creative Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="brand"
+      data-title="Expedia Made To Travel 2024"
+      data-campaign="Expedia Made To Travel 2024"
+      data-photographer="Nico Therin"
+      data-director="Adam Newport-Barra"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2024"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Creative Direction,Production,Project Management,Brand Strategy"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1488085061387-422e29b40080?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&q=80" alt="Expedia Made To Travel 2024" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Expedia Made To Travel 2024</div>
+        <div class="card-subtitle">Expedia Made To Travel 2024</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Creative Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="brand"
+      data-title="Expedia No Matter What 2023"
+      data-campaign="Expedia Made To Travel 2023"
+      data-photographer="Joao Canziani, Nico Therin"
+      data-bts="Gabrielle J Sirkin"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2023"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management,Brand Strategy"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=600&q=80" alt="Expedia No Matter What 2023" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Expedia No Matter What 2023</div>
+        <div class="card-subtitle">Expedia Made To Travel 2023</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="brand"
+      data-title="Vrbo"
+      data-campaign="Vrbo Library"
+      data-photographer="Anaïs & Dax"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2022"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Creative Direction,Production,Project Management,Brand Strategy"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=900&q=85","ratio":"ratio-9x16"}]'>
+      <div class="thumb ratio-9x16">
+        <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=600&q=80" alt="Vrbo" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Vrbo</div>
+        <div class="card-subtitle">Vrbo Library</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Creative Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="brand"
+      data-title="Beats by Dre — Limited Edition"
+      data-campaign="Beats By Dre Limited Edition"
+      data-photographer="Dan Hall, Wukda"
+      data-bts="Gabrielle J Sirkin"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2021"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management,Brand Strategy"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="Beats by Dre — Limited Edition" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Beats by Dre — Limited Edition</div>
+        <div class="card-subtitle">Beats By Dre Limited Edition</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="brand"
+      data-title="Beats by Dre — Lifestyle"
+      data-campaign="Beats By Dre Lifestyle"
+      data-photographer="Anthony Blasko, Jerry Buttles, Caitlin Cronenberg, Joshua Kissi, Clayton Vomero"
+      data-bts="Gabrielle J Sirkin"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2020"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management,Brand Strategy"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80" alt="Beats by Dre — Lifestyle" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Beats by Dre — Lifestyle</div>
+        <div class="card-subtitle">Beats By Dre Lifestyle</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="brand"
+      data-title="LA Philharmonic"
+      data-campaign="LA Philharmonic 2017 / 2018 Campaign"
+      data-photographer="Erik Madigan Heck"
+      data-bts="Gabrielle J Sirkin"
+      data-bts="Gabrielle J Sirkin"
+      data-date="2017"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management,Brand Strategy"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=900&q=85","ratio":"ratio-9x16"}]'>
+      <div class="thumb ratio-9x16">
+        <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&q=80" alt="LA Philharmonic" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">LA Philharmonic</div>
+        <div class="card-subtitle">LA Philharmonic 2017 / 2018 Campaign</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDITORIAL -->
+
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="Sri Lanka"
+      data-photographer="Kyle Weeks"
+      data-date="2017"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">Sri Lanka</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="The Forest and the Finca"
+      data-photographer="Rose Marie Cromwell"
+      data-date="2018"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1448375240586-882707db888b?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">The Forest and the Finca</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="Ramble On"
+      data-photographer="Carolyn Drake"
+      data-date="2019"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">Ramble On</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="The Road Warrior"
+      data-photographer="Thomas Prior"
+      data-date="2019"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&q=85","ratio":"ratio-9x16"}]'>
+      <div class="thumb ratio-9x16">
+        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">The Road Warrior</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="Palermo"
+      data-photographer="Tyler Mitchell"
+      data-date="2019"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">Palermo</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="Blues Brothers"
+      data-photographer="Carol Sachs"
+      data-date="2018"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">Blues Brothers</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="Caraiva"
+      data-photographer="Pia Riverola"
+      data-date="2018"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">Caraiva</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="12 Days in Morocco"
+      data-photographer="Cait Oppermann"
+      data-date="2018"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Project Management,Curation"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1489493585363-d69421e0edd3?w=900&q=85","ratio":"ratio-9x16"}]'>
+      <div class="thumb ratio-9x16">
+        <img src="https://images.unsplash.com/photo-1489493585363-d69421e0edd3?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">12 Days in Morocco</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Curation</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="Mangal Dosha"
+      data-photographer="Julia Sellmann"
+      data-date="2018"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">Mangal Dosha</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="Airbnb Magazine"
+      data-campaign="Dim Sum"
+      data-photographer="Marcus Nilsson"
+      data-date="2018"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80" alt="Airbnb Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Airbnb Magazine</div>
+        <div class="card-subtitle">Dim Sum</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="editorial"
+      data-title="More Magazine"
+      data-campaign="More Magazine"
+      data-photographer="Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters"
+      data-date="2012 - 2015"
+      data-desc=""
+      data-credits=""
+      data-expertise="Visual Direction,Production,Project Management"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1512418490979-92798cec1380?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1512418490979-92798cec1380?w=600&q=80" alt="More Magazine" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">More Magazine</div>
+        <div class="card-subtitle">More Magazine</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Production</span>
+          <span class="pill">Project Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="personal"
+      data-title="All In The Family"
+      data-campaign=""
+      data-photographer="Julia Stotz"
+      data-date="2024"
+      data-desc="Pasta is the true language of Italy, the great connector. The photographs in All in the Family highlight a quintessential dish from each pasta family in their most natural setting — surrounded by loved ones and lively conversation. Collectible posters, postcards and a limited edition of fine art prints were available at a Pop Up Exhibition in the Fall of 2024 at Bucatini Los Angeles."
+      data-credits="Creative Direction & Concept: Gabrielle J Sirkin — Photography: Julia Stotz — Food Stylist: Caroline K Hwang — Prop Stylist: Sam Margherita — Wardrobe: Madeleine Issa — Design: Claire Typaldos — Copy: Erin Ruffin — In Collaboration With: Bucatini"
+      data-expertise="Visual Direction,Creative Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt="All In The Family" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">All In The Family</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Creative Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAL -->
+
+    <div class="project-card" data-category="personal"
+      data-title="Italian Gestures for Modern Life"
+      data-campaign=""
+      data-photographer="Julia Stotz"
+      data-date=""
+      data-desc="When you find yourself in social situations and words just won't do. A project inspired by Bruno Munari's minimalist guide to "Speak Italian: The Fine Art of the Italian Gesture""
+      data-credits="Creative Direction & Concept: Gabrielle J Sirkin — Photography: Julia Stotz — Prop Stylist: Samantha Margherita — Film Editor: Katie Malfa — Copy: Sarah Kasbeer"
+      data-expertise="Visual Direction,Creative Direction,Production"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900&q=85","ratio":"ratio-9x16"}]'>
+      <div class="thumb ratio-9x16">
+        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80" alt="Italian Gestures for Modern Life" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Italian Gestures for Modern Life</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Creative Direction</span>
+          <span class="pill">Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="personal"
+      data-title="A Golden Hour Project"
+      data-campaign=""
+      data-photographer="Multiple"
+      data-date="2025"
+      data-desc="A joint creative fundraising initiative launched in response to the devastating California wildfires. Bringing together a community of 100 photographers, the project sold curated prints to raise money for wildfire relief across Los Angeles."
+      data-credits="Co-founded with Chelsea Gold, Sabrina Bajaj and Audrey Viola — agoldenhourproject.com"
+      data-expertise="Visual Direction,Curation,Project Management"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=600&q=80" alt="A Golden Hour Project" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">A Golden Hour Project</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Curation</span>
+          <span class="pill">Project Management</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-category="personal"
+      data-title="Jackie Russo Portfolio"
+      data-campaign=""
+      data-photographer="Jackie Russo"
+      data-date="2026"
+      data-desc="TBD"
+      data-credits=""
+      data-expertise="Visual Direction,Curation,Project Management"
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&q=80" alt="Jackie Russo Portfolio" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Jackie Russo Portfolio</div>
+        <div class="pills">
+          <span class="pill">Visual Direction</span>
+          <span class="pill">Curation</span>
+          <span class="pill">Project Management</span>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- CONTENT CREATION -->
+
+    <div class="project-card" data-category="content"
+      data-title="Mexico City"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1518638150340-f706e86654de?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?w=600&q=80" alt="Mexico City" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Mexico City</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="Prague"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1541849546-216549ae216d?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1541849546-216549ae216d?w=600&q=80" alt="Prague" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Prague</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="Puglia"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1499678329028-101435549a4e?w=900&q=85","ratio":"ratio-9x16"}]'>
+      <div class="thumb ratio-9x16">
+        <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?w=600&q=80" alt="Puglia" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Puglia</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="Istanbul"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&q=80" alt="Istanbul" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Istanbul</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="Rome"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Rome" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Rome</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="French Basque Region"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="French Basque Region" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">French Basque Region</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="Copenhagen"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=900&q=85","ratio":"ratio-4x3"}]'>
+      <div class="thumb ratio-4x3">
+        <img src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=600&q=80" alt="Copenhagen" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Copenhagen</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="Corfu"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=900&q=85","ratio":"ratio-9x16"}]'>
+      <div class="thumb ratio-9x16">
+        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80" alt="Corfu" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Corfu</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="Liguria"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=900&q=85","ratio":"ratio-16x9"}]'>
+      <div class="thumb ratio-16x9">
+        <img src="https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=600&q=80" alt="Liguria" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">Liguria</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-category="content"
+      data-title="South of France"
+      data-campaign=""
+      data-photographer=""
+      data-date=""
+      data-desc=""
+      data-credits=""
+      data-expertise=""
+      data-imgs='[{"src":"https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=900&q=85","ratio":"ratio-3x4"}]'>
+      <div class="thumb ratio-3x4">
+        <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=600&q=80" alt="South of France" loading="lazy">
+      </div>
+      <div class="card-info">
+        <div class="card-title">South of France</div>
+        <div class="pills">
+        </div>
+      </div>
+    </div>
+  </div><!-- /index-grid -->
+</main>
+
+
+
+<!-- ── Global back button — fixed bottom-left, visible on all panels ── -->
+<button class="back-btn" id="backBtn" style="display:none">
+  <span class="back-arrow">←</span> Back
+</button>
+
+<!-- ── Project detail panel ── -->
+<div class="detail-panel" id="detailPanel">
+
+  <!-- Fixed top bar for project detail -->
+  <div class="detail-back" id="detailBack">
+    <a class="site-name" href="#">Gabrielle J Sirkin</a>
+    <nav>
+      <a href="#">Work</a>
+      <a href="#">Travel Creative Services</a>
+      <a href="#">About</a>
+    </nav>
+  </div>
+
+  <div class="detail-header" id="detailHeader">
+    <!-- filled by JS -->
+  </div>
+
+  <div class="detail-gallery" id="detailGallery">
+    <!-- filled by JS -->
+  </div>
+
+</div>
+
+<!-- ── About panel ── -->
+<div class="about-panel" id="aboutPanel">
+
+  <div class="about-back">
+    <a class="site-name" href="#">Gabrielle J Sirkin</a>
+    <nav>
+      <a href="#" id="aboutWorkLink">Work</a>
+      <a href="#">Travel Creative Services</a>
+      <a href="#" class="about-self-link">About</a>
+    </nav>
+  </div>
+
+  <div class="about-content">
+
+    <div class="about-tagline">
+      <p>Creative vision</p>
+      <p>Operational precision</p>
+    </div>
+
+    <p class="about-bio-intro">Gabrielle J Sirkin is a Visual Director based in Los Angeles specializing in the travel and hospitality space.</p>
+
+    <div class="about-expertise">
+      <div class="about-expertise-label">Areas of Expertise</div>
+      <div class="about-expertise-items">
+
+        <div class="about-expertise-item">
+          <div class="about-expertise-item-title">Visual Direction</div>
+          <div class="about-expertise-item-desc">Shapes the visual creative language and identity to tell compelling stories, build brand resonance and impact from concept through final delivery.</div>
+        </div>
+
+        <div class="about-expertise-item">
+          <div class="about-expertise-item-title">Production &amp; Project Management</div>
+          <div class="about-expertise-item-desc">Direct productions and on set supervision fostering highly collaborative environments while driving innovative, scalable cost effective solutions. Scalable systems and strategic thinking that keep complex, multi channel and market projects on time and visually aligned.</div>
+        </div>
+
+        <div class="about-expertise-item">
+          <div class="about-expertise-item-title">Content Creation</div>
+          <div class="about-expertise-item-desc">Captures immersive travel photography and short films that explores the essence of a place, culture and people with deep curiosity, integrity and empathy.</div>
+        </div>
+
+        <div class="about-expertise-item">
+          <div class="about-expertise-item-title">Curation</div>
+          <div class="about-expertise-item-desc">A deeply considered editorial eye applied to brand visual libraries, cultural projects and brand portfolios.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Travel Creative Services — title left, body right -->
+    <div class="about-expertise about-row-travel">
+      <div class="about-expertise-label">Travel Creative Services</div>
+      <div class="about-section-body">
+        <p>Available for creative direction and brand strategy consulting for travel and hospitality brands, as well as independent artists seeking support with creative vision and portfolio development.</p>
+      </div>
+    </div>
+
+    <!-- About bio — title left, paragraphs right -->
+    <div class="about-expertise about-row-about">
+      <div class="about-expertise-label">About</div>
+      <div class="about-section-body">
+        <p>Gabrielle J. Sirkin brings a rare integration of creative vision and operational precision to every project with a proven ability to craft cohesive, high impact, multidisciplinary work that elevates brands and inspires audiences.</p>
+        <p>With two decades of experience spanning major publications, global agencies, and in house at some of the world's most recognized tech brands, Gabrielle has shaped the visual identity of campaigns for Expedia, Hotels.com, Vrbo, Beats by Dre, Apple, Gatorade, and the LA Philharmonic. She currently serves as Director of Photography at Expedia Group.</p>
+        <p>Her background across fashion, editorial, and branded content, combined with sharp instincts and a deep commitment to craft, allows her to deliver excellence at every stage. Her process is scalable and strategic. Her style is bold, timeless, and rooted in care, driving visual impact and genuine connection. She is also a prolific traveler and storyteller, and her original content work documents the world with the same curiosity and intention she brings to branded productions.</p>
+        <p>Her work has been recognized with a Cannes Silver Lion, Emmy Nomination, ADC Awards, American Photography, and Gold, Silver & Merit awards from the Society of Publication Designers.</p>
+      </div>
+    </div>
+
+    <!-- Contact — title left, links right -->
+    <div class="about-expertise">
+      <div class="about-expertise-label">Contact</div>
+      <div class="about-contact-links">
+        <a href="mailto:">Email</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ── Travel Creative Services panel ── -->
+<div class="about-panel" id="travelPanel">
+
+  <div class="travel-back">
+    <a class="site-name" href="#">Gabrielle J Sirkin</a>
+    <nav>
+      <a href="#" id="travelWorkLink">Work</a>
+      <a href="#" class="travel-self-link">Travel Creative Services</a>
+      <a href="#">About</a>
+    </nav>
+  </div>
+
+  <div class="about-content">
+
+    <div class="about-tagline">
+      <p>Untold stories</p>
+      <p>Meant to be seen.</p>
+    </div>
+
+    <!-- Approach -->
+    <div class="about-expertise">
+      <div class="about-expertise-label">Approach</div>
+      <div class="about-section-body">
+        <p>Gabrielle J Sirkin runs a travel creative studio for the undiscovered. We work with small and emerging hospitality and travel brands in destinations the world hasn't found yet from boutique hotels, bed and breakfasts, independent guides, intimate lodges, and the people behind them who are quietly doing something extraordinary.</p>
+        <p>At the intersection of curiosity and integrity, we craft immersive, distinctive visual content that helps brands define their voice, build emotional resonance, and earn lasting trust with travelers.</p>
+        <p>Our approach is considered and intentional.</p>
+        <p>We partner with brands whose shared purpose is to create transformative, meaningful experiences and who believe, as we do, that how a place is seen shapes how it is treated. We offer visual direction and creative content at any stage of the creative journey, whether building a visual identity from the ground up or evolving one that's ready for its next chapter.</p>
+        <p>At the center of every project is a simple belief: visual storytelling has the power to change the impact we have on the places we go. Travel and hospitality are, at their heart, about community and discovery — and the stories we tell should honor both.</p>
+      </div>
+    </div>
+
+    <!-- Services — 2-col grid -->
+    <div class="about-expertise">
+      <div class="about-expertise-label">Services</div>
+      <div class="travel-guides-grid">
+        <span>Trip Planning &amp; Creation</span>
+        <span>Personalized Digital Guidebooks</span>
+        <span>Visual Strategy and Direction</span>
+        <span>Visual Research and Curation</span>
+        <span>Creative Content</span>
+        <span>Production</span>
+        <span>Art Direction and Shoot Supervision</span>
+        <span>Budget Optimization and Efficiency</span>
+        <span>Creative Team Building</span>
+        <span>Collaborations and Special Projects</span>
+        <span>Travel Trend Reporting</span>
+      </div>
+    </div>
+
+    <!-- Who We Work With -->
+    <div class="about-expertise">
+      <div class="about-expertise-label">Who We Work With</div>
+      <div class="travel-col-list">
+        <span>Emerging Hospitality Brands</span>
+        <span>Hotel &amp; Hospitality Groups</span>
+        <span>Creative Agencies</span>
+      </div>
+    </div>
+
+    <!-- City Guides -->
+    <div class="about-expertise">
+      <div class="about-expertise-label">City Guides</div>
+      <div>
+        <p class="about-section-body" style="margin-bottom:1.4rem">Well traveled and having spent many years building itineraries and maps, I have put together city map guides for the curious and engaged traveler.</p>
+        <div class="travel-guides-grid">
+          <span>Rome</span>
+          <span>Venice</span>
+          <span>Liguria</span>
+          <span>Puglia</span>
+          <span>Istanbul</span>
+          <span>Paris</span>
+          <span>Lisbon</span>
+          <span>Prague</span>
+          <span>Marseille</span>
+          <span>French Basque Region</span>
+          <span>Copenhagen</span>
+          <span>Scotland</span>
+          <span>Mexico City</span>
+          <span>Baja, Mexico</span>
+          <span>Northern California</span>
+          <span>Southern California</span>
+          <span>NYC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="about-expertise">
+      <div class="about-expertise-label">Contact</div>
+      <div class="about-contact-links">
+        <a href="mailto:">Email</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // ── Cursor ──
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+  });
+  function addCursorHover(selector) {
+    document.querySelectorAll(selector).forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('large'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('large'));
+    });
+  }
+  addCursorHover('.project-card,.filter-btn,nav a,.site-name,.back-btn,.about-back .back-btn');
+
+  const GAP_VAL    = '5rem';
+  const STAGGER_2  = '9rem';
+  const STAGGER_3  = '6rem';
+  const STAGGER_3B = '12rem';
+
+  const allCards = Array.from(document.querySelectorAll('.project-card'));
+
+  function applyIndexStagger(visibleCards) {
+    visibleCards.forEach((el, i) => {
+      el.style.marginBottom = GAP_VAL;
+      el.style.marginTop    = (i % 2 === 1) ? STAGGER_2 : '0px';
+    });
+  }
+
+  function applyGalleryStagger(items) {
+    items.forEach((el, i) => {
+      el.style.marginBottom = GAP_VAL;
+      const col = i % 3;
+      if      (col === 1) el.style.marginTop = STAGGER_3;
+      else if (col === 2) el.style.marginTop = STAGGER_3B;
+      else                el.style.marginTop = '0px';
+    });
+  }
+
+  // Initial entrance
+  applyIndexStagger(allCards);
+  requestAnimationFrame(() => {
+    allCards.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 52));
+  });
+
+  // Filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.body.dataset.scheme = btn.dataset.scheme;
+      allCards.forEach(el => el.classList.remove('visible'));
+      setTimeout(() => {
+        allCards.forEach(el => {
+          const match = filter === 'all' || el.dataset.category === filter;
+          match ? el.classList.remove('hidden') : el.classList.add('hidden');
+        });
+        const visible = allCards.filter(el => !el.classList.contains('hidden'));
+        applyIndexStagger(visible);
+        visible.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 60));
+      }, 270);
+    });
+  });
+
+  // ── Project detail ──
+  const detailPanel   = document.getElementById('detailPanel');
+  const detailHeader  = document.getElementById('detailHeader');
+  const detailGallery = document.getElementById('detailGallery');
+
+  function buildHeader(card) {
+    const cat       = card.dataset.category;
+    const title     = card.dataset.title;
+    const camp      = card.dataset.campaign;
+    const photo     = card.dataset.photographer;
+    const bts       = card.dataset.bts || '';
+    const date      = card.dataset.date;
+    const desc      = card.dataset.desc;
+    const creds     = card.dataset.credits;
+    const expertise = card.dataset.expertise || '';
+
+    const row = (label, val) => val ? `<span><span class="meta-label">${label}:</span> ${val}</span>` : '';
+
+    const pills = expertise.split(',').filter(Boolean)
+      .map(e => `<span class="detail-pill">${e.trim()}</span>`).join('');
+
+    let html = `<div class="detail-title-text">${title}</div><div class="detail-meta">`;
+
+    if (cat === 'brand') {
+      html += row('Campaign', camp);
+      html += row('Photographer', photo);
+      html += row('Director', card.dataset.director || '');
+      html += row('BTS', bts);
+      html += row('Year', date);
+    } else if (cat === 'editorial') {
+      html += row('Story', camp);
+      html += row('Photographer', photo);
+      html += row('Year', date);
+    } else if (cat === 'content') {
+      // title only
+    } else if (cat === 'personal') {
+      if (desc) html += `<span class="detail-desc-text">${desc}</span>`;
+      html += row('Photographer', photo);
+      html += row('Year', date);
+      if (creds) html += `<span class="detail-credits">${creds}</span>`;
+    }
+
+    html += '</div>';
+    if (pills) html += `<div class="detail-pills">${pills}</div>`;
+    detailHeader.innerHTML = html;
+  }
+
+  function buildGallery(card) {
+    const imgs = JSON.parse(card.dataset.imgs);
+    detailGallery.innerHTML = '';
+    imgs.forEach(img => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.innerHTML = `<div class="gallery-thumb ${img.ratio}"><img src="${img.src}" alt="" loading="lazy"></div>`;
+      detailGallery.appendChild(item);
+    });
+    applyGalleryStagger(Array.from(detailGallery.querySelectorAll('.gallery-item')));
+  }
+
+  allCards.forEach(card => {
+    card.addEventListener('click', () => {
+      buildHeader(card);
+      buildGallery(card);
+      document.body.dataset.scheme = card.dataset.category;
+      detailPanel.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      showBack(closeDetail);
+      requestAnimationFrame(() => {
+        const items = Array.from(detailGallery.querySelectorAll('.gallery-item'));
+        items.forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 55));
+      });
+      addCursorHover('.back-btn');
+    });
+  });
+
+  function restoreScheme() {
+    const activeBtn = document.querySelector('.filter-btn.active');
+    document.body.dataset.scheme = activeBtn ? activeBtn.dataset.scheme : 'all';
+  }
+
+  // ── Global back button (fixed bottom-left) ──
+  const backBtn = document.getElementById('backBtn');
+  function showBack(fn) {
+    backBtn.style.display = 'flex';
+    backBtn.onclick = fn;
+  }
+  function hideBack() {
+    backBtn.style.display = 'none';
+    backBtn.onclick = null;
+  }
+
+  // ── Project detail ──
+  function closeDetail() {
+    detailPanel.classList.remove('open');
+    document.body.style.overflow = '';
+    restoreScheme();
+    hideBack();
+  }
+
+  document.getElementById('workLink')?.addEventListener('click', e => { e.preventDefault(); closeDetail(); closeAbout(); closeTravel(); });
+
+  // ── About page ──
+  const aboutPanel = document.getElementById('aboutPanel');
+
+  function openAbout() {
+    closeDetail(); closeTravel();
+    aboutPanel.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.body.dataset.scheme = 'about';
+    showBack(closeAbout);
+  }
+  function closeAbout() {
+    aboutPanel.classList.remove('open');
+    document.body.style.overflow = '';
+    restoreScheme();
+    hideBack();
+  }
+
+  document.getElementById('aboutWorkLink').addEventListener('click', e => { e.preventDefault(); closeAbout(); });
+
+  // ── Travel Creative Services page ──
+  const travelPanel = document.getElementById('travelPanel');
+
+  function openTravel() {
+    closeDetail(); closeAbout();
+    travelPanel.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.body.dataset.scheme = 'travel';
+    showBack(closeTravel);
+  }
+  function closeTravel() {
+    travelPanel.classList.remove('open');
+    document.body.style.overflow = '';
+    restoreScheme();
+    hideBack();
+  }
+
+  document.getElementById('travelWorkLink').addEventListener('click', e => { e.preventDefault(); closeTravel(); });
+
+  // Wire all nav links across every panel
+  document.querySelectorAll('nav a').forEach(a => {
+    const txt = a.textContent.trim();
+    if (txt === 'About') {
+      a.addEventListener('click', e => { e.preventDefault(); openAbout(); });
+    }
+    if (txt === 'Travel Creative Services') {
+      a.addEventListener('click', e => { e.preventDefault(); openTravel(); });
+    }
+    if (txt === 'Work') {
+      a.addEventListener('click', e => { e.preventDefault(); closeTravel(); closeAbout(); closeDetail(); restoreScheme(); });
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeDetail(); closeAbout(); closeTravel(); }
+  });
+  // Cursor hover via event delegation — works in all panels
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button, .project-card, .filter-btn, .site-name'))
+      cursor.classList.add('large');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('a, button, .project-card, .filter-btn, .site-name'))
+      cursor.classList.remove('large');
+  });
+</script>
+</body>
+</html>

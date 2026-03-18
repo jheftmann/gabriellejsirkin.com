@@ -1,8 +1,8 @@
 ---
 title: Mangal Doha
 client: Airbnb Magazine
-cat: Curation
-filter: curation
+cat: Editorial
+filter: editorial
 date: 2018
 skills: Visual Direction, Project Management
 card_ratio: r-4-3

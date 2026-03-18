@@ -90,6 +90,7 @@ function loadProjects() {
           photographer: fm.photographer || '',
           date:         fm.date         || '',
           description:  fm.description  || '',
+          credits:      fm.credits      || '',
           destination:  fm.destination  || '',
           skills:       typeof fm.skills === 'string'
                           ? fm.skills.split(',').map(s => s.trim()).filter(Boolean)
@@ -173,15 +174,14 @@ function renderCard(p) {
 
 // ─── Filter bar ──────────────────────────────────────────────────────────────
 
+const FILTER_ORDER = ['brand', 'editorial', 'content', 'personal'];
+
 function renderFilterBar(projects) {
-  const seen    = new Set();
-  const filters = [];
-  projects.forEach(p => {
-    if (p.filter && !seen.has(p.filter)) {
-      seen.add(p.filter);
-      filters.push({ filter: p.filter, label: p.cat });
-    }
-  });
+  const map = {};
+  projects.forEach(p => { if (p.filter && !map[p.filter]) map[p.filter] = p.cat; });
+  const filters = FILTER_ORDER
+    .filter(f => map[f])
+    .map(f => ({ filter: f, label: map[f] }));
   const btns = filters
     .map(f => `    <button class="filter-btn" data-filter="${f.filter}" data-scheme="${f.filter}">${f.label}</button>`)
     .join('\n');
@@ -209,7 +209,7 @@ function build() {
   // Apply settings tokens inside partials (so {{SETTING:...}} works in _nav.html etc.)
   Object.keys(partials).forEach(k => { partials[k] = applySettings(partials[k], settings); });
 
-  const pages = ['index', 'about', 'productions', 'project', 'travel'];
+  const pages = ['index', 'about', 'project', 'travel'];
   pages.forEach(page => {
     let html = fs.readFileSync(`src/${page}.html`, 'utf8');
 

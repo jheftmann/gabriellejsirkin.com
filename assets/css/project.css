@@ -30,6 +30,16 @@
 .meta-group { display: flex; flex-direction: column; gap: .25rem; }
 .meta-label { font-size: .72rem; font-weight: 300; color: var(--muted); transition: color var(--transition); }
 .meta-value { font-size: .88rem; font-weight: 300; color: var(--text); line-height: 1.5; transition: color var(--transition); }
+.meta-desc {
+  font-size: .9rem; font-weight: 300; color: var(--text);
+  line-height: 1.75; margin-bottom: .5rem;
+  transition: color var(--transition);
+}
+.meta-credits {
+  font-size: .72rem; font-weight: 300; color: var(--muted);
+  line-height: 1.8; margin-top: .25rem;
+  transition: color var(--transition);
+}
 
 /* DESCRIPTION */
 .project-desc { padding: 2.5rem var(--side) 0; }

@@ -30,15 +30,20 @@ function getParams() {
   var meta = '';
   var cat = p.cat;
   if (cat === 'Brand Work' || cat === 'Editorial') {
+    if (p.description)  meta += fieldDesc(p.description);
     if (p.client)       meta += field('Client',       p.client);
     if (p.photographer) meta += field('Photographer', p.photographer);
     if (p.date)         meta += field('Year',         p.date);
+    if (p.credits)      meta += fieldCredits(p.credits);
   } else if (cat === 'Personal' || cat === 'Curation') {
-    if (p.description)  meta += field('Description',  p.description);
+    if (p.description)  meta += fieldDesc(p.description);
     if (p.photographer) meta += field('Photographer', p.photographer);
     if (p.date)         meta += field('Year',         p.date);
+    if (p.credits)      meta += fieldCredits(p.credits);
   } else if (cat === 'Content Creation') {
+    if (p.description)  meta += fieldDesc(p.description);
     if (p.destination)  meta += field('Destination',  p.destination);
+    if (p.credits)      meta += fieldCredits(p.credits);
   }
   meta += '<div class="meta-group"><p class="meta-label">Areas of Expertise</p><div class="pills">' +
     p.skills.map(function (s) { return '<span class="pill">' + s + '</span>'; }).join('') +
@@ -61,6 +66,14 @@ function getParams() {
 
 function field(label, value) {
   return '<div class="meta-group"><p class="meta-label">' + label + '</p><p class="meta-value">' + value + '</p></div>';
+}
+
+function fieldDesc(value) {
+  return '<p class="meta-desc">' + value + '</p>';
+}
+
+function fieldCredits(value) {
+  return '<p class="meta-credits">' + value + '</p>';
 }
 
 function renderPlaceholders(p) {
