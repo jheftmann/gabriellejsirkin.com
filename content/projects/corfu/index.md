@@ -1,5 +1,5 @@
 ---
-title: Corfus
+title: Corfu
 cat: Content Creation
 client: ''
 photographer: ''
