@@ -6,7 +6,7 @@ photographer: ''
 date: ''
 description: ''
 credits: ''
-destination: ''
+destination: Corfu, Greece
 skills: Visual Direction, Creative Direction
 card_ratio: r-16-9
 coming_soon: true
