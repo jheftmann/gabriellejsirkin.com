@@ -1,11 +1,15 @@
 ---
-title: Rainbows Over Beirut TEST
-client: Airbnb Magazine
+title: Rainbows Over Beirut
 cat: Editorial
-filter: editorial
-date: 2017
+client: Airbnb Magazine
+photographer: ''
+date: ''
+description: ''
+credits: ''
+destination: ''
 skills: Visual Direction, Production
 card_ratio: r-4-3
+filter: editorial
 card_placeholder: Beirut
 placeholder_count: 3
 ---
