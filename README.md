@@ -7,6 +7,7 @@ Portfolio website for Gabrielle J. Sirkin.
 | | URL |
 |---|---|
 | **Production** | https://gabriellesirkin.github.io/gabriellejsirkin.com |
+| **Draft preview** | TBD — [set up Netlify](https://github.com/gabriellesirkin/gabriellejsirkin.com/issues/3) |
 | **CMS** | https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/ |
 | **Local preview** | http://localhost:3000 (run `npm start`) |
 
