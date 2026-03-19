@@ -16,9 +16,10 @@ Watches `src/` and `content/`, auto-reloads browser at localhost:3000.
 ## Start a session
 Open all of the following:
 1. **Terminal** — `cd "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com" && npm start`
-2. **Browser tab** — http://localhost:3000
-3. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
-4. **CMS** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
+2. **Local preview** — http://localhost:3000
+3. **Production site** — https://gabriellesirkin.github.io/gabriellejsirkin.com
+4. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
+5. **CMS** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
 
 ## What we're building
 Portfolio website for **Gabrielle J. Sirkin** — Visual Director and photographer based in Los Angeles. The site showcases her work across four categories: Brand Work, Editorial, Content Creation, and Personal.
