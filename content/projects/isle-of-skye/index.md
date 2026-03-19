@@ -2,7 +2,9 @@
 title: Isle of Skye
 cat: Content Creation
 filter: content
-skills: Visual Direction, Creative Direction
+skills:
+  - Visual Direction
+  - Creative Direction
 card_ratio: r-16-9
 card_placeholder: Coming Soon
 coming_soon: true

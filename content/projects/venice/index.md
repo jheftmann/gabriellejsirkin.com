@@ -2,7 +2,9 @@
 title: Venice
 cat: Content Creation
 filter: content
-skills: Visual Direction, Creative Direction
+skills:
+  - Visual Direction
+  - Creative Direction
 card_ratio: r-9-16
 card_placeholder: Coming Soon
 coming_soon: true

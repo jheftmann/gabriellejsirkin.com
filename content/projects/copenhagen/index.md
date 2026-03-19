@@ -7,7 +7,9 @@ date: ''
 description: ''
 credits: ''
 destination: ''
-skills: Visual Direction, Creative Direction
+skills:
+  - Visual Direction
+  - Creative Direction
 card_ratio: r-9-16
 coming_soon: true
 filter: content
