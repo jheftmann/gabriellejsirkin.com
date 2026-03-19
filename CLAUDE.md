@@ -5,6 +5,7 @@
 - **CMS:** https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
 - **GitHub repo:** https://github.com/gabriellesirkin/gabriellejsirkin.com
 - **Local preview:** http://localhost:3000
+- **Draft preview (Netlify):** TBD after Netlify setup — see "Preview workflow" below
 
 ## Local dev
 ```
@@ -83,7 +84,17 @@ CMS saves go to the `draft` branch. To publish to production:
 2. This merges `draft → main` via GitHub API
 3. CI builds the HTML and deploys to GitHub Pages (~30s)
 
-The publish page stores a GitHub fine-grained PAT in localStorage (needs `Contents: Read & Write` on the repo). The `draft` branch also has its own CI workflow (`build-draft.yml`) that keeps its HTML up to date for local preview via `npm run sync`.
+The publish page stores a GitHub fine-grained PAT in localStorage (needs `Contents: Read & Write` on the repo).
+
+## Preview workflow (Netlify)
+The `draft` branch auto-deploys to Netlify for live previews before publishing.
+- Every CMS save → `draft` branch → Netlify builds automatically → preview URL
+- Preview URL format: `https://draft--[site-name].netlify.app/`
+- One-time setup: netlify.com → Add site → Import from GitHub → select `gabriellesirkin/gabriellejsirkin.com`
+  - Build command: `npm ci && node build.js`
+  - Publish directory: `.`
+  - Enable branch deploys for `draft` in site settings
+- `netlify.toml` is committed to the repo with these settings pre-configured
 
 ## Auth worker
 `https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.
