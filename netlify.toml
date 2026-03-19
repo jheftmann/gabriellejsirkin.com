@@ -1,0 +1,13 @@
+[build]
+  command   = "npm ci && node build.js"
+  publish   = "."
+
+# Branch deploys (e.g. draft branch)
+[context.branch-deploy]
+  command = "npm ci && node build.js"
+  publish = "."
+
+# Explicit draft branch config
+[context.draft]
+  command = "npm ci && node build.js"
+  publish = "."
