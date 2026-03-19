@@ -1,8 +1,10 @@
 backend:
   name: github
   repo: gabriellesirkin/gabriellejsirkin.com
-  branch: draft
+  branch: main
   base_url: https://sveltia-cms-auth.orsa.workers.dev
+
+publish_mode: editorial_workflow
 
 # Images upload to the project's own folder
 media_folder: assets/images
