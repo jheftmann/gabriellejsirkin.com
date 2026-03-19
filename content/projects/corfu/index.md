@@ -7,7 +7,9 @@ date: ''
 description: ''
 credits: ''
 destination: Corfu, Greece
-skills: Visual Direction, Creative Direction
+skills:
+  - Visual Direction
+  - Creative Direction
 card_ratio: r-16-9
 coming_soon: true
 filter: content

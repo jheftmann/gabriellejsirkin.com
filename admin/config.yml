@@ -1,8 +1,11 @@
 backend:
   name: github
   repo: gabriellesirkin/gabriellejsirkin.com
-  branch: main
+  branch: draft
   base_url: https://sveltia-cms-auth.orsa.workers.dev
+
+site_url: https://gabriellesirkin.github.io/gabriellejsirkin.com
+display_url: https://gabriellesirkin.github.io/gabriellejsirkin.com
 
 # Images upload to the project's own folder
 media_folder: assets/images
@@ -69,11 +72,21 @@ collections:
 
       - { name: coming_soon, label: Coming Soon, widget: boolean, required: false, default: false }
 
+      - name: thumbnail
+        label: Card Thumbnail
+        widget: image
+        required: false
+        media_folder: ''
+        public_folder: ''
+        hint: 'Override the card thumbnail. Leave blank to use the first project image.'
+
       - name: images
         label: Images
         widget: list
         required: false
         hint: 'Project images in display order. Upload or select from the media library.'
+        media_folder: ''
+        public_folder: ''
         field: { name: image, label: Image, widget: image }
 
   # ── Home page ──────────────────────────────────────────────────────────────
