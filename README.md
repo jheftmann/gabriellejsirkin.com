@@ -26,15 +26,27 @@ Content is managed via [Sveltia CMS](https://github.com/sveltia/sveltia-cms) at 
 **CMS URL:** https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
 
 Login with GitHub. The CMS lets you edit:
-- **Projects** — all metadata fields
+- **Projects** — all metadata fields including thumbnail
 - **Home** — hero text
 - **Settings** — site title, description, nav links
-
-Changes made in the CMS are committed directly to the `main` branch on GitHub, which triggers an automatic rebuild of the HTML files.
 
 **Auth worker:** `https://sveltia-cms-auth.orsa.workers.dev` (Cloudflare Worker — handles GitHub OAuth)
 
 > Note: Images cannot yet be uploaded via the CMS. Add images by dropping them into the project folder in `content/projects/{slug}/` and pushing to GitHub.
+
+### Draft / publish workflow
+
+The CMS commits to the **`draft`** branch, not `main`. Changes made in the CMS are **not live** until published.
+
+**To publish:**
+```
+git checkout main
+git merge draft
+git push
+git checkout draft
+```
+
+Or open a pull request from `draft` → `main` on GitHub.
 
 ---
 
@@ -55,6 +67,14 @@ npm start
 ```
 
 This opens the site at **http://localhost:3000** and automatically reloads the browser whenever you save a file in `src/` or `content/`.
+
+**To pull in CMS changes and preview locally:**
+
+```
+npm run sync
+```
+
+This pulls the latest `draft` branch and rebuilds. The watcher at localhost:3000 will reflect the changes automatically.
 
 ---
 
@@ -83,6 +103,7 @@ description: Pasta is the true language of Italy...
 credits: Creative Direction & Concept: Gabrielle J Sirkin — Photography: Julia Stotz
 skills: Visual Direction, Creative Direction, Production
 card_ratio: r-4-3
+thumbnail: hero.jpg
 coming_soon: false
 ---
 ```
@@ -101,6 +122,7 @@ coming_soon: false
 | `destination` | no | For Content Creation projects only |
 | `skills` | yes | Comma-separated list |
 | `card_ratio` | no | Card aspect ratio (`r-16-9`, `r-4-3`, `r-3-4`, `r-3-2`, `r-2-3`, `r-1-1`) |
+| `thumbnail` | no | Card thumbnail image. Defaults to the first project image if not set. |
 | `coming_soon` | no | Set to `true` to add a Coming Soon badge |
 
 Images go in the same folder as `index.md` and are displayed automatically in the order they appear on disk.

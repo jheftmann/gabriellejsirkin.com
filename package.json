@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "node build.js",
-    "start": "concurrently \"node build.js --watch\" \"live-server --port=3000\""
+    "start": "concurrently \"node build.js --watch\" \"live-server --port=3000\"",
+    "sync": "git pull origin draft && node build.js"
   },
   "devDependencies": {
     "chokidar": "^3.6.0",

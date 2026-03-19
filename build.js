@@ -113,6 +113,7 @@ function loadProjects() {
           skills:       typeof fm.skills === 'string'
                           ? fm.skills.split(',').map(s => s.trim()).filter(Boolean)
                           : (Array.isArray(fm.skills) ? fm.skills : []),
+          thumbnail:    fm.thumbnail    || '',
           cardImage:    { ratio: fm.card_ratio || 'r-4-3', placeholder: fm.card_placeholder || '' },
           comingSoon:   fm.coming_soon === 'true',
           images:       Array.isArray(fm.images) && fm.images.length > 0
@@ -128,7 +129,9 @@ function loadProjects() {
       const baseUrl = `content/projects/${id}/`;
 
       // Resolve image list: frontmatter images list > auto-discovered folder images
-      const fmImages = Array.isArray(meta.images) && meta.images.length > 0 ? meta.images : null;
+      // Filter to strings only — placeholder objects like { r: 'r-4-3' } are not real paths
+      const stringImages = Array.isArray(meta.images) ? meta.images.filter(x => typeof x === 'string') : [];
+      const fmImages = stringImages.length > 0 ? stringImages : null;
       const folderImages = fmImages ? [] : fs.readdirSync(path.join(dir, id))
         .filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f))
         .sort();
@@ -136,10 +139,13 @@ function loadProjects() {
         ? fmImages.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`)
         : folderImages.map(f => `${baseUrl}${f}`);
 
-      // Use first image as card thumbnail if available
-      if (resolvedImages.length > 0) {
+      // Card thumbnail: explicit thumbnail field > first image
+      if (meta.thumbnail) {
+        meta.cardImage.src = meta.thumbnail.startsWith('/') ? meta.thumbnail.replace(/^\//, '') : `${baseUrl}${meta.thumbnail}`;
+      } else if (resolvedImages.length > 0) {
         meta.cardImage.src = resolvedImages[0];
       }
+      delete meta.thumbnail;
 
       // Remove raw images array from meta (replaced by resolvedImages below)
       delete meta.images;
