@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: gabriellesirkin/gabriellejsirkin.com
-  branch: main
+  branch: draft
   base_url: https://sveltia-cms-auth.orsa.workers.dev
 
 site_url: https://gabriellesirkin.github.io/gabriellejsirkin.com

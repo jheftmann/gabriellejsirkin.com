@@ -20,6 +20,7 @@ Open all of the following:
 3. **Production site** — https://gabriellesirkin.github.io/gabriellejsirkin.com
 4. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
 5. **CMS** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
+6. **Publish tool** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/publish.html
 
 ## What we're building
 Portfolio website for **Gabrielle J. Sirkin** — Visual Director and photographer based in Los Angeles. The site showcases her work across four categories: Brand Work, Editorial, Content Creation, and Personal.
@@ -75,6 +76,14 @@ images:                  # optional list; auto-discovers folder images if omitte
 ## Typography
 - **Serif:** EB Garamond (400, 500, italic)
 - **Sans:** DM Sans (300, 400, italic, optical size 9–40)
+
+## Publish workflow
+CMS saves go to the `draft` branch. To publish to production:
+1. Editor visits `admin/publish.html` and clicks "Publish to Live Site"
+2. This merges `draft → main` via GitHub API
+3. CI builds the HTML and deploys to GitHub Pages (~30s)
+
+The publish page stores a GitHub fine-grained PAT in localStorage (needs `Contents: Read & Write` on the repo). The `draft` branch also has its own CI workflow (`build-draft.yml`) that keeps its HTML up to date for local preview via `npm run sync`.
 
 ## Auth worker
 `https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.
