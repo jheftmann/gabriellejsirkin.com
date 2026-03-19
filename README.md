@@ -2,9 +2,11 @@
 
 Portfolio website for Gabrielle J. Sirkin.
 
-**Live site:** https://gabriellesirkin.github.io/gabriellejsirkin.com
-**CMS:** https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
-**Local preview:** http://localhost:3000 (run `npm start`)
+| | URL |
+|---|---|
+| **Production** | https://gabriellesirkin.github.io/gabriellejsirkin.com |
+| **CMS** | https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/ |
+| **Local preview** | http://localhost:3000 (run `npm start`) |
 
 ---
 

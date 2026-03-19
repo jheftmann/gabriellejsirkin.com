@@ -7,6 +7,11 @@ const { marked } = require('marked');
 
 const WATCH = process.argv.includes('--watch');
 
+// URL-encode each path segment (handles spaces/special chars in filenames)
+function encodeSrc(p) {
+  return p.split('/').map(s => encodeURIComponent(s)).join('/');
+}
+
 // ─── Category → filter key mapping ───────────────────────────────────────────
 
 const CAT_TO_FILTER = {
@@ -169,7 +174,7 @@ function loadProjects() {
           );
         } else if (resolvedImages.length > 0) {
           imgsHtml = resolvedImages
-            .map(src => `<img src="${src}" alt="">`)
+            .map(src => `<img src="${encodeSrc(src)}" alt="">`)
             .join('\n');
         } else {
           imgsHtml = null;
@@ -192,7 +197,7 @@ function renderCard(p) {
   const ph    = p.cardImage && p.cardImage.placeholder || '';
   const src   = p.cardImage && p.cardImage.src;
   const inner = src
-    ? `<img src="${src}" alt="${p.title}">`
+    ? `<img src="${encodeSrc(src)}" alt="${p.title}">`
     : `<div class="thumb-ph">${ph}</div>`;
   return (
     `    <a class="project-card" data-category="${p.filter}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
