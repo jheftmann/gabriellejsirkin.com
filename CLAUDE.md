@@ -22,6 +22,7 @@ Open all of the following:
 4. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
 5. **CMS** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
 6. **Publish tool** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/publish.html
+7. **Draft preview** — https://draft--gabriellejsirkin.netlify.app
 
 ## What we're building
 Portfolio website for **Gabrielle J. Sirkin** — Visual Director and photographer based in Los Angeles. The site showcases her work across four categories: Brand Work, Editorial, Content Creation, and Personal.
