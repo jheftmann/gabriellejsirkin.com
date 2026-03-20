@@ -5,40 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Content Manager</title>
   <style>
-    #publish-btn {
+    .cms-pill-btn {
       position: fixed;
       bottom: 24px;
-      right: 24px;
       z-index: 9999;
-      background: #1a1a1a;
-      color: #fff;
       font-family: system-ui, sans-serif;
       font-size: 13px;
       font-weight: 500;
       padding: 10px 18px;
       border-radius: 20px;
       text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,.25);
       transition: background .15s, transform .1s;
       letter-spacing: .01em;
     }
+    #publish-btn {
+      left: 24px;
+      background: #1a1a1a;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
     #publish-btn:hover { background: #333; transform: translateY(-1px); }
     #upload-btn {
-      position: fixed;
-      bottom: 24px;
-      right: 166px;
-      z-index: 9999;
+      left: 158px;
       background: #fff;
       color: #1a1a1a;
-      font-family: system-ui, sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 10px 18px;
-      border-radius: 20px;
-      text-decoration: none;
       box-shadow: 0 2px 8px rgba(0,0,0,.15);
-      transition: background .15s, transform .1s;
-      letter-spacing: .01em;
       border: 1px solid #e0e0e0;
     }
     #upload-btn:hover { background: #f5f5f5; transform: translateY(-1px); }
@@ -46,7 +37,7 @@
 </head>
 <body>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
-  <a id="upload-btn" href="upload.html" target="_blank" rel="noopener">Upload Images</a>
-  <a id="publish-btn" href="publish.html" target="_blank" rel="noopener">Publish to Live</a>
+  <a id="publish-btn" class="cms-pill-btn" href="publish.html" target="_blank" rel="noopener">Publish to Live</a>
+  <a id="upload-btn" class="cms-pill-btn" href="upload.html" target="_blank" rel="noopener">Upload Images</a>
 </body>
 </html>

@@ -12,7 +12,8 @@ skills:
   - Project Management
 card_ratio: r-3-4
 thumbnail: 15690DB1-AEFE-4824-954C-A37A481B6EC5.jpg
-images:
+media:
+  - 01_AGHP_Post3.mp4
   - 04_AGHP_Post-01.jpg
   - 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
   - 05_AGHP_Post-02.jpg
@@ -21,8 +22,6 @@ images:
   - 07_IG-24.jpg
   - 08_IG-20.jpg
   - 10_IG-21.jpg
-videos:
-  - 01_AGHP_Post3.mp4
 filter: personal
 card_placeholder: Curation
 placeholder_count: 3
