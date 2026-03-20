@@ -9,7 +9,6 @@ credits: ''
 destination: ''
 skills:
   - Visual Direction
-  - Creative Direction
 card_ratio: r-9-16
 coming_soon: false
 thumbnail: 01_C0F19E64-07AF-4B5D-92E1-66B81CE13B26_1_102_o.jpeg
