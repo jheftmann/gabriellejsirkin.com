@@ -3,7 +3,7 @@
 ## Key URLs
 - **Live site:** https://gabriellejsirkin.netlify.app
 - **CMS:** https://gabriellejsirkin.netlify.app/admin/
-- **GitHub repo:** https://github.com/gabriellesirkin/gabriellejsirkin.com
+- **GitHub repo:** https://github.com/jheftmann/gabriellejsirkin.com
 - **Local preview:** http://localhost:3000
 - **Draft preview (Netlify):** https://draft--gabriellejsirkin.netlify.app
 
@@ -19,7 +19,7 @@ Open all of the following:
 1. **Terminal** — run `open -a Terminal "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com"` then start the dev server with `osascript -e 'tell app "Terminal" to do script "cd \"/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com\" && npm start" in front window'`
 2. **Local preview** — http://localhost:3000
 3. **Production site** — https://gabriellejsirkin.netlify.app
-4. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
+4. **GitHub repo** — https://github.com/jheftmann/gabriellejsirkin.com
 5. **CMS** — https://gabriellejsirkin.netlify.app/admin/
 6. **Publish tool** — https://gabriellejsirkin.netlify.app/admin/publish.html
 7. **Draft preview** — https://draft--gabriellejsirkin.netlify.app
@@ -93,7 +93,7 @@ The publish page stores a GitHub fine-grained PAT in localStorage (needs `Conten
 The `draft` branch auto-deploys to Netlify for live previews before publishing.
 - Every CMS save → `draft` branch → Netlify builds automatically → preview URL
 - Preview URL format: `https://draft--[site-name].netlify.app/`
-- One-time setup: netlify.com → Add site → Import from GitHub → select `gabriellesirkin/gabriellejsirkin.com`
+- One-time setup: netlify.com → Add site → Import from GitHub → select `jheftmann/gabriellejsirkin.com`
   - Build command: `npm ci && node build.js`
   - Publish directory: `.`
   - Enable branch deploys for `draft` in site settings
