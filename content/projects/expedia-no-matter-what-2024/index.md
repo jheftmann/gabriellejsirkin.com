@@ -24,6 +24,7 @@ media:
   - 07_NYC_CATHERINA_comp_v002.mp4
   - 08_BEX_NMW_SICILY_SCOUT_LACALLETE_THERIN_0100_V03_300dpi.jpg
   - 09_BEX_NMW_SICILY_SCOUT_LACALLETE_THERIN_0478_V02_300dpi.jpg
+  - 10_BEX_NYC_Towers_CATHERINA_DJI_0477_D_V2_300DPI.jpg
 filter: brand
 card_placeholder: Dolomites · Rome · Sicily
 placeholder_count: 5
