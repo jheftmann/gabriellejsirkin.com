@@ -14,6 +14,14 @@ skills:
   - Brand Strategy
 card_ratio: r-16-9
 thumbnail: 01_BEX_NMW_DOLOMITES_LAKEGARDA_SCOUT_THERIN_0143_V02_300dpi.jpg
+media:
+  - 01_BEX_NMW_DOLOMITES_LAKEGARDA_SCOUT_THERIN_0143_V02_300dpi-1.jpg
+  - 02_BEX_NMW_DOLOMITES_RANUI_THERIN_1447_V02_300dpi.jpg
+  - 03_BEX_NMW_DOLOMITES_RANUI_THERIN_2239_V02_300dpi.jpg
+  - 04_BEX_NMW_TUSCANY_BAGNI_THERIN_0141_V01_300dpi.jpg
+  - 05_RooseveltField_comp_v001.mp4
+  - 06_7549C637-E34A-4465-8AD8-1C1351374186_1_105_c.jpeg
+  - 07_NYC_CATHERINA_comp_v002.mp4
 filter: brand
 card_placeholder: Dolomites · Rome · Sicily
 placeholder_count: 5
