@@ -16,7 +16,7 @@ Watches `src/` and `content/`, auto-reloads browser at localhost:3000.
 
 ## Start a session
 Open all of the following:
-1. **Terminal** — `cd "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com" && npm start`
+1. **Terminal** — run `open -a Terminal "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com"` then start the dev server with `osascript -e 'tell app "Terminal" to do script "cd \"/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com\" && npm start" in front window'`
 2. **Local preview** — http://localhost:3000
 3. **Production site** — https://gabriellesirkin.github.io/gabriellejsirkin.com
 4. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
