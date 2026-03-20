@@ -221,6 +221,8 @@
       });
 
       if (res.status === 201) {
+        showStatus('info', 'Published! Syncing draft back to main…');
+        await resetDraftToMain(token);
         showStatus('success', 'Published. The site will update in about 30 seconds.');
       } else if (res.status === 204) {
         showStatus('success', 'Already up to date — no new changes to publish.');
@@ -238,6 +240,24 @@
 
     publishBtn.disabled = false;
   });
+
+  async function resetDraftToMain(token) {
+    // Merge main → draft so the next publish is always a clean fast-forward
+    await fetch(`https://api.github.com/repos/${REPO}/merges`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        base: 'draft',
+        head: 'main',
+        commit_message: 'sync: align draft with main after publish [skip ci]',
+      }),
+    });
+    // 201 = merged, 204 = already aligned — both are fine
+  }
 
   function showStatus(type, msg) {
     statusEl.className = `status ${type}`;
