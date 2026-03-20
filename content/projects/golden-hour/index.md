@@ -21,6 +21,8 @@ images:
   - 07_IG-24.jpg
   - 08_IG-20.jpg
   - 10_IG-21.jpg
+videos:
+  - 01_AGHP_Post3.mp4
 filter: personal
 card_placeholder: Curation
 placeholder_count: 3
