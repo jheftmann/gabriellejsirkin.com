@@ -1,5 +1,5 @@
 ---
-title: Copenhagens
+title: Copenhagen
 cat: Content Creation
 client: ''
 photographer: ''
