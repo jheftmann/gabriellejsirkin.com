@@ -2,7 +2,7 @@
 title: Made To Travel
 cat: Brand Work
 client: Expedia
-photographer: Nico Therin
+photographer: Nico Therin and Joao Canziani
 date: '2023'
 description: ''
 credits: ''
