@@ -11,7 +11,7 @@ skills:
   - Visual Direction
   - Production
 card_ratio: r-16-9
-thumbnail: ''
+thumbnail: Screenshot 2026-03-20 at 1.25.54 PM.png
 media:
   - 01_ABB100119Palermo_lo-1.jpeg
   - 02_ABB100119Palermo_lo-2.jpeg
