@@ -12,10 +12,10 @@ skills:
   - Project Management
 card_ratio: r-16-9
 images:
-  - 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
-  - 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
   - 04_AGHP_Post-01.jpg
+  - 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
   - 05_AGHP_Post-02.jpg
+  - 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
   - 06_AGHP_Post-03.jpg
   - 07_IG-24.jpg
   - 08_IG-20.jpg
