@@ -9,7 +9,6 @@ credits: ''
 destination: Corfu, Greece
 skills:
   - Visual Direction
-  - Creative Direction
 card_ratio: r-16-9
 coming_soon: false
 thumbnail: 07_F9A32003-8EA1-4BBB-8464-6A4504285707_1_102_o.jpeg
