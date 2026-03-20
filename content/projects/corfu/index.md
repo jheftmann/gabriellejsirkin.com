@@ -16,6 +16,11 @@ media:
   - 01_CC_Corfu_8.mp4
   - 02_CC_Corfu_7.mp4
   - 03_CC_Corfu_4.mp4
+  - 04_202304EC-6342-41AD-881F-402207CAE00C_1_102_o.jpeg
+  - 05_CC_Corfu_3.mp4
+  - 06_EC4E395D-B33C-4902-B852-278A91B3D9A4_1_102_o.jpeg
+  - 07_F9A32003-8EA1-4BBB-8464-6A4504285707_1_102_o-1.jpeg
+  - 08_CC_Corfu_6.mp4
 filter: content
 card_placeholder: Coming Soon
 placeholder_count: 1
