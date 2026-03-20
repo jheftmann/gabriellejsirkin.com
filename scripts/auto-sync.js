@@ -5,7 +5,7 @@ const INTERVAL_MS = 2 * 60 * 1000; // 2 minutes
 
 function sync() {
   try {
-    execSync('git fetch origin draft && git checkout origin/draft -- content/', {
+    execSync('git fetch origin draft && git checkout origin/draft -- content/ && node build.js', {
       stdio: 'pipe',
       cwd: process.cwd(),
     });
