@@ -4,7 +4,7 @@
   "scripts": {
     "build": "node build.js",
     "start": "concurrently \"node build.js --watch\" \"live-server --port=3000\"",
-    "sync": "git pull origin main && node build.js"
+    "sync": "git fetch origin draft && git checkout origin/draft -- content/ && node build.js"
   },
   "devDependencies": {
     "chokidar": "^3.6.0",
