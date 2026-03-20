@@ -5,7 +5,7 @@
 - **CMS:** https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
 - **GitHub repo:** https://github.com/gabriellesirkin/gabriellejsirkin.com
 - **Local preview:** http://localhost:3000
-- **Draft preview (Netlify):** TBD after Netlify setup — see "Preview workflow" below
+- **Draft preview (Netlify):** https://draft--gabriellejsirkin.netlify.app
 
 ## Local dev
 ```
@@ -70,8 +70,10 @@ skills:
 thumbnail: filename.jpg  # optional, defaults to first image
 card_ratio: r-4-3        # r-16-9, r-3-4, r-2-3, r-9-16, r-3-2, r-3-4
 coming_soon: true        # optional
-images:                  # optional list; auto-discovers folder images if omitted
-  - filename.jpg
+media:                   # optional ordered list of images + videos; auto-discovers if omitted
+  - 01_hero.jpg
+  - 02_clip.mp4
+  - 03_detail.jpg
 ```
 
 ## Typography
