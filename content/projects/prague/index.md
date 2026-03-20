@@ -1,12 +1,24 @@
 ---
 title: Prague
 cat: Content Creation
-filter: content
+client: ''
+photographer: ''
+date: ''
+description: ''
+credits: ''
+destination: ''
 skills:
   - Visual Direction
   - Creative Direction
 card_ratio: r-4-3
-card_placeholder: Coming Soon
 coming_soon: true
+thumbnail: 02_IMG_6914_VSCO.JPG
+media:
+  - 01_IMG_6932_VSCO.mp4
+  - 02_IMG_6914_VSCO.JPG
+  - 03_IMG_6916_VSCO.JPG
+  - 04_IMG_6989_VSCO.JPG
+filter: content
+card_placeholder: Coming Soon
 placeholder_count: 1
 ---
