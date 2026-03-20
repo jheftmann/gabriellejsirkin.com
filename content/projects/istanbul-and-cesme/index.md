@@ -21,4 +21,5 @@ media:
   - 06_IMG_6828_VSCO.mp4
   - 07_IMG_6700_VSCO.JPG
   - 08_CC_Istanbul_01.mp4
+  - 09_IMG_6786.jpg
 ---
