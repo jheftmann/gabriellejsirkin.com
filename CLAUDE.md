@@ -165,6 +165,30 @@ The `draft` branch auto-deploys to Netlify for live previews before publishing.
 - Preview URL: `https://draft--gabriellejsirkin.netlify.app`
 - Production URL: `https://gabriellejsirkin.netlify.app`
 
+## End-of-session checklist
+Run through this before wrapping up any session:
+
+1. **Clean working tree** — no staged or unstaged changes left over from local sync
+   ```
+   git restore .
+   git clean -fd content/
+   ```
+2. **All feature branches merged and deleted**
+   ```
+   git branch -d feature/my-change          # delete local
+   git push origin --delete feature/my-change  # delete remote
+   ```
+3. **Stale PRs closed** — check `gh pr list` and close anything superseded
+4. **Remote refs pruned**
+   ```
+   git remote prune origin
+   ```
+5. **CLAUDE.md up to date** — commit any new context, workflow changes, or decisions made this session
+6. **main pushed** — `git status` shows "up to date with origin/main"
+7. **draft synced with main's code** — if any code changes were made this session, run `npm run sync-draft`
+
+Keep the `new-design` branch — it has unmerged WIP.
+
 ## Auth worker
 `https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.
 This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.

@@ -407,70 +407,106 @@
     uploadBtn.disabled = true;
     statusEl.className = 'status';
 
-    let done = 0, errors = 0;
+    showStatus('info', `Preparing ${selectedFiles.length} file${selectedFiles.length !== 1 ? 's' : ''}…`);
 
-    for (let i = 0; i < selectedFiles.length; i++) {
-      const file = selectedFiles[i];
-      const stEl = document.getElementById(`status-${i}`);
-      stEl.className = 'file-status uploading';
-      stEl.textContent = 'Uploading…';
-
-      try {
-        await uploadFile(token, project, file);
+    try {
+      await uploadBatch(token, project, selectedFiles);
+      selectedFiles.forEach((_, i) => {
+        const stEl = document.getElementById(`status-${i}`);
         stEl.className = 'file-status done';
         stEl.textContent = '✓ Done';
-        done++;
-      } catch (err) {
-        stEl.className = 'file-status error';
-        stEl.textContent = '✗ Error';
-        errors++;
-        console.error(file.name, err);
-      }
-    }
-
-    if (errors === 0) {
-      showStatus('success', `${done} file${done !== 1 ? 's' : ''} uploaded to "${project}" on the draft branch.`);
-    } else {
-      showStatus('error', `${done} uploaded, ${errors} failed. Check console for details.`);
+      });
+      showStatus('success', `${selectedFiles.length} file${selectedFiles.length !== 1 ? 's' : ''} uploaded to "${project}" on the draft branch.`);
+    } catch (err) {
+      showStatus('error', `Upload failed: ${err.message}`);
+      console.error(err);
     }
 
     uploadBtn.disabled = false;
   });
 
-  async function uploadFile(token, project, file) {
-    const path        = `content/projects/${project}/${file.name}`;
-    const encodedPath = path.split('/').map(encodeURIComponent).join('/');
-    const content = await toBase64(file);
+  // Upload all files as a single commit using the Git Data API.
+  // This avoids creating N commits (one per file) which can cause
+  // the CMS to fall out of sync and show merge conflict errors.
+  async function uploadBatch(token, project, files) {
     const headers = {
       'Authorization': `Bearer ${token}`,
       'Accept': 'application/vnd.github+json',
       'Content-Type': 'application/json',
     };
+    const api = `https://api.github.com/repos/${REPO}`;
 
-    // Check if file already exists (need SHA to update)
-    let sha;
-    const check = await fetch(`https://api.github.com/repos/${REPO}/contents/${encodedPath}?ref=draft`, { headers });
-    if (check.ok) {
-      const existing = await check.json();
-      sha = existing.sha;
-    }
+    // 1. Get the current HEAD commit SHA for the draft branch
+    const refRes = await fetch(`${api}/git/ref/heads/draft`, { headers });
+    if (!refRes.ok) throw new Error('Could not read draft branch ref');
+    const { object: { sha: headSha } } = await refRes.json();
 
-    const body = {
-      message: `Upload: add ${file.name} to ${project}`,
-      content,
-      branch: 'draft',
-    };
-    if (sha) body.sha = sha;
+    // 2. Get the tree SHA of the current HEAD commit
+    const commitRes = await fetch(`${api}/git/commits/${headSha}`, { headers });
+    if (!commitRes.ok) throw new Error('Could not read HEAD commit');
+    const { tree: { sha: baseTreeSha } } = await commitRes.json();
 
-    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${encodedPath}`, {
-      method: 'PUT',
-      headers,
-      body: JSON.stringify(body),
+    // 3. Create a blob for each file (in parallel — blobs are independent)
+    const n = files.length;
+    const blobPromises = files.map(async (file, i) => {
+      const stEl = document.getElementById(`status-${i}`);
+      stEl.className = 'file-status uploading';
+      stEl.textContent = 'Uploading…';
+
+      const content = await toBase64(file);
+      const blobRes = await fetch(`${api}/git/blobs`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ content, encoding: 'base64' }),
+      });
+      if (!blobRes.ok) {
+        const e = await blobRes.json().catch(() => ({}));
+        throw new Error(`Blob failed for ${file.name}: ${e.message || blobRes.status}`);
+      }
+      const { sha } = await blobRes.json();
+      return { path: `content/projects/${project}/${file.name}`, mode: '100644', type: 'blob', sha };
     });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.message || `HTTP ${res.status}`);
+    const treeEntries = await Promise.all(blobPromises);
+
+    // 4. Create a new tree on top of the base tree
+    const treeRes = await fetch(`${api}/git/trees`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ base_tree: baseTreeSha, tree: treeEntries }),
+    });
+    if (!treeRes.ok) {
+      const e = await treeRes.json().catch(() => ({}));
+      throw new Error(`Tree creation failed: ${e.message || treeRes.status}`);
+    }
+    const { sha: newTreeSha } = await treeRes.json();
+
+    // 5. Create a single commit for all files
+    const commitBody = {
+      message: `Upload: add ${n} file${n !== 1 ? 's' : ''} to ${project}`,
+      tree: newTreeSha,
+      parents: [headSha],
+    };
+    const newCommitRes = await fetch(`${api}/git/commits`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(commitBody),
+    });
+    if (!newCommitRes.ok) {
+      const e = await newCommitRes.json().catch(() => ({}));
+      throw new Error(`Commit failed: ${e.message || newCommitRes.status}`);
+    }
+    const { sha: newCommitSha } = await newCommitRes.json();
+
+    // 6. Advance the draft branch ref to the new commit
+    const updateRes = await fetch(`${api}/git/refs/heads/draft`, {
+      method: 'PATCH',
+      headers,
+      body: JSON.stringify({ sha: newCommitSha }),
+    });
+    if (!updateRes.ok) {
+      const e = await updateRes.json().catch(() => ({}));
+      throw new Error(`Ref update failed: ${e.message || updateRes.status}`);
     }
   }
 
