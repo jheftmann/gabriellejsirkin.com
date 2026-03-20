@@ -80,23 +80,14 @@ collections:
         public_folder: ''
         hint: 'Override the card thumbnail. Leave blank to use the first project image.'
 
-      - name: images
-        label: Images
+      - name: media
+        label: Media
         widget: list
         required: false
-        hint: 'Project images in display order. Upload or select from the media library.'
+        hint: 'Images and videos in display order. Add them here to control the sequence — mix stills and video freely.'
         media_folder: ''
         public_folder: ''
-        field: { name: image, label: Image, widget: image }
-
-      - name: videos
-        label: Videos
-        widget: list
-        required: false
-        hint: 'MP4 videos to include in the project gallery. Appended after images.'
-        media_folder: ''
-        public_folder: ''
-        field: { name: video, label: Video, widget: file, accept: 'video/mp4' }
+        field: { name: file, label: File, widget: file }
 
   # ── Home page ──────────────────────────────────────────────────────────────
   - name: pages

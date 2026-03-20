@@ -1,16 +1,17 @@
 ---
 title: A Golden Hour Project
 cat: Personal
-client: ''
-photographer: ''
-date: ''
-description: ''
-credits: ''
-destination: ''
+client: Client goes here
+photographer: Multiple
+date: '2025'
+description: Gigi raised a bunch of money for people that needed it using her brains.
+credits: Credits go here
+destination: Gigiland
 skills:
   - Visual Direction
   - Project Management
-card_ratio: r-16-9
+card_ratio: r-3-4
+thumbnail: 15690DB1-AEFE-4824-954C-A37A481B6EC5.jpg
 images:
   - 04_AGHP_Post-01.jpg
   - 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
@@ -20,6 +21,8 @@ images:
   - 07_IG-24.jpg
   - 08_IG-20.jpg
   - 10_IG-21.jpg
+videos:
+  - 01_AGHP_Post3.mp4
 filter: personal
 card_placeholder: Curation
 placeholder_count: 3

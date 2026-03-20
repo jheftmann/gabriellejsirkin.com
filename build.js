@@ -121,11 +121,13 @@ function loadProjects() {
           thumbnail:    fm.thumbnail    || '',
           cardImage:    { ratio: fm.card_ratio || 'r-4-3', placeholder: fm.card_placeholder || '' },
           comingSoon:   fm.coming_soon === 'true',
-          images:       Array.isArray(fm.images) && fm.images.length > 0
-                          ? fm.images
-                          : (fm.placeholder_count
-                              ? Array.from({ length: parseInt(fm.placeholder_count) }, () => ({ r: 'r-4-3' }))
-                              : []),
+          media:        Array.isArray(fm.media) && fm.media.length > 0
+                          ? fm.media
+                          : (Array.isArray(fm.images) && fm.images.length > 0
+                              ? fm.images  // legacy fallback
+                              : (fm.placeholder_count
+                                  ? Array.from({ length: parseInt(fm.placeholder_count) }, () => ({ r: 'r-4-3' }))
+                                  : [])),
         };
       } else {
         meta = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
@@ -133,20 +135,16 @@ function loadProjects() {
 
       const baseUrl = `content/projects/${id}/`;
 
-      // Resolve media list: frontmatter images/videos lists > auto-discovered folder files
+      // Resolve media list: frontmatter media list > auto-discovered folder files
       // Filter to strings only — placeholder objects like { r: 'r-4-3' } are not real paths
-      const stringImages = Array.isArray(meta.images) ? meta.images.filter(x => typeof x === 'string') : [];
-      const stringVideos = Array.isArray(meta.videos) ? meta.videos.filter(x => typeof x === 'string') : [];
-      const fmImages = stringImages.length > 0 ? stringImages : null;
-      const folderImages = fmImages ? [] : fs.readdirSync(path.join(dir, id))
+      const stringMedia = Array.isArray(meta.media) ? meta.media.filter(x => typeof x === 'string') : [];
+      const fmMedia = stringMedia.length > 0 ? stringMedia : null;
+      const folderMedia = fmMedia ? [] : fs.readdirSync(path.join(dir, id))
         .filter(f => /\.(jpe?g|png|webp|gif|avif|mp4)$/i.test(f))
         .sort();
-      const resolvedImages = fmImages
-        ? [
-            ...fmImages.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`),
-            ...stringVideos.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`),
-          ]
-        : folderImages.map(f => `${baseUrl}${f}`);
+      const resolvedImages = fmMedia
+        ? fmMedia.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`)
+        : folderMedia.map(f => `${baseUrl}${f}`);
 
       // Card thumbnail: explicit thumbnail field > first image
       if (meta.thumbnail) {
@@ -156,9 +154,10 @@ function loadProjects() {
       }
       delete meta.thumbnail;
 
-      // Remove raw images/videos arrays from meta (replaced by resolvedImages below)
-      delete meta.images;
-      delete meta.videos;
+      // Remove raw media array from meta (replaced by resolvedImages below)
+      delete meta.media;
+      delete meta.images; // legacy cleanup
+      delete meta.videos; // legacy cleanup
 
       let contentHtml = null;
       if (bodyText.trim() || resolvedImages.length > 0) {
