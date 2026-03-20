@@ -22,4 +22,6 @@ media:
   - 04_VRB00101_Library_Shoot_Lake_House_AnaisDax_4632_R2_Final.jpg
   - 05_VRB00101_Library_Shoot_Lake_House_AnaisDax_4574_Final.jpg
   - 06_VRB00101_Library_Shoot_Lake_House_AnaisDax_4418_Final.jpg
+  - 07_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_4753-2_Final.jpg
+  - 08_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_5556_R1_Final.jpg
 ---
