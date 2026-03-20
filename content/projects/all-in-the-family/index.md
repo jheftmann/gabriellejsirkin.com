@@ -26,6 +26,14 @@ media:
   - 02_PastaFamilies_11749.jpg
   - 03_PastaFamilies_12072.jpg
   - 04_PastaFamilies_12556-V2.jpg
+  - 05_Bucatini.mp4
+  - 06_PastaFamilies_11817.jpg
+  - 07_PastaFamilies_12212.jpg
+  - 08_PastaFamilies_11550.jpg
+  - 09_PastaFamilies_12371.jpg
+  - 10_Bucatini.mp4
+  - 11_7B07A93A-A6FD-44E2-AAF6-A22ECBC4D512_1_102_o.jpeg
+  - 12_Bucatini.mp4
 filter: personal
 card_placeholder: Personal Work
 placeholder_count: 3
