@@ -21,6 +21,11 @@ skills:
   - Production
 card_ratio: r-4-3
 thumbnail: 01_PastaFamilies_11277.jpg
+media:
+  - 01_PastaFamilies_11277-1.jpg
+  - 02_PastaFamilies_11749.jpg
+  - 03_PastaFamilies_12072.jpg
+  - 04_PastaFamilies_12556-V2.jpg
 filter: personal
 card_placeholder: Personal Work
 placeholder_count: 3
