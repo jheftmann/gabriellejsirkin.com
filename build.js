@@ -133,15 +133,19 @@ function loadProjects() {
 
       const baseUrl = `content/projects/${id}/`;
 
-      // Resolve image list: frontmatter images list > auto-discovered folder images
+      // Resolve media list: frontmatter images/videos lists > auto-discovered folder files
       // Filter to strings only — placeholder objects like { r: 'r-4-3' } are not real paths
       const stringImages = Array.isArray(meta.images) ? meta.images.filter(x => typeof x === 'string') : [];
+      const stringVideos = Array.isArray(meta.videos) ? meta.videos.filter(x => typeof x === 'string') : [];
       const fmImages = stringImages.length > 0 ? stringImages : null;
       const folderImages = fmImages ? [] : fs.readdirSync(path.join(dir, id))
-        .filter(f => /\.(jpe?g|png|webp|gif|avif)$/i.test(f))
+        .filter(f => /\.(jpe?g|png|webp|gif|avif|mp4)$/i.test(f))
         .sort();
       const resolvedImages = fmImages
-        ? fmImages.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`)
+        ? [
+            ...fmImages.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`),
+            ...stringVideos.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`),
+          ]
         : folderImages.map(f => `${baseUrl}${f}`);
 
       // Card thumbnail: explicit thumbnail field > first image
@@ -152,8 +156,9 @@ function loadProjects() {
       }
       delete meta.thumbnail;
 
-      // Remove raw images array from meta (replaced by resolvedImages below)
+      // Remove raw images/videos arrays from meta (replaced by resolvedImages below)
       delete meta.images;
+      delete meta.videos;
 
       let contentHtml = null;
       if (bodyText.trim() || resolvedImages.length > 0) {
@@ -174,7 +179,9 @@ function loadProjects() {
           );
         } else if (resolvedImages.length > 0) {
           imgsHtml = resolvedImages
-            .map(src => `<img src="${encodeSrc(src)}" alt="">`)
+            .map(src => /\.mp4$/i.test(src)
+              ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
+              : `<img src="${encodeSrc(src)}" alt="">`)
             .join('\n');
         } else {
           imgsHtml = null;

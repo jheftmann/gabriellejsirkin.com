@@ -89,6 +89,15 @@ collections:
         public_folder: ''
         field: { name: image, label: Image, widget: image }
 
+      - name: videos
+        label: Videos
+        widget: list
+        required: false
+        hint: 'MP4 videos to include in the project gallery. Appended after images.'
+        media_folder: ''
+        public_folder: ''
+        field: { name: video, label: Video, widget: file, accept: 'video/mp4' }
+
   # ── Home page ──────────────────────────────────────────────────────────────
   - name: pages
     label: Pages
