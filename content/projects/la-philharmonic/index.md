@@ -1,6 +1,6 @@
 ---
 title: 2017/2018 Season Campaign
-cat: Editorial
+cat: Brand Work
 client: LA Philharmonic
 photographer: Erik Madigan Heck
 date: '2017'
