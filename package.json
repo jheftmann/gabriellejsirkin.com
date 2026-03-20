@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "node build.js",
-    "start": "concurrently \"node build.js --watch\" \"live-server --port=3000\"",
+    "start": "concurrently \"node build.js --watch\" \"live-server --port=3000\" \"node scripts/auto-sync.js\"",
     "sync": "git fetch origin draft && git checkout origin/draft -- content/ && node build.js"
   },
   "devDependencies": {
