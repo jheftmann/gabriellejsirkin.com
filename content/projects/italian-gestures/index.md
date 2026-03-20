@@ -23,6 +23,19 @@ media:
   - 02_ItalianHandGestures_5887.jpg
   - 03_ItalianHandGestures_5868.jpg
   - 04_ItalianHandGestures_5751.jpg
+  - 05_ItalianHandGestures_5774.jpg
+  - 06_ItalianHandGestures_5775.jpg
+  - 07_ItalianHandGestures_5897.jpg
+  - 08_ItalianHandGestures_6064.jpg
+  - 09_ItalianHandGestures_5903.jpg
+  - 10_ItalianHandGestures_6466.jpg
+  - 11_ItalianHandGestures_6228.jpg
+  - 12_ItalianHandGestures_6212.jpg
+  - 13_ItalianHandGestures_6086.jpg
+  - 14_ItalianHandGestures_6277.jpg
+  - 15_ItalianHandGestures_6234.jpg
+  - 16_ItalianHandGestures_6454.jpg
+  - 17_ItalianHandGestures_6460.jpg
 filter: personal
 card_placeholder: Personal Work
 placeholder_count: 3
