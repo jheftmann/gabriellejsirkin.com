@@ -4,20 +4,24 @@ cat: Personal
 client: Client goes here
 photographer: Multiple
 date: '2025'
-description: Gigi raised a bunch of money for people that needed it using her brains.
-credits: Credits go here
-destination: Gigiland
+description: |-
+  A Golden Hour Project is a joint creative fundraising initiative launched in response to the devastating California wildfires by myself, Chelsea Gold, Sabrina Bajaj and Audrey Viola. Bringing together a community of 100 photographers, the project sold curated prints to raise money for wildfire relief across Los Angeles.
+
+  www.agoldenhourproject.com | @agoldenhourproject
+credits: ''
+destination: ''
 skills:
   - Visual Direction
   - Project Management
+  - Curation
 card_ratio: r-3-4
-thumbnail: 15690DB1-AEFE-4824-954C-A37A481B6EC5.jpg
+thumbnail: 05_AGHP_Post-02.jpg
 media:
   - 01_AGHP_Post3.mp4
-  - 04_AGHP_Post-01.jpg
   - 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
-  - 05_AGHP_Post-02.jpg
   - 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
+  - 04_AGHP_Post-01.jpg
+  - 05_AGHP_Post-02.jpg
   - 06_AGHP_Post-03.jpg
   - 07_IG-24.jpg
   - 08_IG-20.jpg
