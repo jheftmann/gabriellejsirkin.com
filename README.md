@@ -7,7 +7,7 @@ Portfolio website for Gabrielle J. Sirkin.
 | | URL |
 |---|---|
 | **Production** | https://gabriellesirkin.github.io/gabriellejsirkin.com |
-| **Draft preview** | TBD — [set up Netlify](https://github.com/gabriellesirkin/gabriellejsirkin.com/issues/3) |
+| **Draft preview** | https://draft--gabriellejsirkin.netlify.app |
 | **CMS** | https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/ |
 | **Local preview** | http://localhost:3000 (run `npm start`) |
 
@@ -37,21 +37,13 @@ Login with GitHub. The CMS lets you edit:
 
 **Auth worker:** `https://sveltia-cms-auth.orsa.workers.dev` (Cloudflare Worker — handles GitHub OAuth)
 
-> Note: Images cannot yet be uploaded via the CMS. Add images by dropping them into the project folder in `content/projects/{slug}/` and pushing to GitHub.
+> **Uploading images:** Use the [Upload Images](https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/upload.html) tool in the CMS to batch-upload images and videos (mp4) directly to any project folder without needing Git.
 
 ### Draft / publish workflow
 
 The CMS commits to the **`draft`** branch, not `main`. Changes made in the CMS are **not live** until published.
 
-**To publish:**
-```
-git checkout main
-git merge draft
-git push
-git checkout draft
-```
-
-Or open a pull request from `draft` → `main` on GitHub.
+**To publish:** Open `admin/publish.html` and click "Publish to Live Site" — or visit the [Publish tool](https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/publish.html) directly.
 
 ---
 
