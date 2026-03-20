@@ -1,5 +1,5 @@
 ---
-title: Vrbo Photo Library
+title: Photo Library
 cat: Brand Work
 client: Vrbo
 photographer: Anaïs and Dax
