@@ -2,8 +2,8 @@
 title: Caraiva
 cat: Editorial
 client: Airbnb Magazine
-photographer: ''
-date: ''
+photographer: Pia Riverola
+date: '2018'
 description: ''
 credits: ''
 destination: ''
@@ -11,7 +11,11 @@ skills:
   - Visual Direction
   - Production
 card_ratio: r-4-3
-thumbnail: ONEKEY_OOH_EGYPT_PYRAMID_GALLAGHER_01_0218_72dpi_.jpg
+thumbnail: ''
+media:
+  - 01_ABB040118NYTBrazil_lo-1.jpg
+  - 02_ABB040118NYTBrazil_lo-3.jpg
+  - 03_ABB040118NYTBrazil_lo-4.jpg
 filter: editorial
 card_placeholder: Caraiva
 placeholder_count: 3
