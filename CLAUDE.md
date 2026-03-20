@@ -192,3 +192,4 @@ Keep the `new-design` branch — it has unmerged WIP.
 ## Auth worker
 `https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.
 This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
+ 
