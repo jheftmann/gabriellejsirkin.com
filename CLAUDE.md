@@ -2,7 +2,7 @@
 
 ## Key URLs
 - **Live site:** https://gabriellesirkin.github.io/gabriellejsirkin.com
-- **CMS:** https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
+- **CMS:** https://gabriellejsirkin.netlify.app/admin/
 - **GitHub repo:** https://github.com/gabriellesirkin/gabriellejsirkin.com
 - **Local preview:** http://localhost:3000
 - **Draft preview (Netlify):** https://draft--gabriellejsirkin.netlify.app
@@ -20,8 +20,8 @@ Open all of the following:
 2. **Local preview** — http://localhost:3000
 3. **Production site** — https://gabriellesirkin.github.io/gabriellejsirkin.com
 4. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
-5. **CMS** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/
-6. **Publish tool** — https://gabriellesirkin.github.io/gabriellejsirkin.com/admin/publish.html
+5. **CMS** — https://gabriellejsirkin.netlify.app/admin/
+6. **Publish tool** — https://gabriellejsirkin.netlify.app/admin/publish.html
 7. **Draft preview** — https://draft--gabriellejsirkin.netlify.app
 
 ## What we're building
