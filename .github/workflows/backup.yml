@@ -1,0 +1,49 @@
+name: Monthly content backup
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'   # 1st of every month at midnight UTC
+  workflow_dispatch:        # allow manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: draft         # content lives on draft branch
+          fetch-depth: 1
+
+      - name: Create zip
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          zip -r "content-backup-${DATE}.zip" content/
+          echo "BACKUP_FILE=content-backup-${DATE}.zip" >> $GITHUB_ENV
+          echo "BACKUP_TAG=backup-${DATE}" >> $GITHUB_ENV
+
+      - name: Create release and upload backup
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$BACKUP_TAG" "$BACKUP_FILE" \
+            --title "Content backup $BACKUP_TAG" \
+            --notes "Automated monthly backup of content/ from draft branch." \
+            --repo ${{ github.repository }}
+
+      - name: Delete backups older than 6 months
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CUTOFF=$(date -d '6 months ago' +%s 2>/dev/null || date -v-6m +%s)
+          gh release list --repo ${{ github.repository }} --limit 100 --json tagName,createdAt \
+            | jq -r '.[] | select(.tagName | startswith("backup-")) | [.tagName, .createdAt] | @tsv' \
+            | while IFS=$'\t' read -r tag created; do
+                created_ts=$(date -d "$created" +%s 2>/dev/null || date -j -f "%Y-%m-%dT%H:%M:%SZ" "$created" +%s)
+                if [ "$created_ts" -lt "$CUTOFF" ]; then
+                  echo "Deleting old backup: $tag"
+                  gh release delete "$tag" --yes --repo ${{ github.repository }}
+                fi
+              done
