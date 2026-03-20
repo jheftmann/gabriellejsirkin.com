@@ -251,7 +251,7 @@
   <div class="links">
     <a href="index.html">CMS</a>
     <a href="publish.html">Publish to Live</a>
-    <a href="https://gabriellesirkin.github.io/gabriellejsirkin.com" target="_blank">Live site</a>
+    <a href="https://gabriellejsirkin.netlify.app" target="_blank">Live site</a>
   </div>
 </div>
 
@@ -438,7 +438,8 @@
   });
 
   async function uploadFile(token, project, file) {
-    const path    = `content/projects/${project}/${file.name}`;
+    const path        = `content/projects/${project}/${file.name}`;
+    const encodedPath = path.split('/').map(encodeURIComponent).join('/');
     const content = await toBase64(file);
     const headers = {
       'Authorization': `Bearer ${token}`,
@@ -448,7 +449,7 @@
 
     // Check if file already exists (need SHA to update)
     let sha;
-    const check = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}?ref=draft`, { headers });
+    const check = await fetch(`https://api.github.com/repos/${REPO}/contents/${encodedPath}?ref=draft`, { headers });
     if (check.ok) {
       const existing = await check.json();
       sha = existing.sha;
@@ -461,7 +462,7 @@
     };
     if (sha) body.sha = sha;
 
-    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${encodedPath}`, {
       method: 'PUT',
       headers,
       body: JSON.stringify(body),
