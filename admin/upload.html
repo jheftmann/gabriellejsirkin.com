@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Images — gabriellejsirkin.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    background: #f5f3ef;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 16px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 48px 56px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+
+  h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .subtitle { color: #888; font-size: 13px; margin-bottom: 40px; }
+
+  label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .field { margin-bottom: 24px; }
+
+  input[type="password"], select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    background: #fafafa;
+    outline: none;
+    transition: border-color .15s;
+    appearance: none;
+  }
+
+  input[type="password"]:focus, select:focus { border-color: #aaa; background: #fff; }
+
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #aaa;
+    font-size: 12px;
+  }
+
+  .token-hint { font-size: 12px; color: #aaa; margin-top: 6px; }
+  .token-hint a { color: #888; }
+
+  .token-row { display: flex; align-items: center; gap: 8px; }
+  .token-row input { flex: 1; }
+
+  .btn-clear {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #aaa;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-clear:hover { border-color: #aaa; color: #666; }
+
+  .drop-zone {
+    border: 1.5px dashed #ddd;
+    border-radius: 3px;
+    padding: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+    margin-bottom: 24px;
+  }
+  .drop-zone:hover, .drop-zone.over { border-color: #aaa; background: #fafafa; }
+  .drop-zone input[type="file"] { display: none; }
+  .drop-zone .drop-label { color: #aaa; font-size: 13px; line-height: 1.6; }
+  .drop-zone .drop-label strong { color: #555; font-weight: 400; }
+
+  .file-list { margin-bottom: 24px; display: none; }
+  .file-list-header {
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .file-list-header button {
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: #aaa;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    padding: 0;
+  }
+  .file-list-header button:hover { color: #666; }
+
+  .file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 13px;
+  }
+  .file-item:last-child { border-bottom: none; }
+  .file-thumb {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 2px;
+    background: #eee;
+    flex-shrink: 0;
+  }
+  .file-thumb.video-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 18px;
+  }
+  .file-name { flex: 1; color: #444; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-size { color: #aaa; font-size: 12px; flex-shrink: 0; }
+  .file-status { font-size: 12px; flex-shrink: 0; min-width: 60px; text-align: right; }
+  .file-status.pending  { color: #aaa; }
+  .file-status.uploading { color: #1a3a6b; }
+  .file-status.done     { color: #2e7d32; }
+  .file-status.error    { color: #b71c1c; }
+
+  .btn-upload {
+    width: 100%;
+    padding: 14px;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .btn-upload:hover:not(:disabled) { background: #333; }
+  .btn-upload:disabled { background: #ccc; cursor: default; }
+
+  .status {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-radius: 3px;
+    font-size: 13px;
+    display: none;
+  }
+  .status.success { background: #edf7ed; color: #2e7d32; display: block; }
+  .status.error   { background: #fdecea; color: #b71c1c; display: block; }
+  .status.info    { background: #f0f4ff; color: #1a3a6b; display: block; }
+
+  .divider { border: none; border-top: 1px solid #eee; margin: 32px 0; }
+
+  .links { display: flex; gap: 20px; font-size: 13px; }
+  .links a { color: #888; text-decoration: none; }
+  .links a:hover { color: #333; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Upload Images</h1>
+  <p class="subtitle">gabriellejsirkin.com — uploads to draft branch</p>
+
+  <div class="field">
+    <label for="token">GitHub Access Token</label>
+    <div class="token-row">
+      <input type="password" id="token" placeholder="ghp_…" autocomplete="off">
+      <button class="btn-clear" id="clearToken">Clear</button>
+    </div>
+    <p class="token-hint">Same token as the Publish page. Needs <em>Contents: Read and write</em>.</p>
+  </div>
+
+  <div class="field">
+    <label for="project">Project</label>
+    <div class="select-wrap">
+      <select id="project">
+        <option value="">Loading projects…</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="drop-zone" id="dropZone">
+    <input type="file" id="fileInput" multiple accept="image/*,video/mp4">
+    <p class="drop-label">
+      <strong>Drag & drop files here</strong><br>
+      or click to select — images and mp4 videos
+    </p>
+  </div>
+
+  <div class="file-list" id="fileList">
+    <div class="file-list-header">
+      <span id="fileCount">0 files</span>
+      <button id="clearFiles">Clear all</button>
+    </div>
+    <div id="fileItems"></div>
+  </div>
+
+  <button class="btn-upload" id="uploadBtn" disabled>Upload to Draft</button>
+
+  <div class="status" id="status"></div>
+
+  <hr class="divider">
+
+  <div class="links">
+    <a href="index.html">CMS</a>
+    <a href="publish.html">Publish to Live</a>
+    <a href="https://gabriellesirkin.github.io/gabriellejsirkin.com" target="_blank">Live site</a>
+  </div>
+</div>
+
+<script>
+  const REPO      = 'gabriellesirkin/gabriellejsirkin.com';
+  const TOKEN_KEY = 'gjs_gh_token';
+
+  const tokenInput = document.getElementById('token');
+  const clearBtn   = document.getElementById('clearToken');
+  const projectSel = document.getElementById('project');
+  const dropZone   = document.getElementById('dropZone');
+  const fileInput  = document.getElementById('fileInput');
+  const fileList   = document.getElementById('fileList');
+  const fileItems  = document.getElementById('fileItems');
+  const fileCount  = document.getElementById('fileCount');
+  const clearFiles = document.getElementById('clearFiles');
+  const uploadBtn  = document.getElementById('uploadBtn');
+  const statusEl   = document.getElementById('status');
+
+  // ── Token ──────────────────────────────────────────────────────────────────
+
+  const saved = localStorage.getItem(TOKEN_KEY);
+  if (saved) tokenInput.value = saved;
+
+  tokenInput.addEventListener('input', () => {
+    localStorage.setItem(TOKEN_KEY, tokenInput.value.trim());
+    loadProjects();
+  });
+
+  clearBtn.addEventListener('click', () => {
+    tokenInput.value = '';
+    localStorage.removeItem(TOKEN_KEY);
+  });
+
+  // ── Projects ───────────────────────────────────────────────────────────────
+
+  async function loadProjects() {
+    const token = tokenInput.value.trim();
+    projectSel.innerHTML = '<option value="">Loading…</option>';
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/${REPO}/contents/content/projects?ref=draft`,
+        { headers: token ? { Authorization: `Bearer ${token}` } : {} }
+      );
+      const items = await res.json();
+      const folders = items
+        .filter(i => i.type === 'dir' && !i.name.startsWith('_'))
+        .sort((a, b) => a.name.localeCompare(b.name));
+      projectSel.innerHTML = '<option value="">— select a project —</option>' +
+        folders.map(f => `<option value="${f.name}">${f.name}</option>`).join('');
+    } catch {
+      projectSel.innerHTML = '<option value="">Could not load projects</option>';
+    }
+  }
+
+  loadProjects();
+
+  // ── File picking ───────────────────────────────────────────────────────────
+
+  let selectedFiles = [];
+
+  dropZone.addEventListener('click', () => fileInput.click());
+  dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('over'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
+  dropZone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropZone.classList.remove('over');
+    addFiles(Array.from(e.dataTransfer.files));
+  });
+  fileInput.addEventListener('change', () => addFiles(Array.from(fileInput.files)));
+
+  function addFiles(newFiles) {
+    const allowed = newFiles.filter(f => f.type.startsWith('image/') || f.type === 'video/mp4');
+    selectedFiles = [...selectedFiles, ...allowed];
+    renderFileList();
+  }
+
+  function renderFileList() {
+    if (selectedFiles.length === 0) {
+      fileList.style.display = 'none';
+      uploadBtn.disabled = true;
+      return;
+    }
+    fileList.style.display = 'block';
+    fileCount.textContent = `${selectedFiles.length} file${selectedFiles.length !== 1 ? 's' : ''}`;
+    fileItems.innerHTML = '';
+    selectedFiles.forEach((file, i) => {
+      const item = document.createElement('div');
+      item.className = 'file-item';
+      item.dataset.index = i;
+
+      if (file.type.startsWith('image/')) {
+        const thumb = document.createElement('img');
+        thumb.className = 'file-thumb';
+        thumb.src = URL.createObjectURL(file);
+        item.appendChild(thumb);
+      } else {
+        const icon = document.createElement('div');
+        icon.className = 'file-thumb video-icon';
+        icon.textContent = '▶';
+        item.appendChild(icon);
+      }
+
+      const name = document.createElement('span');
+      name.className = 'file-name';
+      name.textContent = file.name;
+      item.appendChild(name);
+
+      const size = document.createElement('span');
+      size.className = 'file-size';
+      size.textContent = formatSize(file.size);
+      item.appendChild(size);
+
+      const st = document.createElement('span');
+      st.className = 'file-status pending';
+      st.textContent = 'Ready';
+      st.id = `status-${i}`;
+      item.appendChild(st);
+
+      fileItems.appendChild(item);
+    });
+    uploadBtn.disabled = !projectSel.value;
+  }
+
+  clearFiles.addEventListener('click', () => {
+    selectedFiles = [];
+    fileInput.value = '';
+    renderFileList();
+    statusEl.className = 'status';
+  });
+
+  projectSel.addEventListener('change', () => {
+    uploadBtn.disabled = selectedFiles.length === 0 || !projectSel.value;
+  });
+
+  function formatSize(bytes) {
+    if (bytes < 1024)       return bytes + ' B';
+    if (bytes < 1048576)    return (bytes / 1024).toFixed(0) + ' KB';
+    return (bytes / 1048576).toFixed(1) + ' MB';
+  }
+
+  // ── Upload ─────────────────────────────────────────────────────────────────
+
+  uploadBtn.addEventListener('click', async () => {
+    const token   = tokenInput.value.trim();
+    const project = projectSel.value;
+
+    if (!token)   { showStatus('error', 'Please enter a GitHub access token.'); return; }
+    if (!project) { showStatus('error', 'Please select a project.'); return; }
+    if (selectedFiles.length === 0) { showStatus('error', 'No files selected.'); return; }
+
+    localStorage.setItem(TOKEN_KEY, token);
+    uploadBtn.disabled = true;
+    statusEl.className = 'status';
+
+    let done = 0, errors = 0;
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const file = selectedFiles[i];
+      const stEl = document.getElementById(`status-${i}`);
+      stEl.className = 'file-status uploading';
+      stEl.textContent = 'Uploading…';
+
+      try {
+        await uploadFile(token, project, file);
+        stEl.className = 'file-status done';
+        stEl.textContent = '✓ Done';
+        done++;
+      } catch (err) {
+        stEl.className = 'file-status error';
+        stEl.textContent = '✗ Error';
+        errors++;
+        console.error(file.name, err);
+      }
+    }
+
+    if (errors === 0) {
+      showStatus('success', `${done} file${done !== 1 ? 's' : ''} uploaded to "${project}" on the draft branch.`);
+    } else {
+      showStatus('error', `${done} uploaded, ${errors} failed. Check console for details.`);
+    }
+
+    uploadBtn.disabled = false;
+  });
+
+  async function uploadFile(token, project, file) {
+    const path    = `content/projects/${project}/${file.name}`;
+    const content = await toBase64(file);
+    const headers = {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json',
+    };
+
+    // Check if file already exists (need SHA to update)
+    let sha;
+    const check = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}?ref=draft`, { headers });
+    if (check.ok) {
+      const existing = await check.json();
+      sha = existing.sha;
+    }
+
+    const body = {
+      message: `Upload: add ${file.name} to ${project}`,
+      content,
+      branch: 'draft',
+    };
+    if (sha) body.sha = sha;
+
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify(body),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `HTTP ${res.status}`);
+    }
+  }
+
+  function toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload  = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function showStatus(type, msg) {
+    statusEl.className = `status ${type}`;
+    statusEl.textContent = msg;
+  }
+</script>
+
+</body>
+</html>
