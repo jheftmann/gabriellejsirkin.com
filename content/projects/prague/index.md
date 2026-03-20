@@ -18,6 +18,11 @@ media:
   - 02_IMG_6914_VSCO.JPG
   - 03_IMG_6916_VSCO.JPG
   - 04_IMG_6989_VSCO.JPG
+  - 05_IMG_7074_VSCO.mp4
+  - 06_IMG_6997_VSCO.JPG
+  - 07_IMG_7026.jpg
+  - 08_IMG_7027.mp4
+  - 09_IMG_7021.jpg
 filter: content
 card_placeholder: Coming Soon
 placeholder_count: 1
