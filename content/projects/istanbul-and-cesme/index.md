@@ -14,4 +14,6 @@ coming_soon: false
 thumbnail: 02_IMG_6683_VSCO.JPG
 media:
   - 01_CC_Istanbul_02.mp4
+  - 02_IMG_6683_VSCO.JPG
+  - 03_CC_Istanbul_05.mp4
 ---
