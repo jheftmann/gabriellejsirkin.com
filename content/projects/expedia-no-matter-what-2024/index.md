@@ -22,6 +22,8 @@ media:
   - 05_RooseveltField_comp_v001.mp4
   - 06_7549C637-E34A-4465-8AD8-1C1351374186_1_105_c.jpeg
   - 07_NYC_CATHERINA_comp_v002.mp4
+  - 08_BEX_NMW_SICILY_SCOUT_LACALLETE_THERIN_0100_V03_300dpi.jpg
+  - 09_BEX_NMW_SICILY_SCOUT_LACALLETE_THERIN_0478_V02_300dpi.jpg
 filter: brand
 card_placeholder: Dolomites · Rome · Sicily
 placeholder_count: 5
