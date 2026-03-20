@@ -37,5 +37,14 @@
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   <a id="upload-btn" class="cms-pill-btn" href="upload.html" target="_blank" rel="noopener">Upload Images</a>
   <a id="publish-btn" class="cms-pill-btn" href="publish.html" target="_blank" rel="noopener">Publish to Live</a>
+  <script>
+    // Only show "Publish to Live" on list/home views, not inside a project edit page
+    function updatePublishBtn() {
+      var isEditView = location.hash.includes('/entries/');
+      document.getElementById('publish-btn').style.display = isEditView ? 'none' : '';
+    }
+    window.addEventListener('hashchange', updatePublishBtn);
+    updatePublishBtn();
+  </script>
 </body>
 </html>
