@@ -36,6 +36,9 @@ media:
   - 15_ItalianHandGestures_6234.jpg
   - 16_ItalianHandGestures_6454.jpg
   - 17_ItalianHandGestures_6460.jpg
+  - 18_ItalianHandGestures_6489.jpg
+  - 19_ItalianHandGestures_6325.jpg
+  - 20_ItalianHandGestures_6348.jpg
 filter: personal
 card_placeholder: Personal Work
 placeholder_count: 3
