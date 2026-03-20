@@ -12,5 +12,6 @@ skills:
 card_ratio: r-4-3
 coming_soon: false
 thumbnail: 02_IMG_6683_VSCO.JPG
-media: []
+media:
+  - 01_CC_Istanbul_02.mp4
 ---
