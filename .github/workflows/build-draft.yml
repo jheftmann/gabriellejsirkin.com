@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -27,10 +27,5 @@ jobs:
       - run: npm ci
 
       - run: node build.js
-
-      - name: Commit built files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html about.html project.html travel.html
-          git diff --staged --quiet || git commit -m "build: regenerate HTML [skip ci]" && git push
+        # Draft branch: build only for validation, do NOT commit output back.
+        # Built HTML is only committed on main (which deploys to GitHub Pages).
