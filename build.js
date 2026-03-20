@@ -47,8 +47,11 @@ function parseFrontmatter(text) {
       if (ka) { arrayKey = ka[1]; fm[arrayKey] = []; continue; }
       const kv = line.match(/^(\w+):\s*(.+)$/);
       if (kv) {
-        const val = kv[2].trim();
-        fm[kv[1].trim()] = (val === "''" || val === '""') ? '' : val;
+        let val = kv[2].trim();
+        if ((val.startsWith("'") && val.endsWith("'")) || (val.startsWith('"') && val.endsWith('"'))) {
+          val = val.slice(1, -1);
+        }
+        fm[kv[1].trim()] = val;
       }
     }
     body = m[2];
