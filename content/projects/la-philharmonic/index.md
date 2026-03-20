@@ -13,6 +13,7 @@ skills:
   - Project Management
   - Brand Strategy
 card_ratio: r-3-4
+thumbnail: P0318_Kim.jpeg
 media:
   - P0318_Gustavo_bradbury.jpeg
   - OOH_Billboard_A.jpg
