@@ -82,19 +82,18 @@ npm run sync-draft
 - `draft` — CMS content only (Sveltia commits here); Netlify deploys to draft--gabriellejsirkin.netlify.app
 - `feature/*` — all dev work happens here, then merged into main
 
-**If there's a merge conflict on Publish:**
+**Merge conflicts should no longer occur** — `publish.html` now merges main → draft after every publish, keeping the two branches aligned. If one ever does appear:
 ```
 git fetch origin
 git checkout main
 git merge origin/draft --no-edit -X ours
 git push origin main
 ```
-This keeps main's code and brings in draft's content changes.
 
 ## npm scripts
 - `npm start` — build watcher + live-server + auto-sync (all three in parallel)
-- `npm run sync` — pull latest content from origin/draft and rebuild
-- `npm run sync-draft` — run scripts/sync-draft.sh (push code/config from main → draft)
+- `npm run sync` — pull latest content from origin/draft and rebuild (local preview)
+- `npm run sync-draft` — run scripts/sync-draft.sh (manual fallback; normally handled by GH Action)
 
 ## How build.js works
 1. Loads `content/settings.md` for site-wide tokens (`{{SETTING:key}}`)
@@ -138,8 +137,15 @@ Images/videos not in `media:` are still auto-discovered alphabetically. Use nume
 
 ### Publish to Live (`admin/publish.html`)
 - Merges `draft → main` via GitHub API
+- Then immediately merges `main → draft` to realign branches (no future conflicts)
 - Same PAT as upload tool
 - Netlify builds and deploys main (~30s)
+
+### GitHub Action: Sync code to draft (`.github/workflows/sync-draft.yml`)
+- Triggers automatically on every push to `main` that touches code/config files
+- Copies non-content files from `main` → `draft` so the Netlify draft preview stays current
+- Commit message includes `[skip ci]` to avoid looping
+- Replaces the need to manually run `npm run sync-draft` after code changes
 
 ## GitHub API token
 Fine-grained PAT requirements:
@@ -185,11 +191,11 @@ Run through this before wrapping up any session:
    ```
 5. **CLAUDE.md up to date** — commit any new context, workflow changes, or decisions made this session
 6. **main pushed** — `git status` shows "up to date with origin/main"
-7. **draft synced with main's code** — if any code changes were made this session, run `npm run sync-draft`
+7. **draft synced automatically** — GH Action syncs code to draft on every push; no manual step needed
 
 Keep the `new-design` branch — it has unmerged WIP.
 
 ## Auth worker
 `https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.
 This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
- 
+
