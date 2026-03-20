@@ -9,9 +9,8 @@ credits: ''
 destination: ''
 skills:
   - Visual Direction
-  - Creative Direction
 card_ratio: r-4-3
-coming_soon: true
+coming_soon: false
 thumbnail: 02_IMG_6914_VSCO.JPG
 media:
   - 01_IMG_6932_VSCO.mp4
