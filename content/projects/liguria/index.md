@@ -20,11 +20,6 @@ media:
   - 05_IMG_0656.jpeg
   - 06_IMG_0472_VSCO.mp4
   - 07_IMG_0484_VSCO.mp4
-  - 08_6CBB1C41-FBF6-4CC2-8BBB-A2EEB2E8A153_1_105_c.jpeg
-  - 09_FullSizeRender_VSCO.mp4
-  - 10_IMG_0611.mp4
-  - 11_IMG_0478_VSCO.mp4
-  - 12_DF809602-9F4F-4151-BD3D-EDB47B73686C_1_102_o.jpeg
 filter: content
 card_placeholder: Coming Soon
 placeholder_count: 1
