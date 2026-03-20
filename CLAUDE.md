@@ -1,7 +1,7 @@
 # Gabrielle J. Sirkin — Project Notes
 
 ## Key URLs
-- **Live site:** https://gabriellesirkin.github.io/gabriellejsirkin.com
+- **Live site:** https://gabriellejsirkin.netlify.app
 - **CMS:** https://gabriellejsirkin.netlify.app/admin/
 - **GitHub repo:** https://github.com/gabriellesirkin/gabriellejsirkin.com
 - **Local preview:** http://localhost:3000
@@ -18,7 +18,7 @@ Watches `src/` and `content/`, auto-reloads browser at localhost:3000.
 Open all of the following:
 1. **Terminal** — run `open -a Terminal "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com"` then start the dev server with `osascript -e 'tell app "Terminal" to do script "cd \"/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com\" && npm start" in front window'`
 2. **Local preview** — http://localhost:3000
-3. **Production site** — https://gabriellesirkin.github.io/gabriellejsirkin.com
+3. **Production site** — https://gabriellejsirkin.netlify.app
 4. **GitHub repo** — https://github.com/gabriellesirkin/gabriellejsirkin.com
 5. **CMS** — https://gabriellejsirkin.netlify.app/admin/
 6. **Publish tool** — https://gabriellejsirkin.netlify.app/admin/publish.html

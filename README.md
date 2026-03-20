@@ -1,12 +1,12 @@
 # gabriellejsirkin.com
 
-**https://gabriellesirkin.github.io/gabriellejsirkin.com**
+**https://gabriellejsirkin.netlify.app**
 
 Portfolio website for Gabrielle J. Sirkin.
 
 | | URL |
 |---|---|
-| **Production** | https://gabriellesirkin.github.io/gabriellejsirkin.com |
+| **Production** | https://gabriellejsirkin.netlify.app |
 | **Draft preview** | https://draft--gabriellejsirkin.netlify.app |
 | **CMS** | https://gabriellejsirkin.netlify.app/admin/ |
 | **Local preview** | http://localhost:3000 (run `npm start`) |
@@ -146,7 +146,7 @@ Site-wide values live in `content/settings.md` (or edit via the CMS under Settin
 ---
 site_title: Gabrielle J. Sirkin
 site_description: Visual Director and photographer based in Los Angeles.
-site_url: https://gabriellesirkin.github.io/gabriellejsirkin.com
+site_url: https://gabriellejsirkin.netlify.app
 footer_year: 2026
 nav:
   - Work|index.html
