@@ -10,7 +10,7 @@ destination: ''
 skills: []
 card_ratio: r-4-3
 coming_soon: false
-thumbnail: ''
+thumbnail: Screenshot 2026-03-20 at 12.11.34 PM.png
 media:
   - 01_068-073+126+MR0515+JessicaAlbacoverstory-1.jpeg
   - 02_image-asset.jpeg
