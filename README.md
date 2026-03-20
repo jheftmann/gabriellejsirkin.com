@@ -172,3 +172,4 @@ When the site is shared on social media it uses `sharecard.jpg` in the root fold
 ## Favicon
 
 The favicon (`favicon.svg`) is a temporary placeholder. Replace it with a proper version when ready.
+
