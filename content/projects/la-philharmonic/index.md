@@ -21,6 +21,9 @@ media:
   - P0318_Lofton.jpeg
   - P0318_Kim.jpeg
   - P0318_Silverman.jpeg
+  - Brochure_A_2.jpg
+  - P0318_Hooten.jpeg
+  - LAPhil_BTS.mp4
 filter: editorial
 card_placeholder: LA Philharmonic
 placeholder_count: 5
