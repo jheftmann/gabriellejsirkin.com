@@ -12,7 +12,7 @@ skills:
   - Project Management
   - Curation
 card_ratio: r-4-3
-thumbnail: Screenshot 2026-03-19 at 9.06.51 PM.png
+thumbnail: ABB040118PHOTOMangalDosha_lo-2.jpg
 media:
   - 01_ABB040118PHOTOMangalDosha_lo-1.jpg
   - 02_ABB040118PHOTOMangalDosha_lo-2.jpg
