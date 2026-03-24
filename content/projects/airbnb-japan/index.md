@@ -11,7 +11,7 @@ skills:
   - Visual Direction
   - Production
 card_ratio: r-16-9
-thumbnail: Screenshot 2026-03-20 at 1.40.17 PM.png
+thumbnail: upload-6d3504c7-e5ae-4877-a0c8-88b76d9407a4.webp
 media:
   - 01_ABB060118FEAJapan_lo-4.jpeg
   - 02_ABB060118FEAJapan_lo-5.jpeg
