@@ -1,5 +1,5 @@
 ---
-title: Blues Brothers
+title: Japanese Denim
 cat: Editorial
 client: Airbnb Magazine
 photographer: Carol Sachs
