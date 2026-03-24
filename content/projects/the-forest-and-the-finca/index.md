@@ -12,7 +12,7 @@ skills:
   - Production
 card_ratio: r-4-3
 coming_soon: false
-thumbnail: Screenshot 2026-03-20 at 2.24.35 PM.png
+thumbnail: ABB080119TravelWithPurpose_lo-1.jpg
 media:
   - 01_Screen+Shot+2020-05-23+at+4.47.07+PM.jpeg
   - 02_Screen+Shot+2020-05-23+at+4.47.18+PM.jpeg
