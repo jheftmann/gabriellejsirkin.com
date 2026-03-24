@@ -12,7 +12,7 @@ skills:
   - Production
   - Project Management
 card_ratio: r-3-4
-thumbnail: Screenshot 2026-03-19 at 9.09.11 PM.png
+thumbnail: ABB060119BarbadosTennis_lo-1.jpg
 media:
   - 01_ABB060119BarbadosTennis_lo-1.jpg
   - 02_ABB060119BarbadosTennis_lo-2.jpg
