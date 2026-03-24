@@ -11,8 +11,8 @@ skills:
   - Visual Direction
   - Project Management
   - Curation
-card_ratio: r-3-4
-thumbnail: Screenshot 2026-03-20 at 1.02.37 PM.png
+card_ratio: r-1-1
+thumbnail: ABB060118FEAMorocco_lo_2-1.jpg
 media:
   - 01_ABB060118FEAMorocco_lo-1.jpg
   - 02_ABB060118FEAMorocco_lo-2.jpg
