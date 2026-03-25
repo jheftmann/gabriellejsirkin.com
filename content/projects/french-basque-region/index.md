@@ -20,4 +20,6 @@ media:
   - 05_IMG_0946_VSCO.jpg
   - 06_CC_FrenchBasque_07.mp4
   - 07_85B47341-D295-4EBC-8F5C-69E400C9BBCF_1_102_o.jpeg
+  - 08_CC_FrenchBasque_01.mp4
+  - 09_027021DF-0558-41EC-88EB-AAA93E951D6F_1_105_c.jpeg
 ---
