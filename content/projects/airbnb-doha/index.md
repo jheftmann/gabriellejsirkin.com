@@ -1,5 +1,5 @@
 ---
-title: Mangal Doha
+title: Mangal Dosha
 cat: Editorial
 client: Airbnb Magazine
 photographer: Julia Sellmann
