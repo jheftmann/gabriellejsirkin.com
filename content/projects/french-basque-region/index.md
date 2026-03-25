@@ -25,4 +25,7 @@ media:
   - 10_5FB66C97-1772-4BA2-8F7E-A1C3F7C8D015_1_102_o.jpeg
   - 11_ECE827D7-E6C1-48CF-B956-B6B884681B90_1_105_c.jpeg
   - 12_CC_FrenchBasque_04.mp4
+  - 13_8EAAA968-194B-4511-A008-0DBBBFCCBE74_1_105_c.jpeg
+  - 13_CC_FrenchBasque_08.mp4
+  - 15_CC_FrenchBasque_05.mp4
 ---
