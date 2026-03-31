@@ -3,6 +3,8 @@ title: Made To Travel 2024
 cat: Brand Work
 client: Expedia
 photographer: Nico Therin
+director: Adam Newport Barra
+bts: Gabrielle J Sirkin
 date: '2024'
 description: ''
 credits: ''
