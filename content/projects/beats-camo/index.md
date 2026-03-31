@@ -3,6 +3,8 @@ title: Limited Edition
 cat: Brand Work
 client: Beats by Dre
 photographer: Dan Hall and Wukda
+director: Wukda
+bts: Gabrielle Sirkin
 date: 2018 - 2022
 description: ''
 credits: ''
