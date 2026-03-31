@@ -46,6 +46,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nothing to sync."
           else
-            git commit -m "sync: update code/config from main [skip ci]"
+            git commit -m "sync: update code/config from main"
             git push origin draft
           fi
