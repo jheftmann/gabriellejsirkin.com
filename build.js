@@ -31,8 +31,19 @@ function parseFrontmatter(text) {
   if (m) {
     const lines = m[1].split('\n');
     let arrayKey = null;
+    let arrayItemObj = null; // current multi-key object item being accumulated
     let blockKey = null;
     let blockLines = [];
+
+    function flushArrayItem() {
+      if (arrayItemObj !== null) {
+        const keys = Object.keys(arrayItemObj);
+        // Single-key object → push the value (backward compat); multi-key → push the object
+        fm[arrayKey].push(keys.length === 1 ? arrayItemObj[keys[0]] : arrayItemObj);
+        arrayItemObj = null;
+      }
+    }
+
     for (const line of lines) {
       // Collect indented lines for YAML block scalars (|, |-, |+)
       // Empty lines within a block are preserved as paragraph separators
@@ -46,21 +57,41 @@ function parseFrontmatter(text) {
         blockLines = [];
       }
       if (arrayKey !== null) {
-        const item = line.match(/^\s+-\s+(.*)$/);
+        // New list item
+        const item = line.match(/^\s+-\s+(.*)/);
         if (item) {
+          flushArrayItem();
           const v = item[1].trim();
-          // Handle "key: value" object-style list items — extract just the value
-          const kv2 = v.match(/^\w+:\s*(.+)$/);
-          fm[arrayKey].push(kv2 ? kv2[1].trim() : v);
+          const kv2 = v.match(/^(\w+):\s*(.*)$/);
+          if (kv2) {
+            // Object-style item: start accumulating a multi-key object
+            let val = kv2[2].trim();
+            if ((val.startsWith("'") && val.endsWith("'")) || (val.startsWith('"') && val.endsWith('"'))) val = val.slice(1, -1);
+            arrayItemObj = { [kv2[1]]: val };
+          } else {
+            fm[arrayKey].push(v); // plain string item
+          }
           continue;
         }
-        arrayKey = null; // end of array — fall through to check for new key
+        // Continuation line for object item (indented key: value, no dash)
+        if (arrayItemObj !== null) {
+          const cont = line.match(/^\s+(\w+):\s*(.*)$/);
+          if (cont) {
+            let val = cont[2].trim();
+            if ((val.startsWith("'") && val.endsWith("'")) || (val.startsWith('"') && val.endsWith('"'))) val = val.slice(1, -1);
+            arrayItemObj[cont[1]] = val;
+            continue;
+          }
+        }
+        // End of array — fall through to check for new key
+        flushArrayItem();
+        arrayKey = null;
       }
       // Detect block scalar: key: | or key: |- or key: |+
       const kb = line.match(/^(\w+):\s*\|[-+]?\s*$/);
       if (kb) { blockKey = kb[1]; blockLines = []; continue; }
       const ka = line.match(/^(\w+):\s*$/);
-      if (ka) { arrayKey = ka[1]; fm[arrayKey] = []; continue; }
+      if (ka) { arrayKey = ka[1]; fm[arrayKey] = []; arrayItemObj = null; continue; }
       const kv = line.match(/^(\w+):\s*(.+)$/);
       if (kv) {
         let val = kv[2].trim();
@@ -70,8 +101,9 @@ function parseFrontmatter(text) {
         fm[kv[1].trim()] = val;
       }
     }
-    // Flush any trailing block scalar
+    // Flush any trailing block scalar or array item
     if (blockKey !== null) fm[blockKey] = blockLines.join('\n').replace(/\n+$/, '');
+    if (arrayKey !== null) flushArrayItem();
     body = m[2];
   }
   return { fm, body };
@@ -161,21 +193,30 @@ function loadProjects() {
       const baseUrl = `content/projects/${id}/`;
 
       // Resolve media list: frontmatter media list > auto-discovered folder files
-      // Filter to strings only — placeholder objects like { r: 'r-4-3' } are not real paths
-      const stringMedia = Array.isArray(meta.media) ? meta.media.filter(x => typeof x === 'string') : [];
-      const fmMedia = stringMedia.length > 0 ? stringMedia : null;
-      const folderMedia = fmMedia ? [] : fs.readdirSync(path.join(dir, id))
+      // Each item may be a plain string path or a { file, caption } object (new caption format)
+      // Placeholder objects like { r: 'r-4-3' } are excluded (no .file key)
+      const fmMediaRaw = Array.isArray(meta.media) && meta.media.length > 0
+        ? meta.media.filter(x => typeof x === 'string' || (typeof x === 'object' && x !== null && x.file))
+        : null;
+      const folderMedia = fmMediaRaw ? [] : fs.readdirSync(path.join(dir, id))
         .filter(f => /\.(jpe?g|png|webp|gif|avif|mp4)$/i.test(f))
         .sort();
-      const resolvedImages = fmMedia
-        ? fmMedia.map(src => path.isAbsolute(src) ? src.replace(/^\//, '') : `${baseUrl}${src}`)
-        : folderMedia.map(f => `${baseUrl}${f}`);
+      // Normalize to { src, caption } objects throughout
+      const resolvedImages = fmMediaRaw
+        ? fmMediaRaw.map(item => {
+            if (typeof item === 'string') {
+              return { src: path.isAbsolute(item) ? item.replace(/^\//, '') : `${baseUrl}${item}`, caption: '' };
+            }
+            const rawSrc = item.file || '';
+            return { src: path.isAbsolute(rawSrc) ? rawSrc.replace(/^\//, '') : `${baseUrl}${rawSrc}`, caption: item.caption || '' };
+          })
+        : folderMedia.map(f => ({ src: `${baseUrl}${f}`, caption: '' }));
 
       // Card thumbnail: explicit thumbnail field > first image
       if (meta.thumbnail) {
         meta.cardImage.src = meta.thumbnail.startsWith('/') ? meta.thumbnail.replace(/^\//, '') : `${baseUrl}${meta.thumbnail}`;
       } else if (resolvedImages.length > 0) {
-        meta.cardImage.src = resolvedImages[0];
+        meta.cardImage.src = resolvedImages[0].src;
       }
       delete meta.thumbnail;
 
@@ -203,9 +244,12 @@ function loadProjects() {
           );
         } else if (resolvedImages.length > 0) {
           imgsHtml = resolvedImages
-            .map(src => /\.mp4$/i.test(src)
-              ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
-              : `<img src="${encodeSrc(src)}" alt="">`)
+            .map(({ src, caption }) => {
+              const el = /\.mp4$/i.test(src)
+                ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
+                : `<img src="${encodeSrc(src)}" alt="">`;
+              return caption ? `<figure>${el}<figcaption>${caption}</figcaption></figure>` : el;
+            })
             .join('\n');
         } else {
           imgsHtml = null;
@@ -228,7 +272,9 @@ function renderCard(p) {
   const ph    = p.cardImage && p.cardImage.placeholder || '';
   const src   = p.cardImage && p.cardImage.src;
   const inner = src
-    ? `<img src="${encodeSrc(src)}" alt="${p.title}">`
+    ? (/\.mp4$/i.test(src)
+        ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
+        : `<img src="${encodeSrc(src)}" alt="${p.title}">`)
     : `<div class="thumb-ph">${ph}</div>`;
   const orderAttr    = p.order    != null ? ` data-order="${p.order}"`         : '';
   const orderAllAttr = p.orderAll != null ? ` data-order-all="${p.orderAll}"` : '';

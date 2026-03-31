@@ -62,8 +62,16 @@
 .project-images img { width: 100%; height: auto; display: block; }
 .project-images video { width: 100%; height: auto; display: block; }
 .project-images p { display: contents; }
+.project-images figure { margin: 0; }
+.project-images figure img,
+.project-images figure video { width: 100%; height: auto; display: block; }
 .project-images > *:nth-child(even) { margin-top: 5rem; }
 .project-images > * { margin-bottom: var(--gap); }
+figcaption {
+  font-size: .72rem; font-weight: 300; color: var(--muted);
+  margin-top: .4rem; line-height: 1.5;
+  transition: color var(--transition);
+}
 
 .proj-img {
   width: 100%;
