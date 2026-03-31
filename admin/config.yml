@@ -94,7 +94,9 @@ collections:
         hint: 'Images and videos in display order. Add them here to control the sequence — mix stills and video freely.'
         media_folder: ''
         public_folder: ''
-        field: { name: file, label: File, widget: file }
+        fields:
+          - { name: file, label: File, widget: file }
+          - { name: caption, label: Caption, widget: string, required: false, hint: 'Optional caption shown below the image.' }
 
   # ── Pages ──────────────────────────────────────────────────────────────────
   - name: pages
