@@ -3,7 +3,11 @@ title: Mangal Dosha
 cat: Editorial
 client: Airbnb Magazine
 photographer: Julia Sellmann
+director: ''
+bts: ''
 date: '2018'
+order: 2
+order_all: 1
 description: ''
 credits: ''
 destination: ''

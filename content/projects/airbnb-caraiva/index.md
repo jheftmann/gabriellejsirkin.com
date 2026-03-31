@@ -3,7 +3,11 @@ title: Caraiva
 cat: Editorial
 client: Airbnb Magazine
 photographer: Pia Riverola
+director: ''
+bts: ''
 date: '2018'
+order: 1
+order_all: 2
 description: ''
 credits: ''
 destination: ''

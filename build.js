@@ -35,9 +35,10 @@ function parseFrontmatter(text) {
     let blockLines = [];
     for (const line of lines) {
       // Collect indented lines for YAML block scalars (|, |-, |+)
+      // Empty lines within a block are preserved as paragraph separators
       if (blockKey !== null) {
-        if (line.match(/^\s+/)) {
-          blockLines.push(line.trimStart());
+        if (line.match(/^\s+/) || line === '') {
+          blockLines.push(line === '' ? '' : line.trimStart());
           continue;
         }
         fm[blockKey] = blockLines.join('\n').replace(/\n+$/, '');
@@ -286,9 +287,9 @@ function build() {
     html = applyIncludes(html, partials);
 
     // Merge page-specific content into settings, then apply tokens
-    const pageSettings = page === 'index'
-      ? { ...settings, ...loadPageContent('home') }
-      : settings;
+    const pageContentMap = { index: 'home', about: 'about', travel: 'travel' };
+    const pageContent = pageContentMap[page] ? loadPageContent(pageContentMap[page]) : {};
+    const pageSettings = { ...settings, ...pageContent };
     html = applySettings(html, pageSettings);
 
     // Auto-generate filter bar and inject project cards
@@ -300,6 +301,40 @@ function build() {
       });
       html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted));
       html = html.replace('<!-- #projects-cards -->', sorted.map(renderCard).join('\n'));
+    }
+
+    // Inject about page dynamic content
+    if (page === 'about') {
+      const skills = [1,2,3,4].map(i => {
+        const name = pageContent[`skill${i}_name`];
+        const desc = pageContent[`skill${i}_desc`];
+        if (!name) return '';
+        return `      <div class="skill-item">\n        <p class="skill-name">${name}</p>\n        ${desc ? `<p class="skill-desc">${desc}</p>` : ''}\n      </div>`;
+      }).filter(Boolean).join('\n');
+      html = html.replace('<!-- #about-skills -->', skills);
+
+      const bio = (pageContent.bio || '').split(/\n\n+/).filter(Boolean)
+        .map(p => `      <p class="bio-para">${p.replace(/\n/g, ' ')}</p>`).join('\n');
+      html = html.replace('<!-- #about-bio -->', bio);
+    }
+
+    // Inject travel page dynamic content
+    if (page === 'travel') {
+      const approach = (pageContent.approach || '').split(/\n\n+/).filter(Boolean)
+        .map(p => `      <p class="bio-para">${p.replace(/\n/g, ' ')}</p>`).join('\n');
+      html = html.replace('<!-- #travel-approach -->', approach);
+
+      const services = (Array.isArray(pageContent.services) ? pageContent.services : [])
+        .map(s => `        <span>${s}</span>`).join('\n');
+      html = html.replace('<!-- #travel-services -->', services);
+
+      const clients = (Array.isArray(pageContent.clients) ? pageContent.clients : [])
+        .map(c => `      <p class="services-text">${c}</p>`).join('\n');
+      html = html.replace('<!-- #travel-clients -->', clients);
+
+      const cities = (Array.isArray(pageContent.cities) ? pageContent.cities : [])
+        .map(c => `        <span>${c}</span>`).join('\n');
+      html = html.replace('<!-- #travel-cities -->', cities);
     }
 
     // Inject projects data object into project page

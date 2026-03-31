@@ -96,7 +96,7 @@ collections:
         public_folder: ''
         field: { name: file, label: File, widget: file }
 
-  # ── Home page ──────────────────────────────────────────────────────────────
+  # ── Pages ──────────────────────────────────────────────────────────────────
   - name: pages
     label: Pages
     files:
@@ -106,6 +106,55 @@ collections:
         fields:
           - { name: hero_main,   label: Hero — Line 1, widget: string }
           - { name: hero_accent, label: Hero — Line 2, widget: string }
+
+      - name: about
+        label: About
+        file: content/pages/about.md
+        fields:
+          - { name: headline_1, label: Headline — Line 1, widget: string }
+          - { name: headline_2, label: Headline — Line 2 (italic), widget: string }
+          - { name: lead, label: Lead Paragraph, widget: string }
+
+          - { name: skill1_name, label: 'Skill 1 — Name', widget: string }
+          - { name: skill1_desc, label: 'Skill 1 — Description', widget: text }
+          - { name: skill2_name, label: 'Skill 2 — Name', widget: string }
+          - { name: skill2_desc, label: 'Skill 2 — Description', widget: text }
+          - { name: skill3_name, label: 'Skill 3 — Name', widget: string }
+          - { name: skill3_desc, label: 'Skill 3 — Description', widget: text }
+          - { name: skill4_name, label: 'Skill 4 — Name', widget: string }
+          - { name: skill4_desc, label: 'Skill 4 — Description', widget: text }
+
+          - { name: services_text, label: Travel Creative Services, widget: string }
+
+          - { name: bio, label: Bio, widget: text,
+              hint: 'Separate paragraphs with a blank line.' }
+
+      - name: travel
+        label: Travel Creative Services
+        file: content/pages/travel.md
+        fields:
+          - { name: headline_1, label: Headline — Line 1, widget: string }
+          - { name: headline_2, label: Headline — Line 2 (italic), widget: string }
+
+          - { name: approach, label: Approach, widget: text,
+              hint: 'Separate paragraphs with a blank line.' }
+
+          - name: services
+            label: Services
+            widget: list
+            field: { name: item, label: Service, widget: string }
+
+          - name: clients
+            label: Who We Work With
+            widget: list
+            field: { name: item, label: Client Type, widget: string }
+
+          - { name: city_guides_intro, label: City Guides — Intro, widget: string }
+
+          - name: cities
+            label: City Guides — Cities
+            widget: list
+            field: { name: item, label: City, widget: string }
 
   # ── Site settings ──────────────────────────────────────────────────────────
   - name: settings
@@ -119,6 +168,9 @@ collections:
           - { name: site_description, label: Site Description, widget: string }
           - { name: site_url,         label: Site URL,         widget: string }
           - { name: footer_year,      label: Footer Year,      widget: string }
+          - { name: contact_email,    label: Contact Email,    widget: string }
+          - { name: contact_instagram, label: Instagram URL,   widget: string }
+          - { name: contact_linkedin,  label: LinkedIn URL,    widget: string }
           - name: nav
             label: Navigation
             widget: list
