@@ -11,7 +11,7 @@ skills:
   - Visual Direction
   - Production
   - Project Management
-card_ratio: r-16-9
+card_ratio: r-1-1
 thumbnail: Screenshot 2026-03-19 at 8.40.49 PM.png
 media:
   - 01_SriLanka-1.jpg
