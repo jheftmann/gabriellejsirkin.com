@@ -2,8 +2,12 @@
 title: All in the Family
 cat: Personal
 client: ''
-photographer: Julia Stotz
+photographer: ''
+director: ''
+bts: ''
 date: ''
+order: null
+order_all: null
 description: Pasta is the true language of Italy, the great connector. The photographs in All in the Family highlight a quintessential dish from each pasta family in their most natural setting — surrounded by loved ones and lively conversation. Collectible posters, postcards and a limited edition of fine art prints were available at a Pop Up Exhibition in the Fall of 2024 at Bucatini Los Angeles.
 credits: |-
   Creative Direction & Concept: Gabrielle J Sirkin
