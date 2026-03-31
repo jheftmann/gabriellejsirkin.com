@@ -25,7 +25,7 @@ media:
   - Brochure_A_2.jpg
   - P0318_Hooten.jpeg
   - LAPhil_BTS.mp4
-filter: brand
+filter: editorial
 card_placeholder: LA Philharmonic
 placeholder_count: 5
 ---
