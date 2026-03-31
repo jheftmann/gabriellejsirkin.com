@@ -221,7 +221,9 @@
       });
 
       if (res.status === 201) {
-        showStatus('info', 'Published! Syncing draft back to main…');
+        showStatus('info', 'Published! Cleaning up deleted projects…');
+        await syncDeletedProjects(token);
+        showStatus('info', 'Syncing draft back to main…');
         await resetDraftToMain(token);
         showStatus('success', 'Published. The site will update in about 30 seconds.');
       } else if (res.status === 204) {
@@ -240,6 +242,44 @@
 
     publishBtn.disabled = false;
   });
+
+  async function apiGet(token, path) {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/${path}`, {
+      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' },
+    });
+    return res.ok ? res.json() : null;
+  }
+
+  async function syncDeletedProjects(token) {
+    // List project folders on draft and main; delete any from main not on draft
+    const [onDraft, onMain] = await Promise.all([
+      apiGet(token, 'contents/content/projects?ref=draft'),
+      apiGet(token, 'contents/content/projects?ref=main'),
+    ]);
+    if (!onDraft || !onMain) return;
+
+    const draftSlugs = new Set(onDraft.filter(e => e.type === 'dir').map(e => e.name));
+    const toDelete   = onMain.filter(e => e.type === 'dir' && !draftSlugs.has(e.name));
+
+    for (const folder of toDelete) {
+      // Fetch index.md SHA so we can delete it via the Contents API
+      const file = await apiGet(token, `contents/content/projects/${folder.name}/index.md?ref=main`);
+      if (!file) continue;
+      await fetch(`https://api.github.com/repos/${REPO}/contents/content/projects/${folder.name}/index.md`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: `publish: remove deleted project "${folder.name}"`,
+          sha: file.sha,
+          branch: 'main',
+        }),
+      });
+    }
+  }
 
   async function resetDraftToMain(token) {
     // Merge main → draft so the next publish is always a clean fast-forward
