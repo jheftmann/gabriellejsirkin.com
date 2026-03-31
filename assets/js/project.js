@@ -33,11 +33,15 @@ function getParams() {
     if (p.description)  meta += fieldDesc(p.description);
     if (p.client)       meta += field('Client',       p.client);
     if (p.photographer) meta += field('Photographer', p.photographer);
+    if (p.director)     meta += field('Director',     p.director);
+    if (p.bts)          meta += field('BTS',          p.bts);
     if (p.date)         meta += field('Year',         p.date);
     if (p.credits)      meta += fieldCredits(p.credits);
   } else if (cat === 'Personal' || cat === 'Curation') {
     if (p.description)  meta += fieldDesc(p.description);
     if (p.photographer) meta += field('Photographer', p.photographer);
+    if (p.director)     meta += field('Director',     p.director);
+    if (p.bts)          meta += field('BTS',          p.bts);
     if (p.date)         meta += field('Year',         p.date);
     if (p.credits)      meta += fieldCredits(p.credits);
   } else if (cat === 'Content Creation') {
