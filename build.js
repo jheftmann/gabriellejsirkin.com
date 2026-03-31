@@ -114,6 +114,8 @@ function loadProjects() {
           cat:          fm.cat          || '',
           filter:       fm.filter || CAT_TO_FILTER[fm.cat] || 'personal',
           photographer: fm.photographer || '',
+          director:     fm.director     || '',
+          bts:          fm.bts          || '',
           date:         fm.date         || '',
           description:  fm.description  || '',
           credits:      fm.credits      || '',

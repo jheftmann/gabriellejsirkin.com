@@ -41,6 +41,8 @@ collections:
 
       - { name: client,       label: Client,       widget: string,  required: false }
       - { name: photographer, label: Photographer, widget: string,  required: false }
+      - { name: director,     label: Director,     widget: string,  required: false }
+      - { name: bts,          label: BTS,          widget: string,  required: false }
       - { name: date,         label: Year,         widget: string,  required: false }
 
       - { name: description, label: Description, widget: text, required: false,
