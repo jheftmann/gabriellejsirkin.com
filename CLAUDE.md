@@ -144,7 +144,7 @@ Images/videos not in `media:` are still auto-discovered alphabetically. Use nume
 ### GitHub Action: Sync code to draft (`.github/workflows/sync-draft.yml`)
 - Triggers automatically on every push to `main` that touches code/config files
 - Copies non-content files from `main` → `draft` so the Netlify draft preview stays current
-- Commit message includes `[skip ci]` to avoid looping
+- No longer uses `[skip ci]` — removed so Netlify rebuilds the draft preview on every sync
 - Replaces the need to manually run `npm run sync-draft` after code changes
 
 ## GitHub API token
@@ -189,9 +189,11 @@ Run through this before wrapping up any session:
    ```
    git remote prune origin
    ```
-5. **CLAUDE.md up to date** — commit any new context, workflow changes, or decisions made this session
-6. **main pushed** — `git status` shows "up to date with origin/main"
-7. **draft synced automatically** — GH Action syncs code to draft on every push; no manual step needed
+5. **GitHub issues up to date** — close resolved issues with a comment; open issues for anything deferred
+6. **README changelog updated** — add an entry for everything shipped this session
+7. **CLAUDE.md up to date** — commit any new context, workflow changes, or decisions made this session
+8. **main pushed** — `git status` shows "up to date with origin/main"
+9. **draft synced automatically** — GH Action syncs code to draft on every push; no manual step needed
 
 Keep the `new-design` branch — it has unmerged WIP.
 
