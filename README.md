@@ -183,3 +183,21 @@ Code changes on `main` automatically sync to `draft` via GitHub Actions.
 ### Auth
 
 CMS login uses a Cloudflare Worker at `https://sveltia-cms-auth.orsa.workers.dev` (handles GitHub OAuth). See issue #4 for setting up Gabrielle's own worker.
+
+---
+
+## Changelog
+
+### 2026-03-30
+- **Project image grid: 3 columns on desktop** — project pages now show 3 columns on laptops/desktop (≥1101px), 2 columns on tablet (601–1100px), 1 column on mobile. Homepage/category grid unchanged (2 col / 1 col).
+- **Image captions (#14)** — media items now have an optional Caption field in the CMS. Captioned images/videos render as `<figure><figcaption>` on project pages; no caption = no extra markup.
+- **Video thumbnails** — card thumbnails now accept `.mp4` files; they autoplay/loop silently on the project grid.
+- **Remove card zoom hover** — thumbnails no longer scale on hover.
+- **About & Travel pages editable in CMS (#23)** — all copy (headlines, bio, skills, services, cities, etc.) is now managed through the CMS.
+- **Manual project ordering** — two numeric fields (`Order (within category)` and `Order (All page)`) control card sort order. Blank sorts after numbered projects.
+- **Director and BTS fields** — added to all project pages (ordered: Client, Photographer, Director, BTS, Year).
+- **Multi-line credits** — credits field now supports multi-line text via YAML block scalars.
+- **Fix: sync no longer stages content files** — `npm run sync` uses `git restore --worktree` instead of `git checkout`, preventing accidental content commits.
+- **Fix: Build Action no longer commits HTML** — removed the HTML commit step from the GitHub Actions build workflow; Netlify handles deploys.
+- **Fix: LA Philharmonic always in Brand Work** — corrected `filter: brand` on both `main` and `draft` branches.
+- **Fix: Sveltia CMS pinned to 0.146.10** — avoids "Failed to Fetch" regression in newer versions.
