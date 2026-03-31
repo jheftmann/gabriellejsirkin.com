@@ -77,7 +77,7 @@ function fieldDesc(value) {
 }
 
 function fieldCredits(value) {
-  return '<p class="meta-credits">' + value + '</p>';
+  return '<p class="meta-credits">' + value.replace(/\n/g, '<br>') + '</p>';
 }
 
 function renderPlaceholders(p) {

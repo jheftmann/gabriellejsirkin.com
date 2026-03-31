@@ -31,7 +31,19 @@ function parseFrontmatter(text) {
   if (m) {
     const lines = m[1].split('\n');
     let arrayKey = null;
+    let blockKey = null;
+    let blockLines = [];
     for (const line of lines) {
+      // Collect indented lines for YAML block scalars (|, |-, |+)
+      if (blockKey !== null) {
+        if (line.match(/^\s+/)) {
+          blockLines.push(line.trimStart());
+          continue;
+        }
+        fm[blockKey] = blockLines.join('\n').replace(/\n+$/, '');
+        blockKey = null;
+        blockLines = [];
+      }
       if (arrayKey !== null) {
         const item = line.match(/^\s+-\s+(.*)$/);
         if (item) {
@@ -43,6 +55,9 @@ function parseFrontmatter(text) {
         }
         arrayKey = null; // end of array — fall through to check for new key
       }
+      // Detect block scalar: key: | or key: |- or key: |+
+      const kb = line.match(/^(\w+):\s*\|[-+]?\s*$/);
+      if (kb) { blockKey = kb[1]; blockLines = []; continue; }
       const ka = line.match(/^(\w+):\s*$/);
       if (ka) { arrayKey = ka[1]; fm[arrayKey] = []; continue; }
       const kv = line.match(/^(\w+):\s*(.+)$/);
@@ -54,6 +69,8 @@ function parseFrontmatter(text) {
         fm[kv[1].trim()] = val;
       }
     }
+    // Flush any trailing block scalar
+    if (blockKey !== null) fm[blockKey] = blockLines.join('\n').replace(/\n+$/, '');
     body = m[2];
   }
   return { fm, body };
