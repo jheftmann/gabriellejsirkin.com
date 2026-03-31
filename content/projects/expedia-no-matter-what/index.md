@@ -3,6 +3,8 @@ title: Made To Travel
 cat: Brand Work
 client: Expedia
 photographer: Nico Therin and Joao Canziani
+director: ''
+bts: Gabrielle J Sirkin
 date: '2023'
 description: ''
 credits: ''
