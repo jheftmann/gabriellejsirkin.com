@@ -2,6 +2,17 @@ var GAP_VAL   = '5rem';
 var STAGGER_2 = '9rem';
 
 var allCards = Array.from(document.querySelectorAll('.project-card'));
+var grid     = document.getElementById('grid');
+
+function sortedCards(filter) {
+  var key = filter === 'all' ? 'orderAll' : 'order';
+  return allCards.slice().sort(function (a, b) {
+    var av = a.dataset[key] !== undefined ? parseInt(a.dataset[key], 10) : Infinity;
+    var bv = b.dataset[key] !== undefined ? parseInt(b.dataset[key], 10) : Infinity;
+    if (av !== bv) return av - bv;
+    return (a.dataset.title || '').localeCompare(b.dataset.title || '');
+  });
+}
 
 function applyStagger(visibleCards) {
   visibleCards.forEach(function (el, i) {
@@ -18,13 +29,16 @@ function applyFilter(f, animate) {
     document.body.dataset.scheme = btn.dataset.scheme || f;
   }
 
+  var ordered = sortedCards(f);
+  ordered.forEach(function (el) { grid.appendChild(el); });
+
   if (!animate) {
-    allCards.forEach(function (el) {
+    ordered.forEach(function (el) {
       var match = f === 'all' || el.dataset.category === f;
       match ? el.classList.remove('hidden') : el.classList.add('hidden');
       el.style.marginTop = '';
     });
-    var visible = allCards.filter(function (el) { return !el.classList.contains('hidden'); });
+    var visible = ordered.filter(function (el) { return !el.classList.contains('hidden'); });
     applyStagger(visible);
     requestAnimationFrame(function () {
       visible.forEach(function (el, i) { setTimeout(function () { el.classList.add('visible'); }, i * 52); });
@@ -32,12 +46,12 @@ function applyFilter(f, animate) {
   } else {
     allCards.forEach(function (el) { el.classList.remove('visible'); });
     setTimeout(function () {
-      allCards.forEach(function (el) {
+      ordered.forEach(function (el) {
         var match = f === 'all' || el.dataset.category === f;
         match ? el.classList.remove('hidden') : el.classList.add('hidden');
         el.style.marginTop = '';
       });
-      var visible = allCards.filter(function (el) { return !el.classList.contains('hidden'); });
+      var visible = ordered.filter(function (el) { return !el.classList.contains('hidden'); });
       applyStagger(visible);
       visible.forEach(function (el, i) { setTimeout(function () { el.classList.add('visible'); }, i * 60); });
     }, 270);

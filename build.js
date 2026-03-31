@@ -134,6 +134,8 @@ function loadProjects() {
           director:     fm.director     || '',
           bts:          fm.bts          || '',
           date:         fm.date         || '',
+          order:        fm.order        != null ? parseInt(fm.order,    10) : null,
+          orderAll:     fm.order_all    != null ? parseInt(fm.order_all, 10) : null,
           description:  fm.description  || '',
           credits:      fm.credits      || '',
           destination:  fm.destination  || '',
@@ -227,8 +229,10 @@ function renderCard(p) {
   const inner = src
     ? `<img src="${encodeSrc(src)}" alt="${p.title}">`
     : `<div class="thumb-ph">${ph}</div>`;
+  const orderAttr    = p.order    != null ? ` data-order="${p.order}"`         : '';
+  const orderAllAttr = p.orderAll != null ? ` data-order-all="${p.orderAll}"` : '';
   return (
-    `    <a class="project-card" data-category="${p.filter}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
+    `    <a class="project-card" data-category="${p.filter}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
     `      <div class="thumb ${r}">${inner}</div>\n` +
     `      <div class="card-info">${cs}<p class="card-title">${p.title}</p>` +
     `<p class="card-subtitle">${pub}</p>` +
@@ -289,8 +293,13 @@ function build() {
 
     // Auto-generate filter bar and inject project cards
     if (page === 'index') {
-      html = html.replace('<!-- #filter-bar -->',    renderFilterBar(projects));
-      html = html.replace('<!-- #projects-cards -->', projects.map(renderCard).join('\n'));
+      const sorted = projects.slice().sort((a, b) => {
+        const av = a.orderAll != null ? a.orderAll : Infinity;
+        const bv = b.orderAll != null ? b.orderAll : Infinity;
+        return av !== bv ? av - bv : a.title.localeCompare(b.title);
+      });
+      html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted));
+      html = html.replace('<!-- #projects-cards -->', sorted.map(renderCard).join('\n'));
     }
 
     // Inject projects data object into project page
