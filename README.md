@@ -4,148 +4,76 @@
 
 Portfolio website for Gabrielle J. Sirkin.
 
+---
+
+## For Gabrielle — Content Editing
+
+### Your tools
+
+| Tool | URL |
+|------|-----|
+| **CMS** (edit content) | https://gabriellejsirkin.netlify.app/admin/ |
+| **Upload Images** | https://gabriellejsirkin.netlify.app/admin/upload.html |
+| **Publish to Live** | https://gabriellejsirkin.netlify.app/admin/publish.html |
+| **Preview site** | https://draft--gabriellejsirkin.netlify.app |
+| **Live site** | https://gabriellejsirkin.netlify.app |
+
+---
+
+### Editing workflow
+
+#### Step 1 — Upload images or videos
+Go to the **Upload Images** tool. Drag and drop your files, select the project folder, and upload. Accepts JPG, PNG, and MP4.
+
+#### Step 2 — Edit in the CMS
+Go to the **CMS**. Log in with GitHub. From here you can:
+- Add or edit projects (text, images, metadata)
+- Edit the About and Travel pages
+- Edit homepage copy
+- Edit site-wide settings
+
+Make your changes and click **Save**. This saves to the **preview site only** — nothing changes on the live site yet.
+
+#### Step 3 — Review on preview
+Check your changes at the **preview site**: https://draft--gabriellejsirkin.netlify.app
+
+The preview updates within about 30 seconds of saving.
+
+#### Step 4 — Publish to live
+When you're happy with the preview, go to the **Publish to Live** tool and click **Publish to Live Site**. The live site updates within about 30 seconds.
+
+---
+
+### Important notes
+
+> **Order fields — leave blank or enter a number, don't clear after setting**
+> The "Order (within category)" and "Order (All page)" fields control where a project appears in its tab. If you set a number and then delete it, save the project again with the field left blank — don't leave it half-edited. If a project ever appears blank in the CMS, open it, clear both Order fields, and save again.
+
+> **Uploading images vs. adding to Media list**
+> Uploading a file adds it to the project folder but doesn't put it on the page. After uploading, open the project in the CMS and add the filename to the **Media** list to control where it appears.
+
+> **Thumbnail — image or video**
+> The Card Thumbnail field accepts both images and MP4 videos. Leave it blank to use the first item in the Media list automatically.
+
+> **Coming Soon**
+> Toggle "Coming Soon" on a project to show a badge on the card without publishing the full project.
+
+> **Backups**
+> Content is automatically backed up on the 1st of every month. Backups are stored as zip files in the [Releases](https://github.com/jheftmann/gabriellejsirkin.com/releases) tab on GitHub. To trigger a backup manually: GitHub → Actions → "Monthly content backup" → Run workflow.
+
+---
+
+## For Developers
+
+### URLs
+
 | | URL |
 |---|---|
 | **Live site** | https://gabriellejsirkin.netlify.app |
 | **Preview** | https://draft--gabriellejsirkin.netlify.app |
 | **CMS** | https://gabriellejsirkin.netlify.app/admin/ |
+| **GitHub repo** | https://github.com/jheftmann/gabriellejsirkin.com |
 | **Local (dev)** | http://localhost:3000 — run `npm start` |
-
----
-
-## For Gabrielle
-
-### Editing content
-
-Go to the **CMS**: https://gabriellejsirkin.netlify.app/admin/
-
-Log in with GitHub. From there you can:
-- Edit projects (text, images, metadata)
-- Edit the homepage intro
-- Edit site-wide settings (title, description, nav)
-
-### Saving vs. publishing
-
-- **Save** — saves your changes to the **preview site** only. Nothing changes on the live site yet. Use this to stage and review your work.
-- **Publish to Live** — pushes everything you've saved to the live site. Click the **Publish to Live** button on the CMS homepage.
-
-Preview URL: https://draft--gabriellejsirkin.netlify.app
-Live site: https://gabriellejsirkin.netlify.app
-
-### Uploading images
-
-Use the **Upload Images** tool: https://gabriellejsirkin.netlify.app/admin/upload.html
-
-Drag and drop images or videos (mp4) onto the page. Select the project folder they belong to, then upload. After uploading, open the project in the CMS to add them to the media list.
-
----
-
-## Pages
-
-| Page | URL |
-|------|-----|
-| Home / Work | `/` |
-| About | `/about.html` |
-| Travel Creative Services | `/travel.html` |
-| Project (individual) | `/project.html` (loaded dynamically) |
-
----
-
-## Project folder structure
-
-Every project lives in its own folder inside `content/projects/`:
-
-```
-content/projects/
-  all-in-the-family/
-    index.md        ← all text fields for this project
-    hero.jpg
-    detail-1.jpg
-```
-
-### Project fields (`index.md`)
-
-```
----
-title: All in the Family
-client: Bon Appétit
-cat: Editorial
-photographer: Julia Stotz
-date: 2024
-description: Pasta is the true language of Italy...
-credits: Creative Direction & Concept: Gabrielle J Sirkin — Photography: Julia Stotz
-skills: Visual Direction, Creative Direction, Production
-card_ratio: r-4-3
-thumbnail: hero.jpg
-coming_soon: false
----
-```
-
-| Field | Required | Notes |
-|-------|----------|-------|
-| `title` | yes | Project name |
-| `client` | no | Client or publication |
-| `cat` | yes | `Brand Work`, `Editorial`, `Content Creation`, or `Personal` |
-| `photographer` | no | Photographer credit |
-| `date` | no | Year |
-| `description` | no | Paragraph shown above project details |
-| `credits` | no | Full credits line |
-| `destination` | no | For Content Creation projects only |
-| `skills` | yes | Comma-separated list |
-| `card_ratio` | no | Card shape: `r-16-9`, `r-4-3`, `r-3-4`, `r-3-2`, `r-2-3`, `r-1-1` |
-| `thumbnail` | no | Card image. Defaults to first image in folder if not set. |
-| `coming_soon` | no | Set to `true` to show a Coming Soon badge |
-
-Images go in the same folder as `index.md` and are shown automatically in alphabetical order. Use numeric prefixes (`01_`, `02_`) to control the order.
-
----
-
-## Global settings
-
-Site-wide values live in `content/settings.md` (or edit via the CMS under Settings → Global):
-
-```
----
-site_title: Gabrielle J. Sirkin
-site_description: Visual Director and photographer based in Los Angeles.
-site_url: https://gabriellejsirkin.netlify.app
-footer_year: 2026
-nav:
-  - Work|index.html
-  - Travel Creative Services|travel.html
-  - About|about.html
----
-```
-
----
-
-## Homepage text
-
-The intro text on the homepage is in `content/pages/home.md` (or edit via the CMS under Pages → Home).
-
----
-
-## Sharecard (link preview image)
-
-When the site is shared on social media, it shows `sharecard.jpg` from the root folder. Save a **1200 × 630 px** JPG there to update it.
-
----
-
-## Favicon
-
-`favicon.svg` is a placeholder. Replace with a final version when ready.
-
----
-
-## Backups
-
-Content is automatically backed up on the **1st of every month**. Backups are stored as zip files in the [Releases](https://github.com/jheftmann/gabriellejsirkin.com/releases) tab on GitHub. Backups older than 6 months are deleted automatically.
-
-To trigger a backup manually: GitHub → Actions → "Monthly content backup" → Run workflow.
-
----
-
-## For developers
 
 ### Local setup
 
@@ -158,11 +86,20 @@ npm start     # starts dev server at localhost:3000
 
 `npm start` pulls the latest CMS content from the `draft` branch, builds, and watches for changes.
 
+### Tech stack
+
+- **Builder:** `build.js` — custom Node.js static site generator (no framework)
+- **Templates:** `src/*.html` → compiled to root `*.html` (never edit root files directly)
+- **Content:** `content/projects/*/index.md` + `content/pages/*.md` + `content/settings.md`
+- **CMS:** Sveltia CMS (git-based), config in `admin/config.yml`, pinned to 0.146.10
+- **Hosting:** Netlify — `main` → production, `draft` → preview
+- **Auth:** Cloudflare Worker at `https://sveltia-cms-auth.orsa.workers.dev` (see issue #4)
+
 ### Branches
 
 | Branch | Purpose |
 |--------|---------|
-| `main` | Live site — deploys to gabriellejsirkin.netlify.app |
+| `main` | Production — deploys to gabriellejsirkin.netlify.app |
 | `draft` | CMS content — deploys to draft--gabriellejsirkin.netlify.app |
 | `feature/*` | All dev work — merge into main when ready |
 
@@ -180,13 +117,52 @@ git branch -d feature/my-change
 
 Code changes on `main` automatically sync to `draft` via GitHub Actions.
 
-### Auth
+### Pages
 
-CMS login uses a Cloudflare Worker at `https://sveltia-cms-auth.orsa.workers.dev` (handles GitHub OAuth). See issue #4 for setting up Gabrielle's own worker.
+| Page | URL |
+|------|-----|
+| Home / Work | `/` |
+| About | `/about.html` |
+| Travel Creative Services | `/travel.html` |
+| Project (individual) | `/project.html` (loaded dynamically) |
+
+### Project frontmatter fields
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `title` | yes | Project name |
+| `client` | no | Client or publication |
+| `cat` | yes | `Brand Work`, `Editorial`, `Content Creation`, or `Personal` |
+| `photographer` | no | Photographer credit |
+| `director` | no | Director credit |
+| `bts` | no | BTS credit |
+| `date` | no | Year |
+| `description` | no | Paragraph shown above project details |
+| `credits` | no | Full credits (supports multi-line) |
+| `destination` | no | For Content Creation projects only |
+| `skills` | no | List of tags shown on card and project page |
+| `card_ratio` | no | Card shape: `r-16-9`, `r-4-3`, `r-3-4`, `r-3-2`, `r-2-3`, `r-1-1` |
+| `thumbnail` | no | Card image or video. Defaults to first media item. |
+| `order` | no | Position within category tab (blank = after numbered projects) |
+| `order_all` | no | Position on All tab (blank = after numbered projects) |
+| `coming_soon` | no | Shows Coming Soon badge on card |
+
+### Sharecard
+
+When shared on social media, shows `sharecard.jpg` from the root folder. Replace with a **1200 × 630 px** JPG to update.
+
+### Favicon
+
+`favicon.svg` is a placeholder. Replace with a final version when ready.
 
 ---
 
 ## Changelog
+
+### 2026-04-01
+- **Fix: CMS projects showing blank (#31)** — `order_all: null` written by Sveltia caused it to crash when re-opening those projects. Removed from all 29 affected project files.
+- **Fix: mp4 thumbnails now uploadable in CMS (#32)** — thumbnail field changed from `image` to `file` widget.
+- **Fix: order field hint no longer implies 1–99 cap (#33)** — no upper limit was ever enforced in code.
 
 ### 2026-03-31
 - **Fix: publish now syncs project deletions** — the Publish tool compares `content/projects/` on both branches after merging and deletes from `main` any folders removed in the CMS.
