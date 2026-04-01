@@ -7,7 +7,7 @@ director: ''
 bts: ''
 date: ''
 order: 1
-order_all: null
+order_all: 95
 description: 'When you find yourself in social situations and words just won’t do. If my Nonna and I were able to communicate with these basics, so can you. A project inspired by Bruno Munari’s minimalist guide to “Speak Italian: The Fine Art of the Italian Gesture”.'
 credits: |-
   Creative Direction, Concept & Hand Model: Gabrielle J Sirkin
