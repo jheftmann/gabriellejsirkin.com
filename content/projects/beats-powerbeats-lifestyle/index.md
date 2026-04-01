@@ -3,7 +3,11 @@ title: Lifestyle
 cat: Brand Work
 client: Beats by Dre
 photographer: Anthony Blasko, Jerry Buttles, Caitlin Cronenberg, Joshua Kissi, Clayton Vomero
+director: ''
+bts: ''
 date: 2018 - 2020
+order: 20
+order_all: null
 description: ''
 credits: ''
 destination: ''
@@ -14,6 +18,7 @@ skills:
   - Brand Strategy
 card_ratio: r-3-2
 thumbnail: 01_IMG_0661_v1-1.jpg
+filter: brand
 media:
   - 01_IMG_0661_v1.jpg
   - 02_IMG_0342_v1.jpg
@@ -36,7 +41,6 @@ media:
   - 19_20191002_EDANGELO_444_LIFESTYLE_GIANCARLO_SHOT_05_215_rgb.jpg
   - 20_BeatsbyDre_BTS.mp4
   - 21_20191009_EDANGELO_HALSEY_SHOT_03_021_rgb.jpg
-filter: brand
 card_placeholder: Powerbeats
 placeholder_count: 5
 ---
