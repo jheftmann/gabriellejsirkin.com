@@ -81,11 +81,11 @@ collections:
 
       - name: thumbnail
         label: Card Thumbnail
-        widget: image
+        widget: file
         required: false
         media_folder: ''
         public_folder: ''
-        hint: 'Override the card thumbnail. Leave blank to use the first project image.'
+        hint: 'Override the card thumbnail. Leave blank to use the first project image. Accepts images or mp4 video.'
 
       - name: media
         label: Media
