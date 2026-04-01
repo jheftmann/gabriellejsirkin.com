@@ -3,7 +3,11 @@ title: Prague
 cat: Content Creation
 client: ''
 photographer: ''
+director: ''
+bts: ''
 date: ''
+order: 15
+order_all: null
 description: ''
 credits: ''
 destination: ''
@@ -12,6 +16,7 @@ skills:
 card_ratio: r-4-3
 coming_soon: false
 thumbnail: 02_IMG_6914_VSCO.JPG
+filter: content
 media:
   - 01_IMG_6932_VSCO.mp4
   - 02_IMG_6914_VSCO.JPG
@@ -22,7 +27,6 @@ media:
   - 07_IMG_7026.jpg
   - 08_IMG_7027.mp4
   - 09_IMG_7021.jpg
-filter: content
 card_placeholder: Coming Soon
 placeholder_count: 1
 ---
