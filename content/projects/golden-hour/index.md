@@ -6,6 +6,8 @@ photographer: Multiple
 director: ''
 bts: ''
 date: '2025'
+order: 20
+order_all: null
 description: |-
   A Golden Hour Project is a joint creative fundraising initiative launched in response to the devastating California wildfires by myself, Chelsea Gold, Sabrina Bajaj and Audrey Viola. Bringing together a community of 100 photographers, the project sold curated prints to raise money for wildfire relief across Los Angeles.
 
