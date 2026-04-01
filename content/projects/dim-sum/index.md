@@ -3,7 +3,11 @@ title: Dim Sum
 cat: Editorial
 client: Airbnb Magazine
 photographer: Marcus Nilsson
+director: ''
+bts: ''
 date: '2018'
+order: 35
+order_all: null
 description: ''
 credits: ''
 destination: ''

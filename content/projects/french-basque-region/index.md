@@ -3,7 +3,11 @@ title: French Basque Region
 cat: Content Creation
 client: ''
 photographer: ''
+director: ''
+bts: ''
 date: ''
+order: 1
+order_all: null
 description: ''
 credits: ''
 destination: ''

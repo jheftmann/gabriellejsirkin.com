@@ -46,9 +46,9 @@ collections:
       - { name: date,         label: Year,         widget: string,  required: false }
 
       - { name: order,     label: 'Order (within category)', widget: number, required: false,
-          hint: '1–99. Controls position within its category tab. Leave blank to sort after numbered projects.' }
+          hint: 'Controls position within its category tab. Leave blank to sort after numbered projects.' }
       - { name: order_all, label: 'Order (All page)',        widget: number, required: false,
-          hint: '1–99. Controls position on the All tab. Leave blank to sort after numbered projects.' }
+          hint: 'Controls position on the All tab. Leave blank to sort after numbered projects.' }
 
       - { name: description, label: Description, widget: text, required: false,
           hint: 'Shown in the project header above the meta fields.' }

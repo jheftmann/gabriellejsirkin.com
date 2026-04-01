@@ -3,7 +3,11 @@ title: Mexico City
 cat: Content Creation
 client: ''
 photographer: ''
+director: ''
+bts: ''
 date: ''
+order: 30
+order_all: null
 description: ''
 credits: ''
 destination: ''

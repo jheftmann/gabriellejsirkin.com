@@ -3,7 +3,11 @@ title: Rome
 cat: Content Creation
 client: ''
 photographer: ''
+director: ''
+bts: ''
 date: ''
+order: 45
+order_all: null
 description: ''
 credits: ''
 destination: ''

@@ -2,13 +2,15 @@
 headline_1: Untold stories
 headline_2: Meant to be seen.
 approach: |-
-  Gabrielle J Sirkin runs a travel creative studio for the undiscovered. We work with small and emerging hospitality and travel brands in destinations the world hasn't found yet — from boutique hotels, bed and breakfasts, independent guides, intimate lodges, and the people behind them who are quietly doing something extraordinary.
+  Gabrielle J Sirkin runs a travel creative studio for the undiscovered. We partner with emerging hospitality brands and travel organizations from boutique hotels, bed & breakfasts, intimate lodges, and independent travel guides who are committed to creating meaningful, sustainable experiences that foster authentic connection between people and place.
 
-  At the intersection of curiosity and integrity, we craft immersive, distinctive visual content that helps brands define their voice, build emotional resonance, and earn lasting trust with travelers.
+  At the intersection of curiosity and integrity, we craft immersive visual storytelling that helps brands define their voice, build emotional resonance, and earn lasting trust with travelers.
 
-  Our approach is considered and intentional. We partner with brands whose shared purpose is to create transformative, meaningful experiences and who believe, as we do, that how a place is seen shapes how it is treated. We offer visual direction and creative content at any stage of the creative journey, whether building a visual identity from the ground up or evolving one that's ready for its next chapter.
+  Our approach is intentional and collaborative. We work with partners who believe, as we do, that how a place is seen shapes how it is treated and who are dedicated to creating experiences that are both transformative and responsible.
 
-  At the center of every project is a simple belief: visual storytelling has the power to change the impact we have on the places we go. Travel and hospitality are, at their heart, about community and discovery — and the stories we tell should honor both.
+  We offer visual direction, strategy, and creative content production at any stage of the creative journey from building a brand’s visual identity to evolving it for what’s next.
+
+  At the core of our work is a simple belief; visual storytelling can shape the impact we have on the places we visit. Travel and hospitality are, at their heart, about community and discovery and the stories we tell have the capacity to honor both.
 services:
   - Trip Planning & Creation
   - Personalized Digital Guidebooks

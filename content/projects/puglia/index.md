@@ -3,7 +3,11 @@ title: Puglia
 cat: Content Creation
 client: ''
 photographer: ''
+director: ''
+bts: ''
 date: ''
+order: 10
+order_all: null
 description: ''
 credits: ''
 destination: ''

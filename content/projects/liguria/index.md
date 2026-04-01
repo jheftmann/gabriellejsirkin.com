@@ -3,7 +3,11 @@ title: Liguria
 cat: Content Creation
 client: ''
 photographer: ''
+director: ''
+bts: ''
 date: ''
+order: 20
+order_all: null
 description: ''
 credits: ''
 destination: ''
@@ -12,6 +16,7 @@ skills:
 card_ratio: r-3-4
 coming_soon: false
 thumbnail: 02_EA140E8F-41B7-4E59-9E9A-5CFA7497A8BD_1_102_o.jpeg
+filter: content
 media:
   - 01_IMG_0561_VSCO.mp4
   - 02_EA140E8F-41B7-4E59-9E9A-5CFA7497A8BD_1_102_o.jpeg
@@ -25,7 +30,6 @@ media:
   - 10_IMG_0611.mp4
   - 11_IMG_0478_VSCO.mp4
   - 12_DF809602-9F4F-4151-BD3D-EDB47B73686C_1_102_o.jpeg
-filter: content
 card_placeholder: Coming Soon
 placeholder_count: 1
 ---

@@ -6,6 +6,8 @@ photographer: Nico Therin and Joao Canziani
 director: ''
 bts: Gabrielle J Sirkin
 date: '2023'
+order: 25
+order_all: null
 description: ''
 credits: ''
 destination: ''
@@ -16,6 +18,7 @@ skills:
   - Brand Strategy
 card_ratio: r-3-4
 thumbnail: 01_2023-02-15_BEX_OOH_NMW_NGORONGORO_CRATER_THERIN_Q1002192.jpg
+filter: brand
 media:
   - 01_2023-02-15_BEX_OOH_NMW_NGORONGORO_CRATER_THERIN_Q1002192.jpg
   - 02_0222DB93-FA8F-4E98-BD53-7D17AA4046A6_1_102_o.jpeg
@@ -39,7 +42,6 @@ media:
   - 20_2023-02-14_BEX_OOH_NMW_HOEDSPRUIT_LISBON_FALLS_THERIN_0861_V2.jpg
   - 21_NicoTherin_BTS_02.jpg
   - 22_BEX_SF OOH CAPTURE_IA.jpg
-filter: brand
 card_placeholder: Africa · Cape Town · Hoedspruit
 placeholder_count: 5
 ---
