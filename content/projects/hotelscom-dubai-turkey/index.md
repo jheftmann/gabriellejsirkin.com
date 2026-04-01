@@ -7,6 +7,7 @@ director: ''
 bts: ''
 date: 2022- 2024
 order: 1
+order_all: 45
 description: ''
 credits: ''
 destination: ''
@@ -16,7 +17,6 @@ skills:
   - Project Management
 card_ratio: r-9-16
 thumbnail: 2024-07-24_HCOM_ICA_MX_UMA_CASA_RM2_XICA_WHAMMOCK_EVANS_0089-V2.jpg
-filter: brand
 media:
   - file: 01_HCOM_ICA_MX_UMA_CASA_ROOM2_WHAMMOCK_EVANS_3452.mp4
   - file: 02_2404-07-24_HCOM_ICA_MX_CIRCULO_MEX_RM207_TUB_EVANS_0875-V2 1.jpg
@@ -45,6 +45,7 @@ media:
   - file: 25_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_0167 (2).jpg
   - file: 26_2024-07-24_HCOM_ICA_MX_UMA_CASA_RUE_BED_V3_EVANS_0027-V3 1.jpg
   - file: 27_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_1033.jpg
+filter: brand
 card_placeholder: Dubai · Çeşme
 placeholder_count: 5
 ---
