@@ -7,7 +7,6 @@ director: ''
 bts: ''
 date: 2022- 2024
 order: 1
-order_all: null
 description: ''
 credits: ''
 destination: ''

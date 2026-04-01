@@ -7,7 +7,6 @@ director: ''
 bts: ''
 date: '2018'
 order: 25
-order_all: null
 description: ''
 credits: ''
 destination: ''
