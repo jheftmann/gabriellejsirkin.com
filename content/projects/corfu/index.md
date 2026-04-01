@@ -7,7 +7,7 @@ director: ''
 bts: ''
 date: ''
 order: 25
-order_all: null
+order_all: 65
 description: ''
 credits: ''
 destination: Corfu, Greece
@@ -16,7 +16,6 @@ skills:
 card_ratio: r-16-9
 coming_soon: false
 thumbnail: 09_CC_Corfu.mp4
-filter: content
 media:
   - file: 01_CC_Corfu_8.mp4
   - file: 02_CC_Corfu_7.mp4
@@ -33,6 +32,7 @@ media:
   - file: 13_IMG_0235_VSCO.jpg
   - file: 14_CC_Corfu_5.mp4
   - file: 15_IMG_9806_VSCO.jpg
+filter: content
 card_placeholder: Coming Soon
 placeholder_count: 1
 ---
