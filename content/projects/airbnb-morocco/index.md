@@ -7,6 +7,7 @@ director: ''
 bts: ''
 date: '2018'
 order: 5
+order_all: 75
 description: ''
 credits: ''
 destination: ''
@@ -16,7 +17,6 @@ skills:
   - Curation
 card_ratio: r-1-1
 thumbnail: ABB060118FEAMorocco_lo_2-1.jpg
-filter: editorial
 media:
   - file: 01_ABB060118FEAMorocco_lo-1.jpg
   - file: 02_ABB060118FEAMorocco_lo-2.jpg
@@ -24,6 +24,7 @@ media:
   - file: 04_ABB060118FEAMorocco_lo-4.jpg
   - file: 05_ABB060118FEAMorocco_lo-5.jpg
   - file: 06_ABB060118FEAMorocco_lo-6.jpg
+filter: editorial
 card_placeholder: Morocco
 placeholder_count: 3
 ---
