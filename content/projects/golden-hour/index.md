@@ -19,9 +19,10 @@ skills:
   - Project Management
   - Curation
 card_ratio: r-3-4
-thumbnail: 05_AGHP_Post-02.jpg
+thumbnail: 01_AGHP_Post3.mp4
 media:
   - file: 01_AGHP_Post3.mp4
+    caption: ''
   - file: 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
   - file: 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
   - file: 04_AGHP_Post-01.jpg
