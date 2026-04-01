@@ -6,6 +6,8 @@ photographer: Nico Therin
 director: Adam Newport Barra
 bts: Gabrielle J Sirkin
 date: '2024'
+order: 5
+order_all: null
 description: ''
 credits: ''
 destination: ''
@@ -16,6 +18,7 @@ skills:
   - Brand Strategy
 card_ratio: r-16-9
 thumbnail: 01_BEX_NMW_DOLOMITES_LAKEGARDA_SCOUT_THERIN_0143_V02_300dpi.jpg
+filter: brand
 media:
   - 01_BEX_NMW_DOLOMITES_LAKEGARDA_SCOUT_THERIN_0143_V02_300dpi-1.jpg
   - 02_BEX_NMW_DOLOMITES_RANUI_THERIN_1447_V02_300dpi.jpg
@@ -41,7 +44,6 @@ media:
   - 22_BEX_NMW_SICILY_CEFALU_THERIN_1669_V02_300dpi.jpg
   - 24_A6F0969F-A888-41F8-80E4-37FF3A0CE2D9_1_105_c.jpeg
   - 25_BEX_NMW_SICILY_LAPRAIOLA_THERIN_1820_V03TUB.jpg
-filter: brand
 card_placeholder: Dolomites · Rome · Sicily
 placeholder_count: 5
 ---
