@@ -23,26 +23,26 @@ skills:
 card_ratio: r-16-9
 thumbnail: 01_ITALIAN GESTURES v10_SM.mp4
 media:
-  - 01_ITALIAN GESTURES v10_SM.mp4
-  - 02_ItalianHandGestures_5887.jpg
-  - 03_ItalianHandGestures_5868.jpg
-  - 04_ItalianHandGestures_5751.jpg
-  - 05_ItalianHandGestures_5774.jpg
-  - 06_ItalianHandGestures_5775.jpg
-  - 07_ItalianHandGestures_5897.jpg
-  - 08_ItalianHandGestures_6064.jpg
-  - 09_ItalianHandGestures_5903.jpg
-  - 10_ItalianHandGestures_6466.jpg
-  - 11_ItalianHandGestures_6228.jpg
-  - 12_ItalianHandGestures_6212.jpg
-  - 13_ItalianHandGestures_6086.jpg
-  - 14_ItalianHandGestures_6277.jpg
-  - 15_ItalianHandGestures_6234.jpg
-  - 16_ItalianHandGestures_6454.jpg
-  - 17_ItalianHandGestures_6460.jpg
-  - 18_ItalianHandGestures_6489.jpg
-  - 19_ItalianHandGestures_6325.jpg
-  - 20_ItalianHandGestures_6348.jpg
+  - file: 01_ITALIAN GESTURES v10_SM.mp4
+  - file: 02_ItalianHandGestures_5887.jpg
+  - file: 03_ItalianHandGestures_5868.jpg
+  - file: 04_ItalianHandGestures_5751.jpg
+  - file: 05_ItalianHandGestures_5774.jpg
+  - file: 06_ItalianHandGestures_5775.jpg
+  - file: 07_ItalianHandGestures_5897.jpg
+  - file: 08_ItalianHandGestures_6064.jpg
+  - file: 09_ItalianHandGestures_5903.jpg
+  - file: 10_ItalianHandGestures_6466.jpg
+  - file: 11_ItalianHandGestures_6228.jpg
+  - file: 12_ItalianHandGestures_6212.jpg
+  - file: 13_ItalianHandGestures_6086.jpg
+  - file: 14_ItalianHandGestures_6277.jpg
+  - file: 15_ItalianHandGestures_6234.jpg
+  - file: 16_ItalianHandGestures_6454.jpg
+  - file: 17_ItalianHandGestures_6460.jpg
+  - file: 18_ItalianHandGestures_6489.jpg
+  - file: 19_ItalianHandGestures_6325.jpg
+  - file: 20_ItalianHandGestures_6348.jpg
 filter: personal
 card_placeholder: Personal Work
 placeholder_count: 3

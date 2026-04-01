@@ -26,18 +26,18 @@ card_ratio: r-4-3
 thumbnail: 01_PastaFamilies_11277.jpg
 filter: personal
 media:
-  - 01_PastaFamilies_11277-1.jpg
-  - 02_PastaFamilies_11749.jpg
-  - 03_PastaFamilies_12072.jpg
-  - 04_PastaFamilies_12556-V2.jpg
-  - 05_Bucatini.mp4
-  - 06_PastaFamilies_11817.jpg
-  - 07_PastaFamilies_12212.jpg
-  - 08_PastaFamilies_11550.jpg
-  - 09_PastaFamilies_12371.jpg
-  - 10_Bucatini.mp4
-  - 11_7B07A93A-A6FD-44E2-AAF6-A22ECBC4D512_1_102_o.jpeg
-  - 12_Bucatini.mp4
+  - file: 01_PastaFamilies_11277-1.jpg
+  - file: 02_PastaFamilies_11749.jpg
+  - file: 03_PastaFamilies_12072.jpg
+  - file: 04_PastaFamilies_12556-V2.jpg
+  - file: 05_Bucatini.mp4
+  - file: 06_PastaFamilies_11817.jpg
+  - file: 07_PastaFamilies_12212.jpg
+  - file: 08_PastaFamilies_11550.jpg
+  - file: 09_PastaFamilies_12371.jpg
+  - file: 10_Bucatini.mp4
+  - file: 11_7B07A93A-A6FD-44E2-AAF6-A22ECBC4D512_1_102_o.jpeg
+  - file: 12_Bucatini.mp4
 card_placeholder: Personal Work
 placeholder_count: 3
 ---
