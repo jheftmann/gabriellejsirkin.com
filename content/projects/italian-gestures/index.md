@@ -21,8 +21,7 @@ skills:
   - Creative Direction
   - Project Management
 card_ratio: r-16-9
-thumbnail: 03_ItalianHandGestures_5868.jpg
-filter: personal
+thumbnail: 01_ITALIAN GESTURES v10_SM.mp4
 media:
   - 01_ITALIAN GESTURES v10_SM.mp4
   - 02_ItalianHandGestures_5887.jpg
@@ -44,6 +43,7 @@ media:
   - 18_ItalianHandGestures_6489.jpg
   - 19_ItalianHandGestures_6325.jpg
   - 20_ItalianHandGestures_6348.jpg
+filter: personal
 card_placeholder: Personal Work
 placeholder_count: 3
 ---
