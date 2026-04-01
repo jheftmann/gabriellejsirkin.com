@@ -15,7 +15,7 @@ skills:
   - Visual Direction
 card_ratio: r-4-3
 coming_soon: false
-thumbnail: 03_CC_Istanbul_05.mp4
+thumbnail: 04_CC_Istanbul_04.mp4
 media:
   - file: 01_CC_Istanbul_02.mp4
     caption: ''
