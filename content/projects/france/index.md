@@ -7,7 +7,6 @@ director: ''
 bts: ''
 date: ''
 order: 5
-order_all: null
 description: ''
 credits: ''
 destination: ''

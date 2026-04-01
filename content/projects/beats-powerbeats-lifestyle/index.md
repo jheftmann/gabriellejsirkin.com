@@ -7,7 +7,6 @@ director: ''
 bts: ''
 date: 2018 - 2020
 order: 20
-order_all: null
 description: ''
 credits: ''
 destination: ''
