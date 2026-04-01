@@ -6,7 +6,8 @@ photographer: ''
 director: ''
 bts: ''
 date: ''
-order: 40
+order: 30
+order_all: 100
 description: ''
 credits: ''
 destination: ''
