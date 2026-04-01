@@ -17,9 +17,9 @@ skills:
 card_ratio: r-4-3
 thumbnail: IMG_8982.jpg
 media:
-  - 01_ABB040118NYTBrazil_lo-1.jpg
-  - 02_ABB040118NYTBrazil_lo-3.jpg
-  - 03_ABB040118NYTBrazil_lo-4.jpg
+  - file: 01_ABB040118NYTBrazil_lo-1.jpg
+  - file: 02_ABB040118NYTBrazil_lo-3.jpg
+  - file: 03_ABB040118NYTBrazil_lo-4.jpg
 filter: editorial
 card_placeholder: Caraiva
 placeholder_count: 3

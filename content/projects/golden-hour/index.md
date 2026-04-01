@@ -20,15 +20,15 @@ skills:
 card_ratio: r-3-4
 thumbnail: 05_AGHP_Post-02.jpg
 media:
-  - 01_AGHP_Post3.mp4
-  - 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
-  - 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
-  - 04_AGHP_Post-01.jpg
-  - 05_AGHP_Post-02.jpg
-  - 06_AGHP_Post-03.jpg
-  - 07_IG-24.jpg
-  - 08_IG-20.jpg
-  - 10_IG-21.jpg
+  - file: 01_AGHP_Post3.mp4
+  - file: 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
+  - file: 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
+  - file: 04_AGHP_Post-01.jpg
+  - file: 05_AGHP_Post-02.jpg
+  - file: 06_AGHP_Post-03.jpg
+  - file: 07_IG-24.jpg
+  - file: 08_IG-20.jpg
+  - file: 10_IG-21.jpg
 filter: personal
 card_placeholder: Curation
 placeholder_count: 3
