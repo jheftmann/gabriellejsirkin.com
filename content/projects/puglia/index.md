@@ -7,6 +7,7 @@ director: ''
 bts: ''
 date: ''
 order: 10
+order_all: null
 description: ''
 credits: ''
 destination: ''
@@ -14,7 +15,7 @@ skills:
   - Visual Direction
 card_ratio: r-4-3
 coming_soon: false
-thumbnail: 02_7C7A4741-04C8-4B3A-8A6E-463428952BC5_1_102_o.jpeg
+thumbnail: 01_3132ADBF-C30F-4BAF-9C0D-3A7ED7053CE4.mp4
 media:
   - 01_3132ADBF-C30F-4BAF-9C0D-3A7ED7053CE4.mp4
   - 02_7C7A4741-04C8-4B3A-8A6E-463428952BC5_1_102_o.jpeg
