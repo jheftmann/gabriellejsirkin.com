@@ -3,7 +3,11 @@ title: Corfu
 cat: Content Creation
 client: ''
 photographer: ''
+director: ''
+bts: ''
 date: ''
+order: 25
+order_all: null
 description: ''
 credits: ''
 destination: Corfu, Greece
