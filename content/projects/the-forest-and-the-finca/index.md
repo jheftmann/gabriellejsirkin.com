@@ -3,7 +3,11 @@ title: The Forest and the Finca
 cat: Editorial
 client: Airbnb Magazine
 photographer: Rose Marie Cromwell
+director: ''
+bts: ''
 date: '2018'
+order: 25
+order_all: null
 description: ''
 credits: ''
 destination: ''
