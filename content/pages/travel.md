@@ -12,17 +12,17 @@ approach: |-
 
   At the core of our work is a simple belief; visual storytelling can shape the impact we have on the places we visit. Travel and hospitality are, at their heart, about community and discovery and the stories we tell have the capacity to honor both.
 services:
-  - Trip Planning & Creation
-  - Personalized Digital Guidebooks
   - Visual Strategy and Direction
   - Visual Research and Curation
-  - Creative Content
-  - Production
+  - Content Creation
+  - Shoot Production & Project Management
   - Art Direction and Shoot Supervision
   - Budget Optimization and Efficiency
   - Creative Team Building
   - Collaborations and Special Projects
   - Travel Trend Reporting
+  - Trip Planning & Creation
+  - Personalized Digital Guidebooks
 clients:
   - Emerging Hospitality Brands
   - Hotel & Hospitality Groups
