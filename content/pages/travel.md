@@ -24,10 +24,13 @@ services:
   - Trip Planning & Creation
   - Personalized Digital Guidebooks
 clients:
-  - Emerging Hospitality Brands
+  - Emerging Hospitality and Travel Brands
   - Hotel & Hospitality Groups
   - Creative Agencies
-city_guides_intro: Well traveled and having spent many years building itineraries and maps, I have put together city map guides for the curious and engaged traveler.
+  - Travel Advisors
+  - Tourism Boards & Organizations
+  - + More
+city_guides_intro: Having spent many years building itineraries and maps around the world, I have put together city map guides for some of my favorite destinations. Designed specifically for the curious and engaged travelers who are never looking but find the unexpected. Included are some my favorite restaurants, bars, galleries, museums, shopping, activities and more.
 cities:
   - Rome
   - Venice
@@ -40,7 +43,7 @@ cities:
   - Marseille
   - French Basque Region
   - Copenhagen
-  - Scotland
+  - Isle of Skyes
   - Mexico City
   - Baja, Mexico
   - Northern California
