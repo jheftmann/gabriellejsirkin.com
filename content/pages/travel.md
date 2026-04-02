@@ -43,7 +43,7 @@ cities:
   - Marseille
   - French Basque Region
   - Copenhagen
-  - Isle of Skyes
+  - Isles of Skye
   - Mexico City
   - Baja, Mexico
   - Northern California
