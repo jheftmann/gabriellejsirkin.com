@@ -13,7 +13,7 @@ credits: ''
 destination: ''
 skills:
   - Visual Direction
-  - Project Management
+  - Production
   - Curation
 card_ratio: r-1-1
 thumbnail: ABB060118FEAMorocco_lo_2-1.jpg
