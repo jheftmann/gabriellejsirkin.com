@@ -17,9 +17,9 @@ credits: |-
   Copy Writer: Sarah Kasbeer
 destination: ''
 skills:
-  - Visual Direction
   - Creative Direction
-  - Project Management
+  - Visual Direction
+  - Production
 card_ratio: r-16-9
 thumbnail: 01_ITALIAN GESTURES v10_SM.mp4
 media:
