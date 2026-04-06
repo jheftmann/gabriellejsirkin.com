@@ -14,7 +14,6 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
   - Brand Strategy
 card_ratio: r-3-2
 thumbnail: 01_IMG_0661_v1-1.jpg
