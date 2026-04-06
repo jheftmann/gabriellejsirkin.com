@@ -12,6 +12,7 @@ description: ''
 credits: ''
 destination: Corfu, Greece
 skills:
+  - Content Creation
   - Visual Direction
 card_ratio: r-16-9
 coming_soon: false
