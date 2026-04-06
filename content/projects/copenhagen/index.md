@@ -12,6 +12,7 @@ description: ''
 credits: ''
 destination: ''
 skills:
+  - Content Creation
   - Visual Direction
 card_ratio: r-9-16
 coming_soon: false
