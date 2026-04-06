@@ -14,7 +14,6 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
   - Curation
 card_ratio: r-4-3
 coming_soon: false
