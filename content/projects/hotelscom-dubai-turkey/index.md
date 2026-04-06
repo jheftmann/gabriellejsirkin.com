@@ -14,7 +14,6 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
 card_ratio: r-9-16
 thumbnail: 01_HCOM_ICA_MX_UMA_CASA_ROOM2_WHAMMOCK_EVANS_3452.mp4
 media:
