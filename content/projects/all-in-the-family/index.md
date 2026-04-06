@@ -20,11 +20,12 @@ credits: |-
   In Collaboration With: Bucatini
 destination: ''
 skills:
-  - Visual Direction
   - Creative Direction
+  - Visual Direction
   - Production
 card_ratio: r-4-3
 thumbnail: 01_PastaFamilies_11277.jpg
+filter: personal
 media:
   - 01_PastaFamilies_11277-1.jpg
   - 02_PastaFamilies_11749.jpg
@@ -38,7 +39,6 @@ media:
   - 10_Bucatini.mp4
   - 11_7B07A93A-A6FD-44E2-AAF6-A22ECBC4D512_1_102_o.jpeg
   - 12_Bucatini.mp4
-filter: personal
 card_placeholder: Personal Work
 placeholder_count: 3
 ---
