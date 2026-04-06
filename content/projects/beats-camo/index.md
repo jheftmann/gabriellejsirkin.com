@@ -14,7 +14,6 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
   - Brand Strategy
 card_ratio: r-4-3
 thumbnail: 01_decatur_dan-beats_by_dre-asap_ferg_02.jpg
