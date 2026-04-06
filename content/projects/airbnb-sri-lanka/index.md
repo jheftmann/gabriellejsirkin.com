@@ -14,7 +14,6 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
 card_ratio: r-1-1
 thumbnail: Screenshot 2026-03-19 at 8.40.49 PM.png
 media:
