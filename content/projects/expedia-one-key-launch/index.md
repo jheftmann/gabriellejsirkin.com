@@ -14,7 +14,6 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
   - Brand Strategy
 card_ratio: r-16-9
 thumbnail: 01_ONEKEY_OOH_EGYPT_PYRAMID_GALLAGHER_01_0545_sRGB.jpg
