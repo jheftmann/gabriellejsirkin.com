@@ -14,7 +14,6 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
 card_ratio: r-3-4
 thumbnail: ABB060119BarbadosTennis_lo-1.jpg
 media:
