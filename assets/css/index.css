@@ -2,7 +2,7 @@
 .hero { padding: 4.5rem var(--side) 3rem; }
 .hero-title {
   font-family: var(--display);
-  font-size: clamp(2rem, 3.9vw, 3.5rem); /* 3.5rem = 56px at 1440px */
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem); /* min 36px mobile, max 56px at 1440px */
   font-weight: 300;
   font-style: italic;
   line-height: 1.08;
@@ -177,4 +177,7 @@
   .hero { padding: 3rem var(--side) 2rem; }
   .filter-bar    { display: none; }
   .filter-select { display: block; }
+  .card-client,
+  .card-title    { font-size: 1rem; } /* 16px on mobile */
+  .card-cat      { display: none; }
 }
