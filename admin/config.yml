@@ -129,13 +129,13 @@ collections:
           - { name: skill4_name, label: 'Skill 4 — Name', widget: string }
           - { name: skill4_desc, label: 'Skill 4 — Description', widget: text }
 
-          - { name: services_text, label: Travel Creative Services, widget: string }
+          - { name: services_text, label: Services, widget: string }
 
           - { name: bio, label: Bio, widget: text,
               hint: 'Separate paragraphs with a blank line.' }
 
       - name: travel
-        label: Travel Creative Services
+        label: Services
         file: content/pages/travel.md
         fields:
           - { name: headline_1, label: Headline — Line 1, widget: string }
