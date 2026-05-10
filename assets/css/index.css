@@ -25,7 +25,7 @@
   font-family: var(--base);
   font-size: 0.625rem; /* 10px */
   font-weight: 400;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.12;
   color: var(--muted);
@@ -57,7 +57,7 @@
   font-family: var(--base);
   font-size: 0.625rem;
   font-weight: 400;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   background: none;
   border: none;
@@ -148,7 +148,7 @@
   font-family: var(--base);
   font-size: 0.625rem;
   font-weight: 400;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.12;
   color: var(--muted);
@@ -162,7 +162,7 @@
   font-family: var(--base);
   font-size: 0.625rem;
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--muted);
   display: inline-block;
