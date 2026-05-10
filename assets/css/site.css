@@ -118,6 +118,10 @@ footer {
 }
 .footer-links a.fc:hover { color: var(--text); }
 
+/* Hide footer links on pages that have fixed sidebar links */
+body[data-scheme="about"] .footer-links,
+body[data-scheme="travel"] .footer-links { display: none; }
+
 
 /* MOBILE */
 @media (max-width: 767px) {

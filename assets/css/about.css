@@ -65,7 +65,9 @@
   flex-direction: row;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-top: auto;
+  position: fixed;
+  bottom: 1.5rem;
+  right: var(--side);
 }
 
 .about-headline {
@@ -161,6 +163,11 @@
     position: static;
     order: -1; /* sidebar above main on mobile */
     gap: 1rem;
+  }
+  .sidebar-links {
+    position: static;
+    bottom: auto;
+    right: auto;
   }
   .about-row {
     grid-template-columns: 1fr;
