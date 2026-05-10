@@ -10,14 +10,17 @@
   row-gap: 4.5rem;
   align-items: start;
 }
+.about-main { grid-column: 1; }
 
 /* SIDEBAR */
 .about-sidebar {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  position: sticky;
-  top: 3rem;
+  position: fixed;
+  top: 12.1875rem; /* 195px — from Figma frame y-position */
+  right: var(--side);
+  width: 19.125rem; /* 306px = cols 10–12, matches nav links column */
 }
 .sidebar-label {
   font-family: var(--display);
@@ -54,7 +57,7 @@
 }
 .sidebar-photo {
   display: block;
-  width: 100%;
+  width: 12.25rem; /* 196px = 2 of 3 sidebar columns */
   height: auto;
   object-fit: cover;
 }
@@ -167,8 +170,14 @@ body[data-scheme="services"] .about-layout > .about-headline {
   }
   .about-sidebar {
     position: static;
-    order: -1; /* sidebar above main on mobile */
+    order: -1;
     gap: 1rem;
+    width: auto;
+    right: auto;
+    top: auto;
+  }
+  .sidebar-photo {
+    width: 100%;
   }
   .sidebar-links {
     right: var(--side);
