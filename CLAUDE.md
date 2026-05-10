@@ -247,3 +247,15 @@ The `new-design` branch was deleted (confirmed gone from remote). New design wor
 `https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.
 This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
 
+## Changelog
+
+### 2026-05-09 — Design refinements (feature/design-refinements)
+- **Grid row-gap:** Set to `9rem` (144px) to match Figma card spacing
+- **Card caption gap:** Reduced to `2px` (visual calibration — code says 8px, Figma says 8px, but glyph-to-glyph with `text-box` trim requires a much smaller value to match visual intent)
+- **Card info baseline:** `.card-info` uses `align-items: baseline` so category label and client name share a baseline
+- **Global `text-box` trim:** `text-box: trim-both cap alphabetic` added to the `*` reset in `site.css` — matches Figma's `leadingTrim: "CAP_HEIGHT"` so all gap measurements are glyph-to-glyph
+- **Nav 12-column grid:** Nav switched from flex/space-between to `grid-template-columns: repeat(12, 1fr)` — brand in col 1, links spanning cols 10–12 (matches Figma grid exactly)
+- **Nav brand no-wrap:** `white-space: nowrap` on `.nav-brand` prevents "Gabrielle J Sirkin" from wrapping at narrow widths
+- **Services headline full-width:** On the Services page, `<h1>` moved to span `grid-column: 1 / -1` above the two-column layout, so "Start a project" sidebar sits below the headline
+- **Hero Line 2 optional:** `hero_accent` field in CMS made `required: false`; `build.js` omits the `<br>` when the field is empty
+
