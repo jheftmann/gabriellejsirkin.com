@@ -154,6 +154,12 @@
 }
 .contact-link:hover { color: var(--text); }
 
+/* SERVICES — headline spans full width, sidebar starts below it */
+body[data-scheme="services"] .about-layout > .about-headline {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
 /* MOBILE */
 @media (max-width: 767px) {
   .about-layout {
