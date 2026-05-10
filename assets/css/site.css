@@ -64,7 +64,7 @@ body[data-scheme="about"]     { --bg:#c4b8d4; --text:#3d2f5a; --muted:#5a4878; }
 body[data-scheme="services"]  { --bg:#cdf0a0; --text:#2a3d1a; --muted:#4a5c30; }
 
 /* RESET */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; text-box: trim-both cap alphabetic; }
 html { font-size: 16px; scroll-behavior: smooth; }
 
 @keyframes page-in {
