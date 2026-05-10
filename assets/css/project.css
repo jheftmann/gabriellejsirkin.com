@@ -1,6 +1,6 @@
 /* PROJECT HEADER */
 .project-header {
-  padding: 0 var(--side) 0;
+  padding: 4.5rem var(--side) 0;
 }
 .project-title {
   font-family: var(--display);
