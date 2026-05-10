@@ -73,9 +73,10 @@
 .about-headline em { font-style: italic; }
 
 /* SECTION ROW — label left, content right */
+/* Matches 9-col Figma grid: label=cols1-2(196px), content=cols3-7(526px), cols8-9 empty */
 .about-row {
   display: grid;
-  grid-template-columns: 12.25rem 1fr; /* 196px label */
+  grid-template-columns: 12.25rem minmax(0, 32.875rem); /* 196px label, max 526px content */
   column-gap: 1.5rem;
   margin-bottom: 4.5rem;
   align-items: start;
