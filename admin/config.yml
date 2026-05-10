@@ -107,7 +107,7 @@ collections:
         file: content/pages/home.md
         fields:
           - { name: hero_main,   label: Hero — Line 1, widget: string }
-          - { name: hero_accent, label: Hero — Line 2, widget: string }
+          - { name: hero_accent, label: Hero — Line 2 (optional), widget: string, required: false }
 
       - name: about
         label: About

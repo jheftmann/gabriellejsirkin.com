@@ -348,6 +348,8 @@ function build() {
       });
       html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted));
       html = html.replace('<!-- #projects-cards -->', sorted.map(renderCard).join('\n'));
+      const heroAccent = pageContent.hero_accent ? `<br>${pageContent.hero_accent}` : '';
+      html = html.replace('<!-- #hero-title -->', `${pageContent.hero_main || ''}${heroAccent}`);
     }
 
     // Inject about page dynamic content
