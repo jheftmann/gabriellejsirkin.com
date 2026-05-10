@@ -92,7 +92,7 @@
   grid-template-columns: 12.25rem minmax(0, 32.875rem); /* 196px label, max 526px content */
   column-gap: 1.5rem;
   margin-bottom: 4.5rem;
-  align-items: start;
+  align-items: baseline;
 }
 .row-label {
   font-family: var(--display);
