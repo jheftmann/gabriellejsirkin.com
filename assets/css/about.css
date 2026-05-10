@@ -20,31 +20,44 @@
   top: 3rem;
 }
 .sidebar-label {
-  font-family: var(--base);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  line-height: 1.12;
+  font-family: var(--display);
+  font-size: 1.5rem; /* 24px = Size/XL */
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.24;
   color: var(--muted);
   transition: color var(--transition);
 }
 .sidebar-bio {
   font-family: var(--display);
-  font-size: 0.875rem;
-  font-weight: 300;
-  font-style: italic;
+  font-size: 0.75rem; /* 12px = Size/SM */
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.24;
   color: var(--text);
   transition: color var(--transition);
 }
 .sidebar-email {
   display: block;
+  font-family: var(--display);
+  font-size: 0.75rem; /* 12px = Size/SM */
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.24;
+  color: var(--muted);
+  text-decoration: underline;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.sidebar-avail {
+  color: var(--muted);
 }
 .sidebar-links {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .about-headline {
