@@ -5,7 +5,7 @@
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 19.125rem; /* 306px sidebar */
+  grid-template-columns: minmax(0, 1fr) calc((100vw - 2 * var(--side) - 11 * 1.5rem) / 4 + 3rem);
   column-gap: 1.5rem;
   row-gap: 4.5rem;
   align-items: start;
@@ -20,7 +20,8 @@
   position: fixed;
   top: 12.1875rem; /* 195px — from Figma frame y-position */
   right: var(--side);
-  width: 19.125rem; /* 306px = cols 10–12, matches nav links column */
+  /* 3-of-12 cols: 3×col_width + 2×gap = (100vw − 2×side − 11×gap)/4 + 3rem */
+  width: calc((100vw - 2 * var(--side) - 11 * 1.5rem) / 4 + 3rem);
 }
 .sidebar-label {
   font-family: var(--display);
