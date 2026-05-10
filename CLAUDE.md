@@ -159,6 +159,52 @@ Fine-grained PAT requirements:
 - **Serif:** EB Garamond (400, 500, italic)
 - **Sans:** DM Sans (300, 400, italic, optical size 9–40)
 
+## Design System
+
+**Figma:** https://www.figma.com/design/52rqsl007nYYGZxEpJdWXz/gabriellejsirkin.com?node-id=96-168
+
+**Figma file structure:**
+- Section "Components" — shared components (Navigation, Footer, Project Card, Credits, etc.)
+- Section "Design" — latest designs to build from (source of truth)
+- Section "Current Site (Reference)" — screenshots of current build for comparison
+- Artboards: laptop (1440px) and mobile (393px / iPhone 16). Tablet inherits mobile, Desktop inherits laptop.
+
+**Fonts (GT Grotesk / Grilli Type — local PostScript names until licensed):**
+- Display: `GT Alpina` — Light Italic (`GTAlpina-LightItalic`), Regular (`GTAlpina-Regular`)
+- Base: `GT Standard` — Medium (`GTStandard-Medium`), Regular (`GTStandard-Regular`)
+- Use `local()` in @font-face; swap for licensed versions later
+
+**Design tokens (from Figma variables):**
+- `--bg`: `#f2ede6`
+- `--text`: `#000000`
+- `--text-secondary`: `rgba(0,0,0,0.55)`
+- `--size-xxl`: `56px`
+- `--size-base`: `14px`
+- `--size-xs`: `10px`
+
+**Type styles (from Figma):**
+- `h1` — GT Alpina Light Italic, 56px, lh 1.08
+- `meta` — GT Alpina Light Italic, 14px, lh 1.24
+- `label` — GT Standard Medium, 10px, lh 1.12, ls 3px
+- `nav` — GT Alpina Regular, 14px, lh 1, ls 1px
+
+**Layout grid:**
+- Laptop: 72px side margins, 1296px content area (in 1440px frame)
+- Mobile: 24px side margins (in 393px frame)
+- Spacing: use the `Space` scale from Figma variables (no ad-hoc values)
+
+**Breakpoints:**
+- Mobile (≤ 767px) — use mobile artboard
+- Tablet (768px–1023px) — inherits mobile
+- Laptop (1024px–1439px) — use laptop artboard
+- Desktop (≥ 1440px) — inherits laptop
+
+**Content rule:** All text and images in the Figma are placeholder/design reference only. Always use real content from the CMS (live build) for implementation.
+
+**Mobile filter bar:** Use native `<select>` element (OS picker) — not horizontal pills.
+
+**Color theming:** Per-category color schemes are a separate task. Current phase focuses on layout, spacing, and typography only — all pages stay cream (`#f2ede6`).
+
 ## Publish workflow (Gabrielle's perspective)
 CMS saves go to the `draft` branch. To publish to production:
 1. Editor visits `admin/publish.html` and clicks "Publish to Live Site"
@@ -195,7 +241,7 @@ Run through this before wrapping up any session:
 8. **main pushed** — `git status` shows "up to date with origin/main"
 9. **draft synced automatically** — GH Action syncs code to draft on every push; no manual step needed
 
-Keep the `new-design` branch — it has unmerged WIP.
+The `new-design` branch was deleted (confirmed gone from remote). New design work branches off `main`.
 
 ## Auth worker
 `https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — {{SETTING:site_title}}</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Travel creative services — visual direction and brand strategy for travel and hospitality brands.">
+<meta property="og:title" content="Services — {{SETTING:site_title}}">
+<meta property="og:description" content="Travel creative services — visual direction and brand strategy for travel and hospitality brands.">
+<meta property="og:image" content="{{SETTING:sharecard_url}}">
+<meta property="og:url" content="{{SETTING:site_url}}/services.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services — {{SETTING:site_title}}">
+<meta name="twitter:description" content="Travel creative services — visual direction and brand strategy for travel and hospitality brands.">
+<meta name="twitter:image" content="{{SETTING:sharecard_url}}">
+<!-- #include _head.html -->
+<link rel="stylesheet" href="assets/css/about.css">
+<link rel="stylesheet" href="assets/css/travel.css">
+</head>
+<body data-scheme="services">
+<!-- #include _nav.html -->
+
+<div class="about-page">
+  <div class="about-layout">
+
+    <div class="about-main">
+      <h1 class="about-headline">{{SETTING:headline_1}}<br><em>{{SETTING:headline_2}}</em></h1>
+
+      <div class="about-row">
+        <p class="row-label">Approach</p>
+        <div class="row-content">
+<!-- #travel-approach -->
+        </div>
+      </div>
+
+      <div class="about-row">
+        <p class="row-label">Services</p>
+        <div class="row-content">
+          <div class="travel-grid">
+<!-- #travel-services -->
+          </div>
+        </div>
+      </div>
+
+      <div class="about-row">
+        <p class="row-label">Clients</p>
+        <div class="row-content">
+          <div class="travel-grid">
+<!-- #travel-clients -->
+          </div>
+        </div>
+      </div>
+
+      <div class="about-row">
+        <p class="row-label">City Guides</p>
+        <div class="row-content">
+          <p class="bio-para">{{SETTING:city_guides_intro}}</p>
+          <div class="travel-grid">
+<!-- #travel-cities -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="about-sidebar">
+      <p class="sidebar-label">{{SETTING:sidebar_label}}</p>
+      <p class="sidebar-bio sidebar-avail">{{SETTING:availability}}</p>
+      <a href="mailto:{{SETTING:contact_email}}" class="sidebar-email contact-link">{{SETTING:contact_email}}</a>
+      <img src="{{SETTING:sidebar_photo}}" alt="" class="sidebar-photo">
+      <div class="sidebar-links">
+        <a href="{{SETTING:contact_instagram}}" target="_blank" class="contact-link">Instagram</a>
+        <a href="{{SETTING:contact_linkedin}}" target="_blank" class="contact-link">LinkedIn</a>
+        <a href="mailto:{{SETTING:contact_email}}" class="contact-link">Email</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- #include _footer.html -->
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

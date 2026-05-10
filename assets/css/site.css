@@ -1,21 +1,67 @@
-/* DESIGN TOKENS */
-:root {
-  --bg:         #f2ede6;
-  --text:       #1c1a17;
-  --muted:      #7a7570;
-  --light-gray: rgba(0,0,0,0.09);
-  --transition: 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --side:       5rem;
-  --gap:        5rem;
+/* FONTS */
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Light-Italic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Regular-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Standard';
+  src: url('../fonts/GT-Standard-Latin-M-Standard-Regular.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Standard';
+  src: url('../fonts/GT-Standard-Latin-M-Standard-Regular-Oblique.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: italic;
+  font-display: swap;
 }
 
-/* COLOR SCHEMES */
+/* DESIGN TOKENS */
+:root {
+  --bg:          #f2ede6;
+  --text:        #000000;
+  --muted:       rgba(0,0,0,0.55);
+  --light-gray:  rgba(0,0,0,0.09);
+  --transition:  0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --side:        4.5rem; /* 72px */
+  --col-gap:     8.625rem; /* 138px */
+  --display:     'GT Alpina', serif;
+  --base:        'GT Standard', sans-serif;
+}
+
+/* COLOR SCHEMES — deferred, keeping for now */
 body[data-scheme="brand"]     { --bg:#d4b896; --text:#1a2a56; --muted:#3a4a76; }
 body[data-scheme="editorial"] { --bg:#e8e87c; --text:#1a1f56; --muted:#2a2f6a; }
 body[data-scheme="content"]   { --bg:#f0b8c8; --text:#1a3424; --muted:#2c4e36; }
 body[data-scheme="personal"]  { --bg:#b8cdc8; --text:#1e2a28; --muted:#3a4c48; }
 body[data-scheme="about"]     { --bg:#c4b8d4; --text:#3d2f5a; --muted:#5a4878; }
-body[data-scheme="travel"]    { --bg:#cdf0a0; --text:#2a3d1a; --muted:#4a5c30; }
+body[data-scheme="services"]  { --bg:#cdf0a0; --text:#2a3d1a; --muted:#4a5c30; }
 
 /* RESET */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,66 +75,84 @@ html { font-size: 16px; scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
+  font-family: var(--base);
+  font-weight: 500;
   min-height: 100vh;
   overflow-x: hidden;
-  cursor: none;
   transition: background var(--transition), color var(--transition);
   animation: page-in 0.45s ease both;
 }
 
-/* CURSOR */
-.cursor {
-  width: 7px; height: 7px;
-  background: var(--text);
-  border-radius: 50%;
-  position: fixed; top: 0; left: 0;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width .16s, height .16s, background var(--transition), border-color var(--transition);
-}
-.cursor.large {
-  width: 32px; height: 32px;
-  background: transparent;
-  border: 1px solid var(--text);
-}
-
 /* NAV */
 nav {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px var(--side);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px var(--side) 0;
 }
 .nav-brand { text-decoration: none; }
 .nav-name {
-  font-family: 'EB Garamond', serif;
-  font-size: 1rem; font-weight: 400;
-  letter-spacing: .01em;
+  font-family: var(--display);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.01em;
+  line-height: 1;
   color: var(--text);
   transition: color var(--transition);
   display: block;
 }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-name-short { display: none; }
+
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
 .nav-links a {
-  font-size: .78rem; font-weight: 300;
-  color: var(--muted); text-decoration: none;
+  font-family: var(--display);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--muted);
+  text-decoration: none;
   transition: color .2s;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a:hover,
+.nav-links a.active { color: var(--text); }
 
 /* FOOTER */
-footer { padding: 40px var(--side); text-align: center; }
-.fc { font-size: .75rem; font-weight: 300; color: var(--muted); }
-
-/* SHARED: PILLS */
-.pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: .55rem; }
-.pill {
-  font-size: .58rem; letter-spacing: .07em; text-transform: uppercase;
-  padding: 3px 9px; border: 1px solid var(--text); color: var(--text);
-  border-radius: 99px; white-space: nowrap; opacity: .7;
-  transition: color var(--transition), border-color var(--transition);
+footer {
+  padding: 3.75rem var(--side) 1.5rem;
 }
+.footer-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a { text-decoration: none; }
+.fc {
+  font-family: var(--base);
+  font-size: 0.625rem; /* 10px */
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.12;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+.footer-links a.fc:hover { color: var(--text); }
 
-@media (max-width: 700px) {
-  :root { --side: 1.25rem; }
+/* Hide footer links on pages that have fixed sidebar links */
+body[data-scheme="about"] .footer-links,
+body[data-scheme="services"] .footer-links { display: none; }
+
+
+/* MOBILE */
+@media (max-width: 767px) {
+  :root { --side: 1.5rem; --col-gap: 1.5rem; }
+  .nav-name-full  { display: none; }
+  .nav-name-short { display: block; }
 }

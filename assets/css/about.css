@@ -1,51 +1,180 @@
-.about-page { padding: 3rem var(--side) 8rem; }
+/* ABOUT / TRAVEL PAGE LAYOUT */
+.about-page {
+  padding: 3rem var(--side) 6rem;
+}
 
-.about-headline {
-  font-family: 'EB Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 400; line-height: 1.15;
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 19.125rem; /* 306px sidebar */
+  column-gap: 1.5rem;
+  row-gap: 4.5rem;
+  align-items: start;
+}
+
+/* SIDEBAR */
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 3rem;
+}
+.sidebar-label {
+  font-family: var(--display);
+  font-size: 1.5rem; /* 24px = Size/XL */
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.24;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+.sidebar-bio {
+  font-family: var(--display);
+  font-size: 0.75rem; /* 12px = Size/SM */
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.24;
   color: var(--text);
   transition: color var(--transition);
-  margin-bottom: 2.5rem;
+}
+.sidebar-email {
+  display: block;
+  font-family: var(--display);
+  font-size: 0.75rem; /* 12px = Size/SM */
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.24;
+  color: var(--muted);
+  text-decoration: underline;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.sidebar-avail {
+  color: var(--muted);
+}
+.sidebar-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.sidebar-photo[src=""] { display: none; }
+
+.sidebar-links {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  position: fixed;
+  bottom: 1.5rem;
+  right: var(--side);
+}
+
+.about-headline {
+  font-family: var(--display);
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.08;
+  color: var(--text);
+  transition: color var(--transition);
+  margin-bottom: 3rem;
 }
 .about-headline em { font-style: italic; }
 
-.lead {
-  font-size: .9rem; font-weight: 300;
-  color: var(--text); line-height: 1.75;
-  max-width: 480px; margin-bottom: 4rem;
-  transition: color var(--transition);
-}
-
+/* SECTION ROW — label left, content right */
+/* Matches 9-col Figma grid: label=cols1-2(196px), content=cols3-7(526px), cols8-9 empty */
 .about-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--gap);
-  margin-bottom: 3rem;
+  grid-template-columns: 12.25rem minmax(0, 32.875rem); /* 196px label, max 526px content */
+  column-gap: 1.5rem;
+  margin-bottom: 4.5rem;
   align-items: start;
 }
-@media (max-width: 700px) { .about-row { grid-template-columns: 1fr; gap: 1.25rem; } }
-
 .row-label {
-  font-size: .75rem; font-weight: 300;
+  font-family: var(--display);
+  font-size: 1.5rem; /* 24px = Size/XL */
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.24;
   color: var(--muted);
-  padding-top: .1rem;
   transition: color var(--transition);
 }
 
-.skill-item { margin-bottom: 1.6rem; }
+/* SKILLS (Subsection component) */
+.skill-item { margin-bottom: 1.5rem; }
 .skill-item:last-child { margin-bottom: 0; }
-.skill-name { font-size: .75rem; color: var(--muted); margin-bottom: .3rem; transition: color var(--transition); }
-.skill-desc { font-size: .88rem; line-height: 1.75; color: var(--text); transition: color var(--transition); }
+.skill-name {
+  font-family: var(--display);
+  font-size: 1rem; /* 16px = Size/LG */
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.24;
+  color: var(--muted);
+  margin-bottom: 0.75rem; /* 12px gap */
+  transition: color var(--transition);
+}
+.skill-desc {
+  font-family: var(--base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  transition: color var(--transition);
+}
 
-.services-text { font-size: .88rem; line-height: 1.8; color: var(--text); transition: color var(--transition); }
-
-.bio-para { font-size: .88rem; line-height: 1.8; color: var(--text); margin-bottom: 1rem; transition: color var(--transition); }
+/* BIO / SERVICES TEXT */
+.services-text,
+.bio-para {
+  font-family: var(--base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  transition: color var(--transition);
+}
 .bio-para:last-child { margin-bottom: 0; }
 
-.contact-links { display: flex; gap: 1.6rem; }
+/* SIDEBAR / CONTACT LINKS */
 .contact-link {
-  font-size: .88rem; color: var(--text); text-decoration: none;
-  opacity: .75; transition: opacity .2s, color var(--transition);
+  font-family: var(--base);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.12;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s, color var(--transition);
 }
-.contact-link:hover { opacity: 1; }
+.contact-link:hover { color: var(--text); }
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .about-sidebar {
+    position: static;
+    order: -1; /* sidebar above main on mobile */
+    gap: 1rem;
+  }
+  .sidebar-links {
+    right: var(--side);
+  }
+  .about-row {
+    grid-template-columns: 1fr;
+    gap: 2.25rem; /* 36px — Figma mobile Section gap */
+    margin-bottom: 3rem;
+  }
+  .row-label,
+  .sidebar-label { font-size: 1.75rem; } /* 28px = Size/XL on mobile */
+  .bio-para,
+  .services-text { font-size: 1rem; } /* 16px = Size/Base on mobile */
+  .skill-desc { font-size: 1rem; }
+}
