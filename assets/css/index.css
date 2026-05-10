@@ -111,7 +111,7 @@
 /* CARD INFO */
 .card-info {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem;
   margin-top: 0.5rem;
