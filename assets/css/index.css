@@ -71,7 +71,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: var(--col-gap);
-  row-gap: 0;
+  row-gap: 9rem;
   align-items: start;
 }
 
