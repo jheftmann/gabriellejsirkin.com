@@ -1,51 +1,134 @@
-.about-page { padding: 3rem var(--side) 8rem; }
+/* ABOUT / TRAVEL PAGE LAYOUT */
+.about-page {
+  padding: 3rem var(--side) 6rem;
+}
 
 .about-headline {
-  font-family: 'EB Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 400; line-height: 1.15;
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.9vw, 3.5rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.08;
   color: var(--text);
   transition: color var(--transition);
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 .about-headline em { font-style: italic; }
 
 .lead {
-  font-size: .9rem; font-weight: 300;
-  color: var(--text); line-height: 1.75;
-  max-width: 480px; margin-bottom: 4rem;
+  font-family: var(--display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.24;
+  color: var(--text);
+  max-width: 526px;
+  margin-bottom: 4rem;
   transition: color var(--transition);
 }
 
+/* SECTION ROW — label left, content right */
 .about-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--gap);
-  margin-bottom: 3rem;
+  grid-template-columns: 12.25rem 1fr; /* 196px label */
+  column-gap: 1.5rem;
+  margin-bottom: 4.5rem;
   align-items: start;
 }
-@media (max-width: 700px) { .about-row { grid-template-columns: 1fr; gap: 1.25rem; } }
-
 .row-label {
-  font-size: .75rem; font-weight: 300;
+  font-family: var(--base);
+  font-size: 0.625rem; /* 10px */
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1.12;
   color: var(--muted);
-  padding-top: .1rem;
+  padding-top: 0.15rem;
   transition: color var(--transition);
 }
 
-.skill-item { margin-bottom: 1.6rem; }
+/* SUBSECTION within row */
+.subsection { margin-bottom: 2rem; }
+.subsection:last-child { margin-bottom: 0; }
+.subsection-title {
+  font-family: var(--base);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1.12;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition);
+}
+.subsection-body {
+  font-family: var(--display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.24;
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+/* SKILLS */
+.skill-item { margin-bottom: 1.5rem; }
 .skill-item:last-child { margin-bottom: 0; }
-.skill-name { font-size: .75rem; color: var(--muted); margin-bottom: .3rem; transition: color var(--transition); }
-.skill-desc { font-size: .88rem; line-height: 1.75; color: var(--text); transition: color var(--transition); }
+.skill-name {
+  font-family: var(--base);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1.12;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  transition: color var(--transition);
+}
+.skill-desc {
+  font-family: var(--display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.24;
+  color: var(--text);
+  transition: color var(--transition);
+}
 
-.services-text { font-size: .88rem; line-height: 1.8; color: var(--text); transition: color var(--transition); }
-
-.bio-para { font-size: .88rem; line-height: 1.8; color: var(--text); margin-bottom: 1rem; transition: color var(--transition); }
+/* BIO / SERVICES TEXT */
+.services-text,
+.bio-para {
+  font-family: var(--display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.24;
+  color: var(--text);
+  margin-bottom: 1rem;
+  transition: color var(--transition);
+}
 .bio-para:last-child { margin-bottom: 0; }
 
-.contact-links { display: flex; gap: 1.6rem; }
+/* CONTACT */
+.contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 .contact-link {
-  font-size: .88rem; color: var(--text); text-decoration: none;
-  opacity: .75; transition: opacity .2s, color var(--transition);
+  font-family: var(--base);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1.12;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s, color var(--transition);
 }
-.contact-link:hover { opacity: 1; }
+.contact-link:hover { color: var(--text); }
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .about-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+}

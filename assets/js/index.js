@@ -1,8 +1,15 @@
-var GAP_VAL   = '5rem';
-var STAGGER_2 = '9rem';
-
 var allCards = Array.from(document.querySelectorAll('.project-card'));
 var grid     = document.getElementById('grid');
+
+function isMobile() {
+  return window.matchMedia('(max-width: 767px)').matches;
+}
+
+function getStagger() {
+  return isMobile()
+    ? { gap: '3.875rem', offset: '1.5rem' }
+    : { gap: '5rem',     offset: '9rem'   };
+}
 
 function sortedCards(filter) {
   var key = filter === 'all' ? 'orderAll' : 'order';
@@ -15,9 +22,10 @@ function sortedCards(filter) {
 }
 
 function applyStagger(visibleCards) {
+  var s = getStagger();
   visibleCards.forEach(function (el, i) {
-    el.style.marginBottom = GAP_VAL;
-    el.style.marginTop    = (i % 2 === 1) ? STAGGER_2 : '0px';
+    el.style.marginBottom = s.gap;
+    el.style.marginTop    = (i % 2 === 1) ? s.offset : '0px';
   });
 }
 
@@ -28,6 +36,10 @@ function applyFilter(f, animate) {
     btn.classList.add('active');
     document.body.dataset.scheme = btn.dataset.scheme || f;
   }
+
+  // Sync mobile select
+  var sel = document.getElementById('filterSelect');
+  if (sel) sel.value = f;
 
   var ordered = sortedCards(f);
   ordered.forEach(function (el) { grid.appendChild(el); });
@@ -57,6 +69,21 @@ function applyFilter(f, animate) {
     }, 270);
   }
 }
+
+// Populate mobile select from filter buttons
+(function () {
+  var sel = document.getElementById('filterSelect');
+  if (!sel) return;
+  document.querySelectorAll('.filter-btn').forEach(function (btn) {
+    var opt = document.createElement('option');
+    opt.value = btn.dataset.filter || 'all';
+    opt.textContent = btn.textContent.trim();
+    sel.appendChild(opt);
+  });
+  sel.addEventListener('change', function () {
+    applyFilter(this.value, true);
+  });
+})();
 
 // Restore filter from URL on load
 (function () {
