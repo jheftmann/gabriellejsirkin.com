@@ -9,6 +9,7 @@
   letter-spacing: 0;
   color: var(--text);
   transition: color var(--transition);
+  max-width: 50%;
 }
 
 /* FILTER BAR */
