@@ -91,7 +91,7 @@ nav {
   align-items: center;
   padding: 24px var(--side) 0;
 }
-.nav-brand { text-decoration: none; grid-column: 1; }
+.nav-brand { text-decoration: none; grid-column: 1; white-space: nowrap; }
 .nav-name {
   font-family: var(--display);
   font-size: 0.875rem; /* 14px */
