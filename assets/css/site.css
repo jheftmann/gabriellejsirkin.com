@@ -51,6 +51,7 @@
   --transition:  0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --side:        4.5rem; /* 72px */
   --col-gap:     8.625rem; /* 138px */
+  --col:         calc((100vw - 2 * var(--side) - 11 * 1.5rem) / 12); /* 1 column of the 12-col grid */
   --display:     'GT Alpina', serif;
   --base:        'GT Standard', sans-serif;
 }

@@ -5,7 +5,7 @@
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) calc((100vw - 2 * var(--side) - 11 * 1.5rem) / 4 + 3rem);
+  grid-template-columns: minmax(0, 1fr) calc(3 * var(--col) + 3rem); /* cols 10–12 */
   column-gap: 1.5rem;
   row-gap: 4.5rem;
   align-items: start;
@@ -18,10 +18,9 @@
   flex-direction: column;
   gap: 1.5rem;
   position: fixed;
-  top: 12.1875rem; /* 195px — from Figma frame y-position */
+  top: 12.1875rem; /* 195px — from Figma */
   right: var(--side);
-  /* 3-of-12 cols: 3×col_width + 2×gap = (100vw − 2×side − 11×gap)/4 + 3rem */
-  width: calc((100vw - 2 * var(--side) - 11 * 1.5rem) / 4 + 3rem);
+  width: calc(3 * var(--col) + 3rem); /* 3 cols + 2 gaps = cols 10–12 */
 }
 .sidebar-label {
   font-family: var(--display);
@@ -40,6 +39,7 @@
   line-height: 1.24;
   color: var(--text);
   transition: color var(--transition);
+  max-width: calc(2 * var(--col) + 1.5rem); /* 2 cols + 1 gap */
 }
 .sidebar-email {
   display: block;
@@ -58,7 +58,7 @@
 }
 .sidebar-photo {
   display: block;
-  width: 12.25rem; /* 196px = 2 of 3 sidebar columns */
+  width: calc(2 * var(--col) + 1.5rem); /* 2 cols + 1 gap */
   height: auto;
   object-fit: cover;
 }
@@ -71,7 +71,7 @@
   flex-wrap: wrap;
   position: fixed;
   bottom: 1.5rem;
-  right: var(--side);
+  left: calc(100vw - var(--side) - 3 * var(--col) - 3rem); /* left edge of col 10 */
 }
 
 .about-headline {
@@ -86,11 +86,10 @@
 }
 .about-headline em { font-style: italic; }
 
-/* SECTION ROW — label left, content right */
-/* Matches 9-col Figma grid: label=cols1-2(196px), content=cols3-7(526px), cols8-9 empty */
+/* SECTION ROW — label cols 1–2, content cols 3–7 of the 12-col grid */
 .about-row {
   display: grid;
-  grid-template-columns: 12.25rem minmax(0, 32.875rem); /* 196px label, max 526px content */
+  grid-template-columns: calc(2 * var(--col) + 1.5rem) minmax(0, calc(5 * var(--col) + 6rem));
   column-gap: 1.5rem;
   margin-bottom: 4.5rem;
   align-items: baseline;
@@ -181,6 +180,7 @@ body[data-scheme="services"] .about-layout > .about-headline {
     width: 100%;
   }
   .sidebar-links {
+    left: auto;
     right: var(--side);
   }
   .about-row {
