@@ -17,7 +17,7 @@
 /* CREDITS ROW */
 .project-credits {
   display: flex;
-  gap: 4.5rem; /* 72px */
+  gap: 3rem; /* 48px — Figma credits gap */
   align-items: flex-start;
   padding: 2rem var(--side) 0;
   flex-wrap: wrap;
