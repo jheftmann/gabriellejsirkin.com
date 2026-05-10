@@ -18,7 +18,7 @@
   flex-direction: column;
   gap: 1.5rem;
   position: fixed;
-  top: 12.1875rem; /* 195px — from Figma */
+  top: 12.75rem; /* 204px — aligns with headline bottom, consistent across About and Services */
   right: var(--side);
   width: calc(3 * var(--col) + 3rem); /* 3 cols + 2 gaps = cols 10–12 */
 }

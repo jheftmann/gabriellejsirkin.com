@@ -144,10 +144,13 @@ footer {
   padding: 3.75rem var(--side) 1.5rem;
 }
 .footer-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 1.5rem;
   align-items: baseline;
-  justify-content: space-between;
 }
+.footer-inner > .fc { grid-column: 1 / 10; }
+.footer-links { grid-column: 10 / span 3; }
 .footer-links {
   display: flex;
   gap: 1.5rem;
