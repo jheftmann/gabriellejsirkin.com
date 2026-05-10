@@ -1,4 +1,4 @@
 ---
-hero_main: Directing vision and shaping stories globally.
-hero_accent: Visual Director in Los Angeles
+hero_main: Directing vision and shaping global travel stories.
+hero_accent: ''
 ---
