@@ -326,7 +326,7 @@ function build() {
   // Apply settings tokens inside partials (so {{SETTING:...}} works in _nav.html etc.)
   Object.keys(partials).forEach(k => { partials[k] = applySettings(partials[k], settings); });
 
-  const pages = ['index', 'about', 'project', 'travel', 'productions'];
+  const pages = ['index', 'about', 'project', 'services', 'productions'];
   pages.forEach(page => {
     let html = fs.readFileSync(`src/${page}.html`, 'utf8');
 
@@ -334,7 +334,7 @@ function build() {
     html = applyIncludes(html, partials);
 
     // Merge page-specific content into settings, then apply tokens
-    const pageContentMap = { index: 'home', about: 'about', travel: 'travel' };
+    const pageContentMap = { index: 'home', about: 'about', services: 'travel' };
     const pageContent = pageContentMap[page] ? loadPageContent(pageContentMap[page]) : {};
     const pageSettings = { ...settings, ...pageContent };
     html = applySettings(html, pageSettings);
@@ -366,7 +366,7 @@ function build() {
     }
 
     // Inject travel page dynamic content
-    if (page === 'travel') {
+    if (page === 'services') {
       const approach = (pageContent.approach || '').split(/\n\n+/).filter(Boolean)
         .map(p => `      <p class="bio-para">${p.replace(/\n/g, ' ')}</p>`).join('\n');
       html = html.replace('<!-- #travel-approach -->', approach);

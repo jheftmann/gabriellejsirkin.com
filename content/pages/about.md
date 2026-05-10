@@ -2,7 +2,6 @@
 headline_1: Creative vision.
 headline_2: Operational precision.
 lead: Gabrielle J. Sirkin is a Visual Director based in Los Angeles specializing in the travel and hospitality space.
-sidebar_photo: assets/images/sidebar-about.jpg
 skill1_name: Visual Direction
 skill1_desc: Shapes the visual creative language and identity to tell compelling stories, build brand resonance and impact from concept through final delivery.
 skill2_name: Production & Project Management

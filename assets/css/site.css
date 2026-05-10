@@ -61,7 +61,7 @@ body[data-scheme="editorial"] { --bg:#e8e87c; --text:#1a1f56; --muted:#2a2f6a; }
 body[data-scheme="content"]   { --bg:#f0b8c8; --text:#1a3424; --muted:#2c4e36; }
 body[data-scheme="personal"]  { --bg:#b8cdc8; --text:#1e2a28; --muted:#3a4c48; }
 body[data-scheme="about"]     { --bg:#c4b8d4; --text:#3d2f5a; --muted:#5a4878; }
-body[data-scheme="travel"]    { --bg:#cdf0a0; --text:#2a3d1a; --muted:#4a5c30; }
+body[data-scheme="services"]  { --bg:#cdf0a0; --text:#2a3d1a; --muted:#4a5c30; }
 
 /* RESET */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -147,7 +147,7 @@ footer {
 
 /* Hide footer links on pages that have fixed sidebar links */
 body[data-scheme="about"] .footer-links,
-body[data-scheme="travel"] .footer-links { display: none; }
+body[data-scheme="services"] .footer-links { display: none; }
 
 
 /* MOBILE */
