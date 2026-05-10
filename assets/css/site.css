@@ -76,7 +76,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--base);
-  font-weight: 500;
+  font-weight: 400;
   min-height: 100vh;
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
@@ -98,7 +98,6 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: var(--bg);
   transition: background-color var(--transition);
 }
 .nav-brand { text-decoration: none; grid-column: 1; white-space: nowrap; }
