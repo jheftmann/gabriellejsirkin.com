@@ -265,25 +265,26 @@ function loadProjects() {
 // ─── Card HTML ───────────────────────────────────────────────────────────────
 
 function renderCard(p) {
-  const pub   = p.client || p.cat;
-  const pills = p.skills.map(s => `<span class="pill">${s}</span>`).join('');
-  const cs    = p.comingSoon ? '<span class="cs-badge">Coming Soon</span>' : '';
-  const r     = (p.cardImage && p.cardImage.ratio || 'r-4-3').replace(/^r-(\d+)-(\d+)$/, 'ratio-$1x$2');
-  const ph    = p.cardImage && p.cardImage.placeholder || '';
-  const src   = p.cardImage && p.cardImage.src;
+  const cs  = p.comingSoon ? '<span class="cs-badge">Coming Soon</span>' : '';
+  const r   = (p.cardImage && p.cardImage.ratio || 'r-4-3').replace(/^r-(\d+)-(\d+)$/, 'ratio-$1x$2');
+  const ph  = p.cardImage && p.cardImage.placeholder || '';
+  const src = p.cardImage && p.cardImage.src;
   const inner = src
     ? (/\.mp4$/i.test(src)
         ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
         : `<img src="${encodeSrc(src)}" alt="${p.title}">`)
     : `<div class="thumb-ph">${ph}</div>`;
-  const orderAttr    = p.order    != null ? ` data-order="${p.order}"`         : '';
+  const orderAttr    = p.order    != null ? ` data-order="${p.order}"`        : '';
   const orderAllAttr = p.orderAll != null ? ` data-order-all="${p.orderAll}"` : '';
+  // Caption: client (black) + title (muted), or just title (black) when no client
+  const captionHtml = p.client
+    ? `<p class="card-client">${p.client}</p><p class="card-title">${p.title}</p>`
+    : `<p class="card-title card-title--solo">${p.title}</p>`;
   return (
     `    <a class="project-card" data-category="${p.filter}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
     `      <div class="thumb ${r}">${inner}</div>\n` +
-    `      <div class="card-info">${cs}<p class="card-title">${p.title}</p>` +
-    `<p class="card-subtitle">${pub}</p>` +
-    `<div class="pills">${pills}</div></div>\n` +
+    `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div>` +
+    `<p class="card-cat">${p.cat}</p></div>\n` +
     `    </a>`
   );
 }

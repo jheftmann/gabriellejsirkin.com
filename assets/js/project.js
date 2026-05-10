@@ -20,8 +20,15 @@ function getParams() {
 
   document.title = (p.client ? p.client + ' — ' : '') + p.title + ' — Gabrielle J. Sirkin';
 
-  // Header: project title only
-  document.getElementById('pTitle').textContent = p.title || '';
+  // Header: client above title
+  var clientEl = document.getElementById('pClient');
+  var titleEl  = document.getElementById('pTitle');
+  if (p.client) {
+    clientEl.textContent = p.client;
+  } else {
+    clientEl.style.display = 'none';
+  }
+  titleEl.textContent = p.title || '';
 
   // Credits row
   var credits = '';

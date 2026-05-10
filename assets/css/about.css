@@ -6,7 +6,8 @@
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 19.125rem; /* 306px sidebar */
-  gap: 3rem;
+  column-gap: 1.5rem;
+  row-gap: 4.5rem;
   align-items: start;
 }
 
@@ -116,8 +117,7 @@
 }
 .bio-para:last-child { margin-bottom: 0; }
 
-/* CONTACT */
-.contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+/* SIDEBAR / CONTACT LINKS */
 .contact-link {
   font-family: var(--base);
   font-size: 0.625rem;
