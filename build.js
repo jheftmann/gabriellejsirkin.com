@@ -325,7 +325,7 @@ function build() {
   // Apply settings tokens inside partials (so {{SETTING:...}} works in _nav.html etc.)
   Object.keys(partials).forEach(k => { partials[k] = applySettings(partials[k], settings); });
 
-  const pages = ['index', 'about', 'project', 'travel'];
+  const pages = ['index', 'about', 'project', 'travel', 'productions'];
   pages.forEach(page => {
     let html = fs.readFileSync(`src/${page}.html`, 'utf8');
 
