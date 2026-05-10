@@ -6,24 +6,6 @@
   });
 })();
 
-// Custom cursor
-(function () {
-  var cursor = document.getElementById('cursor');
-  if (!cursor) return;
-  document.addEventListener('mousemove', function (e) {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top  = e.clientY + 'px';
-  });
-  document.addEventListener('mouseover', function (e) {
-    if (e.target.closest('a, button, .project-card, .nav-brand'))
-      cursor.classList.add('large');
-  });
-  document.addEventListener('mouseout', function (e) {
-    if (e.target.closest('a, button, .project-card, .nav-brand'))
-      cursor.classList.remove('large');
-  });
-})();
-
 // Page exit transition
 (function () {
   document.addEventListener('click', function (e) {

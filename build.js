@@ -376,7 +376,7 @@ function build() {
       html = html.replace('<!-- #travel-services -->', services);
 
       const clients = (Array.isArray(pageContent.clients) ? pageContent.clients : [])
-        .map(c => `      <p class="services-text">${c}</p>`).join('\n');
+        .map(c => `        <span>${c}</span>`).join('\n');
       html = html.replace('<!-- #travel-clients -->', clients);
 
       const cities = (Array.isArray(pageContent.cities) ? pageContent.cities : [])
