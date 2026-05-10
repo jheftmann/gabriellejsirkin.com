@@ -68,37 +68,35 @@
   align-items: start;
 }
 .row-label {
-  font-family: var(--base);
-  font-size: 0.625rem; /* 10px */
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  line-height: 1.12;
-  color: var(--muted);
-  padding-top: 0.15rem;
-  transition: color var(--transition);
-}
-
-/* SKILLS */
-.skill-item { margin-bottom: 1.5rem; }
-.skill-item:last-child { margin-bottom: 0; }
-.skill-name {
-  font-family: var(--base);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  line-height: 1.12;
-  color: var(--muted);
-  margin-bottom: 0.35rem;
-  transition: color var(--transition);
-}
-.skill-desc {
   font-family: var(--display);
-  font-size: 0.875rem;
+  font-size: 1.5rem; /* 24px = Size/XL */
   font-weight: 300;
   font-style: italic;
   line-height: 1.24;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+
+/* SKILLS (Subsection component) */
+.skill-item { margin-bottom: 1.5rem; }
+.skill-item:last-child { margin-bottom: 0; }
+.skill-name {
+  font-family: var(--display);
+  font-size: 1rem; /* 16px = Size/LG */
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.24;
+  color: var(--muted);
+  margin-bottom: 0.75rem; /* 12px gap */
+  transition: color var(--transition);
+}
+.skill-desc {
+  font-family: var(--base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
   color: var(--text);
   transition: color var(--transition);
 }
@@ -106,13 +104,14 @@
 /* BIO / SERVICES TEXT */
 .services-text,
 .bio-para {
-  font-family: var(--display);
+  font-family: var(--base);
   font-size: 0.875rem;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 500;
+  font-style: normal;
   line-height: 1.24;
+  letter-spacing: -0.01em;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   transition: color var(--transition);
 }
 .bio-para:last-child { margin-bottom: 0; }
@@ -143,7 +142,7 @@
   }
   .about-row {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2.25rem; /* 36px — Figma mobile Section gap */
     margin-bottom: 3rem;
   }
 }
