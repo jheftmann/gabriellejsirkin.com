@@ -165,9 +165,7 @@
     gap: 1rem;
   }
   .sidebar-links {
-    position: static;
-    bottom: auto;
-    right: auto;
+    right: var(--side);
   }
   .about-row {
     grid-template-columns: 1fr;

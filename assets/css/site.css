@@ -1,3 +1,47 @@
+/* FONTS */
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Light-Italic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Alpina';
+  src: url('../fonts/GT-Alpina-Latin-Standard-Regular-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Standard';
+  src: url('../fonts/GT-Standard-Latin-M-Standard-Regular.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Standard';
+  src: url('../fonts/GT-Standard-Latin-M-Standard-Regular-Oblique.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* DESIGN TOKENS */
 :root {
   --bg:          #f2ede6;
@@ -7,8 +51,8 @@
   --transition:  0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --side:        4.5rem; /* 72px */
   --col-gap:     8.625rem; /* 138px */
-  --display:     'GT Alpina', 'EB Garamond', serif;
-  --base:        'GT Standard', 'DM Sans', sans-serif;
+  --display:     'GT Alpina', serif;
+  --base:        'GT Standard', sans-serif;
 }
 
 /* COLOR SCHEMES — deferred, keeping for now */
