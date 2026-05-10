@@ -119,7 +119,7 @@
 .card-caption {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 .card-client {
   font-family: var(--display);
