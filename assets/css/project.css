@@ -119,7 +119,8 @@ figcaption {
 
 /* MOBILE */
 @media (max-width: 767px) {
-  .project-credits { flex-direction: column; gap: 1.5rem; }
+  .project-credits { flex-direction: column; gap: 1.125rem; } /* 18px — Figma mobile credits gap */
+  .credit-value { font-size: 1rem; } /* 16px on mobile */
   .project-images { grid-template-columns: 1fr 1fr; }
   .project-images > *:nth-child(even) { margin-top: 3rem; }
 }

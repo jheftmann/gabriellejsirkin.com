@@ -159,4 +159,9 @@
     gap: 2.25rem; /* 36px — Figma mobile Section gap */
     margin-bottom: 3rem;
   }
+  .row-label,
+  .sidebar-label { font-size: 1.75rem; } /* 28px = Size/XL on mobile */
+  .bio-para,
+  .services-text { font-size: 1rem; } /* 16px = Size/Base on mobile */
+  .skill-desc { font-size: 1rem; }
 }
