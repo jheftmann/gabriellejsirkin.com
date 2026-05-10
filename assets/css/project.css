@@ -2,15 +2,6 @@
 .project-header {
   padding: 0 var(--side) 0;
 }
-.project-client {
-  font-family: var(--display);
-  font-size: clamp(2rem, 3.9vw, 3.5rem);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.08;
-  color: var(--text);
-  transition: color var(--transition);
-}
 .project-title {
   font-family: var(--display);
   font-size: clamp(2rem, 3.9vw, 3.5rem);
