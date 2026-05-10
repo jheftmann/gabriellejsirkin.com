@@ -81,6 +81,7 @@ body {
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
   animation: page-in 0.45s ease both;
+  padding-top: 3.875rem; /* 62px — clears fixed nav (24px top pad + 14px text + 24px bottom breathing room) */
 }
 
 /* NAV */
@@ -90,6 +91,13 @@ nav {
   column-gap: 1.5rem;
   align-items: center;
   padding: 24px var(--side) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  transition: background-color var(--transition);
 }
 .nav-brand { text-decoration: none; grid-column: 1; white-space: nowrap; }
 .nav-name {
