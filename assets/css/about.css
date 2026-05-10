@@ -52,6 +52,14 @@
 .sidebar-avail {
   color: var(--muted);
 }
+.sidebar-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.sidebar-photo[src=""] { display: none; }
+
 .sidebar-links {
   display: flex;
   flex-direction: row;

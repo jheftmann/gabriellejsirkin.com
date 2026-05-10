@@ -116,6 +116,9 @@ collections:
           - { name: headline_1, label: Headline — Line 1, widget: string }
           - { name: headline_2, label: Headline — Line 2 (italic), widget: string }
           - { name: lead, label: Lead Paragraph, widget: string }
+          - { name: sidebar_photo, label: Sidebar Photo, widget: image,
+              hint: 'Portrait photo shown in the sidebar (approx 196×261px).',
+              required: false }
 
           - { name: skill1_name, label: 'Skill 1 — Name', widget: string }
           - { name: skill1_desc, label: 'Skill 1 — Description', widget: text }
@@ -138,8 +141,13 @@ collections:
           - { name: headline_1, label: Headline — Line 1, widget: string }
           - { name: headline_2, label: Headline — Line 2 (italic), widget: string }
 
-          - { name: availability, label: Availability (sidebar note), widget: string,
+          - { name: sidebar_label, label: Sidebar Heading, widget: string,
+              hint: 'e.g. "Start a project"', default: 'Start a project' }
+          - { name: availability, label: Availability Note, widget: string,
               hint: 'Short note about current project availability for the sidebar.' }
+          - { name: sidebar_photo, label: Sidebar Photo, widget: image,
+              hint: 'Landscape photo shown in the sidebar (approx 196×131px).',
+              required: false }
 
           - { name: approach, label: Approach, widget: text,
               hint: 'Separate paragraphs with a blank line.' }
