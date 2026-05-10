@@ -1,7 +1,4 @@
 ---
-sidebar_label: Start a project
-availability: Available for projects short, mid-term and long-term contracts starting in July. Inquire for rates and availability.
-sidebar_photo: assets/images/sidebar-travel.jpg
 headline_1: Untold stories
 headline_2: Meant to be seen.
 approach: |-
