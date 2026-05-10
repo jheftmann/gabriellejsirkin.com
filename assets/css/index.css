@@ -127,6 +127,7 @@
   font-weight: 300;
   font-style: italic;
   line-height: 1.24;
+  text-box: trim-both cap alphabetic;
   color: var(--text);
   transition: color var(--transition);
 }
@@ -136,6 +137,7 @@
   font-weight: 300;
   font-style: italic;
   line-height: 1.24;
+  text-box: trim-both cap alphabetic;
   color: var(--muted);
   transition: color var(--transition);
 }
@@ -147,6 +149,7 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.12;
+  text-box: trim-both cap alphabetic;
   color: var(--muted);
   white-space: nowrap;
   flex-shrink: 0;
