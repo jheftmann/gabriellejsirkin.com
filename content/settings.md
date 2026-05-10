@@ -8,7 +8,7 @@ contact_instagram: https://www.instagram.com/gabril
 contact_linkedin: https://www.linkedin.com
 nav:
   - Work|index.html
-  - Services|travel.html
+  - Services|services.html
   - About|about.html
 sharecard_url: https://gabriellesirkin.github.io/gabriellejsirkin.com/sharecard.jpg
 ---
