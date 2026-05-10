@@ -7,16 +7,19 @@ director: ''
 bts: ''
 date: ''
 order: 35
+order_all: 125
 description: ''
 credits: ''
 destination: ''
 skills:
+  - Content Creation
   - Visual Direction
 card_ratio: r-4-3
 coming_soon: false
-thumbnail: 02_IMG_6683_VSCO.JPG
+thumbnail: 04_CC_Istanbul_04.mp4
 media:
   - file: 01_CC_Istanbul_02.mp4
+    caption: ''
   - file: 02_IMG_6683_VSCO.JPG
   - file: 03_CC_Istanbul_05.mp4
   - file: 04_CC_Istanbul_04.mp4

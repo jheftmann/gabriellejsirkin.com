@@ -7,10 +7,12 @@ director: ''
 bts: ''
 date: ''
 order: 5
+order_all: 5
 description: ''
 credits: ''
 destination: ''
 skills:
+  - Content Creation
   - Visual Direction
 card_ratio: r-4-3
 coming_soon: false

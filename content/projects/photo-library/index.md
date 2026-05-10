@@ -7,13 +7,13 @@ director: ''
 bts: ''
 date: '2025'
 order: 15
+order_all: 85
 description: ''
 credits: ''
 destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
   - Brand Strategy
 card_ratio: r-4-3
 coming_soon: false

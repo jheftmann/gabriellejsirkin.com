@@ -7,13 +7,13 @@ director: ''
 bts: Gabrielle J Sirkin
 date: '2017'
 order: 30
+order_all: 55
 description: ''
 credits: ''
 destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
   - Brand Strategy
 card_ratio: r-3-4
 thumbnail: P0318_Kim.jpeg

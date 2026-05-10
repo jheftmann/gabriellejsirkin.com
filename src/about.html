@@ -24,43 +24,48 @@
 <!-- #include _nav.html -->
 
 <div class="about-page">
+  <div class="about-layout">
 
-  <h1 class="about-headline">{{SETTING:headline_1}}<br><em>{{SETTING:headline_2}}</em></h1>
+    <div class="about-main">
+      <h1 class="about-headline">{{SETTING:headline_1}}<br><em>{{SETTING:headline_2}}</em></h1>
 
-  <p class="lead">{{SETTING:lead}}</p>
-
-  <div class="about-row">
-    <p class="row-label">Areas of Expertise</p>
-    <div class="row-content">
+      <div class="about-row">
+        <p class="row-label">Areas of Expertise</p>
+        <div class="row-content">
 <!-- #about-skills -->
-    </div>
-  </div>
+        </div>
+      </div>
 
-  <div class="about-row">
-    <p class="row-label">Travel Creative Services</p>
-    <div class="row-content">
-      <p class="services-text">{{SETTING:services_text}}</p>
-    </div>
-  </div>
-
-  <div class="about-row">
-    <p class="row-label">About</p>
-    <div class="row-content">
+      <div class="about-row">
+        <p class="row-label">About</p>
+        <div class="row-content">
 <!-- #about-bio -->
-    </div>
-  </div>
+        </div>
+      </div>
 
-  <div class="about-row">
-    <p class="row-label">Contact</p>
-    <div class="row-content">
-      <div class="contact-links">
-        <a href="mailto:{{SETTING:contact_email}}" class="contact-link">Email</a>
-        <a href="{{SETTING:contact_instagram}}" target="_blank" class="contact-link">Instagram</a>
-        <a href="{{SETTING:contact_linkedin}}" target="_blank" class="contact-link">LinkedIn</a>
+      <div class="about-row">
+        <p class="row-label">Contact</p>
+        <div class="row-content">
+          <div class="contact-links">
+            <a href="{{SETTING:contact_instagram}}" target="_blank" class="contact-link">Instagram</a>
+            <a href="{{SETTING:contact_linkedin}}" target="_blank" class="contact-link">LinkedIn</a>
+            <a href="mailto:{{SETTING:contact_email}}" class="contact-link">Email</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
+    <aside class="about-sidebar">
+      <p class="sidebar-bio">{{SETTING:lead}}</p>
+      <!-- sidebar photo: add {{SETTING:sidebar_photo}} once CMS field exists -->
+      <div class="sidebar-links">
+        <a href="{{SETTING:contact_instagram}}" target="_blank" class="contact-link">Instagram</a>
+        <a href="{{SETTING:contact_linkedin}}" target="_blank" class="contact-link">LinkedIn</a>
+        <a href="mailto:{{SETTING:contact_email}}" class="contact-link">Email</a>
+      </div>
+    </aside>
+
+  </div>
 </div>
 
 <!-- #include _footer.html -->

@@ -6,11 +6,13 @@ photographer: ''
 director: ''
 bts: ''
 date: ''
-order: 45
+order: 40
+order_all: 70
 description: ''
 credits: ''
 destination: ''
 skills:
+  - Content Creation
   - Viusal Direction
 card_ratio: r-4-3
 coming_soon: false

@@ -7,13 +7,13 @@ director: ''
 bts: ''
 date: 2012 - 2015
 order: 15
+order_all: 25
 description: ''
 credits: ''
 destination: ''
 skills:
   - Visual Direction
   - Production
-  - Project Management
   - Curation
 card_ratio: r-4-3
 coming_soon: false
