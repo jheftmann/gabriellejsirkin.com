@@ -138,6 +138,9 @@ collections:
           - { name: headline_1, label: Headline — Line 1, widget: string }
           - { name: headline_2, label: Headline — Line 2 (italic), widget: string }
 
+          - { name: availability, label: Availability (sidebar note), widget: string,
+              hint: 'Short note about current project availability for the sidebar.' }
+
           - { name: approach, label: Approach, widget: text,
               hint: 'Separate paragraphs with a blank line.' }
 
