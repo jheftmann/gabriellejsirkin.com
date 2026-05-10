@@ -30,14 +30,14 @@
 @font-face {
   font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-Latin-M-Standard-Regular.woff2') format('woff2');
-  font-weight: 500;
+  font-weight: 400 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-Latin-M-Standard-Regular-Oblique.woff2') format('woff2');
-  font-weight: 500;
+  font-weight: 400 500;
   font-style: italic;
   font-display: swap;
 }
