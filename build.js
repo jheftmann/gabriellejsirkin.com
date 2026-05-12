@@ -133,9 +133,10 @@ function applySettings(html, settings) {
 
 function loadPartials() {
   return {
-    '_head.html':   fs.readFileSync('src/partials/_head.html',   'utf8'),
-    '_nav.html':    fs.readFileSync('src/partials/_nav.html',    'utf8'),
-    '_footer.html': fs.readFileSync('src/partials/_footer.html', 'utf8'),
+    '_head.html':          fs.readFileSync('src/partials/_head.html',          'utf8'),
+    '_nav.html':           fs.readFileSync('src/partials/_nav.html',           'utf8'),
+    '_footer.html':        fs.readFileSync('src/partials/_footer.html',        'utf8'),
+    '_sidebar-links.html': fs.readFileSync('src/partials/_sidebar-links.html', 'utf8'),
   };
 }
 
@@ -202,16 +203,16 @@ function loadProjects() {
       const folderMedia = fmMediaRaw ? [] : fs.readdirSync(path.join(dir, id))
         .filter(f => /\.(jpe?g|png|webp|gif|avif|mp4)$/i.test(f))
         .sort();
-      // Normalize to { src, caption } objects throughout
+      // Normalize to { src, caption, bts } objects throughout
       const resolvedImages = fmMediaRaw
         ? fmMediaRaw.map(item => {
             if (typeof item === 'string') {
-              return { src: path.isAbsolute(item) ? item.replace(/^\//, '') : `${baseUrl}${item}`, caption: '' };
+              return { src: path.isAbsolute(item) ? item.replace(/^\//, '') : `${baseUrl}${item}`, caption: '', bts: false };
             }
             const rawSrc = item.file || '';
-            return { src: path.isAbsolute(rawSrc) ? rawSrc.replace(/^\//, '') : `${baseUrl}${rawSrc}`, caption: item.caption || '' };
+            return { src: path.isAbsolute(rawSrc) ? rawSrc.replace(/^\//, '') : `${baseUrl}${rawSrc}`, caption: item.caption || '', bts: !!item.bts };
           })
-        : folderMedia.map(f => ({ src: `${baseUrl}${f}`, caption: '' }));
+        : folderMedia.map(f => ({ src: `${baseUrl}${f}`, caption: '', bts: false }));
 
       // Card thumbnail: explicit thumbnail field > first image
       if (meta.thumbnail) {
@@ -245,11 +246,14 @@ function loadProjects() {
           );
         } else if (resolvedImages.length > 0) {
           imgsHtml = resolvedImages
-            .map(({ src, caption }) => {
+            .map(({ src, caption, bts }) => {
+              const btsAttr = bts ? ' data-bts="true"' : '';
               const el = /\.mp4$/i.test(src)
-                ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
-                : `<img src="${encodeSrc(src)}" alt="">`;
-              return caption ? `<figure>${el}<figcaption>${caption}</figcaption></figure>` : el;
+                ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline${btsAttr}></video>`
+                : `<img src="${encodeSrc(src)}" alt=""${btsAttr}>`;
+              return caption
+                ? `<figure${btsAttr}>${el}<figcaption>${caption}</figcaption></figure>`
+                : el;
             })
             .join('\n');
         } else {
@@ -261,6 +265,56 @@ function loadProjects() {
 
       return { id, ...meta, contentHtml };
     });
+}
+
+// ─── Page metadata ───────────────────────────────────────────────────────────
+
+function computePageMeta(page, pageContent, settings, firstProjectSrc) {
+  const base    = settings.og_title_base || 'Gabrielle J. Sirkin, Creative Studio for Travel';
+  const siteUrl = (settings.site_url || '').replace(/\/$/, '');
+
+  const defaultTitles = {
+    index:       base,
+    about:       `${base} – Information`,
+    services:    `${base} – Services`,
+    productions: `${base} – Productions`,
+    project:     base,
+  };
+
+  const title   = pageContent.page_title || defaultTitles[page] || base;
+  const ogTitle = pageContent.og_title   || title;
+  const ogDesc  = pageContent.og_description || settings.site_description || '';
+
+  let ogImage = settings.sharecard_url || '';
+  if (pageContent.og_image) {
+    const raw = pageContent.og_image;
+    ogImage = /^https?:\/\//.test(raw) ? raw : `${siteUrl}/${raw.replace(/^\//, '')}`;
+  } else if ((page === 'index' || page === 'project') && firstProjectSrc) {
+    ogImage = `${siteUrl}/${firstProjectSrc}`;
+  }
+
+  const ogUrls = {
+    index:       `${siteUrl}/`,
+    about:       `${siteUrl}/about.html`,
+    services:    `${siteUrl}/services.html`,
+    productions: `${siteUrl}/productions.html`,
+    project:     `${siteUrl}/project.html`,
+  };
+
+  return [
+    `<title>${title}</title>`,
+    `<link rel="icon" type="image/svg+xml" href="favicon.svg">`,
+    `<meta name="description" content="${ogDesc}">`,
+    `<meta property="og:title" content="${ogTitle}">`,
+    `<meta property="og:description" content="${ogDesc}">`,
+    `<meta property="og:image" content="${ogImage}">`,
+    `<meta property="og:url" content="${ogUrls[page] || siteUrl + '/'}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${ogTitle}">`,
+    `<meta name="twitter:description" content="${ogDesc}">`,
+    `<meta name="twitter:image" content="${ogImage}">`,
+  ].join('\n');
 }
 
 // ─── Dominant color extraction ───────────────────────────────────────────────
@@ -282,7 +336,7 @@ function renderCard(p, bgColor = '') {
   const src = p.cardImage && p.cardImage.src;
   const inner = src
     ? (/\.mp4$/i.test(src)
-        ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
+        ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline aria-hidden="true"></video>`
         : `<img src="${encodeSrc(src)}" alt="${p.title}">`)
     : `<div class="thumb-ph">${ph}</div>`;
   const styleAttr    = bgColor ? ` style="background-color:${bgColor}"` : '';
@@ -363,15 +417,19 @@ async function build() {
     const pageContentMap = { index: 'home', about: 'about', services: 'travel' };
     const pageContent = pageContentMap[page] ? loadPageContent(pageContentMap[page]) : {};
     const pageSettings = { ...settings, ...pageContent };
+
+    // Inject computed meta block
+    const firstProjectSrc = sortedForColors[0] && sortedForColors[0].cardImage && sortedForColors[0].cardImage.src;
+    const gaSnippet = settings.ga_tracking_id
+      ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${settings.ga_tracking_id}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${settings.ga_tracking_id}');</script>`
+      : '';
+    html = html.replace('<!-- #meta -->', computePageMeta(page, pageContent, settings, firstProjectSrc) + (gaSnippet ? '\n' + gaSnippet : ''));
+
     html = applySettings(html, pageSettings);
 
     // Auto-generate filter bar and inject project cards
     if (page === 'index') {
-      const sorted = projects.slice().sort((a, b) => {
-        const av = a.orderAll != null ? a.orderAll : Infinity;
-        const bv = b.orderAll != null ? b.orderAll : Infinity;
-        return av !== bv ? av - bv : a.title.localeCompare(b.title);
-      });
+      const sorted = sortedForColors;
       html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted));
       html = html.replace('<!-- #projects-cards -->', sorted.map(p => renderCard(p, colorMap[p.id] || '')).join('\n'));
       const heroAccent = pageContent.hero_accent ? `<br>${pageContent.hero_accent}` : '';
@@ -400,15 +458,15 @@ async function build() {
       html = html.replace('<!-- #travel-approach -->', approach);
 
       const services = (Array.isArray(pageContent.services) ? pageContent.services : [])
-        .map(s => `        <span>${s}</span>`).join('\n');
+        .map(s => `        <li>${s}</li>`).join('\n');
       html = html.replace('<!-- #travel-services -->', services);
 
       const clients = (Array.isArray(pageContent.clients) ? pageContent.clients : [])
-        .map(c => `        <span>${c}</span>`).join('\n');
+        .map(c => `        <li>${c}</li>`).join('\n');
       html = html.replace('<!-- #travel-clients -->', clients);
 
       const cities = (Array.isArray(pageContent.cities) ? pageContent.cities : [])
-        .map(c => `        <span>${c}</span>`).join('\n');
+        .map(c => `        <li>${c}</li>`).join('\n');
       html = html.replace('<!-- #travel-cities -->', cities);
     }
 

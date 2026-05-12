@@ -2,17 +2,8 @@
 .project-header {
   padding: 4.5rem var(--side) 0;
 }
-.project-client,
-.project-title {
-  font-family: var(--display);
-  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.08;
-  transition: color var(--transition);
-}
-.project-client { color: var(--text); }
-.project-title  { color: var(--muted); }
+.project-client { color: var(--text); transition: color var(--transition); }
+.project-title  { color: var(--muted); transition: color var(--transition); }
 
 /* CREDITS ROW */
 .project-credits {

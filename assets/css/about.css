@@ -22,15 +22,6 @@
   right: var(--side);
   width: calc(3 * var(--col) + 3rem); /* 3 cols + 2 gaps = cols 10–12 */
 }
-.sidebar-label {
-  font-family: var(--display);
-  font-size: 1.5rem; /* 24px = Size/XL */
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.24;
-  color: var(--muted);
-  transition: color var(--transition);
-}
 .sidebar-bio {
   font-family: var(--display);
   font-size: 0.75rem; /* 12px = Size/SM */
@@ -94,7 +85,8 @@
   margin-bottom: 4.5rem;
   align-items: baseline;
 }
-.row-label {
+.row-label,
+.sidebar-label {
   font-family: var(--display);
   font-size: 1.5rem; /* 24px = Size/XL */
   font-weight: 300;
