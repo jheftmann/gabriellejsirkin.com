@@ -203,16 +203,16 @@ function loadProjects() {
       const folderMedia = fmMediaRaw ? [] : fs.readdirSync(path.join(dir, id))
         .filter(f => /\.(jpe?g|png|webp|gif|avif|mp4)$/i.test(f))
         .sort();
-      // Normalize to { src, caption } objects throughout
+      // Normalize to { src, caption, bts } objects throughout
       const resolvedImages = fmMediaRaw
         ? fmMediaRaw.map(item => {
             if (typeof item === 'string') {
-              return { src: path.isAbsolute(item) ? item.replace(/^\//, '') : `${baseUrl}${item}`, caption: '' };
+              return { src: path.isAbsolute(item) ? item.replace(/^\//, '') : `${baseUrl}${item}`, caption: '', bts: false };
             }
             const rawSrc = item.file || '';
-            return { src: path.isAbsolute(rawSrc) ? rawSrc.replace(/^\//, '') : `${baseUrl}${rawSrc}`, caption: item.caption || '' };
+            return { src: path.isAbsolute(rawSrc) ? rawSrc.replace(/^\//, '') : `${baseUrl}${rawSrc}`, caption: item.caption || '', bts: !!item.bts };
           })
-        : folderMedia.map(f => ({ src: `${baseUrl}${f}`, caption: '' }));
+        : folderMedia.map(f => ({ src: `${baseUrl}${f}`, caption: '', bts: false }));
 
       // Card thumbnail: explicit thumbnail field > first image
       if (meta.thumbnail) {
@@ -246,11 +246,14 @@ function loadProjects() {
           );
         } else if (resolvedImages.length > 0) {
           imgsHtml = resolvedImages
-            .map(({ src, caption }) => {
+            .map(({ src, caption, bts }) => {
+              const btsAttr = bts ? ' data-bts="true"' : '';
               const el = /\.mp4$/i.test(src)
-                ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
-                : `<img src="${encodeSrc(src)}" alt="">`;
-              return caption ? `<figure>${el}<figcaption>${caption}</figcaption></figure>` : el;
+                ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline${btsAttr}></video>`
+                : `<img src="${encodeSrc(src)}" alt=""${btsAttr}>`;
+              return caption
+                ? `<figure${btsAttr}>${el}<figcaption>${caption}</figcaption></figure>`
+                : el;
             })
             .join('\n');
         } else {

@@ -97,6 +97,7 @@ collections:
         fields:
           - { name: file, label: File, widget: file }
           - { name: caption, label: Caption, widget: string, required: false, hint: 'Optional caption shown below the image.' }
+          - { name: bts, label: BTS, widget: boolean, required: false, default: false, hint: 'Mark this image as behind-the-scenes.' }
 
   # ── Pages ──────────────────────────────────────────────────────────────────
   - name: pages
