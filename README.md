@@ -192,6 +192,19 @@ If no **OG Image** is set for a page, `og:image` falls back to `{site_url}/share
 3. Resolves relative image paths against `settings.site_url`.
 4. Returns a block of `<meta>` tags injected into `<!-- #meta -->` in each template's `<head>`.
 
+### Google Analytics
+
+To enable Google Analytics, add your **GA4 Measurement ID** to the CMS:
+
+1. Go to the CMS → **Settings**
+2. Find the **Google Analytics Tracking ID** field
+3. Enter your Measurement ID — it looks like `G-XXXXXXXXXX`
+4. Save and publish
+
+The GA4 snippet is injected into every page at build time. Leave the field blank to disable analytics entirely — no tracking code will be included in the output.
+
+To find your Measurement ID: Google Analytics → Admin → Data Streams → your stream → Measurement ID.
+
 ### Sharecard
 
 When shared on social media, shows `sharecard.jpg` from the root folder. Replace with a **1200 × 630 px** JPG to update.

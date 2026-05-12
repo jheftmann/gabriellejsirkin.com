@@ -417,7 +417,10 @@ async function build() {
 
     // Inject computed meta block
     const firstProjectSrc = sortedForColors[0] && sortedForColors[0].cardImage && sortedForColors[0].cardImage.src;
-    html = html.replace('<!-- #meta -->', computePageMeta(page, pageContent, settings, firstProjectSrc));
+    const gaSnippet = settings.ga_tracking_id
+      ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${settings.ga_tracking_id}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${settings.ga_tracking_id}');</script>`
+      : '';
+    html = html.replace('<!-- #meta -->', computePageMeta(page, pageContent, settings, firstProjectSrc) + (gaSnippet ? '\n' + gaSnippet : ''));
 
     html = applySettings(html, pageSettings);
 

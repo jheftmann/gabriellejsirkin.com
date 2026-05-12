@@ -202,3 +202,5 @@ collections:
               hint: 'Used as the root for all page titles, e.g. "Gabrielle J. Sirkin, Creative Studio for Travel"' }
           - { name: sharecard_url, label: 'Default OG Image URL', widget: string,
               hint: 'Fallback social share image (absolute URL) when no page-specific image is set.' }
+          - { name: ga_tracking_id, label: 'Google Analytics Tracking ID', widget: string, required: false,
+              hint: 'Your GA4 Measurement ID, e.g. G-XXXXXXXXXX. Leave blank to disable analytics.' }
