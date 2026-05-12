@@ -34,7 +34,6 @@ function applyFilter(f, animate) {
   var btn = document.querySelector('.filter-btn[data-filter="' + f + '"]');
   if (btn) {
     btn.classList.add('active');
-    document.body.dataset.scheme = btn.dataset.scheme || f;
   }
 
   // Sync mobile select

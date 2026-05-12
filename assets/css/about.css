@@ -155,6 +155,9 @@ body[data-scheme="services"] .about-layout > .about-headline {
   margin-bottom: 0;
 }
 
+/* Pages with sidebar social links don't need footer links too */
+.footer-links { display: none; }
+
 /* MOBILE */
 @media (max-width: 767px) {
   .about-layout {

@@ -79,6 +79,23 @@ collections:
 
       - { name: coming_soon, label: Coming Soon, widget: boolean, required: false, default: false }
 
+      - name: color_theme
+        label: Color Theme
+        widget: select
+        required: false
+        default: default
+        options:
+          - { label: Default,    value: default    }
+          - { label: Colorway 1, value: colorway-1 }
+          - { label: Colorway 2, value: colorway-2 }
+          - { label: Colorway 3, value: colorway-3 }
+          - { label: Colorway 4, value: colorway-4 }
+          - { label: Colorway 5, value: colorway-5 }
+          - { label: Colorway 6, value: colorway-6 }
+          - { label: Colorway 7, value: colorway-7 }
+          - { label: About,      value: about      }
+          - { label: Services,   value: services   }
+
       - name: thumbnail
         label: Card Thumbnail
         widget: file
@@ -112,6 +129,8 @@ collections:
           - { name: og_title,       label: 'SEO — Title override',   widget: string, required: false }
           - { name: og_description, label: 'SEO — Description',      widget: string, required: false }
           - { name: og_image,       label: 'SEO — Share image',      widget: image,  required: false }
+          - { name: color_theme,    label: Color Theme,              widget: select, required: false, default: default,
+              options: [{ label: Default, value: default }, { label: 'Colorway 1', value: colorway-1 }, { label: 'Colorway 2', value: colorway-2 }, { label: 'Colorway 3', value: colorway-3 }, { label: 'Colorway 4', value: colorway-4 }, { label: 'Colorway 5', value: colorway-5 }, { label: 'Colorway 6', value: colorway-6 }, { label: 'Colorway 7', value: colorway-7 }, { label: About, value: about }, { label: Services, value: services }] }
 
       - name: about
         label: About
@@ -140,6 +159,8 @@ collections:
           - { name: og_title,       label: 'SEO — Title override',   widget: string, required: false }
           - { name: og_description, label: 'SEO — Description',      widget: string, required: false }
           - { name: og_image,       label: 'SEO — Share image',      widget: image,  required: false }
+          - { name: color_theme,    label: Color Theme,              widget: select, required: false, default: about,
+              options: [{ label: Default, value: default }, { label: 'Colorway 1', value: colorway-1 }, { label: 'Colorway 2', value: colorway-2 }, { label: 'Colorway 3', value: colorway-3 }, { label: 'Colorway 4', value: colorway-4 }, { label: 'Colorway 5', value: colorway-5 }, { label: 'Colorway 6', value: colorway-6 }, { label: 'Colorway 7', value: colorway-7 }, { label: About, value: about }, { label: Services, value: services }] }
 
       - name: travel
         label: Services
@@ -178,6 +199,8 @@ collections:
           - { name: og_title,       label: 'SEO — Title override',   widget: string, required: false }
           - { name: og_description, label: 'SEO — Description',      widget: string, required: false }
           - { name: og_image,       label: 'SEO — Share image',      widget: image,  required: false }
+          - { name: color_theme,    label: Color Theme,              widget: select, required: false, default: services,
+              options: [{ label: Default, value: default }, { label: 'Colorway 1', value: colorway-1 }, { label: 'Colorway 2', value: colorway-2 }, { label: 'Colorway 3', value: colorway-3 }, { label: 'Colorway 4', value: colorway-4 }, { label: 'Colorway 5', value: colorway-5 }, { label: 'Colorway 6', value: colorway-6 }, { label: 'Colorway 7', value: colorway-7 }, { label: About, value: about }, { label: Services, value: services }] }
 
   # ── Site settings ──────────────────────────────────────────────────────────
   - name: settings

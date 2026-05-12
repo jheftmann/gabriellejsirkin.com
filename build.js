@@ -179,6 +179,7 @@ function loadProjects() {
                           : (Array.isArray(fm.skills) ? fm.skills : []),
           thumbnail:    fm.thumbnail    || '',
           cardImage:    { ratio: fm.card_ratio || 'r-4-3', placeholder: fm.card_placeholder || '' },
+          colorTheme:   fm.color_theme  || 'default',
           comingSoon:   fm.coming_soon === 'true',
           media:        Array.isArray(fm.media) && fm.media.length > 0
                           ? fm.media
@@ -366,7 +367,7 @@ function renderFilterBar(projects) {
     .filter(f => map[f])
     .map(f => ({ filter: f, label: map[f] }));
   const btns = filters
-    .map(f => `    <button class="filter-btn" data-filter="${f.filter}" data-scheme="${f.filter}">${f.label}</button>`)
+    .map(f => `    <button class="filter-btn" data-filter="${f.filter}">${f.label}</button>`)
     .join('\n');
   return `    <button class="filter-btn active" data-filter="all" data-scheme="all">All</button>\n${btns}`;
 }
@@ -475,6 +476,13 @@ async function build() {
       const obj = {};
       projects.forEach(p => { const { id, ...rest } = p; obj[id] = rest; });
       html = html.replace('<!-- #projects-data -->', JSON.stringify(obj));
+    }
+
+    // Inject data-theme on body for static pages
+    const defaultThemes = { about: 'about', services: 'services' };
+    const theme = pageContent.color_theme || defaultThemes[page] || 'default';
+    if (theme !== 'default') {
+      html = html.replace('<body>', `<body data-theme="${theme}">`);
     }
 
     fs.writeFileSync(`${page}.html`, html);

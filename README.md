@@ -192,6 +192,33 @@ If no **OG Image** is set for a page, `og:image` falls back to `{site_url}/share
 3. Resolves relative image paths against `settings.site_url`.
 4. Returns a block of `<meta>` tags injected into `<!-- #meta -->` in each template's `<head>`.
 
+### Color themes
+
+Each project page, and the About and Services pages, can have an individually assigned color theme. The theme controls background, text, and nav link colors.
+
+**To set a theme on a project:** open the project in the CMS → find the **Color Theme** field → choose from the dropdown → save and publish.
+
+**To change the About or Services page theme:** go to the CMS → Pages → About (or Services) → **Color Theme** field.
+
+**Available themes:**
+
+| Name | Background | Notes |
+|------|-----------|-------|
+| Default | Cream `#f2ede6` | Used for Home and all unthemed pages |
+| Colorway 1 | Dusty rose `#c9919e` | |
+| Colorway 2 | Pale yellow `#f4dba1` | |
+| Colorway 3 | Soft teal `#c0d6d4` | |
+| Colorway 4 | Mint `#dcffcd` | |
+| Colorway 5 | Dark red `#551507` | Light nav (white) |
+| Colorway 6 | Warm tan `#aa7347` | |
+| Colorway 7 | Coral red `#ff5045` | Light nav (white) |
+| About | Dark olive `#232b09` | Light nav (white) |
+| Services | Dark teal `#1d4648` | Light nav (white) |
+
+Themes with **light nav** automatically switch the navigation links to white to stay legible on dark backgrounds.
+
+The Home and Category pages are always Default — the theme picker on the Home page in the CMS is there if you ever want to experiment, but Default is the intended theme.
+
 ### Google Analytics
 
 To enable Google Analytics, add your **GA4 Measurement ID** to the CMS:
