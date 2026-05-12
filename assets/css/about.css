@@ -168,10 +168,11 @@ body[data-theme="services"] .about-layout > .about-headline {
     position: static;
     order: -1;
     gap: 1rem;
-    width: auto;
+    width: 100%;
     right: auto;
     top: auto;
   }
+  .sidebar-bio  { max-width: none; }
   .sidebar-photo {
     width: 100%;
   }
