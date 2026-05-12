@@ -109,7 +109,7 @@ body {
   hyphens: auto;
   hyphenate-limit-chars: 8 4 3;
 }
-nav, h1, h2, h3,
+.site-nav, h1, h2, h3,
 .row-label, .sidebar-label, .skill-name,
 .card-client, .card-title, .card-cat,
 .hero-title, .about-headline,
@@ -132,7 +132,7 @@ nav, h1, h2, h3,
 }
 
 /* NAV */
-nav {
+.site-nav {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 1.5rem;
