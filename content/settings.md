@@ -11,4 +11,5 @@ nav:
   - Services|services.html
   - About|about.html
 sharecard_url: https://gabriellesirkin.github.io/gabriellejsirkin.com/sharecard.jpg
+og_title_base: Gabrielle J. Sirkin, Creative Studio for Travel
 ---

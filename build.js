@@ -263,6 +263,56 @@ function loadProjects() {
     });
 }
 
+// ─── Page metadata ───────────────────────────────────────────────────────────
+
+function computePageMeta(page, pageContent, settings, firstProjectSrc) {
+  const base    = settings.og_title_base || 'Gabrielle J. Sirkin, Creative Studio for Travel';
+  const siteUrl = (settings.site_url || '').replace(/\/$/, '');
+
+  const defaultTitles = {
+    index:       base,
+    about:       `${base} – Information`,
+    services:    `${base} – Services`,
+    productions: `${base} – Productions`,
+    project:     base,
+  };
+
+  const title   = pageContent.page_title || defaultTitles[page] || base;
+  const ogTitle = pageContent.og_title   || title;
+  const ogDesc  = pageContent.og_description || settings.site_description || '';
+
+  let ogImage = settings.sharecard_url || '';
+  if (pageContent.og_image) {
+    const raw = pageContent.og_image;
+    ogImage = /^https?:\/\//.test(raw) ? raw : `${siteUrl}/${raw.replace(/^\//, '')}`;
+  } else if ((page === 'index' || page === 'project') && firstProjectSrc) {
+    ogImage = `${siteUrl}/${firstProjectSrc}`;
+  }
+
+  const ogUrls = {
+    index:       `${siteUrl}/`,
+    about:       `${siteUrl}/about.html`,
+    services:    `${siteUrl}/services.html`,
+    productions: `${siteUrl}/productions.html`,
+    project:     `${siteUrl}/project.html`,
+  };
+
+  return [
+    `<title>${title}</title>`,
+    `<link rel="icon" type="image/svg+xml" href="favicon.svg">`,
+    `<meta name="description" content="${ogDesc}">`,
+    `<meta property="og:title" content="${ogTitle}">`,
+    `<meta property="og:description" content="${ogDesc}">`,
+    `<meta property="og:image" content="${ogImage}">`,
+    `<meta property="og:url" content="${ogUrls[page] || siteUrl + '/'}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${ogTitle}">`,
+    `<meta name="twitter:description" content="${ogDesc}">`,
+    `<meta name="twitter:image" content="${ogImage}">`,
+  ].join('\n');
+}
+
 // ─── Dominant color extraction ───────────────────────────────────────────────
 
 async function getDominantColor(filePath) {
@@ -363,6 +413,11 @@ async function build() {
     const pageContentMap = { index: 'home', about: 'about', services: 'travel' };
     const pageContent = pageContentMap[page] ? loadPageContent(pageContentMap[page]) : {};
     const pageSettings = { ...settings, ...pageContent };
+
+    // Inject computed meta block
+    const firstProjectSrc = sortedForColors[0] && sortedForColors[0].cardImage && sortedForColors[0].cardImage.src;
+    html = html.replace('<!-- #meta -->', computePageMeta(page, pageContent, settings, firstProjectSrc));
+
     html = applySettings(html, pageSettings);
 
     // Auto-generate filter bar and inject project cards

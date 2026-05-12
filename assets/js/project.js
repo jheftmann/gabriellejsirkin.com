@@ -18,7 +18,7 @@ function getParams() {
 
   if (p.filter) document.body.dataset.scheme = p.filter;
 
-  document.title = (p.client ? p.client + ' — ' : '') + p.title + ' — Gabrielle J. Sirkin';
+  document.title = (p.client ? p.client + ' / ' + p.title : p.title) + ' — Gabrielle J. Sirkin, Creative Studio for Travel';
 
   // Header: client above title
   var clientEl = document.getElementById('pClient');

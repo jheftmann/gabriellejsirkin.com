@@ -108,6 +108,9 @@ collections:
         fields:
           - { name: hero_main,   label: Hero — Line 1, widget: string }
           - { name: hero_accent, label: Hero — Line 2 (optional), widget: string, required: false }
+          - { name: og_title,       label: 'SEO — Title override',   widget: string, required: false }
+          - { name: og_description, label: 'SEO — Description',      widget: string, required: false }
+          - { name: og_image,       label: 'SEO — Share image',      widget: image,  required: false }
 
       - name: about
         label: About
@@ -133,6 +136,9 @@ collections:
 
           - { name: bio, label: Bio, widget: text,
               hint: 'Separate paragraphs with a blank line.' }
+          - { name: og_title,       label: 'SEO — Title override',   widget: string, required: false }
+          - { name: og_description, label: 'SEO — Description',      widget: string, required: false }
+          - { name: og_image,       label: 'SEO — Share image',      widget: image,  required: false }
 
       - name: travel
         label: Services
@@ -168,6 +174,9 @@ collections:
             label: City Guides — Cities
             widget: list
             field: { name: item, label: City, widget: string }
+          - { name: og_title,       label: 'SEO — Title override',   widget: string, required: false }
+          - { name: og_description, label: 'SEO — Description',      widget: string, required: false }
+          - { name: og_image,       label: 'SEO — Share image',      widget: image,  required: false }
 
   # ── Site settings ──────────────────────────────────────────────────────────
   - name: settings
@@ -189,3 +198,7 @@ collections:
             widget: list
             hint: 'Format each item as "Label|page.html", e.g. "Work|index.html"'
             field: { name: item, label: Nav Item, widget: string }
+          - { name: og_title_base, label: 'Base Page Title', widget: string,
+              hint: 'Used as the root for all page titles, e.g. "Gabrielle J. Sirkin, Creative Studio for Travel"' }
+          - { name: sharecard_url, label: 'Default OG Image URL', widget: string,
+              hint: 'Fallback social share image (absolute URL) when no page-specific image is set.' }
