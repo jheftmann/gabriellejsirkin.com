@@ -151,9 +151,11 @@
   font-style: italic;
   line-height: 1.24;
   color: var(--muted);
-  transition: color var(--transition);
+  opacity: 0;
+  transition: color var(--transition), opacity .25s ease;
 }
-.card-title--solo { color: var(--text); }
+.card-title--solo { color: var(--text); opacity: 1; }
+.project-card:hover .card-title { opacity: 1; }
 .card-cat {
   font-family: var(--base);
   font-size: 0.625rem;
