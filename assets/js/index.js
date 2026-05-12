@@ -76,7 +76,7 @@ function applyFilter(f, animate) {
   document.querySelectorAll('.filter-btn').forEach(function (btn) {
     var opt = document.createElement('option');
     opt.value = btn.dataset.filter || 'all';
-    opt.textContent = btn.textContent.trim();
+    opt.textContent = btn.dataset.filter === 'all' ? 'All Categories' : btn.textContent.trim();
     sel.appendChild(opt);
   });
   sel.addEventListener('change', function () {

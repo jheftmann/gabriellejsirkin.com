@@ -57,9 +57,10 @@
   background: none;
   border: none;
   color: var(--text);
-  width: 100%;
+  width: auto;
   -webkit-appearance: auto;
   appearance: auto;
+  padding: 0;
 }
 
 /* GRID */
@@ -180,8 +181,10 @@
 /* MOBILE */
 @media (max-width: 767px) {
   .hero { padding: 3rem var(--side) 2rem; }
+  .hero-title { max-width: 100%; }
   .filter-bar    { display: none; }
   .filter-select { display: block; }
+  .grid { row-gap: 2.25rem; }
   .card-client,
   .card-title    { font-size: 1rem; } /* 16px on mobile */
   .card-cat      { display: none; }

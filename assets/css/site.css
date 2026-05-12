@@ -216,4 +216,11 @@ footer {
   :root { --side: 1.5rem; --col-gap: 1.5rem; }
   .nav-name-full  { display: none; }
   .nav-name-short { display: block; }
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem var(--side) 0;
+  }
+  .nav-links { gap: 1rem; }
 }
