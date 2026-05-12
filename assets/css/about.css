@@ -167,15 +167,20 @@ body[data-theme="services"] .about-layout > .about-headline {
   .about-sidebar {
     position: static;
     order: -1;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row dense;
+    column-gap: 1.5rem;
+    row-gap: 0.75rem;
+    align-items: start;
     width: 100%;
     right: auto;
     top: auto;
   }
-  .sidebar-bio  { max-width: none; }
-  .sidebar-photo {
-    width: 100%;
-  }
+  .sidebar-label { grid-column: 1 / -1; }
+  .sidebar-photo { grid-column: 1; width: 100%; }
+  .sidebar-bio   { grid-column: 2; max-width: none; }
+  .sidebar-email { grid-column: 2; }
   .sidebar-links { display: none; }
   .footer-links  { display: flex; }
   .about-row {
