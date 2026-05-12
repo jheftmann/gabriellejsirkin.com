@@ -111,6 +111,7 @@ nav {
   transition: background-color var(--transition);
 }
 .nav-brand { text-decoration: none; grid-column: 1; white-space: nowrap; }
+.nav-brand:hover .nav-name { color: var(--muted); }
 .nav-name {
   font-family: var(--display);
   font-size: 0.875rem; /* 14px */

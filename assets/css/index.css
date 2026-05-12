@@ -32,6 +32,7 @@
   border: none;
   padding: 0;
   white-space: nowrap;
+  cursor: pointer;
   transition: color .2s;
   position: relative;
 }
@@ -88,13 +89,23 @@
 }
 .project-card.visible { opacity: 1; transform: translateY(0); }
 .project-card.hidden  { display: none !important; }
+.project-card:hover .thumb::after { opacity: 1; }
 
 /* THUMB */
-.thumb { width: 100%; overflow: hidden; }
+.thumb { width: 100%; overflow: hidden; position: relative; }
 .thumb img,
 .thumb video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .thumb img { transition: opacity .3s ease; }
 .thumb img.loading { opacity: 0; }
+.thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
 
 /* aspect-ratio classes set by build.js (card_ratio frontmatter) */
 .thumb.ratio-16x9 { aspect-ratio: 16/9; }
@@ -140,9 +151,11 @@
   font-style: italic;
   line-height: 1.24;
   color: var(--muted);
-  transition: color var(--transition);
+  opacity: 0;
+  transition: color var(--transition), opacity .25s ease;
 }
-.card-title--solo { color: var(--text); }
+.card-title--solo { color: var(--text); opacity: 1; }
+.project-card:hover .card-title { opacity: 1; }
 .card-cat {
   font-family: var(--base);
   font-size: 0.625rem;
