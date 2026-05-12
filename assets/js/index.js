@@ -99,3 +99,10 @@ document.getElementById('filterBar').addEventListener('click', function (e) {
   if (!btn) return;
   applyFilter(btn.dataset.filter || 'all', true);
 });
+
+// Image loading state: show dominant color until image renders
+document.querySelectorAll('.thumb img').forEach(function (img) {
+  if (img.complete && img.naturalWidth > 0) return;
+  img.classList.add('loading');
+  img.addEventListener('load', function () { img.classList.remove('loading'); }, { once: true });
+});

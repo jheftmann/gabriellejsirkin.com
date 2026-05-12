@@ -4,6 +4,7 @@
 const fs   = require('fs');
 const path = require('path');
 const { marked } = require('marked');
+const sharp = require('sharp');
 
 const WATCH = process.argv.includes('--watch');
 
@@ -262,9 +263,19 @@ function loadProjects() {
     });
 }
 
+// ─── Dominant color extraction ───────────────────────────────────────────────
+
+async function getDominantColor(filePath) {
+  try {
+    if (!fs.existsSync(filePath)) return '';
+    const { dominant } = await sharp(filePath).stats();
+    return `rgb(${dominant.r},${dominant.g},${dominant.b})`;
+  } catch { return ''; }
+}
+
 // ─── Card HTML ───────────────────────────────────────────────────────────────
 
-function renderCard(p) {
+function renderCard(p, bgColor = '') {
   const cs  = p.comingSoon ? '<span class="cs-badge">Coming Soon</span>' : '';
   const r   = (p.cardImage && p.cardImage.ratio || 'r-4-3').replace(/^r-(\d+)-(\d+)$/, 'ratio-$1x$2');
   const ph  = p.cardImage && p.cardImage.placeholder || '';
@@ -274,6 +285,7 @@ function renderCard(p) {
         ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
         : `<img src="${encodeSrc(src)}" alt="${p.title}">`)
     : `<div class="thumb-ph">${ph}</div>`;
+  const styleAttr    = bgColor ? ` style="background-color:${bgColor}"` : '';
   const orderAttr    = p.order    != null ? ` data-order="${p.order}"`        : '';
   const orderAllAttr = p.orderAll != null ? ` data-order-all="${p.orderAll}"` : '';
   // Caption: client (black) + title (muted), or just title (black) when no client
@@ -282,7 +294,7 @@ function renderCard(p) {
     : `<p class="card-title card-title--solo">${p.title}</p>`;
   return (
     `    <a class="project-card" data-category="${p.filter}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
-    `      <div class="thumb ${r}">${inner}</div>\n` +
+    `      <div class="thumb ${r}"${styleAttr}>${inner}</div>\n` +
     `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div>` +
     `<p class="card-cat">${p.cat}</p></div>\n` +
     `    </a>`
@@ -307,7 +319,7 @@ function renderFilterBar(projects) {
 
 // ─── Build ───────────────────────────────────────────────────────────────────
 
-function build() {
+async function build() {
   console.log('[build] starting…');
   const settings = loadSettings();
   const partials  = loadPartials();
@@ -325,6 +337,20 @@ function build() {
 
   // Apply settings tokens inside partials (so {{SETTING:...}} works in _nav.html etc.)
   Object.keys(partials).forEach(k => { partials[k] = applySettings(partials[k], settings); });
+
+  // Pre-extract dominant colors for all card thumbnails (async, so must happen before forEach)
+  const colorMap = {};
+  const sortedForColors = projects.slice().sort((a, b) => {
+    const av = a.orderAll != null ? a.orderAll : Infinity;
+    const bv = b.orderAll != null ? b.orderAll : Infinity;
+    return av !== bv ? av - bv : a.title.localeCompare(b.title);
+  });
+  await Promise.all(sortedForColors.map(async p => {
+    const src = p.cardImage && p.cardImage.src;
+    if (src && !/^https?:\/\//.test(src) && !/\.mp4$/i.test(src)) {
+      colorMap[p.id] = await getDominantColor(src);
+    }
+  }));
 
   const pages = ['index', 'about', 'project', 'services', 'productions'];
   pages.forEach(page => {
@@ -347,7 +373,7 @@ function build() {
         return av !== bv ? av - bv : a.title.localeCompare(b.title);
       });
       html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted));
-      html = html.replace('<!-- #projects-cards -->', sorted.map(renderCard).join('\n'));
+      html = html.replace('<!-- #projects-cards -->', sorted.map(p => renderCard(p, colorMap[p.id] || '')).join('\n'));
       const heroAccent = pageContent.hero_accent ? `<br>${pageContent.hero_accent}` : '';
       html = html.replace('<!-- #hero-title -->', `${pageContent.hero_main || ''}${heroAccent}`);
     }
@@ -402,7 +428,7 @@ function build() {
 
 // ─── Entry ───────────────────────────────────────────────────────────────────
 
-build();
+build().catch(e => { console.error(e); process.exit(1); });
 
 if (WATCH) {
   const chokidar = require('chokidar');
@@ -411,6 +437,6 @@ if (WATCH) {
     .watch(['src', 'content'], { ignoreInitial: true })
     .on('all', (event, file) => {
       console.log(`[watch] ${event}: ${file}`);
-      try { build(); } catch (e) { console.error('[build error]', e.message); }
+      build().catch(e => console.error('[build error]', e.message));
     });
 }
