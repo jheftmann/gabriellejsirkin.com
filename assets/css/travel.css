@@ -15,4 +15,3 @@
   display: block;
   transition: color var(--transition);
 }
-@media (max-width: 767px) { .travel-grid { grid-template-columns: 1fr; } }
