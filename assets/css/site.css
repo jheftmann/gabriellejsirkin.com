@@ -230,4 +230,5 @@ footer {
     flex-wrap: wrap;
     gap: 0.75rem;
   }
+  .footer-links { gap: 0.75rem; }
 }

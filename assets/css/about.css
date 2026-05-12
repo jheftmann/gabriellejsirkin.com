@@ -162,6 +162,7 @@ body[data-theme="services"] .about-layout > .about-headline {
 @media (max-width: 767px) {
   .about-layout {
     grid-template-columns: 1fr;
+    row-gap: 3rem;
   }
   .about-headline { order: -2; }
   .about-sidebar {
