@@ -43,7 +43,8 @@
 <link rel="stylesheet" href="assets/css/about.css">
 </head>
 <body data-scheme="about">
-<nav>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<nav aria-label="Main">
   <a href="index.html" class="nav-brand">
     <span class="nav-name nav-name-full">Gabrielle J. Sirkin</span>
     <span class="nav-name nav-name-short">GJS</span>
@@ -56,12 +57,12 @@
 </nav>
 
 
-<div class="page-content">
+<main id="main-content" class="page-content">
 <div class="about-page">
   <div class="about-layout">
 
     <div class="about-main">
-      <h1 class="about-headline">Creative vision.<br><em>Operational precision.</em></h1>
+      <h1 class="about-headline">Creative vision.<br><i>Operational precision.</i></h1>
 
       <div class="about-row">
         <h2 class="row-label">Areas of Expertise</h2>
@@ -101,25 +102,26 @@
     <aside class="about-sidebar">
       <p class="sidebar-bio">Gabrielle J. Sirkin is a Visual Director based in Los Angeles specializing in the travel and hospitality space.</p>
       <img src="/assets/images/about.jpg" alt="" class="sidebar-photo">
-      <div class="sidebar-links">
-        <a href="https://www.instagram.com/gabril" target="_blank" class="contact-link">Instagram</a>
-        <a href="https://www.linkedin.com" target="_blank" class="contact-link">LinkedIn</a>
+      <nav aria-label="Social" class="sidebar-links">
+        <a href="https://www.instagram.com/gabril" target="_blank" rel="noopener noreferrer" class="contact-link">Instagram</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
         <a href="mailto:gabriellejsirkin@gmail.com" class="contact-link">Email</a>
-      </div>
+      </nav>
+
     </aside>
 
   </div>
 </div>
 
-</div><!-- /.page-content -->
+</main><!-- /.page-content -->
 <footer>
   <div class="footer-inner">
-    <span class="fc">Gabrielle J. Sirkin © 2026</span>
-    <div class="footer-links">
-      <a href="https://www.instagram.com/gabril" target="_blank" class="fc">Instagram</a>
-      <a href="https://www.linkedin.com" target="_blank" class="fc">LinkedIn</a>
-      <a href="mailto:gabriellejsirkin@gmail.com" class="fc">Email</a>
-    </div>
+    <span class="label">Gabrielle J. Sirkin © 2026</span>
+    <nav aria-label="Social" class="footer-links">
+      <a href="https://www.instagram.com/gabril" target="_blank" rel="noopener noreferrer" class="label">Instagram</a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="label">LinkedIn</a>
+      <a href="mailto:gabriellejsirkin@gmail.com" class="label">Email</a>
+    </nav>
   </div>
 </footer>
 

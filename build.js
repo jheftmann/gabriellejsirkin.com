@@ -133,9 +133,10 @@ function applySettings(html, settings) {
 
 function loadPartials() {
   return {
-    '_head.html':   fs.readFileSync('src/partials/_head.html',   'utf8'),
-    '_nav.html':    fs.readFileSync('src/partials/_nav.html',    'utf8'),
-    '_footer.html': fs.readFileSync('src/partials/_footer.html', 'utf8'),
+    '_head.html':          fs.readFileSync('src/partials/_head.html',          'utf8'),
+    '_nav.html':           fs.readFileSync('src/partials/_nav.html',           'utf8'),
+    '_footer.html':        fs.readFileSync('src/partials/_footer.html',        'utf8'),
+    '_sidebar-links.html': fs.readFileSync('src/partials/_sidebar-links.html', 'utf8'),
   };
 }
 
@@ -332,7 +333,7 @@ function renderCard(p, bgColor = '') {
   const src = p.cardImage && p.cardImage.src;
   const inner = src
     ? (/\.mp4$/i.test(src)
-        ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline></video>`
+        ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline aria-hidden="true"></video>`
         : `<img src="${encodeSrc(src)}" alt="${p.title}">`)
     : `<div class="thumb-ph">${ph}</div>`;
   const styleAttr    = bgColor ? ` style="background-color:${bgColor}"` : '';
@@ -422,11 +423,7 @@ async function build() {
 
     // Auto-generate filter bar and inject project cards
     if (page === 'index') {
-      const sorted = projects.slice().sort((a, b) => {
-        const av = a.orderAll != null ? a.orderAll : Infinity;
-        const bv = b.orderAll != null ? b.orderAll : Infinity;
-        return av !== bv ? av - bv : a.title.localeCompare(b.title);
-      });
+      const sorted = sortedForColors;
       html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted));
       html = html.replace('<!-- #projects-cards -->', sorted.map(p => renderCard(p, colorMap[p.id] || '')).join('\n'));
       const heroAccent = pageContent.hero_accent ? `<br>${pageContent.hero_accent}` : '';
@@ -455,15 +452,15 @@ async function build() {
       html = html.replace('<!-- #travel-approach -->', approach);
 
       const services = (Array.isArray(pageContent.services) ? pageContent.services : [])
-        .map(s => `        <span>${s}</span>`).join('\n');
+        .map(s => `        <li>${s}</li>`).join('\n');
       html = html.replace('<!-- #travel-services -->', services);
 
       const clients = (Array.isArray(pageContent.clients) ? pageContent.clients : [])
-        .map(c => `        <span>${c}</span>`).join('\n');
+        .map(c => `        <li>${c}</li>`).join('\n');
       html = html.replace('<!-- #travel-clients -->', clients);
 
       const cities = (Array.isArray(pageContent.cities) ? pageContent.cities : [])
-        .map(c => `        <span>${c}</span>`).join('\n');
+        .map(c => `        <li>${c}</li>`).join('\n');
       html = html.replace('<!-- #travel-cities -->', cities);
     }
 

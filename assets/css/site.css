@@ -68,6 +68,30 @@ body[data-scheme="services"]  { --bg:#cdf0a0; --text:#2a3d1a; --muted:#4a5c30; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; text-box: trim-both cap alphabetic; }
 html { font-size: 16px; scroll-behavior: smooth; }
 
+/* SKIP LINK */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--side);
+  z-index: 200;
+  padding: 0.5rem 1rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--base);
+  font-size: 0.875rem;
+  text-decoration: none;
+  border: 1px solid var(--text);
+}
+.skip-link:focus-visible { top: 0.5rem; }
+
+/* FOCUS */
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+a:focus-visible,
+button:focus-visible { border-radius: 1px; }
+
 @keyframes page-in {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -89,8 +113,19 @@ nav, h1, h2, h3,
 .row-label, .sidebar-label, .skill-name,
 .card-client, .card-title, .card-cat,
 .hero-title, .about-headline,
-.fc, .contact-link, .filter-bar, .filter-select {
+.label, .contact-link, .filter-bar, .filter-select {
   hyphens: none;
+}
+
+/* SHARED DISPLAY HERO — used by hero, project header, and about headline */
+.hero-title,
+.project-client,
+.project-title {
+  font-family: var(--display);
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.08;
 }
 .page-content {
   animation: page-in 0.45s ease both;
@@ -150,14 +185,14 @@ footer {
   column-gap: 1.5rem;
   align-items: baseline;
 }
-.footer-inner > .fc { grid-column: 1 / 10; }
+.footer-inner > .label { grid-column: 1 / 10; }
 .footer-links { grid-column: 10 / span 3; }
 .footer-links {
   display: flex;
   gap: 1.5rem;
 }
 .footer-links a { text-decoration: none; }
-.fc {
+.label {
   font-family: var(--base);
   font-size: 0.625rem; /* 10px */
   font-weight: 500;
@@ -167,7 +202,7 @@ footer {
   color: var(--muted);
   transition: color var(--transition);
 }
-.footer-links a.fc:hover { color: var(--text); }
+.footer-links a.label:hover { color: var(--text); }
 
 /* Hide footer links on pages that have fixed sidebar links */
 body[data-scheme="about"] .footer-links,

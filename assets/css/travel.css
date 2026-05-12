@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
+  list-style: none;
 }
-.travel-grid span {
+.travel-grid li {
   font-family: var(--base);
   font-size: 0.875rem;
   font-weight: 500;

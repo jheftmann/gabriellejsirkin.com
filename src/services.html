@@ -11,11 +11,11 @@
 <body data-scheme="services">
 <!-- #include _nav.html -->
 
-<div class="page-content">
+<main id="main-content" class="page-content">
 <div class="about-page">
   <div class="about-layout">
 
-    <h1 class="about-headline">{{SETTING:headline_1}}<br><em>{{SETTING:headline_2}}</em></h1>
+    <h1 class="about-headline">{{SETTING:headline_1}}<br><i>{{SETTING:headline_2}}</i></h1>
 
     <div class="about-main">
       <div class="about-row">
@@ -28,18 +28,18 @@
       <div class="about-row">
         <h2 class="row-label">Services</h2>
         <div class="row-content">
-          <div class="travel-grid">
+          <ul class="travel-grid">
 <!-- #travel-services -->
-          </div>
+          </ul>
         </div>
       </div>
 
       <div class="about-row">
         <h2 class="row-label">Clients</h2>
         <div class="row-content">
-          <div class="travel-grid">
+          <ul class="travel-grid">
 <!-- #travel-clients -->
-          </div>
+          </ul>
         </div>
       </div>
 
@@ -47,9 +47,9 @@
         <h2 class="row-label">City Guides</h2>
         <div class="row-content">
           <p class="bio-para">{{SETTING:city_guides_intro}}</p>
-          <div class="travel-grid">
+          <ul class="travel-grid">
 <!-- #travel-cities -->
-          </div>
+          </ul>
         </div>
       </div>
 
@@ -60,17 +60,13 @@
       <p class="sidebar-bio sidebar-avail">{{SETTING:availability}}</p>
       <a href="mailto:{{SETTING:contact_email}}" class="sidebar-email contact-link">{{SETTING:contact_email}}</a>
       <img src="{{SETTING:sidebar_photo}}" alt="" class="sidebar-photo">
-      <div class="sidebar-links">
-        <a href="{{SETTING:contact_instagram}}" target="_blank" class="contact-link">Instagram</a>
-        <a href="{{SETTING:contact_linkedin}}" target="_blank" class="contact-link">LinkedIn</a>
-        <a href="mailto:{{SETTING:contact_email}}" class="contact-link">Email</a>
-      </div>
+<!-- #include _sidebar-links.html -->
     </aside>
 
   </div>
 </div>
 
-</div><!-- /.page-content -->
+</main><!-- /.page-content -->
 <!-- #include _footer.html -->
 
 <script src="assets/js/site.js"></script>

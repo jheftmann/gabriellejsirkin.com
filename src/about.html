@@ -10,12 +10,12 @@
 <body data-scheme="about">
 <!-- #include _nav.html -->
 
-<div class="page-content">
+<main id="main-content" class="page-content">
 <div class="about-page">
   <div class="about-layout">
 
     <div class="about-main">
-      <h1 class="about-headline">{{SETTING:headline_1}}<br><em>{{SETTING:headline_2}}</em></h1>
+      <h1 class="about-headline">{{SETTING:headline_1}}<br><i>{{SETTING:headline_2}}</i></h1>
 
       <div class="about-row">
         <h2 class="row-label">Areas of Expertise</h2>
@@ -36,17 +36,13 @@
     <aside class="about-sidebar">
       <p class="sidebar-bio">{{SETTING:lead}}</p>
       <img src="{{SETTING:sidebar_photo}}" alt="" class="sidebar-photo">
-      <div class="sidebar-links">
-        <a href="{{SETTING:contact_instagram}}" target="_blank" class="contact-link">Instagram</a>
-        <a href="{{SETTING:contact_linkedin}}" target="_blank" class="contact-link">LinkedIn</a>
-        <a href="mailto:{{SETTING:contact_email}}" class="contact-link">Email</a>
-      </div>
+<!-- #include _sidebar-links.html -->
     </aside>
 
   </div>
 </div>
 
-</div><!-- /.page-content -->
+</main><!-- /.page-content -->
 <!-- #include _footer.html -->
 
 <script src="assets/js/site.js"></script>

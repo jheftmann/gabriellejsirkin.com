@@ -72,8 +72,8 @@ function getParams() {
 
 function creditField(label, value) {
   return '<div class="credit-item">'
-    + '<span class="credit-label">' + label + '</span>'
-    + '<span class="credit-value">' + value + '</span>'
+    + '<dt class="credit-label">' + label + '</dt>'
+    + '<dd class="credit-value">' + value + '</dd>'
     + '</div>';
 }
 
@@ -82,8 +82,8 @@ function creditTags(label, values) {
     return '<span class="credit-value">' + s + (i < values.length - 1 ? ',' : '') + '</span>';
   }).join(' ');
   return '<div class="credit-item">'
-    + '<span class="credit-label">' + label + '</span>'
-    + '<div class="credit-tags">' + tags + '</div>'
+    + '<dt class="credit-label">' + label + '</dt>'
+    + '<dd class="credit-tags">' + tags + '</dd>'
     + '</div>';
 }
 

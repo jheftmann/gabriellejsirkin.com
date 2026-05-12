@@ -44,7 +44,8 @@
 </head>
 <body>
 
-<nav>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<nav aria-label="Main">
   <a href="index.html" class="nav-brand">
     <span class="nav-name nav-name-full">Gabrielle J. Sirkin</span>
     <span class="nav-name nav-name-short">GJS</span>
@@ -57,22 +58,23 @@
 </nav>
 
 
-<div class="page-content">
+<main id="main-content" class="page-content">
 <section class="hero">
-  <p class="hero-eyebrow">Global Productions</p>
+  <h2 class="hero-eyebrow">Global Productions</h2>
+
   <h1 class="hero-title">On location<br><em>across 25+ countries.</em></h1>
 </section>
 
 <div class="productions-wrap">
-  <p class="section-eyebrow">Selected Productions</p>
+  <h2 class="section-eyebrow">Selected Productions</h2>
   <table class="prod-table">
     <thead>
       <tr>
-        <th>Project</th>
-        <th>Client</th>
-        <th>Location</th>
-        <th>Role</th>
-        <th>Year</th>
+        <th scope="col">Project</th>
+        <th scope="col">Client</th>
+        <th scope="col">Location</th>
+        <th scope="col">Role</th>
+        <th scope="col">Year</th>
       </tr>
     </thead>
     <tbody>
@@ -99,7 +101,7 @@
 </div>
 
 <div class="brands-wrap">
-  <p class="section-eyebrow">Brands &amp; Publications</p>
+  <h2 class="section-eyebrow">Brands &amp; Publications</h2>
   <div class="brands-grid">
     <span class="brand-chip">Expedia</span>
     <span class="brand-chip">Hotels.com</span>
@@ -113,15 +115,15 @@
   </div>
 </div>
 
-</div><!-- /.page-content -->
+</main><!-- /.page-content -->
 <footer>
   <div class="footer-inner">
-    <span class="fc">Gabrielle J. Sirkin © 2026</span>
-    <div class="footer-links">
-      <a href="https://www.instagram.com/gabril" target="_blank" class="fc">Instagram</a>
-      <a href="https://www.linkedin.com" target="_blank" class="fc">LinkedIn</a>
-      <a href="mailto:gabriellejsirkin@gmail.com" class="fc">Email</a>
-    </div>
+    <span class="label">Gabrielle J. Sirkin © 2026</span>
+    <nav aria-label="Social" class="footer-links">
+      <a href="https://www.instagram.com/gabril" target="_blank" rel="noopener noreferrer" class="label">Instagram</a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="label">LinkedIn</a>
+      <a href="mailto:gabriellejsirkin@gmail.com" class="label">Email</a>
+    </nav>
   </div>
 </footer>
 

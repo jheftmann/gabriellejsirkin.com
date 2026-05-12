@@ -1,11 +1,6 @@
 /* HERO */
 .hero { padding: 4.5rem var(--side) 3rem; }
 .hero-title {
-  font-family: var(--display);
-  font-size: clamp(2.25rem, 3.9vw, 3.5rem); /* min 36px mobile, max 56px at 1440px */
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.08;
   letter-spacing: 0;
   color: var(--text);
   transition: color var(--transition);

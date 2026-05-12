@@ -43,7 +43,8 @@
 <link rel="stylesheet" href="assets/css/project.css">
 </head>
 <body>
-<nav>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<nav aria-label="Main">
   <a href="index.html" class="nav-brand">
     <span class="nav-name nav-name-full">Gabrielle J. Sirkin</span>
     <span class="nav-name nav-name-short">GJS</span>
@@ -56,13 +57,13 @@
 </nav>
 
 
-<div class="page-content">
+<main id="main-content" class="page-content">
 <div class="project-header">
   <p class="project-client" id="pClient"></p>
   <h1 class="project-title" id="pTitle"></h1>
 </div>
 
-<div class="project-credits" id="pCredits"></div>
+<dl class="project-credits" id="pCredits"></dl>
 
 <div class="project-desc" id="pDesc" style="display:none"></div>
 
@@ -70,15 +71,15 @@
   <!-- populated by project.js -->
 </div>
 
-</div><!-- /.page-content -->
+</main><!-- /.page-content -->
 <footer>
   <div class="footer-inner">
-    <span class="fc">Gabrielle J. Sirkin © 2026</span>
-    <div class="footer-links">
-      <a href="https://www.instagram.com/gabril" target="_blank" class="fc">Instagram</a>
-      <a href="https://www.linkedin.com" target="_blank" class="fc">LinkedIn</a>
-      <a href="mailto:gabriellejsirkin@gmail.com" class="fc">Email</a>
-    </div>
+    <span class="label">Gabrielle J. Sirkin © 2026</span>
+    <nav aria-label="Social" class="footer-links">
+      <a href="https://www.instagram.com/gabril" target="_blank" rel="noopener noreferrer" class="label">Instagram</a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="label">LinkedIn</a>
+      <a href="mailto:gabriellejsirkin@gmail.com" class="label">Email</a>
+    </nav>
   </div>
 </footer>
 
