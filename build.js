@@ -305,6 +305,8 @@ function computePageMeta(page, pageContent, settings, firstProjectSrc) {
   return [
     `<title>${title}</title>`,
     `<link rel="icon" type="image/svg+xml" href="favicon.svg">`,
+    `<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">`,
+    `<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">`,
     `<meta name="description" content="${ogDesc}">`,
     `<meta property="og:title" content="${ogTitle}">`,
     `<meta property="og:description" content="${ogDesc}">`,
