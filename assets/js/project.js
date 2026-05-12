@@ -16,7 +16,7 @@ function getParams() {
 
   if (!p) { document.getElementById('pTitle').textContent = 'Project not found'; return; }
 
-  if (p.filter) document.body.dataset.scheme = p.filter;
+  if (p.colorTheme && p.colorTheme !== 'default') document.body.dataset.theme = p.colorTheme;
 
   document.title = (p.client ? p.client + ' / ' + p.title : p.title) + ' — Gabrielle J. Sirkin, Creative Studio for Travel';
 
