@@ -188,7 +188,7 @@ body[data-theme="services"] .about-layout > .about-headline {
   .sidebar-label { grid-column: 1 / -1; }
   .sidebar-photo { grid-column: 1; width: 100%; }
   .sidebar-text  { grid-column: 2; gap: 0.75rem; }
-  .sidebar-bio   { max-width: none; }
+  .sidebar-bio   { grid-column: 2; max-width: none; }
   .sidebar-links { display: none; }
   .footer-links  { display: flex; }
   .about-row {

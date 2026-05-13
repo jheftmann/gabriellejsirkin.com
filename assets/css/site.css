@@ -196,7 +196,7 @@ footer {
   display: flex;
   gap: 1.5rem;
 }
-.footer-links a { text-decoration: none; }
+.footer-links a { text-decoration: none; color: var(--nav-2); }
 .label {
   font-family: var(--base);
   font-size: 0.625rem; /* 10px */
