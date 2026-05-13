@@ -16,7 +16,7 @@ skills:
   - Production
   - Curation
 color_theme: colorway-3
-thumbnail: ABB060118FEAMorocco_lo_2-1.jpg
+thumbnail: 04_AGHP_Post-01.jpg
 media:
   - file: 01_ABB060118FEAMorocco_lo-1.jpg
     caption: ''
