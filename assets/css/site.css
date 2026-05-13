@@ -183,6 +183,7 @@ body {
 /* FOOTER */
 footer {
   padding: 0 var(--side) 1.5rem;
+  color: var(--nav-2);
 }
 .footer-inner {
   display: grid;

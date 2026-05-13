@@ -150,11 +150,11 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.12;
-  color: var(--muted);
+  color: var(--nav-2);
   text-decoration: none;
-  transition: color .2s, color var(--transition);
+  transition: color var(--transition);
 }
-.contact-link:hover { color: var(--text); }
+.contact-link:hover { color: var(--nav-1); }
 
 /* SERVICES — headline spans full width, sidebar starts below it */
 body[data-theme="services"] .about-layout > .about-headline {
