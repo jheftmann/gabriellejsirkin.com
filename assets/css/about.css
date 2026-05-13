@@ -73,7 +73,7 @@
   line-height: 1.08;
   color: var(--text);
   transition: color var(--transition);
-  margin-bottom: 4.5rem;
+  margin-bottom: 0;
 }
 .about-headline em { font-style: italic; }
 
