@@ -227,7 +227,9 @@
         await resetDraftToMain(token);
         showStatus('success', 'Published. The site will update in about 30 seconds.');
       } else if (res.status === 204) {
-        showStatus('success', 'Already up to date — no new changes to publish.');
+        showStatus('info', 'Already up to date. Syncing draft back to main…');
+        await resetDraftToMain(token);
+        showStatus('success', 'Draft and main are aligned.');
       } else if (res.status === 401) {
         showStatus('error', 'Invalid token. Please check and try again.');
       } else if (res.status === 409) {
