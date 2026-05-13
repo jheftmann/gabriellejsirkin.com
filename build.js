@@ -7,10 +7,20 @@ const { marked } = require('marked');
 const sharp = require('sharp');
 
 const WATCH = process.argv.includes('--watch');
+const USE_CDN = !!process.env.NETLIFY;
 
 // URL-encode each path segment (handles spaces/special chars in filenames)
 function encodeSrc(p) {
   return p.split('/').map(s => encodeURIComponent(s)).join('/');
+}
+
+// Netlify Image CDN — only active on Netlify (USE_CDN). Falls back to plain <img> locally.
+function cdnImg(src, alt, { widths, sizes, extra = '' } = {}) {
+  if (!USE_CDN) return `<img src="${encodeSrc(src)}" alt="${alt}"${extra}>`;
+  const url = encodeURIComponent('/' + src);
+  const base = `/.netlify/images?url=${url}&fm=webp&q=85`;
+  const srcset = widths.map(w => `${base}&w=${w} ${w}w`).join(', ');
+  return `<img src="${base}&w=${widths[widths.length - 1]}" srcset="${srcset}" sizes="${sizes}" alt="${alt}"${extra}>`;
 }
 
 // ─── Category → filter key mapping ───────────────────────────────────────────
@@ -251,7 +261,7 @@ function loadProjects() {
               const btsAttr = bts ? ' data-bts="true"' : '';
               const el = /\.mp4$/i.test(src)
                 ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline${btsAttr}></video>`
-                : `<img src="${encodeSrc(src)}" alt=""${btsAttr}>`;
+                : cdnImg(src, '', { widths: [600, 900, 1200, 1800], sizes: '(max-width: 1100px) 50vw, 33vw', extra: btsAttr });
               return caption
                 ? `<figure${btsAttr}>${el}<figcaption>${caption}</figcaption></figure>`
                 : el;
@@ -340,7 +350,7 @@ function renderCard(p, bgColor = '') {
   const inner = src
     ? (/\.mp4$/i.test(src)
         ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline aria-hidden="true"></video>`
-        : `<img src="${encodeSrc(src)}" alt="${p.title}">`)
+        : cdnImg(src, p.title, { widths: [400, 800, 1200], sizes: '(max-width: 767px) 100vw, 50vw' }))
     : `<div class="thumb-ph">${ph}</div>`;
   const styleAttr    = bgColor ? ` style="background-color:${bgColor}"` : '';
   const orderAttr    = p.order    != null ? ` data-order="${p.order}"`        : '';
