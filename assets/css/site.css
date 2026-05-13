@@ -1,42 +1,42 @@
 /* FONTS */
 @font-face {
   font-family: 'GT Alpina';
-  src: url('../fonts/GT-Alpina-Latin-Standard-Light.woff2') format('woff2');
+  src: url('../fonts/GT-Alpina-Standard-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Alpina';
-  src: url('../fonts/GT-Alpina-Latin-Standard-Light-Italic.woff2') format('woff2');
+  src: url('../fonts/GT-Alpina-Standard-Light-Italic.woff2') format('woff2');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Alpina';
-  src: url('../fonts/GT-Alpina-Latin-Standard-Regular.woff2') format('woff2');
+  src: url('../fonts/GT-Alpina-Standard-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Alpina';
-  src: url('../fonts/GT-Alpina-Latin-Standard-Regular-Italic.woff2') format('woff2');
+  src: url('../fonts/GT-Alpina-Standard-Regular-Italic.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Standard';
-  src: url('../fonts/GT-Standard-Latin-M-Standard-Regular.woff2') format('woff2');
+  src: url('../fonts/GT-Standard-M-Standard-Regular.woff') format('woff');
   font-weight: 400 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Standard';
-  src: url('../fonts/GT-Standard-Latin-M-Standard-Regular-Oblique.woff2') format('woff2');
+  src: url('../fonts/GT-Standard-M-Standard-Regular-Oblique.woff') format('woff');
   font-weight: 400 500;
   font-style: italic;
   font-display: swap;
