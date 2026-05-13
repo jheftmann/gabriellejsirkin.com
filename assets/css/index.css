@@ -64,7 +64,7 @@
 }
 
 /* GRID */
-.grid-wrap { padding: 0 var(--side) 5rem; }
+.grid-wrap { padding: 0 var(--side) 4.5rem; }
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

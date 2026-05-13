@@ -182,7 +182,7 @@ body {
 
 /* FOOTER */
 footer {
-  padding: 3.75rem var(--side) 1.5rem;
+  padding: 0 var(--side) 1.5rem;
 }
 .footer-inner {
   display: grid;

@@ -57,7 +57,7 @@
 
 /* IMAGE GRID */
 .project-images {
-  padding: 3rem var(--side) 5rem;
+  padding: 3rem var(--side) 4.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: var(--col-gap);
