@@ -1,6 +1,6 @@
 /* ABOUT / TRAVEL PAGE LAYOUT */
 .about-page {
-  padding: 3rem var(--side) 6rem;
+  padding: 3rem var(--side) 1.5rem;
 }
 
 .about-layout {
@@ -73,7 +73,7 @@
   line-height: 1.08;
   color: var(--text);
   transition: color var(--transition);
-  margin-bottom: 3rem;
+  margin-bottom: 0;
 }
 .about-headline em { font-style: italic; }
 
@@ -120,6 +120,13 @@
   transition: color var(--transition);
 }
 
+/* SIDEBAR TEXT WRAPPER (services page — bio + email) */
+.sidebar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 /* BIO / SERVICES TEXT */
 .services-text,
 .bio-para {
@@ -143,14 +150,14 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.12;
-  color: var(--muted);
+  color: var(--nav-2);
   text-decoration: none;
-  transition: color .2s, color var(--transition);
+  transition: color var(--transition);
 }
-.contact-link:hover { color: var(--text); }
+.contact-link:hover { color: var(--nav-1); }
 
 /* SERVICES — headline spans full width, sidebar starts below it */
-body[data-scheme="services"] .about-layout > .about-headline {
+body[data-theme="services"] .about-layout > .about-headline {
   grid-column: 1 / -1;
   margin-bottom: 0;
 }
@@ -162,26 +169,32 @@ body[data-scheme="services"] .about-layout > .about-headline {
 @media (max-width: 767px) {
   .about-layout {
     grid-template-columns: 1fr;
+    row-gap: 3rem;
   }
+  .about-headline { order: -2; }
   .about-sidebar {
     position: static;
     order: -1;
-    gap: 1rem;
-    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row dense;
+    column-gap: 1.5rem;
+    row-gap: 0.75rem;
+    align-items: start;
+    width: 100%;
     right: auto;
     top: auto;
   }
-  .sidebar-photo {
-    width: 100%;
-  }
-  .sidebar-links {
-    left: auto;
-    right: var(--side);
-  }
+  .sidebar-label { grid-column: 1 / -1; }
+  .sidebar-photo { grid-column: 1; width: 100%; }
+  .sidebar-text  { grid-column: 2; gap: 0.75rem; }
+  .sidebar-bio   { grid-column: 2; max-width: none; }
+  .sidebar-links { display: none; }
+  .footer-links  { display: flex; }
   .about-row {
     grid-template-columns: 1fr;
-    gap: 2.25rem; /* 36px — Figma mobile Section gap */
-    margin-bottom: 3rem;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
   }
   .row-label,
   .sidebar-label { font-size: 1.75rem; } /* 28px = Size/XL on mobile */

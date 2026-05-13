@@ -182,7 +182,8 @@ body {
 
 /* FOOTER */
 footer {
-  padding: 3.75rem var(--side) 1.5rem;
+  padding: 0 var(--side) 1.5rem;
+  color: var(--nav-2);
 }
 .footer-inner {
   display: grid;
@@ -196,7 +197,7 @@ footer {
   display: flex;
   gap: 1.5rem;
 }
-.footer-links a { text-decoration: none; }
+.footer-links a { text-decoration: none; color: var(--nav-2); }
 .label {
   font-family: var(--base);
   font-size: 0.625rem; /* 10px */
@@ -204,10 +205,10 @@ footer {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.12;
-  color: var(--muted);
+  color: var(--nav-2);
   transition: color var(--transition);
 }
-.footer-links a.label:hover { color: var(--text); }
+.footer-links a.label:hover { color: var(--nav-1); }
 
 
 
@@ -216,4 +217,19 @@ footer {
   :root { --side: 1.5rem; --col-gap: 1.5rem; }
   .nav-name-full  { display: none; }
   .nav-name-short { display: block; }
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem var(--side) 0;
+  }
+  .nav-links { gap: 1rem; }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .footer-links { gap: 0.75rem; }
 }
