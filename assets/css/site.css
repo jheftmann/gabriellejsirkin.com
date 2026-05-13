@@ -179,6 +179,7 @@ body {
 }
 .nav-links a:hover,
 .nav-links a.active { color: var(--nav-1); }
+.nav-links a.active { cursor: default; }
 
 /* FOOTER */
 footer {
