@@ -85,7 +85,7 @@
 }
 .project-card.visible { opacity: 1; transform: translateY(0); }
 .project-card.hidden  { display: none !important; }
-.project-card:hover .thumb::after { opacity: 1; }
+.grid:hover .project-card:not(:hover) { opacity: 0.8; transition: opacity 0.2s ease; }
 
 /* THUMB */
 .thumb { width: 100%; overflow: hidden; position: relative; }
@@ -93,15 +93,6 @@
 .thumb video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .thumb img { transition: opacity .3s ease; }
 .thumb img.loading { opacity: 0; }
-.thumb::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  opacity: 0;
-  transition: opacity .3s ease;
-  pointer-events: none;
-}
 
 /* aspect-ratio classes set by build.js (card_ratio frontmatter) */
 .thumb.ratio-16x9 { aspect-ratio: 16/9; }
