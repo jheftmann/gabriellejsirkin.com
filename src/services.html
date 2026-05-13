@@ -57,8 +57,10 @@
 
     <aside class="about-sidebar">
       <p class="sidebar-label">{{SETTING:sidebar_label}}</p>
-      <p class="sidebar-bio sidebar-avail">{{SETTING:availability}}</p>
-      <a href="mailto:{{SETTING:contact_email}}" class="sidebar-email contact-link">{{SETTING:contact_email}}</a>
+      <div class="sidebar-text">
+        <p class="sidebar-bio sidebar-avail">{{SETTING:availability}}</p>
+        <a href="mailto:{{SETTING:contact_email}}" class="sidebar-email contact-link">{{SETTING:contact_email}}</a>
+      </div>
       <img src="{{SETTING:sidebar_photo}}" alt="" class="sidebar-photo">
 <!-- #include _sidebar-links.html -->
     </aside>

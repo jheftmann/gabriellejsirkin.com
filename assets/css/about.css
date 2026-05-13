@@ -120,6 +120,13 @@
   transition: color var(--transition);
 }
 
+/* SIDEBAR TEXT WRAPPER (services page — bio + email) */
+.sidebar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 /* BIO / SERVICES TEXT */
 .services-text,
 .bio-para {
@@ -164,6 +171,7 @@ body[data-theme="services"] .about-layout > .about-headline {
     grid-template-columns: 1fr;
     row-gap: 3rem;
   }
+  .about-headline { order: -2; }
   .about-sidebar {
     position: static;
     order: -1;
@@ -179,8 +187,8 @@ body[data-theme="services"] .about-layout > .about-headline {
   }
   .sidebar-label { grid-column: 1 / -1; }
   .sidebar-photo { grid-column: 1; width: 100%; }
-  .sidebar-bio   { grid-column: 2; max-width: none; }
-  .sidebar-email { grid-column: 2; }
+  .sidebar-text  { grid-column: 2; gap: 0.75rem; }
+  .sidebar-bio   { max-width: none; }
   .sidebar-links { display: none; }
   .footer-links  { display: flex; }
   .about-row {
