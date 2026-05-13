@@ -204,10 +204,10 @@ footer {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.12;
-  color: var(--muted);
+  color: var(--nav-2);
   transition: color var(--transition);
 }
-.footer-links a.label:hover { color: var(--text); }
+.footer-links a.label:hover { color: var(--nav-1); }
 
 
 
