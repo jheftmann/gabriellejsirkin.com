@@ -188,7 +188,7 @@ function loadProjects() {
                           ? fm.skills.split(',').map(s => s.trim()).filter(Boolean)
                           : (Array.isArray(fm.skills) ? fm.skills : []),
           thumbnail:    fm.thumbnail    || '',
-          cardImage:    { ratio: fm.card_ratio || 'r-4-3', placeholder: fm.card_placeholder || '' },
+          cardImage:    { placeholder: fm.card_placeholder || '' },
           colorTheme:   fm.color_theme  || 'default',
           comingSoon:   fm.coming_soon === 'true',
           media:        Array.isArray(fm.media) && fm.media.length > 0
@@ -344,7 +344,6 @@ async function getDominantColor(filePath) {
 
 function renderCard(p, bgColor = '') {
   const cs  = p.comingSoon ? '<span class="cs-badge">Coming Soon</span>' : '';
-  const r   = (p.cardImage && p.cardImage.ratio || 'r-4-3').replace(/^r-(\d+)-(\d+)$/, 'ratio-$1x$2');
   const ph  = p.cardImage && p.cardImage.placeholder || '';
   const src = p.cardImage && p.cardImage.src;
   const inner = src
@@ -361,7 +360,7 @@ function renderCard(p, bgColor = '') {
     : `<p class="card-title card-title--solo">${p.title}</p>`;
   return (
     `    <a class="project-card" data-category="${p.filter}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
-    `      <div class="thumb ${r}"${styleAttr}>${inner}</div>\n` +
+    `      <div class="thumb"${styleAttr}>${inner}</div>\n` +
     `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div>` +
     `<p class="card-cat">${p.cat}</p></div>\n` +
     `    </a>`

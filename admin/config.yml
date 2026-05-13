@@ -65,17 +65,6 @@ collections:
         required: false
         hint: 'Tags shown on the card and project page, e.g. Visual Direction, Production'
 
-      - name: card_ratio
-        label: Card Image Ratio
-        widget: select
-        default: r-4-3
-        options:
-          - { label: '4:3  (landscape)',  value: r-4-3  }
-          - { label: '16:9 (wide)',       value: r-16-9 }
-          - { label: '3:4  (portrait)',   value: r-3-4  }
-          - { label: '3:2  (landscape)',  value: r-3-2  }
-          - { label: '2:3  (portrait)',   value: r-2-3  }
-          - { label: '1:1  (square)',     value: r-1-1  }
 
       - { name: coming_soon, label: Coming Soon, widget: boolean, required: false, default: false }
 
