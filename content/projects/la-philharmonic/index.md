@@ -15,6 +15,7 @@ skills:
   - Visual Direction
   - Production
   - Brand Strategy
+color_theme: colorway-6
 thumbnail: P0318_Kim.jpeg
 media:
   - file: P0318_Gustavo_bradbury.jpeg
@@ -35,7 +36,7 @@ media:
     caption: ''
   - file: P0318_Hooten.jpeg
     caption: ''
-    bts: true
+    bts: false
   - file: LAPhil_BTS.mp4
     caption: ''
     bts: true
