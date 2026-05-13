@@ -35,6 +35,7 @@ media:
     caption: ''
   - file: P0318_Hooten.jpeg
     caption: ''
+    bts: true
   - file: LAPhil_BTS.mp4
     caption: ''
     bts: true
