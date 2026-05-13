@@ -5,7 +5,7 @@ site_url: https://gabriellesirkin.github.io/gabriellejsirkin.com
 footer_year: '2026'
 contact_email: gabriellejsirkin@gmail.com
 contact_instagram: https://www.instagram.com/gabril
-contact_linkedin: https://www.linkedin.com
+contact_linkedin: https://www.linkedin.com/in/gsirkin/
 nav:
   - Work|index.html
   - Services|services.html
