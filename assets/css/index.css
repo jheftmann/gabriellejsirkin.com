@@ -69,7 +69,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: var(--col-gap);
-  row-gap: 9rem;
+  row-gap: 2.75rem;
   align-items: start;
 }
 
@@ -184,7 +184,7 @@
   .hero-title { max-width: 100%; }
   .filter-bar    { display: none; }
   .filter-select { display: block; }
-  .grid { row-gap: 2.25rem; }
+  .grid { row-gap: 0; }
   .card-client,
   .card-title    { font-size: 1rem; } /* 16px on mobile */
   .card-cat      { display: none; }
