@@ -2,7 +2,7 @@ backend:
   name: github
   repo: jheftmann/gabriellejsirkin.com
   branch: draft
-  base_url: https://sveltia-cms-auth.orsa.workers.dev
+  base_url: https://sveltia-cms-auth.gabriellesirkin.workers.dev
 
 site_url: https://gabriellejsirkin.netlify.app
 display_url: https://gabriellejsirkin.netlify.app
