@@ -1,5 +1,5 @@
 ---
-title: 12 Days in Morocco
+title: Morocco
 cat: Editorial
 client: Airbnb Magazine
 photographer: Cait Oppermann
@@ -8,7 +8,7 @@ bts: ''
 date: '2018'
 order: 5
 order_all: 75
-description: ''
+description: TBC TBC
 credits: ''
 destination: ''
 skills:
