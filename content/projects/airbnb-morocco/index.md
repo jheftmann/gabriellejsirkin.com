@@ -29,9 +29,6 @@ media:
     caption: ''
   - file: 06_ABB060118FEAMorocco_lo-6.jpg
     caption: ''
-  - file: 260501_VRBO_MT_0050.jpg
-    caption: ''
-    bts: false
 filter: editorial
 card_ratio: r-1-1
 card_placeholder: Morocco
