@@ -88,20 +88,11 @@
 .grid:has(.project-card:hover) .project-card:not(:hover) { opacity: 0.4; transition: opacity 0.2s ease; }
 
 /* THUMB */
-.thumb { width: 100%; overflow: hidden; position: relative; }
+.thumb { width: 100%; overflow: hidden; }
 .thumb img,
-.thumb video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.thumb video { display: block; width: 100%; height: auto; }
 .thumb img { transition: opacity .3s ease; }
 .thumb img.loading { opacity: 0; }
-
-/* aspect-ratio classes set by build.js (card_ratio frontmatter) */
-.thumb.ratio-16x9 { aspect-ratio: 16/9; }
-.thumb.ratio-4x3  { aspect-ratio:  4/3; }
-.thumb.ratio-3x2  { aspect-ratio:  3/2; }
-.thumb.ratio-3x4  { aspect-ratio:  3/4; }
-.thumb.ratio-2x3  { aspect-ratio:  2/3; }
-.thumb.ratio-9x16 { aspect-ratio:  9/16; }
-.thumb.ratio-1x1  { aspect-ratio:  1/1; }
 
 .thumb-ph {
   width: 100%; height: 100%;
