@@ -64,12 +64,12 @@
 }
 
 /* GRID */
-.grid-wrap { padding: 0 var(--side) 4.5rem; }
+.grid-wrap { padding: 0 var(--side) 1.5rem; }
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: var(--col-gap);
-  row-gap: 2.75rem;
+  row-gap: 1.5rem;
   align-items: start;
 }
 
