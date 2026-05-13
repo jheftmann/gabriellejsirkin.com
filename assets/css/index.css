@@ -85,7 +85,7 @@
 }
 .project-card.visible { opacity: 1; transform: translateY(0); }
 .project-card.hidden  { display: none !important; }
-.grid:hover .project-card:not(:hover) { opacity: 0.8; transition: opacity 0.2s ease; }
+.grid:has(.project-card:hover) .project-card:not(:hover) { opacity: 0.4; transition: opacity 0.2s ease; }
 
 /* THUMB */
 .thumb { width: 100%; overflow: hidden; position: relative; }
