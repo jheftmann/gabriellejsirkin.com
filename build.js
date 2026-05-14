@@ -122,6 +122,7 @@ function parseFrontmatter(text) {
 function loadSettings() {
   const text = fs.readFileSync('content/settings.md', 'utf8');
   const { fm } = parseFrontmatter(text);
+  fm.footer_year = new Date().getFullYear().toString();
   return fm;
 }
 

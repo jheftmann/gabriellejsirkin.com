@@ -199,7 +199,6 @@ collections:
           - { name: site_title,       label: Site Title,       widget: string }
           - { name: site_description, label: Site Description, widget: string }
           - { name: site_url,         label: Site URL,         widget: string }
-          - { name: footer_year,      label: Footer Year,      widget: string }
           - { name: contact_email,    label: Contact Email,    widget: string }
           - { name: contact_instagram, label: Instagram URL,   widget: string }
           - { name: contact_linkedin,  label: LinkedIn URL,    widget: string }
