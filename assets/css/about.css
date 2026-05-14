@@ -174,15 +174,10 @@ body[data-theme="services"] .about-layout > .about-headline {
 }
 .travel-grid li {
   display: block;
-  margin-bottom: 0.375rem; /* 6px — paired with natural line-box leading in untrimmed engines */
+  margin-bottom: var(--gap-list-item); /* 6px with natural leading, 16px when trimmed */
   break-inside: avoid; /* keeps a wrapped item from splitting across columns */
 }
 .travel-grid li > .bio-para { margin-bottom: 0; } /* suppress the 24px paragraph margin inside list items */
-
-@supports (text-box-trim: trim-both) {
-  /* When leading is trimmed, the 6px margin alone reads as too tight — bump it. */
-  .travel-grid li { margin-bottom: 1rem; }
-}
 
 /* Pages with sidebar social links don't need footer links too */
 .footer-links { display: none; }
