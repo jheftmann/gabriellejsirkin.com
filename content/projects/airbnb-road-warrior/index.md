@@ -10,9 +10,6 @@ order: 45
 order_all: 50
 description: ''
 credits: ''
-skills:
-  - Visual Direction
-  - Production
 color_theme: colorway-3
 thumbnail: ABB060119BarbadosTennis_lo-1.jpg
 media:
