@@ -1,16 +1,12 @@
 ---
 title: Liguria
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 20
 order_all: 80
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Visual Direction
@@ -31,7 +27,6 @@ media:
   - file: 10_IMG_0611.mp4
   - file: 11_IMG_0478_VSCO.mp4
   - file: 12_DF809602-9F4F-4151-BD3D-EDB47B73686C_1_102_o.jpeg
-filter: content
 card_ratio: r-3-4
 card_placeholder: Coming Soon
 placeholder_count: 1

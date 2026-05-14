@@ -1,16 +1,12 @@
 ---
 title: Rome
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 40
 order_all: 70
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Viusal Direction

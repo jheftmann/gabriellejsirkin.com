@@ -1,16 +1,12 @@
 ---
 title: Puglia
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 10
 order_all: 90
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Visual Direction

@@ -1,16 +1,15 @@
 ---
 title: Palermo
-cat: Editorial
+cat: Visual Direction
 client: Airbnb Magazine
-photographer: Tyler Mitchell
-director: ''
-bts: ''
 date: '2019'
 order: 20
 order_all: 60
 description: ''
 credits: ''
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Tyler Mitchell"
 skills:
   - Visual Direction
   - Production
@@ -22,7 +21,6 @@ media:
   - file: 03_ABB100119Palermo_lo-3.jpeg
   - file: 04_ABB100119Palermo_lo-4.jpeg
   - file: 05_ABB100119Palermo_lo-5.jpeg
-filter: editorial
 card_placeholder: Palermo
 placeholder_count: 5
 ---

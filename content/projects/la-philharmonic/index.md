@@ -1,16 +1,17 @@
 ---
 title: 2017/2018 Season Campaign
-cat: Brand Work
+cat: Visual Direction
 client: LA Philharmonic
-photographer: Erik Madigan Heck
-director: ''
-bts: Gabrielle J Sirkin
 date: '2017'
 order: 30
 order_all: 55
 description: ''
 credits: ''
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Erik Madigan Heck"
+  - label: "BTS"
+    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
@@ -40,7 +41,6 @@ media:
   - file: LAPhil_BTS.mp4
     caption: ''
     bts: true
-filter: brand
 card_ratio: r-3-4
 card_placeholder: LA Philharmonic
 placeholder_count: 5

@@ -1,16 +1,12 @@
 ---
 title: Istanbul and Cesme
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 35
 order_all: 125
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Visual Direction

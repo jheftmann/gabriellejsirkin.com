@@ -1,16 +1,12 @@
 ---
 title: Mexico City
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 45
 order_all: 30
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Visual Direction

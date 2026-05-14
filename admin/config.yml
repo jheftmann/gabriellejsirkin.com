@@ -30,20 +30,20 @@ collections:
     fields:
       - { name: title, label: Title, widget: string }
 
-      - name: cat
-        label: Category
-        widget: select
-        options:
-          - { label: Brand Work,       value: Brand Work       }
-          - { label: Editorial,        value: Editorial        }
-          - { label: Content Creation, value: Content Creation }
-          - { label: Personal,         value: Personal         }
+      - { name: cat, label: Category, widget: string,
+          hint: 'Must match a category defined in Settings → Global → Categories.' }
 
-      - { name: client,       label: Client,       widget: string,  required: false }
-      - { name: photographer, label: Photographer, widget: string,  required: false }
-      - { name: director,     label: Director,     widget: string,  required: false }
-      - { name: bts,          label: BTS,          widget: string,  required: false }
-      - { name: date,         label: Year,         widget: string,  required: false }
+      - { name: client, label: Client, widget: string, required: false }
+      - { name: date,   label: Year,   widget: string, required: false }
+
+      - name: credits_list
+        label: Credits
+        widget: list
+        required: false
+        hint: 'Key–value credit pairs shown on the project page (e.g. Photographer / Jane Smith).'
+        fields:
+          - { name: label, label: Label, widget: string }
+          - { name: value, label: Value, widget: string }
 
       - { name: order,     label: 'Order (within category)', widget: number, required: false,
           hint: 'Controls position within its category tab. Leave blank to sort after numbered projects.' }
@@ -55,9 +55,6 @@ collections:
 
       - { name: credits, label: Credits, widget: text, required: false,
           hint: 'Full credits line shown after the year, e.g. "Photography: X — Styling: Y"' }
-
-      - { name: destination, label: Destination, widget: string, required: false,
-          hint: 'For Content Creation projects only.' }
 
       - name: skills
         label: Areas of Expertise
@@ -217,3 +214,8 @@ collections:
               hint: 'Fallback social share image (absolute URL) when no page-specific image is set.' }
           - { name: ga_tracking_id, label: 'Google Analytics Tracking ID', widget: string, required: false,
               hint: 'Your GA4 Measurement ID, e.g. G-XXXXXXXXXX. Leave blank to disable analytics.' }
+          - name: categories
+            label: Project Categories
+            widget: list
+            hint: 'Defines the available project categories and filter tabs. Order here controls order in the filter bar.'
+            field: { name: category, label: Category, widget: string }

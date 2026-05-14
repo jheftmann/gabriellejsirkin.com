@@ -1,16 +1,15 @@
 ---
 title: Photo Library
-cat: Brand Work
+cat: Visual Direction
 client: Vrbo
-photographer: Anaïs and Dax
-director: ''
-bts: ''
 date: '2025'
 order: 15
 order_all: 85
 description: ''
 credits: ''
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Anaïs and Dax"
 skills:
   - Visual Direction
   - Production

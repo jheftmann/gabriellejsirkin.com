@@ -1,16 +1,15 @@
 ---
 title: The Forest and the Finca
-cat: Editorial
+cat: Visual Direction
 client: Airbnb Magazine
-photographer: Rose Marie Cromwell
-director: ''
-bts: ''
 date: '2018'
 order: 25
 order_all: 35
 description: ''
 credits: ''
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Rose Marie Cromwell"
 skills:
   - Visual Direction
   - Production

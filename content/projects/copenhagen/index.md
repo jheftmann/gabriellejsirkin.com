@@ -1,16 +1,12 @@
 ---
 title: Copenhagen
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 30
 order_all: 100
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Visual Direction
@@ -27,7 +23,6 @@ media:
   - file: 07_CC_Copenhagen_03.mp4
   - file: 08_8148C91E-0E6F-4183-9DA0-CDBB8B44BD2F_1_102_o.jpeg
   - file: 09_IMG_4489.jpeg
-filter: content
 card_ratio: r-9-16
 card_placeholder: Coming Soon
 placeholder_count: 1
