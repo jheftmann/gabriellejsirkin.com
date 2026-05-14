@@ -23,6 +23,7 @@ skills:
   - Creative Direction
   - Visual Direction
   - Production
+color_theme: colorway-5
 thumbnail: 01_PastaFamilies_11277.jpg
 media:
   - 01_PastaFamilies_11277-1.jpg
