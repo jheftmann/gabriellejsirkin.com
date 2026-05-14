@@ -7,16 +7,11 @@ order: 10
 order_all: 140
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Ronan Gallagher"
-  - label: "BTS"
-    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
   - Brand Strategy
-card_ratio: r-16-9
+color_theme: colorway-4
 thumbnail: 01_ONEKEY_OOH_EGYPT_PYRAMID_GALLAGHER_01_0545_sRGB.jpg
 media:
   - file: 01_ONEKEY_OOH_EGYPT_PYRAMID_GALLAGHER_01_0545_sRGB.jpg
@@ -47,6 +42,12 @@ media:
   - file: 26_ONEKEY_OHH_EGYPT_PYRAMID_GALLAGHER_01_0199.jpg
   - file: 27_ONEKEY_CC_MADEIRA_GARGANTA_FUNDA_GALLAGHER_0679_v1_sRGB.jpg
   - file: 28_C8CE1157-05E7-4989-9735-24CB455AFEAA_1_105_c.jpeg
+filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: ''
+photographer: Ronan Gallagher
+card_ratio: r-16-9
 card_placeholder: Egypt · Mallorca · Madrid
 placeholder_count: 5
 ---
