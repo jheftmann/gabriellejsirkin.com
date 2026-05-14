@@ -15,7 +15,7 @@ skills:
   - Content Creation
   - Visual Direction
 coming_soon: false
-color_theme: colorway-1
+color_theme: colorway-5
 thumbnail: 01_CC_FrenchBasque_02.mp4
 media:
   - file: 01_CC_FrenchBasque_02.mp4
@@ -23,8 +23,11 @@ media:
   - file: 02_CCA8ABD2-C1F5-4484-AE3D-F65646C1EBC7_1_105_c.jpeg
     caption: ''
   - file: 03_CC_FrenchBasque_03.mp4
+    caption: ''
   - file: 04_CC_FrenchBasque_06.mp4
+    caption: ''
   - file: 05_IMG_0946_VSCO.jpg
+    caption: ''
   - file: 06_CC_FrenchBasque_07.mp4
   - file: 07_85B47341-D295-4EBC-8F5C-69E400C9BBCF_1_102_o.jpeg
   - file: 08_CC_FrenchBasque_01.mp4
