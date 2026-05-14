@@ -1,6 +1,6 @@
 /* PROJECT HEADER */
 .project-header {
-  padding: 4.5rem var(--side) 0;
+  padding: 3rem var(--side) 0;
   display: flex;
   flex-direction: column;
   gap: 1.125rem; /* 18px — Figma header gap */
