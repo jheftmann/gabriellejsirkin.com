@@ -1,19 +1,15 @@
 ---
 title: Photo Library
-cat: Visual Direction
+cat: Visual Direction, Production, Brand Strategy
 client: Vrbo
 date: '2025'
+credits_list:
+  - label: Photographer
+    value: Anaïs & Dax
 order: 15
 order_all: 85
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Anaïs and Dax"
-skills:
-  - Visual Direction
-  - Production
-  - Brand Strategy
 coming_soon: false
 color_theme: colorway-1
 thumbnail: 01_VRB00101_Library_Shoot_Beach_House_AnaisDax_2497_Final.jpg
@@ -27,5 +23,9 @@ media:
   - file: 07_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_4753-2_Final.jpg
   - file: 08_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_5556_R1_Final.jpg
   - file: 09_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_5643_R2_Final.jpg
+director: ''
+bts: ''
+destination: ''
+photographer: Anaïs and Dax
 card_ratio: r-4-3
 ---
