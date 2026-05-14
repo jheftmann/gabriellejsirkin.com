@@ -1,17 +1,12 @@
 ---
 title: Lifestyle
-cat: Visual Direction
+cat: Brand Strategy
 client: Beats by Dre
 date: 2018 - 2020
 order: 20
 order_all: 115
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Anthony Blasko, Jerry Buttles, Caitlin Cronenberg, Joshua Kissi, Clayton Vomero"
-  - label: "BTS"
-    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
@@ -63,6 +58,11 @@ media:
     bts: true
   - file: 21_20191009_EDANGELO_HALSEY_SHOT_03_021_rgb.jpg
     caption: ''
+filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: ''
+photographer: Anthony Blasko, Jerry Buttles, Caitlin Cronenberg, Joshua Kissi, Clayton Vomero
 card_ratio: r-3-2
 card_placeholder: Powerbeats
 placeholder_count: 5
