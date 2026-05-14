@@ -1,15 +1,12 @@
 ---
 title: Liguria
-cat: Visual Direction
+cat: Content Creation
 client: ''
 date: ''
 order: 20
 order_all: 80
 description: ''
 credits: ''
-skills:
-  - Content Creation
-  - Visual Direction
 coming_soon: false
 color_theme: colorway-3
 thumbnail: 01_IMG_0561_VSCO.mp4
