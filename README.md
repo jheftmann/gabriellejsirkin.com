@@ -83,6 +83,21 @@ The credits section on each project page is built from the **Credits** field (a 
 
 The old fixed fields (Photographer, Director, BTS) were merged into this list. All existing values were carried over — you can edit or remove them just like any other credit row.
 
+### Links and formatting in text fields
+
+The About bio, the Services intro/approach, the Services / Clients / City Guides lists, and the skill descriptions all accept **markdown** — so you can add links and basic emphasis without writing HTML.
+
+| You type | What renders |
+|----------|--------------|
+| `[A Golden Hour Project](https://www.agoldenhourproject.com)` | a clickable link |
+| `[Email me](mailto:gabriellejsirkin@gmail.com)` | a mail link |
+| `*italic*` | *italic* |
+| `**bold**` | **bold** |
+
+Raw HTML (e.g. `<a href="…">…</a>`) also still works if you prefer.
+
+The project page **Description** (the long body text on a project) also accepts full markdown — paragraphs, lists, headings, links, the lot. The short frontmatter Description summary stays plain text by design.
+
 ---
 
 ## For Developers
