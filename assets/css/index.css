@@ -1,5 +1,5 @@
 /* HERO */
-.hero { padding: 4.5rem var(--side) 3rem; }
+.hero { padding: 3rem var(--side) 3rem; }
 .hero-title {
   letter-spacing: 0;
   color: var(--text);
