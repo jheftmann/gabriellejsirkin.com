@@ -83,6 +83,9 @@ The credits section on each project page is built from the **Credits** field (a 
 
 The old fixed fields (Photographer, Director, BTS) were merged into this list. All existing values were carried over — you can edit or remove them just like any other credit row.
 
+> **Tip — order long credits last**
+> The credit columns each size to their own content (capped at ~196px). When one column's value wraps to multiple lines and ends on a short last line, the whitespace between *that* line and the next column can look bigger than the spacing between full-width lines and the next column — it's a natural side-effect of left-aligned ragged-right text. To minimise this, put any long-list credit (e.g. "Sabrina Bajaj, Chelsea Gold, Gabrielle Sirkin and Audrey Viola") as the **last** credit row so the wrap happens at the right edge of the layout where there's nothing next to it.
+
 ### Links and formatting in text fields
 
 The About bio, the Services intro/approach, the Services / Clients / City Guides lists, and the skill descriptions all accept **markdown** — so you can add links and basic emphasis without writing HTML.
