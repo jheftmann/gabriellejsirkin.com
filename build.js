@@ -23,14 +23,11 @@ function cdnImg(src, alt, { widths, sizes, extra = '' } = {}) {
   return `<img src="${base}&w=${widths[widths.length - 1]}" srcset="${srcset}" sizes="${sizes}" alt="${alt}"${extra}>`;
 }
 
-// ─── Category → filter key mapping ───────────────────────────────────────────
+// ─── Category → filter key ────────────────────────────────────────────────────
 
-const CAT_TO_FILTER = {
-  'Brand Work':       'brand',
-  'Editorial':        'editorial',
-  'Content Creation': 'content',
-  'Personal':         'personal',
-};
+function slugify(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
 
 // ─── Frontmatter parser ──────────────────────────────────────────────────────
 // Handles flat key: value pairs and simple YAML arrays (key: / - item)
@@ -171,20 +168,17 @@ function loadProjects() {
         const { fm, body } = parseFrontmatter(fs.readFileSync(mdPath, 'utf8'));
         bodyText = body;
         meta = {
-          title:        fm.title        || id,
-          client:       fm.client       || '',
-          cat:          fm.cat          || '',
-          filter:       fm.filter || CAT_TO_FILTER[fm.cat] || 'personal',
-          photographer: fm.photographer || '',
-          director:     fm.director     || '',
-          bts:          fm.bts          || '',
-          date:         fm.date         || '',
-          order:        fm.order        != null ? parseInt(fm.order,    10) : null,
-          orderAll:     fm.order_all    != null ? parseInt(fm.order_all, 10) : null,
-          description:  fm.description  || '',
-          credits:      fm.credits      || '',
-          destination:  fm.destination  || '',
-          skills:       typeof fm.skills === 'string'
+          title:       fm.title    || id,
+          client:      fm.client   || '',
+          cat:         fm.cat      || '',
+          filter:      slugify(fm.cat || ''),
+          date:        fm.date     || '',
+          order:       fm.order    != null ? parseInt(fm.order,    10) : null,
+          orderAll:    fm.order_all != null ? parseInt(fm.order_all, 10) : null,
+          description: fm.description || '',
+          credits:     fm.credits     || '',
+          creditsList: Array.isArray(fm.credits_list) ? fm.credits_list : [],
+          skills:      typeof fm.skills === 'string'
                           ? fm.skills.split(',').map(s => s.trim()).filter(Boolean)
                           : (Array.isArray(fm.skills) ? fm.skills : []),
           thumbnail:    fm.thumbnail    || '',
@@ -369,15 +363,12 @@ function renderCard(p, bgColor = '') {
 
 // ─── Filter bar ──────────────────────────────────────────────────────────────
 
-const FILTER_ORDER = ['brand', 'editorial', 'content', 'personal'];
-
-function renderFilterBar(projects) {
-  const map = {};
-  projects.forEach(p => { if (p.filter && !map[p.filter]) map[p.filter] = p.cat; });
-  const filters = FILTER_ORDER
-    .filter(f => map[f])
-    .map(f => ({ filter: f, label: map[f] }));
-  const btns = filters
+function renderFilterBar(projects, settings) {
+  const present = new Set(projects.map(p => p.filter));
+  const cats = Array.isArray(settings.categories) ? settings.categories : [];
+  const btns = cats
+    .map(cat => ({ filter: slugify(cat), label: cat }))
+    .filter(f => present.has(f.filter))
     .map(f => `    <button class="filter-btn" data-filter="${f.filter}">${f.label}</button>`)
     .join('\n');
   return `    <button class="filter-btn active" data-filter="all" data-scheme="all">All</button>\n${btns}`;
@@ -442,7 +433,7 @@ async function build() {
     // Auto-generate filter bar and inject project cards
     if (page === 'index') {
       const sorted = sortedForColors;
-      html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted));
+      html = html.replace('<!-- #filter-bar -->',    renderFilterBar(sorted, settings));
       html = html.replace('<!-- #projects-cards -->', sorted.map(p => renderCard(p, colorMap[p.id] || '')).join('\n'));
       const heroAccent = pageContent.hero_accent ? `<br>${pageContent.hero_accent}` : '';
       html = html.replace('<!-- #hero-title -->', `${pageContent.hero_main || ''}${heroAccent}`);

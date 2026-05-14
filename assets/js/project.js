@@ -32,18 +32,11 @@ function getParams() {
 
   // Credits row
   var credits = '';
-  var cat = p.cat;
 
-  if (cat === 'Brand Work' || cat === 'Editorial') {
-    if (p.client)       credits += creditField('Client',       p.client);
-    if (p.photographer) credits += creditField('Photographer', p.photographer);
-    if (p.director)     credits += creditField('Director',     p.director);
-    if (p.bts)          credits += creditField('BTS',          p.bts);
-  } else if (cat === 'Personal' || cat === 'Curation') {
-    if (p.photographer) credits += creditField('Photographer', p.photographer);
-    if (p.director)     credits += creditField('Director',     p.director);
-  } else if (cat === 'Content Creation') {
-    if (p.destination)  credits += creditField('Destination',  p.destination);
+  if (p.creditsList && p.creditsList.length) {
+    p.creditsList.forEach(function (entry) {
+      if (entry.label && entry.value) credits += creditField(entry.label, entry.value);
+    });
   }
 
   if (p.skills && p.skills.length) {
