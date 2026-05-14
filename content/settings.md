@@ -16,6 +16,6 @@ categories:
   - Visual Direction
   - Content Creation
   - Production
-  - Brand Strategy
   - Curation
+  - Brand Strategy
 ---
