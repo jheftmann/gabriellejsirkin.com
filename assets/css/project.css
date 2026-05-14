@@ -27,7 +27,8 @@
   flex-direction: column;
   gap: 0.5rem;
   color: var(--muted);
-  max-width: 196px; /* Figma spec — prevents over-stretching on wide viewports (#62) */
+  width: 196px; /* Fixed Figma column width — keeps inter-column gaps uniform regardless of content (#62) */
+  flex-shrink: 0;
 }
 .credit-label {
   font-family: var(--base);
@@ -130,7 +131,7 @@ figcaption {
 @media (max-width: 767px) {
   .project-header { padding-top: 2rem; } /* matches Figma 94px title position on mobile */
   .project-credits { flex-direction: column; gap: 1.125rem; } /* 18px — Figma mobile credits gap */
-  .credit-item { max-width: none; } /* unbound on mobile so values don't force unnecessary wrapping */
+  .credit-item { width: auto; max-width: none; } /* unbound on mobile so values don't force unnecessary wrapping */
   .credit-value { font-size: 1rem; } /* 16px on mobile */
   .project-desc p { font-size: 1.125rem; } /* 18px on mobile */
 
