@@ -62,6 +62,13 @@
   color: var(--text);
   transition: color var(--transition);
 }
+/* In engines that trim line-box leading, paragraphs collapse onto each other;
+   add explicit margin to restore Figma-spec spacing. Engines without trim
+   already have ~equivalent visual space from the leading. */
+@supports (text-box-trim: trim-both) {
+  .project-desc p { margin-bottom: 1.5rem; }
+  .project-desc p:last-child { margin-bottom: 0; }
+}
 
 /* IMAGE GRID */
 .project-images {
