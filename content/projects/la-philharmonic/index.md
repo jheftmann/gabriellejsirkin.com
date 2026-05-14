@@ -1,6 +1,6 @@
 ---
 title: 2017/2018 Season Campaign
-cat: Production
+cat: Visual Direction, Brand Strategy, Production
 client: LA Philharmonic
 date: '2017'
 credits_list:
