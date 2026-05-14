@@ -11,7 +11,7 @@ skills:
   - Content Creation
   - Viusal Direction
 coming_soon: false
-color_theme: colorway-7
+color_theme: colorway-2
 thumbnail: 01_0B58D898-4674-40A2-85C5-54F7BA255A30_1_102_o.jpeg
 media:
   - file: 01_0B58D898-4674-40A2-85C5-54F7BA255A30_1_102_o.jpeg
