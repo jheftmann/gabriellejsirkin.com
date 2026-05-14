@@ -172,19 +172,12 @@ body[data-theme="services"] .about-layout > .about-headline {
   column-gap: 1.5rem;
   list-style: none;
 }
-/* Type matches .bio-para exactly — only layout differs */
 .travel-grid li {
-  font-family: var(--base);
-  font-size: 0.875rem;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.28;
-  color: var(--text);
   display: block;
   margin-bottom: 0.375rem;
   break-inside: avoid; /* keeps a wrapped item from splitting across columns */
-  transition: color var(--transition);
 }
+.travel-grid li > .bio-para { margin-bottom: 0; } /* suppress the 24px paragraph margin inside list items */
 
 /* Pages with sidebar social links don't need footer links too */
 .footer-links { display: none; }
@@ -223,8 +216,7 @@ body[data-theme="services"] .about-layout > .about-headline {
   .row-label,
   .sidebar-label { font-size: 1.75rem; } /* 28px = Size/XL on mobile */
   .bio-para,
-  .services-text,
-  .travel-grid li { font-size: 1rem; } /* 16px = Size/Base on mobile */
+  .services-text { font-size: 1rem; } /* 16px = Size/Base on mobile (applies to .bio-para inside .travel-grid li too) */
   .skill-desc { font-size: 1rem; }
   .sidebar-bio  { font-size: 0.875rem; } /* 14px on mobile, 12px on laptop+ (#50 — p - style) */
 }
