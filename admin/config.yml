@@ -30,8 +30,12 @@ collections:
     fields:
       - { name: title, label: Title, widget: string }
 
-      - { name: cat, label: Category, widget: string,
-          hint: 'Must match a category defined in Settings → Global → Categories.' }
+      - name: cat
+        label: Categories
+        widget: list
+        required: false
+        hint: 'Type category names matching Settings → Global → Categories. Add multiple to show in more than one tab.'
+        field: { name: item, label: Category, widget: string }
 
       - { name: client, label: Client, widget: string, required: false }
       - { name: date,   label: Year,   widget: string, required: false }
