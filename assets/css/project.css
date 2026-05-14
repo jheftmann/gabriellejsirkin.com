@@ -34,7 +34,7 @@
   font-size: 0.875rem; /* 14px */
   font-weight: 300;
   font-style: italic;
-  line-height: 1.5; /* increased for readability of multi-line values (#59) */
+  line-height: 1.24;
 }
 .credit-tags {
   display: flex;
@@ -115,6 +115,7 @@ figcaption {
 @media (max-width: 767px) {
   .project-header { padding-top: 2rem; } /* matches Figma 94px title position on mobile */
   .project-credits { flex-direction: column; gap: 1.125rem; } /* 18px — Figma mobile credits gap */
+  .credit-item { max-width: none; } /* unbound on mobile so values don't force unnecessary wrapping */
   .credit-value { font-size: 1rem; } /* 16px on mobile */
   .project-desc p { font-size: 1.125rem; } /* 18px on mobile */
 
