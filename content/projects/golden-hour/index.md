@@ -1,6 +1,6 @@
 ---
 title: A Golden Hour Project
-cat: Curation
+cat: Curation, Visual Direction, Production
 client: ''
 date: '2025'
 credits_list:
