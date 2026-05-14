@@ -70,7 +70,7 @@ body[data-theme="about"]      { --bg:#232b09; --text:#aaccc1; --muted:#ffffff; -
 body[data-theme="services"]   { --bg:#1d4648; --text:#e6adc9; --muted:#ffffff; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 
 /* RESET */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; text-box: trim-both cap alphabetic; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; text-box: trim-both cap alphabetic; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
 html { font-size: 16px; scroll-behavior: smooth; }
 
 /* SKIP LINK */

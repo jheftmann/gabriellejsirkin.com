@@ -7,13 +7,10 @@ order: 1
 order_all: 45
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Maureen M Evans, Robert Rieger, Simon Watson"
 skills:
   - Visual Direction
   - Production
-card_ratio: r-9-16
+color_theme: colorway-6
 thumbnail: 01_HCOM_ICA_MX_UMA_CASA_ROOM2_WHAMMOCK_EVANS_3452.mp4
 media:
   - file: 01_HCOM_ICA_MX_UMA_CASA_ROOM2_WHAMMOCK_EVANS_3452.mp4
@@ -43,6 +40,12 @@ media:
   - file: 25_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_0167 (2).jpg
   - file: 26_2024-07-24_HCOM_ICA_MX_UMA_CASA_RUE_BED_V3_EVANS_0027-V3 1.jpg
   - file: 27_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_1033.jpg
+filter: brand
+destination: ''
+bts: ''
+director: ''
+photographer: Maureen M Evans, Robert Rieger, Simon Watson
+card_ratio: r-9-16
 card_placeholder: Dubai · Çeşme
 placeholder_count: 5
 ---
