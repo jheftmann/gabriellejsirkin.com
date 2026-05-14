@@ -249,6 +249,17 @@ This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
 
 ## Changelog
 
+### 2026-05-13 — Layout & spacing pass (closes #54, #61, #63, #64, #65)
+- **Dynamic categories (#54):** `settings.categories` list field added to CMS; filter bar order is fully CMS-driven. Old hardcoded `FILTER_ORDER`/`CAT_TO_FILTER` removed from `build.js`. `cat` field changed from `select` → `string` widget
+- **Flexible credits_list:** `credits_list` YAML list replaces hardcoded `photographer`/`director`/`bts`/`destination` fields. Migration script at `scripts/migrate-categories-credits.js`
+- **Image grid (#61):** 2-column desktop with 4-cycle width stagger (100%/85%/85%/100%) and 2.625rem vertical offset on even items; 1-column mobile with 92%-wide alternating left/right
+- **Title line gap (#63):** `.project-header` gap set to `0`; visual ~21px dead space approximates Figma 18px. Added `text-box-trim`/`text-box-edge` longhands to `*` reset for Safari 17.5+ coverage
+- **Project description (#64):** `.project-desc p` updated to `1.5rem / 400 / normal` (desktop), `1.125rem` mobile — matches Figma Size/XL
+- **Footer year (#65):** Auto-derived in `build.js` from `new Date().getFullYear()`; removed from CMS and settings.md
+- **Sticky footer:** `body { display:flex; flex-direction:column; min-height:100dvh }` + `.page-content { flex:1 }`
+- **Hero width:** `.hero-title { max-width:50vw }` on desktop (half viewport = visual page center); full-width mobile
+- **Consistent page title position:** All page titles (hero, project, about, services) share `padding-top: 3rem` desktop / `2rem` mobile so the title lands at the same vertical position across page transitions. Both match Figma's `top: 106px` (desktop) / `94px` (mobile) for the title block
+
 ### 2026-05-09 — Design refinements (feature/design-refinements)
 - **Grid row-gap:** Set to `9rem` (144px) to match Figma card spacing
 - **Card caption gap:** Reduced to `2px` (visual calibration — code says 8px, Figma says 8px, but glyph-to-glyph with `text-box` trim requires a much smaller value to match visual intent)
