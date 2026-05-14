@@ -478,15 +478,15 @@ async function build() {
       html = html.replace('<!-- #travel-approach -->', approach);
 
       const services = (Array.isArray(pageContent.services) ? pageContent.services : [])
-        .map(s => `        <li>${s}</li>`).join('\n');
+        .map(s => `        <li><p class="bio-para">${s}</p></li>`).join('\n');
       html = html.replace('<!-- #travel-services -->', services);
 
       const clients = (Array.isArray(pageContent.clients) ? pageContent.clients : [])
-        .map(c => `        <li>${c}</li>`).join('\n');
+        .map(c => `        <li><p class="bio-para">${c}</p></li>`).join('\n');
       html = html.replace('<!-- #travel-clients -->', clients);
 
       const cities = (Array.isArray(pageContent.cities) ? pageContent.cities : [])
-        .map(c => `        <li>${c}</li>`).join('\n');
+        .map(c => `        <li><p class="bio-para">${c}</p></li>`).join('\n');
       html = html.replace('<!-- #travel-cities -->', cities);
     }
 
