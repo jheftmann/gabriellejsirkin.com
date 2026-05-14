@@ -73,19 +73,21 @@
 
   /* Leading-compensation gaps.
      In engines that don't support text-box-trim, the natural line-box leading
-     already provides ~18–24px of visual space between stacked text, so these
+     already provides ~Figma-spec visual space between stacked text, so these
      gaps stay 0. The @supports block below adds explicit values for engines
      that DO trim — where leading is collapsed and an explicit gap is needed
-     to recover Figma-spec spacing. */
-  --gap-stacked-titles: 0;
-  --gap-paragraph:      0;
-  --gap-list-item:      0.375rem; /* 6px base — list items always need a little separation */
+     to recover Figma-spec spacing. Scale tracks the text size at the use site. */
+  --gap-stacked-titles-lg: 0;       /* big italic display (project header)  */
+  --gap-stacked-titles-sm: 0;       /* small display (card client + title)  */
+  --gap-paragraph:         0;       /* 24px display paragraphs              */
+  --gap-list-item:         0.375rem; /* 6px base — list items always need a little separation */
 }
 @supports (text-box-trim: trim-both) {
   :root {
-    --gap-stacked-titles: 1.125rem; /* 18px between project header lines */
-    --gap-paragraph:      1.5rem;   /* 24px between project-desc paragraphs */
-    --gap-list-item:      1rem;     /* 16px between travel-grid items */
+    --gap-stacked-titles-lg: 1.125rem; /* 18px between project header lines       */
+    --gap-stacked-titles-sm: 0.25rem;  /* 4px between card client + card title    */
+    --gap-paragraph:         1.5rem;   /* 24px between project-desc paragraphs    */
+    --gap-list-item:         1rem;     /* 16px between travel-grid items          */
   }
 }
 
