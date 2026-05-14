@@ -69,9 +69,9 @@ The category filter bar on the homepage ("All / Visual Direction / Content Creat
 
 **To add, remove, rename, or reorder the filter tabs:** CMS → **Settings** → **Categories** list. The order you set there is the order they appear in on the homepage.
 
-**To put a project in a category:** open the project → **Categories** field → add one or more category names. Each name must match a category in Settings exactly (case-insensitive, but no typos).
+**To put a project in a category:** open the project → **Categories** field → click the **+** button to add a row → type the category name. Repeat for each additional category. Each name must match a category in Settings exactly (case-insensitive, but no typos).
 
-**A project can be in more than one category.** Add multiple entries to its Categories field and it will appear in each of those filter tabs (and in "All").
+**A project can be in more than one category.** Add one row per category — the project will appear in each of those filter tabs (and in "All"). If you see the categories rendered as a single comma-separated line (e.g. `Visual Direction, Content Creation`), that also works as a fallback — the build splits on commas — but the per-row UI is the intended way.
 
 If a project's Categories field is empty, it won't appear in any tab — including "All".
 
