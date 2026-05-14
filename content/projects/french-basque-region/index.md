@@ -1,15 +1,12 @@
 ---
 title: French Basque Region
-cat: Visual Direction
+cat: Content Creation
 client: ''
 date: ''
 order: 1
 order_all: 10
 description: ''
 credits: ''
-skills:
-  - Content Creation
-  - Visual Direction
 coming_soon: false
 color_theme: colorway-5
 thumbnail: 01_CC_FrenchBasque_02.mp4
