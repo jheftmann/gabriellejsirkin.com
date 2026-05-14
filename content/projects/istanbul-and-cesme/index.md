@@ -14,8 +14,8 @@ destination: ''
 skills:
   - Content Creation
   - Visual Direction
-card_ratio: r-4-3
 coming_soon: false
+color_theme: colorway-2
 thumbnail: 04_CC_Istanbul_04.mp4
 media:
   - file: 01_CC_Istanbul_02.mp4
@@ -28,4 +28,5 @@ media:
   - file: 07_IMG_6700_VSCO.JPG
   - file: 08_CC_Istanbul_01.mp4
   - file: 09_IMG_6786.jpg
+card_ratio: r-4-3
 ---
