@@ -107,12 +107,14 @@ body {
   color: var(--text);
   font-family: var(--base);
   font-weight: 400;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
   padding-top: 3.875rem;
   hyphens: auto;
   hyphenate-limit-chars: 8 4 3;
+  display: flex;
+  flex-direction: column;
 }
 .site-nav, h1, h2, h3,
 .row-label, .sidebar-label, .skill-name,
@@ -134,6 +136,7 @@ body {
 }
 .page-content {
   animation: page-in 0.45s ease both;
+  flex: 1; /* pushes footer to bottom when content is short */
 }
 
 /* NAV */
