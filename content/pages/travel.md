@@ -19,15 +19,15 @@ services:
   - Visual Research and Curation
   - Content Creation
   - Shoot Production & Project Management
-  - Art Direction and Shoot Supervision
-  - Budget Optimization and Efficiency
+  - Art Direction & Shoot Supervision
+  - Budget Optimization & Efficiency
   - Creative Team Building
-  - Collaborations and Special Projects
+  - Collaborations & Special Projects
   - Travel Trend Reporting
   - Trip Planning & Creation
   - Personalized Digital Guidebooks
 clients:
-  - Emerging Hospitality and Travel Brands
+  - Emerging Hospitality & Travel Brands
   - Hotel & Hospitality Groups
   - Creative Agencies
   - Travel Advisors
