@@ -26,6 +26,11 @@ description: Pasta is the true language of Italy, the great connector. The photo
 credits: ''
 color_theme: colorway-5
 thumbnail: 01_PastaFamilies_11277.jpg
+director: ''
+bts: ''
+destination: ''
+filter: personal
+photographer: ''
 media:
   - 01_PastaFamilies_11277-1.jpg
   - 02_PastaFamilies_11749.jpg
