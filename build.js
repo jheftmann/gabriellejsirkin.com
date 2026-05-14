@@ -171,11 +171,25 @@ function loadProjects() {
         meta = {
           title:       fm.title    || id,
           client:      fm.client   || '',
-          cat:         Array.isArray(fm.cat) ? fm.cat.join(', ') : (fm.cat || ''),
-          filters:     Array.isArray(fm.cat)
-                         ? fm.cat.map(c => slugify(c)).filter(Boolean)
-                         : fm.cat ? [slugify(fm.cat)] : [],
-          filter:      slugify(Array.isArray(fm.cat) ? (fm.cat[0] || '') : (fm.cat || '')),
+          // Accept cat as YAML list OR comma-separated string (fallback for legacy/manual edits)
+          cat:         (() => {
+                         const arr = Array.isArray(fm.cat) ? fm.cat
+                                   : typeof fm.cat === 'string' ? fm.cat.split(',').map(s => s.trim()).filter(Boolean)
+                                   : [];
+                         return arr.join(', ');
+                       })(),
+          filters:     (() => {
+                         const arr = Array.isArray(fm.cat) ? fm.cat
+                                   : typeof fm.cat === 'string' ? fm.cat.split(',').map(s => s.trim()).filter(Boolean)
+                                   : [];
+                         return arr.map(c => slugify(c)).filter(Boolean);
+                       })(),
+          filter:      (() => {
+                         const arr = Array.isArray(fm.cat) ? fm.cat
+                                   : typeof fm.cat === 'string' ? fm.cat.split(',').map(s => s.trim()).filter(Boolean)
+                                   : [];
+                         return slugify(arr[0] || '');
+                       })(),
           date:        fm.date     || '',
           order:       fm.order    != null ? parseInt(fm.order,    10) : null,
           orderAll:    fm.order_all != null ? parseInt(fm.order_all, 10) : null,

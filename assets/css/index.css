@@ -17,7 +17,7 @@
 }
 .filter-btn {
   font-family: var(--base);
-  font-size: 0.6875rem; /* 11px */
+  font-size: 0.75rem; /* 12px — Figma label size */
   font-weight: 400;
   line-height: 1.12;
   color: var(--muted);
@@ -48,7 +48,7 @@
 .filter-select {
   display: none;
   font-family: var(--base);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 400;
   background: none;
   border: none;
@@ -132,7 +132,7 @@
 .project-card:hover .card-title { opacity: 1; }
 .card-cat {
   font-family: var(--base);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.12;
   color: var(--muted);
@@ -144,7 +144,7 @@
 /* COMING SOON */
 .cs-badge {
   font-family: var(--base);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--muted);
   display: inline-block;
