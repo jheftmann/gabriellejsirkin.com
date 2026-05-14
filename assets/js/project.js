@@ -53,12 +53,17 @@ function getParams() {
     credits += creditTags('Services', p.skills);
   }
 
+  if (p.credits) {
+    credits += creditField('Credits', p.credits);
+  }
+
   document.getElementById('pCredits').innerHTML = credits;
 
-  // Description
-  if (p.contentHtml && p.contentHtml.desc) {
+  // Description — prefer markdown body, fall back to description frontmatter field
+  var descText = (p.contentHtml && p.contentHtml.desc) || (p.description ? '<p>' + p.description.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') + '</p>' : null);
+  if (descText) {
     var descEl = document.getElementById('pDesc');
-    descEl.innerHTML = p.contentHtml.desc;
+    descEl.innerHTML = descText;
     descEl.style.display = '';
   }
 
