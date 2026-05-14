@@ -39,14 +39,11 @@ function getParams() {
     if (p.photographer) credits += creditField('Photographer', p.photographer);
     if (p.director)     credits += creditField('Director',     p.director);
     if (p.bts)          credits += creditField('BTS',          p.bts);
-    if (p.date)         credits += creditField('Year',         p.date);
   } else if (cat === 'Personal' || cat === 'Curation') {
     if (p.photographer) credits += creditField('Photographer', p.photographer);
     if (p.director)     credits += creditField('Director',     p.director);
-    if (p.date)         credits += creditField('Year',         p.date);
   } else if (cat === 'Content Creation') {
     if (p.destination)  credits += creditField('Destination',  p.destination);
-    if (p.date)         credits += creditField('Year',         p.date);
   }
 
   if (p.skills && p.skills.length) {
