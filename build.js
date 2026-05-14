@@ -458,12 +458,15 @@ async function build() {
 
     // Inject about page dynamic content
     if (page === 'about') {
-      const skills = [1,2,3,4].map(i => {
-        const name = pageContent[`skill${i}_name`];
-        const desc = pageContent[`skill${i}_desc`];
-        if (!name) return '';
-        return `      <div class="skill-item">\n        <p class="skill-name">${marked.parseInline(name)}</p>\n        ${desc ? `<p class="skill-desc">${marked.parseInline(desc)}</p>` : ''}\n      </div>`;
-      }).filter(Boolean).join('\n');
+      // Prefer the new skills_list array; fall back to legacy skill1_name…skill4_desc fields
+      const skillEntries = Array.isArray(pageContent.skills_list) && pageContent.skills_list.length
+        ? pageContent.skills_list.map(s => ({ name: s.name, desc: s.description }))
+        : [1,2,3,4].map(i => ({ name: pageContent[`skill${i}_name`], desc: pageContent[`skill${i}_desc`] }));
+      const skills = skillEntries
+        .filter(s => s.name)
+        .map(({ name, desc }) =>
+          `      <div class="skill-item">\n        <p class="skill-name">${marked.parseInline(name)}</p>\n        ${desc ? `<p class="skill-desc">${marked.parseInline(desc)}</p>` : ''}\n      </div>`
+        ).join('\n');
       html = html.replace('<!-- #about-skills -->', skills);
 
       const bio = (pageContent.bio || '').split(/\n\n+/).filter(Boolean)
