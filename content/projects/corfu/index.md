@@ -8,9 +8,6 @@ order: 25
 order_all: 65
 description: ''
 credits: ''
-skills:
-  - Content Creation
-  - Visual Direction
 coming_soon: false
 color_theme: colorway-4
 thumbnail: 09_CC_Corfu.mp4
