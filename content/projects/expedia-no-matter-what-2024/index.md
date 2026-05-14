@@ -7,6 +7,13 @@ order: 5
 order_all: 1
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Nico Therin"
+  - label: "Director"
+    value: "Adam Newport Barra"
+  - label: "BTS"
+    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
@@ -65,11 +72,6 @@ media:
     bts: true
   - file: 25_BEX_NMW_SICILY_LAPRAIOLA_THERIN_1820_V03TUB.jpg
     caption: ''
-filter: brand
-destination: ''
-bts: Gabrielle J Sirkin
-director: Adam Newport Barra
-photographer: Nico Therin
 card_ratio: r-16-9
 card_placeholder: Dolomites · Rome · Sicily
 placeholder_count: 5

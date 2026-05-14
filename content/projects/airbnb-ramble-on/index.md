@@ -7,6 +7,9 @@ order: 50
 order_all: 150
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Carolyn Drake"
 skills:
   - Visual Direction
   - Production
@@ -19,11 +22,6 @@ media:
   - file: 04_ABB040119Nidderdale_lo-4.jpg
   - file: 05_ABB040119Nidderdale_lo-5.jpg
   - file: 06_ABB040119Nidderdale_lo-6.jpg
-filter: editorial
-destination: ''
-bts: ''
-director: ''
-photographer: Carolyn Drake
 card_ratio: r-4-3
 card_placeholder: Travel
 placeholder_count: 3

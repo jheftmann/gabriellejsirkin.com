@@ -7,6 +7,9 @@ order: 15
 order_all: 85
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Anaïs and Dax"
 skills:
   - Visual Direction
   - Production
@@ -24,9 +27,5 @@ media:
   - file: 07_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_4753-2_Final.jpg
   - file: 08_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_5556_R1_Final.jpg
   - file: 09_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_5643_R2_Final.jpg
-destination: ''
-bts: ''
-director: ''
-photographer: Anaïs and Dax
 card_ratio: r-4-3
 ---

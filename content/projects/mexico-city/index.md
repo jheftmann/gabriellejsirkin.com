@@ -29,9 +29,5 @@ media:
   - file: 07_312DA45B-E594-4C66-855E-B713FFD156C1_1_102_o.jpeg
   - file: 08_C157DA6F-57C7-4ABE-8B4A-61B2586C2694_1_102_o.jpeg
   - file: 09_CE494546-30F2-4A3D-BCA8-8B3F100667DF_1_102_o.jpeg
-destination: ''
-bts: ''
-director: ''
-photographer: ''
 card_ratio: r-4-3
 ---

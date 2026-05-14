@@ -35,9 +35,5 @@ media:
   - file: 19_3D207092-34EF-4E6F-A202-05A9C1F6BF40_1_102_o.jpeg
   - file: 20_57D6AB43-39BA-4A16-97DD-DE7AC8B9BDF4_1_102_o.jpeg
   - file: 21_3687C659-C200-4A96-AE27-D6B36FD4E96B.mp4
-destination: ''
-bts: ''
-director: ''
-photographer: ''
 card_ratio: r-4-3
 ---

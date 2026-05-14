@@ -7,6 +7,11 @@ order: 30
 order_all: 55
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Erik Madigan Heck"
+  - label: "BTS"
+    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
@@ -36,11 +41,6 @@ media:
   - file: LAPhil_BTS.mp4
     caption: ''
     bts: true
-filter: brand
-destination: ''
-bts: Gabrielle J Sirkin
-director: ''
-photographer: Erik Madigan Heck
 card_ratio: r-3-4
 card_placeholder: LA Philharmonic
 placeholder_count: 5

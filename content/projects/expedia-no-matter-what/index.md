@@ -7,6 +7,11 @@ order: 25
 order_all: 20
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Nico Therin and Joao Canziani"
+  - label: "BTS"
+    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
@@ -63,11 +68,6 @@ media:
     bts: true
   - file: 22_BEX_SF OOH CAPTURE_IA.jpg
     caption: ''
-filter: brand
-destination: ''
-bts: Gabrielle J Sirkin
-director: ''
-photographer: Nico Therin and Joao Canziani
 card_ratio: r-3-4
 card_placeholder: Africa · Cape Town · Hoedspruit
 placeholder_count: 5

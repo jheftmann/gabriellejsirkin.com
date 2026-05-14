@@ -44,9 +44,5 @@ media:
   - file: 28_IMG_0244.JPG
   - file: 29_IMG_0395.mp4
   - file: 30_38E189C3-4FE2-4849-99CA-A9D1F755A130_1_102_o.jpeg
-destination: ''
-bts: ''
-director: ''
-photographer: ''
 card_ratio: r-4-3
 ---
