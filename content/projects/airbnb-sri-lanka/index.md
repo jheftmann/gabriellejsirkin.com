@@ -7,6 +7,9 @@ order: 40
 order_all: 155
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Kyle Weeks"
 skills:
   - Visual Direction
   - Production
@@ -19,11 +22,6 @@ media:
   - file: 04_SriLanka-4.jpg
   - file: 05_SriLanka-5.jpg
   - file: 06_SriLanka-6.jpg
-filter: editorial
-destination: ''
-bts: ''
-director: ''
-photographer: Kyle Weeks
 card_ratio: r-1-1
 card_placeholder: Sri Lanka
 placeholder_count: 5

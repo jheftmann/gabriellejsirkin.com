@@ -7,6 +7,9 @@ order: 15
 order_all: 25
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters"
 skills:
   - Visual Direction
   - Production
@@ -25,9 +28,5 @@ media:
   - file: 08_015-024+MR0515+Best+of+the+Best-5.jpeg
   - file: 09_082-089+MR1112+Padma-1+copy.jpeg
   - file: 10_084-091+MR0216+Well_Hong+Kong_S-1.jpeg
-destination: ''
-bts: ''
-director: ''
-photographer: Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters
 card_ratio: r-4-3
 ---

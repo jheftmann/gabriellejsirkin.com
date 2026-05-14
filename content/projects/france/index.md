@@ -29,11 +29,6 @@ media:
   - file: 13_CEDFB74F-BB5A-41DC-8AB5-83D7D9AE0124_1_105_c.jpeg
   - file: 14_DE43F0A7-C089-4898-A9BF-3B9777AF712F_1_102_o.jpeg
   - file: 15_B0AD15B6-D41A-4E22-8492-159248D43A81_1_102_o.jpeg
-filter: content
-destination: ''
-bts: ''
-director: ''
-photographer: ''
 card_ratio: r-4-3
 card_placeholder: Coming Soon
 placeholder_count: 1

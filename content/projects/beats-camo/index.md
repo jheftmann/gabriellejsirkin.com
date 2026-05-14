@@ -7,6 +7,13 @@ order: 35
 order_all: 130
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Dan Hall and Wukda"
+  - label: "Director"
+    value: "Wukda"
+  - label: "BTS"
+    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
@@ -33,11 +40,6 @@ media:
     bts: true
   - file: 09_Beats-Mash-Harden-0200_Crop.jpeg
     caption: ''
-filter: brand
-destination: ''
-bts: Gabrielle J Sirkin
-director: Wukda
-photographer: Dan Hall and Wukda
 card_ratio: r-4-3
 card_placeholder: Camo
 placeholder_count: 3

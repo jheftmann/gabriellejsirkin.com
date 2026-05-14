@@ -7,6 +7,9 @@ order: 25
 order_all: 35
 description: ''
 credits: ''
+credits_list:
+  - label: "Photographer"
+    value: "Rose Marie Cromwell"
 skills:
   - Visual Direction
   - Production
@@ -17,9 +20,5 @@ media:
   - file: ABB080119TravelWithPurpose_lo-1__layout.jpg
   - file: ABB080119TravelWithPurpose_lo-2.jpg
   - file: ABB080119TravelWithPurpose_lo-3.jpg
-destination: ''
-bts: ''
-director: ''
-photographer: Rose Marie Cromwell
 card_ratio: r-4-3
 ---

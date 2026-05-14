@@ -42,11 +42,6 @@ media:
   - file: 18_ItalianHandGestures_6489.jpg
   - file: 19_ItalianHandGestures_6325.jpg
   - file: 20_ItalianHandGestures_6348.jpg
-filter: personal
-destination: ''
-bts: ''
-director: ''
-photographer: ''
 card_ratio: r-16-9
 card_placeholder: Personal Work
 placeholder_count: 3
