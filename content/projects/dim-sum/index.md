@@ -7,9 +7,6 @@ order: 35
 order_all: 120
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Marcus Nilsson"
 skills:
   - Visual Direction
   - Production
@@ -21,5 +18,9 @@ media:
   - file: 02_Screen+Shot+2020-05-07+at+2.01.30+PM.jpeg
   - file: 03_Screen+Shot+2020-05-07+at+2.01.41+PM.jpeg
   - file: 04_Screen+Shot+2020-05-07+at+2.02.03+PM.jpeg
+destination: ''
+bts: ''
+director: ''
+photographer: Marcus Nilsson
 card_ratio: r-3-4
 ---
