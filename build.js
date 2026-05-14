@@ -171,8 +171,11 @@ function loadProjects() {
         meta = {
           title:       fm.title    || id,
           client:      fm.client   || '',
-          cat:         fm.cat      || '',
-          filter:      slugify(fm.cat || ''),
+          cat:         Array.isArray(fm.cat) ? fm.cat.join(', ') : (fm.cat || ''),
+          filters:     Array.isArray(fm.cat)
+                         ? fm.cat.map(c => slugify(c)).filter(Boolean)
+                         : fm.cat ? [slugify(fm.cat)] : [],
+          filter:      slugify(Array.isArray(fm.cat) ? (fm.cat[0] || '') : (fm.cat || '')),
           date:        fm.date     || '',
           order:       fm.order    != null ? parseInt(fm.order,    10) : null,
           orderAll:    fm.order_all != null ? parseInt(fm.order_all, 10) : null,
@@ -354,7 +357,7 @@ function renderCard(p, bgColor = '') {
     ? `<p class="card-client">${p.client}</p><p class="card-title">${p.title}</p>`
     : `<p class="card-title card-title--solo">${p.title}</p>`;
   return (
-    `    <a class="project-card" data-category="${p.filter}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
+    `    <a class="project-card" data-category="${(p.filters && p.filters.length ? p.filters : [p.filter]).join(' ')}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
     `      <div class="thumb"${styleAttr}>${inner}</div>\n` +
     `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div>` +
     `<p class="card-cat">${p.cat}</p></div>\n` +
@@ -365,7 +368,7 @@ function renderCard(p, bgColor = '') {
 // ─── Filter bar ──────────────────────────────────────────────────────────────
 
 function renderFilterBar(projects, settings) {
-  const present = new Set(projects.map(p => p.filter));
+  const present = new Set(projects.flatMap(p => p.filters && p.filters.length ? p.filters : [p.filter]));
   const cats = Array.isArray(settings.categories) ? settings.categories : [];
   const btns = cats
     .map(cat => ({ filter: slugify(cat), label: cat }))

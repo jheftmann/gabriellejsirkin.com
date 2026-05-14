@@ -45,7 +45,7 @@ function applyFilter(f, animate) {
 
   if (!animate) {
     ordered.forEach(function (el) {
-      var match = f === 'all' || el.dataset.category === f;
+      var match = f === 'all' || el.dataset.category.split(' ').includes(f);
       match ? el.classList.remove('hidden') : el.classList.add('hidden');
       el.style.marginTop = '';
     });
@@ -58,7 +58,7 @@ function applyFilter(f, animate) {
     allCards.forEach(function (el) { el.classList.remove('visible'); });
     setTimeout(function () {
       ordered.forEach(function (el) {
-        var match = f === 'all' || el.dataset.category === f;
+        var match = f === 'all' || el.dataset.category.split(' ').includes(f);
         match ? el.classList.remove('hidden') : el.classList.add('hidden');
         el.style.marginTop = '';
       });

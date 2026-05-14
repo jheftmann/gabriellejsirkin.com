@@ -51,7 +51,7 @@
   --nav-1:       #000000;
   --nav-2:       rgba(0,0,0,0.55);
   --transition:  0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --side:        4.5rem; /* 72px */
+  --side:        6rem; /* 96px — wider margins */
   --col-gap:     8.625rem; /* 138px */
   --col:         calc((100vw - 2 * var(--side) - 11 * 1.5rem) / 12); /* 1 column of the 12-col grid */
   --display:     'GT Alpina', serif;
@@ -63,7 +63,7 @@ body[data-theme="colorway-1"] { --bg:#c9919e; --text:#551507; --muted:#874d41; }
 body[data-theme="colorway-2"] { --bg:#f4dba1; --text:#113845; --muted:#1b4575; }
 body[data-theme="colorway-3"] { --bg:#c0d6d4; --text:#3d292b; --muted:#874d41; }
 body[data-theme="colorway-4"] { --bg:#dcffcd; --text:#135421; --muted:#73ad5a; }
-body[data-theme="colorway-5"] { --bg:#551507; --text:#f1b0fc; --muted:#c4705f; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
+body[data-theme="colorway-5"] { --bg:#551507; --text:#c4705f; --muted:#f1b0fc; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 body[data-theme="colorway-6"] { --bg:#aa7347; --text:#94d5f7; --muted:#d1efff; }
 body[data-theme="colorway-7"] { --bg:#ff5045; --text:#ffc1bd; --muted:#e78d87; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 body[data-theme="about"]      { --bg:#232b09; --text:#aaccc1; --muted:#ffffff; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
@@ -204,10 +204,8 @@ footer {
 .footer-links a { text-decoration: none; color: var(--nav-2); }
 .label {
   font-family: var(--base);
-  font-size: 0.625rem; /* 10px */
+  font-size: 0.6875rem; /* 11px */
   font-weight: 500;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
   line-height: 1.12;
   color: var(--nav-2);
   transition: color var(--transition);
@@ -228,6 +226,7 @@ footer {
     padding: 1rem var(--side) 0;
   }
   .nav-links { gap: 1rem; }
+  .nav-links a, .nav-name { font-size: 1rem; } /* 16px on mobile (#70) */
   .footer-inner {
     display: flex;
     justify-content: space-between;
