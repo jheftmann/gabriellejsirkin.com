@@ -131,7 +131,7 @@
 .sidebar-text {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.125rem; /* 18px — match .about-sidebar gap so all stack gaps are equal */
 }
 
 /* BIO / SERVICES TEXT */
@@ -152,7 +152,7 @@
 .contact-link {
   font-family: var(--base);
   font-size: 0.75rem; /* match .label style (#50) */
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.12;
   color: var(--nav-2);
   text-decoration: none;
@@ -175,7 +175,7 @@ body[data-theme="services"] .about-layout > .about-headline {
 .travel-grid li {
   font-family: var(--base);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   line-height: 1.24;
   letter-spacing: -0.01em;
@@ -202,7 +202,7 @@ body[data-theme="services"] .about-layout > .about-headline {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: row dense;
-    column-gap: 1.5rem;
+    column-gap: 1rem; /* 16px on mobile */
     row-gap: 0.75rem;
     align-items: start;
     width: 100%;

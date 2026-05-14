@@ -30,28 +30,28 @@
 @font-face {
   font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-M-Standard-Light.woff2') format('woff2');
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-M-Standard-Light-Oblique.woff2') format('woff2');
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-M-Standard-Regular.woff2') format('woff2');
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-M-Standard-Regular-Oblique.woff2') format('woff2');
-  font-weight: 500;
+  font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
@@ -219,7 +219,7 @@ footer {
 .label {
   font-family: var(--base);
   font-size: 0.75rem; /* 12px — Figma label size */
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.12;
   color: var(--nav-2);
   transition: color var(--transition);
