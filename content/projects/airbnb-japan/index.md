@@ -4,7 +4,7 @@ cat: Visual Direction, Production
 client: Airbnb Magazine
 date: '2018'
 credits_list:
-  - label: Photogarpher
+  - label: Photographer
     value: Carol Sachs
 order: 30
 order_all: 110
