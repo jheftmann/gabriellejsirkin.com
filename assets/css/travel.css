@@ -16,3 +16,7 @@
   break-inside: avoid; /* keeps a wrapped item from splitting across columns */
   transition: color var(--transition);
 }
+
+@media (max-width: 767px) {
+  .travel-grid li { font-size: 1rem; } /* match .bio-para on mobile */
+}
