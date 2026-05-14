@@ -3,17 +3,13 @@ title: 12 Days in Morocco
 cat: Visual Direction
 client: Airbnb Magazine
 date: '2018'
+credits_list:
+  - label: Photographer
+    value: Cait Oppermann
 order: 5
 order_all: 75
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Cait Oppermann"
-skills:
-  - Visual Direction
-  - Production
-  - Curation
 color_theme: colorway-3
 thumbnail: ABB060118FEAMorocco_lo_2-1.jpg
 media:
@@ -29,6 +25,11 @@ media:
     caption: ''
   - file: 06_ABB060118FEAMorocco_lo-6.jpg
     caption: ''
+director: ''
+bts: ''
+destination: ''
+filter: editorial
+photographer: Cait Oppermann
 card_ratio: r-1-1
 card_placeholder: Morocco
 placeholder_count: 3
