@@ -20,7 +20,7 @@ skills:
   - Creative Direction
   - Visual Direction
   - Production
-card_ratio: r-16-9
+color_theme: colorway-4
 thumbnail: 01_ITALIAN GESTURES v10_SM.mp4
 media:
   - file: 01_ITALIAN GESTURES v10_SM.mp4
@@ -44,6 +44,7 @@ media:
   - file: 19_ItalianHandGestures_6325.jpg
   - file: 20_ItalianHandGestures_6348.jpg
 filter: personal
+card_ratio: r-16-9
 card_placeholder: Personal Work
 placeholder_count: 3
 ---
