@@ -1,15 +1,13 @@
 ---
 title: Corfu
-cat: Visual Direction
+cat: Content Creation
 client: ''
 date: ''
+credits_list: []
 order: 25
 order_all: 65
 description: ''
 credits: ''
-credits_list:
-  - label: "Destination"
-    value: "Corfu, Greece"
 skills:
   - Content Creation
   - Visual Direction
