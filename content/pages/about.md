@@ -10,7 +10,7 @@ skill2_desc: Direct productions and on set supervision fostering highly collabor
 skill3_name: Content Creation
 skill3_desc: Gabrielle captures immersive travel photography and short films that explore the essence of a place, culture and people with deep curiosity, integrity and empathy.
 skill4_name: Visual Curation
-skill4_desc: With a refined editorial eye, Gabrielle curates visual libraries and portfolios that bring clarity and depth to creative projects, brand identity, and storytelling.
+skill4_desc: With a refined editorial eye, Gabrielle curates and crafts visual libraries that bring clarity and depth to creative projects, brand identity, and storytelling. WIth a tiered approach, we can scale a library of content based on a brand’s particular needs to be distinctive and resonate with audiences.
 services_text: Available for creative direction and brand strategy consulting for travel and hospitality brands, as well as independent artists seeking support with creative vision and portfolio development.
 bio: |-
   Gabrielle J Sirkin brings a rare integration of creative vision and operational precision to every project with a proven ability to craft cohesive, high impact, multidisciplinary work that elevates brands and inspires audiences. 
