@@ -162,7 +162,7 @@
 
 /* MOBILE */
 @media (max-width: 767px) {
-  .hero { padding: 3rem var(--side) 2rem; }
+  .hero { padding: 2rem var(--side) 3rem; } /* top: 2rem matches Figma 94px title position; bottom: 3rem matches 48px gap to filter */
   .hero-title { max-width: 100%; }
   .filter-bar    { display: none; }
   .filter-select { display: block; }
