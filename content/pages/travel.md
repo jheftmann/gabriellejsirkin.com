@@ -2,7 +2,7 @@
 headline_1: Untold stories
 headline_2: Meant to be seen.
 sidebar_label: Start a project
-availability: Available for short, mid-term and long-term projects starting in July.   Inquire for rates and availability. info@gabriellejsirkin.com
+availability: Available for short, mid-term and long-term projects starting in July.   Inquire for rates and availability. gabriellesirkin@gmail.com
 sidebar_photo: /assets/images/services.jpg
 approach: |-
   Gabrielle J Sirkin runs a travel creative studio for the undiscovered. We partner with emerging hospitality brands and travel organizations from boutique hotels, bed & breakfasts, intimate lodges, and independent travel guides who are committed to creating meaningful, sustainable experiences that foster authentic connection between people and place.
@@ -52,4 +52,6 @@ cities:
   - Northern California
   - Southern California
   - NYC
+og_title: ''
+og_description: ''
 ---
