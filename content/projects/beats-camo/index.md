@@ -1,23 +1,15 @@
 ---
 title: Limited Edition
-cat: Production
+cat: Visual Direction, Production, Brand Strategy
 client: Beats by Dre
-date: 2018 - 2022
+date: ''
+credits_list:
+  - label: Photographers & Directors
+    value: Dan Hall, Wukda
 order: 35
 order_all: 130
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Dan Hall and Wukda"
-  - label: "Director"
-    value: "Wukda"
-  - label: "BTS"
-    value: "Gabrielle J Sirkin"
-skills:
-  - Visual Direction
-  - Production
-  - Brand Strategy
 color_theme: colorway-4
 thumbnail: 01_decatur_dan-beats_by_dre-asap_ferg_02.jpg
 media:
@@ -40,6 +32,11 @@ media:
     bts: true
   - file: 09_Beats-Mash-Harden-0200_Crop.jpeg
     caption: ''
+director: Wukda
+bts: Gabrielle J Sirkin
+destination: ''
+filter: brand
+photographer: Dan Hall and Wukda
 card_ratio: r-4-3
 card_placeholder: Camo
 placeholder_count: 3
