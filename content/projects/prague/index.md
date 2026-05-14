@@ -1,6 +1,6 @@
 ---
 title: Prague
-cat: Visual Direction
+cat: Content Creation
 client: ''
 date: ''
 order: 15
@@ -10,8 +10,8 @@ credits: ''
 skills:
   - Content Creation
   - Visual Direction
-card_ratio: r-4-3
 coming_soon: false
+color_theme: colorway-5
 thumbnail: 02_IMG_6914_VSCO.JPG
 media:
   - file: 01_IMG_6932_VSCO.mp4
@@ -28,6 +28,12 @@ media:
   - file: 07_IMG_7026.jpg
   - file: 08_IMG_7027.mp4
   - file: 09_IMG_7021.jpg
+filter: content
+destination: ''
+bts: ''
+director: ''
+photographer: ''
+card_ratio: r-4-3
 card_placeholder: Coming Soon
 placeholder_count: 1
 ---
