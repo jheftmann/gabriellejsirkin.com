@@ -14,8 +14,8 @@ destination: ''
 skills:
   - Content Creation
   - Visual Direction
-card_ratio: r-3-4
 coming_soon: false
+color_theme: colorway-3
 thumbnail: 01_IMG_0561_VSCO.mp4
 media:
   - file: 01_IMG_0561_VSCO.mp4
@@ -32,6 +32,7 @@ media:
   - file: 11_IMG_0478_VSCO.mp4
   - file: 12_DF809602-9F4F-4151-BD3D-EDB47B73686C_1_102_o.jpeg
 filter: content
+card_ratio: r-3-4
 card_placeholder: Coming Soon
 placeholder_count: 1
 ---
