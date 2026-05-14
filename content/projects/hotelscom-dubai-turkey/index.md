@@ -4,7 +4,7 @@ cat: Visual Direction, Production
 client: Hotels.com
 date: ''
 credits_list:
-  - label: Photographer
+  - label: Photographers
     value: Maureen M Evans, Robert Rieger, Simon Watson
 order: 1
 order_all: 45
