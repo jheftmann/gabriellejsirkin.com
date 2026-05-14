@@ -65,7 +65,7 @@ body[data-theme="colorway-3"] { --bg:#c0d6d4; --text:#3d292b; --muted:#874d41; }
 body[data-theme="colorway-4"] { --bg:#dcffcd; --text:#135421; --muted:#73ad5a; }
 body[data-theme="colorway-5"] { --bg:#551507; --text:#c4705f; --muted:#f1b0fc; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 body[data-theme="colorway-6"] { --bg:#aa7347; --text:#94d5f7; --muted:#d1efff; }
-body[data-theme="colorway-7"] { --bg:#ff5045; --text:#ffc1bd; --muted:#e78d87; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
+body[data-theme="colorway-7"] { --bg:#ff5045; --text:#94cdff; --muted:#ffd0cd; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 body[data-theme="about"]      { --bg:#232b09; --text:#aaccc1; --muted:#ffffff; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 body[data-theme="services"]   { --bg:#1d4648; --text:#e6adc9; --muted:#ffffff; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 
