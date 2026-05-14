@@ -34,7 +34,7 @@ collections:
         label: Categories
         widget: list
         required: false
-        hint: 'Type category names matching Settings → Global → Categories. Add multiple to show in more than one tab.'
+        hint: 'Click + to add each category. Names must match Settings → Global → Categories exactly. A project can be in multiple categories — add a row for each.'
         field: { name: item, label: Category, widget: string }
 
       - { name: client, label: Client, widget: string, required: false }

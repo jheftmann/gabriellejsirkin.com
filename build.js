@@ -373,8 +373,7 @@ function renderCard(p, bgColor = '') {
   return (
     `    <a class="project-card" data-category="${(p.filters && p.filters.length ? p.filters : [p.filter]).join(' ')}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
     `      <div class="thumb"${styleAttr}>${inner}</div>\n` +
-    `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div>` +
-    `<p class="card-cat">${p.cat}</p></div>\n` +
+    `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div></div>\n` +
     `    </a>`
   );
 }
