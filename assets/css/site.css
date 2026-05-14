@@ -85,7 +85,7 @@
 @supports (text-box-trim: trim-both) {
   :root {
     --gap-stacked-titles-lg: 1.125rem; /* 18px between project header lines       */
-    --gap-stacked-titles-sm: 0.25rem;  /* 4px between card client + card title    */
+    --gap-stacked-titles-sm: 0.375rem; /* 6px between card client + card title    */
     --gap-paragraph:         1.5rem;   /* 24px between project-desc paragraphs    */
     --gap-list-item:         1rem;     /* 16px between travel-grid items          */
   }
