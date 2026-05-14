@@ -4,7 +4,7 @@ cat: Brand Work
 client: Beats by Dre
 photographer: Anthony Blasko, Jerry Buttles, Caitlin Cronenberg, Joshua Kissi, Clayton Vomero
 director: ''
-bts: ''
+bts: Gabrielle J Sirkin
 date: 2018 - 2020
 order: 20
 order_all: 115
