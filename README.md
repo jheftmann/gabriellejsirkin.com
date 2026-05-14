@@ -63,6 +63,28 @@ When you're happy with the preview, go to the **Publish to Live** tool and click
 
 ---
 
+### Categories
+
+The category filter bar on the homepage ("All / Visual Direction / Content Creation / …") is fully driven by the CMS.
+
+**To add, remove, rename, or reorder the filter tabs:** CMS → **Settings** → **Categories** list. The order you set there is the order they appear in on the homepage.
+
+**To put a project in a category:** open the project → **Categories** field → add one or more category names. Each name must match a category in Settings exactly (case-insensitive, but no typos).
+
+**A project can be in more than one category.** Add multiple entries to its Categories field and it will appear in each of those filter tabs (and in "All").
+
+If a project's Categories field is empty, it won't appear in any tab — including "All".
+
+### Credits
+
+The credits section on each project page is built from the **Credits** field (a list of label/value pairs). Examples: `Photographer / Julia Sellmann`, `Stylist / Jane Smith`, `Producer / John Doe`.
+
+**To edit:** open a project → scroll to **Credits** → click **Add Credit** to add a row, or edit/remove existing rows. The label can be anything you want.
+
+The old fixed fields (Photographer, Director, BTS) were merged into this list. All existing values were carried over — you can edit or remove them just like any other credit row.
+
+---
+
 ## For Developers
 
 ### URLs
@@ -132,20 +154,19 @@ Code changes on `main` automatically sync to `draft` via GitHub Actions.
 |-------|----------|-------|
 | `title` | yes | Project name |
 | `client` | no | Client or publication |
-| `cat` | yes | `Brand Work`, `Editorial`, `Content Creation`, or `Personal` |
-| `photographer` | no | Photographer credit |
-| `director` | no | Director credit |
-| `bts` | no | BTS credit |
+| `cat` | no | YAML list of category names; must match entries in `settings.categories` (slugified for filter matching). A project can be in multiple categories. |
 | `date` | no | Year |
 | `description` | no | Paragraph shown above project details |
-| `credits` | no | Full credits (supports multi-line) |
-| `destination` | no | For Content Creation projects only |
+| `credits_list` | no | List of `{ label, value }` objects rendered as the project credits section |
+| `credits` | no | Free-form trailing credits text (rendered after `credits_list`) |
 | `skills` | no | List of tags shown on card and project page |
 | `card_ratio` | no | Card shape: `r-16-9`, `r-4-3`, `r-3-4`, `r-3-2`, `r-2-3`, `r-1-1` |
 | `thumbnail` | no | Card image or video. Defaults to first media item. |
 | `order` | no | Position within category tab (blank = after numbered projects) |
 | `order_all` | no | Position on All tab (blank = after numbered projects) |
 | `coming_soon` | no | Shows Coming Soon badge on card |
+
+The filter bar order is derived from `settings.categories` in `content/settings.md`. Each project's `cat` array is slugified into `filters` and emitted on the card as `data-category="slug1 slug2"`; the homepage JS does `dataset.category.split(' ').includes(f)` to determine matches.
 
 ### Page titles, meta tags, and OG images
 
@@ -243,6 +264,14 @@ When shared on social media, shows `sharecard.jpg` from the root folder. Replace
 ---
 
 ## Changelog
+
+### 2026-05-13
+- **Flexible categories (#54, #66, #67)** — the filter bar is driven by `settings.categories` in the CMS; projects can belong to multiple categories. `cat` is now a YAML list field (was a single string select).
+- **Flexible credits (#54, #72)** — `photographer`/`director`/`bts`/`destination` fixed fields replaced by a `credits_list` of `{ label, value }` pairs. Existing data migrated via `scripts/migrate-credits-fixup.js`.
+- **Auto footer year (#65)** — `build.js` derives the footer year from `new Date()`; field removed from the CMS.
+- **Project image grid (#61)** — 2-column desktop with a 4-cycle width stagger (100/85/85/100%) and 2.625rem vertical offset on even items; 1-column mobile with 92%-wide alternating left/right.
+- **Layout & type pass (#55, #57, #59, #62, #63, #64, #69, #70)** — wider side margins (4.5rem→6rem); removed ALL-CAPS from labels/filter bar/card category; project description bumped to 24px/400/upright; `.credit-item` capped at 196px; project title line-gap tightened to Figma spec; colorway-5 `--text`/`--muted` swapped; nav 16px on mobile.
+- **Sticky footer + consistent page title position** — flex column body keeps the footer pinned to the viewport bottom; hero/project/about/services share the same top padding so the title lands at the same vertical position on every page.
 
 ### 2026-05-11
 - **Dominant color loading state (#37)** — card thumbnails fade in from their dominant color rather than a blank placeholder. `build.js` pre-extracts dominant colors via `sharp` at build time.
