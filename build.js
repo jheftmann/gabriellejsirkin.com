@@ -462,31 +462,31 @@ async function build() {
         const name = pageContent[`skill${i}_name`];
         const desc = pageContent[`skill${i}_desc`];
         if (!name) return '';
-        return `      <div class="skill-item">\n        <p class="skill-name">${name}</p>\n        ${desc ? `<p class="skill-desc">${desc}</p>` : ''}\n      </div>`;
+        return `      <div class="skill-item">\n        <p class="skill-name">${marked.parseInline(name)}</p>\n        ${desc ? `<p class="skill-desc">${marked.parseInline(desc)}</p>` : ''}\n      </div>`;
       }).filter(Boolean).join('\n');
       html = html.replace('<!-- #about-skills -->', skills);
 
       const bio = (pageContent.bio || '').split(/\n\n+/).filter(Boolean)
-        .map(p => `      <p class="bio-para">${p.replace(/\n/g, ' ')}</p>`).join('\n');
+        .map(p => `      <p class="bio-para">${marked.parseInline(p.replace(/\n/g, ' '))}</p>`).join('\n');
       html = html.replace('<!-- #about-bio -->', bio);
     }
 
     // Inject travel page dynamic content
     if (page === 'services') {
       const approach = (pageContent.approach || '').split(/\n\n+/).filter(Boolean)
-        .map(p => `      <p class="bio-para">${p.replace(/\n/g, ' ')}</p>`).join('\n');
+        .map(p => `      <p class="bio-para">${marked.parseInline(p.replace(/\n/g, ' '))}</p>`).join('\n');
       html = html.replace('<!-- #travel-approach -->', approach);
 
       const services = (Array.isArray(pageContent.services) ? pageContent.services : [])
-        .map(s => `        <li><p class="bio-para">${s}</p></li>`).join('\n');
+        .map(s => `        <li><p class="bio-para">${marked.parseInline(s)}</p></li>`).join('\n');
       html = html.replace('<!-- #travel-services -->', services);
 
       const clients = (Array.isArray(pageContent.clients) ? pageContent.clients : [])
-        .map(c => `        <li><p class="bio-para">${c}</p></li>`).join('\n');
+        .map(c => `        <li><p class="bio-para">${marked.parseInline(c)}</p></li>`).join('\n');
       html = html.replace('<!-- #travel-clients -->', clients);
 
       const cities = (Array.isArray(pageContent.cities) ? pageContent.cities : [])
-        .map(c => `        <li><p class="bio-para">${c}</p></li>`).join('\n');
+        .map(c => `        <li><p class="bio-para">${marked.parseInline(c)}</p></li>`).join('\n');
       html = html.replace('<!-- #travel-cities -->', cities);
     }
 
