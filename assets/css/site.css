@@ -29,15 +29,29 @@
 }
 @font-face {
   font-family: 'GT Standard';
+  src: url('../fonts/GT-Standard-M-Standard-Light.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Standard';
+  src: url('../fonts/GT-Standard-M-Standard-Light-Oblique.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-M-Standard-Regular.woff2') format('woff2');
-  font-weight: 400 500;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'GT Standard';
   src: url('../fonts/GT-Standard-M-Standard-Regular-Oblique.woff2') format('woff2');
-  font-weight: 400 500;
+  font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
@@ -66,7 +80,7 @@ body[data-theme="colorway-4"] { --bg:#dcffcd; --text:#135421; --muted:#73ad5a; }
 body[data-theme="colorway-5"] { --bg:#551507; --text:#c4705f; --muted:#f1b0fc; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 body[data-theme="colorway-6"] { --bg:#aa7347; --text:#94d5f7; --muted:#d1efff; }
 body[data-theme="colorway-7"] { --bg:#ff5045; --text:#94cdff; --muted:#ffd0cd; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
-body[data-theme="about"]      { --bg:#232b09; --text:#aaccc1; --muted:#ffffff; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
+body[data-theme="about"]      { --bg:#232809; --text:#aac0c1; --muted:#ffffff; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 body[data-theme="services"]   { --bg:#1d4648; --text:#e6adc9; --muted:#ffffff; --nav-1:#ffffff; --nav-2:rgba(255,255,255,0.55); }
 
 /* RESET */
