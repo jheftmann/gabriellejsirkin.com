@@ -6,6 +6,8 @@ date: '2017'
 credits_list:
   - label: Photographer
     value: Erik Madigan Heck
+  - label: BTS
+    value: Gabrielle J Sirkin
 order: 30
 order_all: 55
 description: ''
