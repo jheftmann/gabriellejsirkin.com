@@ -24,8 +24,11 @@ color_theme: colorway-4
 thumbnail: 01_ITALIAN GESTURES v10_SM.mp4
 media:
   - file: 01_ITALIAN GESTURES v10_SM.mp4
+    caption: ''
   - file: 02_ItalianHandGestures_5887.jpg
+    caption: ''
   - file: 03_ItalianHandGestures_5868.jpg
+    caption: Ma che vuoi?!
   - file: 04_ItalianHandGestures_5751.jpg
   - file: 05_ItalianHandGestures_5774.jpg
   - file: 06_ItalianHandGestures_5775.jpg
