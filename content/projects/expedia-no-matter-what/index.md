@@ -12,7 +12,6 @@ skills:
   - Production
   - Project Management
   - Brand Strategy
-color_theme: colorway-2
 thumbnail: 01_2023-02-15_BEX_OOH_NMW_NGORONGORO_CRATER_THERIN_Q1002192.jpg
 media:
   - file: 01_2023-02-15_BEX_OOH_NMW_NGORONGORO_CRATER_THERIN_Q1002192.jpg
@@ -62,7 +61,6 @@ media:
     caption: ''
     bts: true
   - file: 22_BEX_SF OOH CAPTURE_IA.jpg
-    caption: ''
 filter: brand
 destination: ''
 bts: Gabrielle J Sirkin
