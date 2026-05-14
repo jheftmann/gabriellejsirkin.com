@@ -16,7 +16,7 @@
 .about-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.125rem; /* 18px — Figma start-a-project block (#50) */
   position: fixed;
   top: 12.75rem; /* 204px — aligns with headline bottom, consistent across About and Services */
   right: var(--side);
@@ -24,10 +24,10 @@
 }
 .sidebar-bio {
   font-family: var(--display);
-  font-size: 0.75rem; /* 12px = Size/SM */
+  font-size: 0.75rem; /* 12px = Size/SM (p - style) */
   font-weight: 400;
   font-style: normal;
-  line-height: 1.24;
+  line-height: 1.28; /* Figma p - lh (#50) */
   color: var(--text);
   transition: color var(--transition);
   max-width: calc(2 * var(--col) + 1.5rem); /* 2 cols + 1 gap */
@@ -85,12 +85,20 @@
   margin-bottom: 4.5rem;
   align-items: baseline;
 }
-.row-label,
-.sidebar-label {
+.row-label {
   font-family: var(--display);
-  font-size: 1.5rem; /* 24px = Size/XL */
+  font-size: 1.5rem; /* 24px = Size/XL (h2) */
   font-weight: 300;
   font-style: italic;
+  line-height: 1.24;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+.sidebar-label {
+  font-family: var(--display);
+  font-size: 1rem; /* 16px = Size/LG (h3) on laptop+ — #50 */
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.24;
   color: var(--muted);
   transition: color var(--transition);
@@ -112,10 +120,9 @@
 .skill-desc {
   font-family: var(--base);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 400; /* Figma p — #50 */
   font-style: normal;
-  line-height: 1.24;
-  letter-spacing: -0.01em;
+  line-height: 1.28; /* Figma p — #50 */
   color: var(--text);
   transition: color var(--transition);
 }
@@ -132,10 +139,9 @@
 .bio-para {
   font-family: var(--base);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 400; /* Figma p — #50 */
   font-style: normal;
-  line-height: 1.24;
-  letter-spacing: -0.01em;
+  line-height: 1.28; /* Figma p — #50 */
   color: var(--text);
   margin-bottom: 1.5rem;
   transition: color var(--transition);
@@ -145,10 +151,8 @@
 /* SIDEBAR / CONTACT LINKS */
 .contact-link {
   font-family: var(--base);
-  font-size: 0.625rem;
+  font-size: 0.75rem; /* match .label style (#50) */
   font-weight: 500;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
   line-height: 1.12;
   color: var(--nav-2);
   text-decoration: none;
@@ -201,4 +205,5 @@ body[data-theme="services"] .about-layout > .about-headline {
   .bio-para,
   .services-text { font-size: 1rem; } /* 16px = Size/Base on mobile */
   .skill-desc { font-size: 1rem; }
+  .sidebar-bio  { font-size: 0.875rem; } /* 14px on mobile, 12px on laptop+ (#50 — p - style) */
 }
