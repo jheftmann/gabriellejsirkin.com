@@ -1,19 +1,15 @@
 ---
 title: More Magazine
-cat: Visual Direction
+cat: Visual Direction, Production, Curation
 client: ''
 date: 2012 - 2015
+credits_list:
+  - label: Photographers
+    value: Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters
 order: 15
 order_all: 25
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters"
-skills:
-  - Visual Direction
-  - Production
-  - Curation
 coming_soon: false
 color_theme: colorway-4
 thumbnail: 102-109+MR1015+WellClarissaWard-2 copy.jpg
@@ -28,5 +24,9 @@ media:
   - file: 08_015-024+MR0515+Best+of+the+Best-5.jpeg
   - file: 09_082-089+MR1112+Padma-1+copy.jpeg
   - file: 10_084-091+MR0216+Well_Hong+Kong_S-1.jpeg
+director: ''
+bts: ''
+destination: ''
+photographer: Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters
 card_ratio: r-4-3
 ---

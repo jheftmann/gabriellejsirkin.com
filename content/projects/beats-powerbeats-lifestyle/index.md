@@ -2,9 +2,9 @@
 title: Lifestyle
 cat: Visual Direction, Production, Brand Strategy
 client: Beats by Dre
-date: 2018 - 2020
+date: ''
 credits_list:
-  - label: Photographer
+  - label: Photographers
     value: Anthony Blasko, Jerry Buttles, Caitlin Cronenberg, Joshua Kissi, Clayton Vomero
   - label: BTS
     value: Gabrielle J Sirkin

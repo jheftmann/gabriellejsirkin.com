@@ -7,9 +7,6 @@ order: 15
 order_all: 105
 description: ''
 credits: ''
-skills:
-  - Content Creation
-  - Visual Direction
 coming_soon: false
 color_theme: colorway-5
 thumbnail: 02_IMG_6914_VSCO.JPG
@@ -28,6 +25,11 @@ media:
   - file: 07_IMG_7026.jpg
   - file: 08_IMG_7027.mp4
   - file: 09_IMG_7021.jpg
+director: ''
+bts: ''
+destination: ''
+filter: content
+photographer: ''
 card_ratio: r-4-3
 card_placeholder: Coming Soon
 placeholder_count: 1
