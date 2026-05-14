@@ -7,9 +7,6 @@ order: 30
 order_all: 110
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Carol Sachs"
 skills:
   - Visual Direction
   - Production
@@ -21,6 +18,11 @@ media:
   - file: 03_ABB060118FEAJapan_lo-6.jpeg
   - file: 04_ABB060118FEAJapan_lo-7.jpeg
   - file: 05_ABB060118FEAJapan_lo-8.jpeg
+filter: editorial
+destination: ''
+bts: ''
+director: ''
+photographer: Carol Sachs
 card_ratio: r-16-9
 card_placeholder: Japan
 placeholder_count: 5

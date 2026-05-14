@@ -1,23 +1,17 @@
 ---
 title: Made To Travel
-cat: Visual Direction
+cat: Brand Strategy
 client: Expedia
 date: '2023'
 order: 25
 order_all: 20
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Nico Therin and Joao Canziani"
-  - label: "BTS"
-    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
   - Project Management
   - Brand Strategy
-card_ratio: r-3-4
 thumbnail: 01_2023-02-15_BEX_OOH_NMW_NGORONGORO_CRATER_THERIN_Q1002192.jpg
 media:
   - file: 01_2023-02-15_BEX_OOH_NMW_NGORONGORO_CRATER_THERIN_Q1002192.jpg
@@ -42,6 +36,12 @@ media:
   - file: 20_2023-02-14_BEX_OOH_NMW_HOEDSPRUIT_LISBON_FALLS_THERIN_0861_V2.jpg
   - file: 21_NicoTherin_BTS_02.jpg
   - file: 22_BEX_SF OOH CAPTURE_IA.jpg
+filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: ''
+photographer: Nico Therin and Joao Canziani
+card_ratio: r-3-4
 card_placeholder: Africa · Cape Town · Hoedspruit
 placeholder_count: 5
 ---
