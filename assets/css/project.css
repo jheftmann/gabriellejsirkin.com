@@ -3,7 +3,7 @@
   padding: 3rem var(--side) 0;
   display: flex;
   flex-direction: column;
-  gap: var(--gap-stacked-titles); /* 0 in untrimmed engines (leading covers it), 18px when trimmed */
+  gap: var(--gap-stacked-titles-lg); /* 0 in untrimmed engines (leading covers it), 18px when trimmed */
 }
 .project-client { color: var(--muted); transition: color var(--transition); margin: 0; }
 .project-title  { color: var(--text);  transition: color var(--transition); margin: 0; }

@@ -118,7 +118,7 @@
 .card-caption {
   display: flex;
   flex-direction: column;
-  gap: 0; /* tightened by 2px from previous (#50) */
+  gap: var(--gap-stacked-titles-sm); /* 0 in untrimmed engines (leading covers it), 4px when trimmed */
 }
 .card-client {
   font-family: var(--display);
