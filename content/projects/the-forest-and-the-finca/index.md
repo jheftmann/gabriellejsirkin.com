@@ -10,9 +10,6 @@ order: 25
 order_all: 35
 description: ''
 credits: ''
-skills:
-  - Visual Direction
-  - Production
 coming_soon: false
 color_theme: colorway-7
 thumbnail: ABB080119TravelWithPurpose_lo-1.jpg
