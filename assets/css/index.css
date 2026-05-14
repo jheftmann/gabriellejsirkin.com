@@ -45,18 +45,29 @@
 .filter-btn.active::after { transform: scaleX(1); }
 
 /* MOBILE SELECT FILTER */
+.filter-select-wrap {
+  display: none; /* shown on mobile via media query below */
+  align-items: baseline;
+}
+.filter-select-wrap::after {
+  content: '\2304'; /* ⌄ down arrowhead — rendered in GT Standard so it aligns with the select text (#81) */
+  margin-left: 6px;
+  font-family: var(--base);
+  font-size: 0.75rem;
+  color: var(--text);
+  pointer-events: none;
+}
 .filter-select {
-  display: none;
   font-family: var(--base);
   font-size: 0.75rem;
   font-weight: 400;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'><path d='M0 0l4 5 4-5z'/></svg>") no-repeat right center / 8px;
+  background: none;
   border: none;
   color: var(--text);
   width: auto;
   -webkit-appearance: none;
   appearance: none;
-  padding: 0 14px 0 0; /* 8px arrow + 6px gap (#81) */
+  padding: 0;
 }
 
 /* GRID */
@@ -145,7 +156,7 @@
 .cs-badge {
   font-family: var(--base);
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--muted);
   display: inline-block;
   margin-bottom: .4rem;
@@ -156,8 +167,8 @@
 @media (max-width: 767px) {
   .hero { padding: 2rem var(--side) 3rem; } /* top: 2rem matches Figma 94px title position; bottom: 3rem matches 48px gap to filter */
   .hero-title { max-width: 100%; }
-  .filter-bar    { display: none; }
-  .filter-select { display: block; }
+  .filter-bar        { display: none; }
+  .filter-select-wrap { display: inline-flex; }
   .grid { row-gap: 0; }
   .card-client,
   .card-title    { font-size: 1rem; } /* 16px on mobile */
