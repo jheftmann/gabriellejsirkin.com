@@ -1,9 +1,12 @@
 /* PROJECT HEADER */
 .project-header {
   padding: 4.5rem var(--side) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem; /* 18px — Figma header gap */
 }
-.project-client { color: var(--text); transition: color var(--transition); }
-.project-title  { color: var(--muted); transition: color var(--transition); }
+.project-client { color: var(--text); transition: color var(--transition); margin: 0; }
+.project-title  { color: var(--muted); transition: color var(--transition); margin: 0; }
 
 /* CREDITS ROW */
 .project-credits {
@@ -47,9 +50,9 @@
 }
 .project-desc p {
   font-family: var(--display);
-  font-size: 0.875rem;
-  font-weight: 300;
-  font-style: italic;
+  font-size: 1.5rem;   /* 24px — Size/XL */
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.24;
   color: var(--text);
   transition: color var(--transition);
@@ -59,13 +62,11 @@
 .project-images {
   padding: 3rem var(--side) 1.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   column-gap: var(--col-gap);
   row-gap: 0;
   align-items: start;
 }
-@media (max-width: 1100px) { .project-images { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 767px)  { .project-images { grid-template-columns: 1fr 1fr; column-gap: var(--col-gap); } }
 
 .project-images img   { width: 100%; height: auto; display: block; }
 .project-images video { width: 100%; height: auto; display: block; }
@@ -74,12 +75,15 @@
 .project-images figure img,
 .project-images figure video { width: 100%; height: auto; display: block; }
 
-/* stagger middle column on 3-col; right column on 2-col */
-@media (max-width: 1100px) and (min-width: 768px) {
-  .project-images > *:nth-child(even) { margin-top: 5rem; }
-}
-@media (min-width: 1101px) {
-  .project-images > *:nth-child(3n+2) { margin-top: 5rem; }
+/* Desktop stagger */
+@media (min-width: 768px) {
+  /* Vertical: right column (even items) starts lower */
+  .project-images > *:nth-child(even) { margin-top: 2.625rem; }
+  /* X: alternating widths per 4-item cycle */
+  .project-images > *:nth-child(4n+1) { width: 100%; }
+  .project-images > *:nth-child(4n+2) { width: 85%; margin-left: auto; }
+  .project-images > *:nth-child(4n+3) { width: 85%; }
+  .project-images > *:nth-child(4n)   { width: 100%; }
 }
 .project-images > * { margin-bottom: var(--col-gap); }
 
@@ -112,6 +116,11 @@ figcaption {
 @media (max-width: 767px) {
   .project-credits { flex-direction: column; gap: 1.125rem; } /* 18px — Figma mobile credits gap */
   .credit-value { font-size: 1rem; } /* 16px on mobile */
-  .project-images { grid-template-columns: 1fr 1fr; }
-  .project-images > *:nth-child(even) { margin-top: 3rem; }
+  .project-desc p { font-size: 1.125rem; } /* 18px on mobile */
+
+  /* Single column with x stagger: odd flush left, even flush right, both 92% wide */
+  .project-images { grid-template-columns: 1fr; }
+  .project-images > * { margin-bottom: 3rem; }
+  .project-images > *:nth-child(even) { margin-top: 0; width: 92%; margin-left: auto; }
+  .project-images > *:nth-child(odd)  { width: 92%; }
 }
