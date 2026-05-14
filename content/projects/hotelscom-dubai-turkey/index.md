@@ -1,48 +1,77 @@
 ---
 title: Photo Library
-cat: Visual Direction
+cat: Visual Direction, Production
 client: Hotels.com
-date: 2022- 2024
+date: ''
+credits_list:
+  - label: Photographer
+    value: Maureen M Evans, Robert Rieger, Simon Watson
 order: 1
 order_all: 45
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Maureen M Evans, Robert Rieger, Simon Watson"
-skills:
-  - Visual Direction
-  - Production
 color_theme: colorway-6
 thumbnail: 01_HCOM_ICA_MX_UMA_CASA_ROOM2_WHAMMOCK_EVANS_3452.mp4
 media:
   - file: 01_HCOM_ICA_MX_UMA_CASA_ROOM2_WHAMMOCK_EVANS_3452.mp4
+    caption: ''
   - file: 02_2404-07-24_HCOM_ICA_MX_CIRCULO_MEX_RM207_TUB_EVANS_0875-V2 1.jpg
+    caption: ''
   - file: 03_2404-07-24_HCOM_ICA_MX_CIRCULO_MEX_RM207_EVANS_2_0271-V3.jpg
+    caption: ''
   - file: 04_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_0369.jpg
+    caption: ''
   - file: 05_V1-0004_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_5105_v2.mp4
+    caption: ''
   - file: 06_PD2_00227_HCOM_ICA_DUBAI_ATLANTIS_ROYAL_1208.jpg
+    caption: ''
   - file: 07_2404-07-24_HCOM_ICA_MX_MEX_POOL_EVANS_1011-V2 1.jpg
+    caption: ''
   - file: 08_HCOM_ICA_MX_UMA_CASA_ROOM4_FROM_OUTSIDE_EVANS_3444.mp4
+    caption: ''
   - file: 09_HCOM_ICA_KR_ANANTI_POISSONS_WATSON_2338.jpg
+    caption: ''
   - file: 10_2404-07-24_HCOM_ICA_MX_CIRCULO_MEX_ENTRANCE_EVANS_2128-V2 1.jpg
+    caption: ''
   - file: 11_PD2_00227_HCOM_ICA_CESME_GAIA_BY_THE_SEA_2036.jpg
+    caption: ''
   - file: 12_2404-07-24_HCOM_ICA_MX_CIRCULO_MEX_RM207_EVANS_0075-V3 1.jpg
+    caption: ''
   - file: 13_HCOM_ICA_KR_ANANTI_SPA_WATSON_PLATE_0599.jpg
+    caption: ''
   - file: 14_HCOM_ICA_KR_PARNAS_EXTERIOR_POOL_WASTON_1225_FIN_V2.mp4
+    caption: ''
   - file: 15_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_0630.jpg
+    caption: ''
   - file: 16_HCOM_ICA_KR_ANANTI_INTERIOR_ENTRY_WATSON_2012.jpg
+    caption: ''
   - file: 17_2404-07-24_HCOM_ICA_MX_CIRCULO_MEX_RM108_EVANS_2722-V2 1.jpg
+    caption: ''
   - file: 18_HCOM_ICA_KR_ANANTI_ROOM_1005_WATSON_1663.jpg
+    caption: ''
   - file: 19_PD2_00227_HCOM_ICA_DUBAI_ATLANTIS_ROYAL_1001.jpg
+    caption: ''
   - file: 20_V1-0011_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_5104-1.mp4
+    caption: ''
   - file: 21_2404-07-24_HCOM_ICA_MX_CIRCULO_MEX_RM109_EVANS_2795-V2.jpg
+    caption: ''
   - file: 22_2024-07-24_HCOM_ICA_MX_UMA_CASA_RM4_MURI_EVANS_0323-V2 1.jpg
+    caption: ''
   - file: 23_PD2_00227_HCOM_ICA_DUBAI_ATLANTIS_ROYAL_1369.jpg
+    caption: ''
   - file: 24_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_0770.jpg
+    caption: ''
   - file: 25_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_0167 (2).jpg
+    caption: ''
   - file: 26_2024-07-24_HCOM_ICA_MX_UMA_CASA_RUE_BED_V3_EVANS_0027-V3 1.jpg
+    caption: ''
   - file: 27_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_1033.jpg
+    caption: ''
+director: ''
+bts: ''
+destination: ''
+filter: brand
+photographer: Maureen M Evans, Robert Rieger, Simon Watson
 card_ratio: r-9-16
 card_placeholder: Dubai · Çeşme
 placeholder_count: 5
