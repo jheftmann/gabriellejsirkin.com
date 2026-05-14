@@ -133,14 +133,14 @@ collections:
               hint: 'Portrait photo shown in the sidebar (approx 196×261px).',
               required: false }
 
-          - { name: skill1_name, label: 'Skill 1 — Name', widget: string }
-          - { name: skill1_desc, label: 'Skill 1 — Description', widget: text }
-          - { name: skill2_name, label: 'Skill 2 — Name', widget: string }
-          - { name: skill2_desc, label: 'Skill 2 — Description', widget: text }
-          - { name: skill3_name, label: 'Skill 3 — Name', widget: string }
-          - { name: skill3_desc, label: 'Skill 3 — Description', widget: text }
-          - { name: skill4_name, label: 'Skill 4 — Name', widget: string }
-          - { name: skill4_desc, label: 'Skill 4 — Description', widget: text }
+          - name: skills_list
+            label: Areas of Expertise
+            widget: list
+            required: false
+            hint: 'Each skill is a name + description. Click + to add another.'
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: description, label: Description, widget: text }
 
           - { name: services_text, label: Services, widget: string }
 
