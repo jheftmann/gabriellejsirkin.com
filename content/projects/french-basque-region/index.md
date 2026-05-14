@@ -14,8 +14,8 @@ destination: ''
 skills:
   - Content Creation
   - Visual Direction
-card_ratio: r-4-3
 coming_soon: false
+color_theme: colorway-1
 thumbnail: 01_CC_FrenchBasque_02.mp4
 media:
   - file: 01_CC_FrenchBasque_02.mp4
@@ -35,4 +35,5 @@ media:
   - file: 13_8EAAA968-194B-4511-A008-0DBBBFCCBE74_1_105_c.jpeg
   - file: 13_CC_FrenchBasque_08.mp4
   - file: 15_CC_FrenchBasque_05.mp4
+card_ratio: r-4-3
 ---
