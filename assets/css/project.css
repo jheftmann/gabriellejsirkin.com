@@ -3,13 +3,7 @@
   padding: 3rem var(--side) 0;
   display: flex;
   flex-direction: column;
-  /* No gap by default — the natural line-box leading (~21px) already approximates
-     Figma's 18px in browsers that don't trim. When text-box-trim IS supported,
-     that leading collapses to 0 and we need to add the gap back explicitly. */
-  gap: 0;
-}
-@supports (text-box-trim: trim-both) {
-  .project-header { gap: 1.125rem; } /* 18px Figma spec, applied only when trim is active */
+  gap: var(--gap-stacked-titles); /* 0 in untrimmed engines (leading covers it), 18px when trimmed */
 }
 .project-client { color: var(--muted); transition: color var(--transition); margin: 0; }
 .project-title  { color: var(--text);  transition: color var(--transition); margin: 0; }
@@ -60,15 +54,10 @@
   font-style: normal;
   line-height: 1.24;
   color: var(--text);
+  margin-bottom: var(--gap-paragraph); /* 0 if leading is natural, 24px when trimmed */
   transition: color var(--transition);
 }
-/* In engines that trim line-box leading, paragraphs collapse onto each other;
-   add explicit margin to restore Figma-spec spacing. Engines without trim
-   already have ~equivalent visual space from the leading. */
-@supports (text-box-trim: trim-both) {
-  .project-desc p { margin-bottom: 1.5rem; }
-  .project-desc p:last-child { margin-bottom: 0; }
-}
+.project-desc p:last-child { margin-bottom: 0; }
 
 /* IMAGE GRID */
 .project-images {
