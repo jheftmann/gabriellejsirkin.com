@@ -134,7 +134,8 @@ body {
 .row-label, .sidebar-label, .skill-name,
 .card-client, .card-title, .card-cat,
 .hero-title, .about-headline,
-.label, .contact-link, .filter-bar, .filter-select {
+.label, .contact-link, .filter-bar, .filter-select,
+.sidebar-bio {
   hyphens: none;
 }
 
