@@ -83,6 +83,8 @@
   .project-images > *:nth-child(4n+2) { width: 85%; margin-left: auto; }
   .project-images > *:nth-child(4n+3) { width: 85%; }
   .project-images > *:nth-child(4n)   { width: 100%; }
+  /* BTS images: 1/3 the width of regular images, centered in grid cell (#53) */
+  .project-images > [data-bts="true"] { width: 33.333%; margin-left: auto; margin-right: auto; }
 }
 .project-images > * { margin-bottom: var(--col-gap); }
 
@@ -124,4 +126,6 @@ figcaption {
   .project-images > * { margin-bottom: 3rem; }
   .project-images > *:nth-child(even) { margin-top: 0; width: 92%; margin-left: auto; }
   .project-images > *:nth-child(odd)  { width: 92%; }
+  /* BTS images: half width, centered (#53) */
+  .project-images > [data-bts="true"] { width: 50%; margin-left: auto; margin-right: auto; }
 }
