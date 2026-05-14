@@ -1,16 +1,15 @@
 ---
 title: Corfu
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 25
 order_all: 65
 description: ''
 credits: ''
-destination: Corfu, Greece
+credits_list:
+  - label: "Destination"
+    value: "Corfu, Greece"
 skills:
   - Content Creation
   - Visual Direction
@@ -45,7 +44,6 @@ media:
   - file: 13_IMG_0235_VSCO.jpg
   - file: 14_CC_Corfu_5.mp4
   - file: 15_IMG_9806_VSCO.jpg
-filter: content
 card_ratio: r-16-9
 card_placeholder: Coming Soon
 placeholder_count: 1

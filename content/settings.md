@@ -13,4 +13,10 @@ nav:
 og_title_base: Gabrielle J Sirkin
 sharecard_url: https://gabriellesirkin.github.io/gabriellejsirkin.com/sharecard.jpg
 ga_tracking_id: G-2LJ21YTZZJ
+categories:
+  - Visual Direction
+  - Content Creation
+  - Production
+  - Brand Strategy
+  - Curation
 ---

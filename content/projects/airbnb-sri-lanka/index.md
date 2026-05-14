@@ -1,16 +1,15 @@
 ---
 title: Sri Lanka
-cat: Editorial
+cat: Visual Direction
 client: Airbnb Magazine
-photographer: Kyle Weeks
-director: ''
-bts: ''
 date: '2017'
 order: 40
 order_all: 155
 description: ''
 credits: ''
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Kyle Weeks"
 skills:
   - Visual Direction
   - Production
@@ -23,7 +22,6 @@ media:
   - file: 04_SriLanka-4.jpg
   - file: 05_SriLanka-5.jpg
   - file: 06_SriLanka-6.jpg
-filter: editorial
 card_placeholder: Sri Lanka
 placeholder_count: 5
 ---

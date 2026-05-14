@@ -1,16 +1,12 @@
 ---
 title: Prague
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 15
 order_all: 105
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Visual Direction
@@ -32,7 +28,6 @@ media:
   - file: 07_IMG_7026.jpg
   - file: 08_IMG_7027.mp4
   - file: 09_IMG_7021.jpg
-filter: content
 card_placeholder: Coming Soon
 placeholder_count: 1
 ---

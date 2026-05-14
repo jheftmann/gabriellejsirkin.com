@@ -1,16 +1,12 @@
 ---
 title: French Basque Region
-cat: Content Creation
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 1
 order_all: 10
 description: ''
 credits: ''
-destination: ''
 skills:
   - Content Creation
   - Visual Direction

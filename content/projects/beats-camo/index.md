@@ -1,16 +1,19 @@
 ---
 title: Limited Edition
-cat: Brand Work
+cat: Visual Direction
 client: Beats by Dre
-photographer: Dan Hall and Wukda
-director: Wukda
-bts: Gabrielle J Sirkin
 date: 2018 - 2022
 order: 35
 order_all: 130
 description: ''
 credits: ''
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Dan Hall and Wukda"
+  - label: "Director"
+    value: "Wukda"
+  - label: "BTS"
+    value: "Gabrielle J Sirkin"
 skills:
   - Visual Direction
   - Production
@@ -37,7 +40,6 @@ media:
     bts: true
   - file: 09_Beats-Mash-Harden-0200_Crop.jpeg
     caption: ''
-filter: brand
 card_ratio: r-4-3
 card_placeholder: Camo
 placeholder_count: 3

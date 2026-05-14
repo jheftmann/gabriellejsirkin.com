@@ -1,10 +1,7 @@
 ---
 title: A Golden Hour Project
-cat: Personal
+cat: Visual Direction
 client: ''
-photographer: Multiple
-director: ''
-bts: ''
 date: '2025'
 order: 10
 order_all: 145
@@ -16,7 +13,9 @@ credits: |-
   Visual Direction & Production: Sabrina Bajaj, Chelsea Gold, Gabrielle Sirkin and Audrey Viola
   Design: Samantha Kim
   Printing: Epilogue
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Multiple"
 skills:
   - Visual Direction
   - Production
@@ -42,7 +41,6 @@ media:
     caption: ''
   - file: 10_IG-21.jpg
     caption: ''
-filter: personal
 card_ratio: r-3-4
 card_placeholder: Curation
 placeholder_count: 3

@@ -1,10 +1,7 @@
 ---
 title: Italian Gestures for Modern Life
-cat: Personal
+cat: Visual Direction
 client: ''
-photographer: ''
-director: ''
-bts: ''
 date: ''
 order: 1
 order_all: 95
@@ -15,7 +12,6 @@ credits: |-
   Prop Stylist: Samantha Margherita
   Film Editor: Katie Malfa
   Copy Writer: Sarah Kasbeer
-destination: ''
 skills:
   - Creative Direction
   - Visual Direction
@@ -46,7 +42,6 @@ media:
   - file: 18_ItalianHandGestures_6489.jpg
   - file: 19_ItalianHandGestures_6325.jpg
   - file: 20_ItalianHandGestures_6348.jpg
-filter: personal
 card_ratio: r-16-9
 card_placeholder: Personal Work
 placeholder_count: 3

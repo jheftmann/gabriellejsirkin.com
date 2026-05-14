@@ -1,16 +1,15 @@
 ---
 title: Photo Library
-cat: Brand Work
+cat: Visual Direction
 client: Hotels.com
-photographer: Maureen M Evans, Robert Rieger, Simon Watson
-director: ''
-bts: ''
 date: 2022- 2024
 order: 1
 order_all: 45
 description: ''
 credits: ''
-destination: ''
+credits_list:
+  - label: "Photographer"
+    value: "Maureen M Evans, Robert Rieger, Simon Watson"
 skills:
   - Visual Direction
   - Production
@@ -44,7 +43,6 @@ media:
   - file: 25_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_0167 (2).jpg
   - file: 26_2024-07-24_HCOM_ICA_MX_UMA_CASA_RUE_BED_V3_EVANS_0027-V3 1.jpg
   - file: 27_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_1033.jpg
-filter: brand
 card_placeholder: Dubai · Çeşme
 placeholder_count: 5
 ---
