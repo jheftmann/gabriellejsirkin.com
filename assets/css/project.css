@@ -3,7 +3,13 @@
   padding: 3rem var(--side) 0;
   display: flex;
   flex-direction: column;
-  gap: 0; /* line-box dead space (~21px) already approximates the 18px Figma gap */
+  /* No gap by default — the natural line-box leading (~21px) already approximates
+     Figma's 18px in browsers that don't trim. When text-box-trim IS supported,
+     that leading collapses to 0 and we need to add the gap back explicitly. */
+  gap: 0;
+}
+@supports (text-box-trim: trim-both) {
+  .project-header { gap: 1.125rem; } /* 18px Figma spec, applied only when trim is active */
 }
 .project-client { color: var(--muted); transition: color var(--transition); margin: 0; }
 .project-title  { color: var(--text);  transition: color var(--transition); margin: 0; }
