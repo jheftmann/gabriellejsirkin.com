@@ -1,21 +1,23 @@
 ---
 title: Italian Gestures for Modern Life
-cat: Visual Direction
+cat: Visual Direction, Production
 client: ''
 date: ''
+credits_list:
+  - label: Creative Direction, Concept & Hand Model
+    value: Gabrielle J Sirkin
+  - label: Photographer
+    value: Julia Stotz
+  - label: Prop Stylist
+    value: Samantha Margherita
+  - label: Film Editor
+    value: Katie Malfa
+  - label: Copy Writer
+    value: Sarah Kasbeer
 order: 1
 order_all: 95
 description: 'When you find yourself in social situations and words just won’t do. If my Nonna and I were able to communicate with these basics, so can you. A project inspired by Bruno Munari’s minimalist guide to “Speak Italian: The Fine Art of the Italian Gesture”.'
-credits: |-
-  Creative Direction, Concept & Hand Model: Gabrielle J Sirkin
-  Photographer: Julia Stotz
-  Prop Stylist: Samantha Margherita
-  Film Editor: Katie Malfa
-  Copy Writer: Sarah Kasbeer
-skills:
-  - Creative Direction
-  - Visual Direction
-  - Production
+credits: ''
 color_theme: colorway-4
 thumbnail: 01_ITALIAN GESTURES v10_SM.mp4
 media:
@@ -42,6 +44,11 @@ media:
   - file: 18_ItalianHandGestures_6489.jpg
   - file: 19_ItalianHandGestures_6325.jpg
   - file: 20_ItalianHandGestures_6348.jpg
+director: ''
+bts: ''
+destination: ''
+filter: personal
+photographer: ''
 card_ratio: r-16-9
 card_placeholder: Personal Work
 placeholder_count: 3

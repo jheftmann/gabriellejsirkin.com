@@ -1,15 +1,12 @@
 ---
 title: Istanbul and Cesme
-cat: Visual Direction
+cat: Content Creation
 client: ''
 date: ''
 order: 35
 order_all: 125
 description: ''
 credits: ''
-skills:
-  - Content Creation
-  - Visual Direction
 coming_soon: false
 color_theme: colorway-2
 thumbnail: 04_CC_Istanbul_04.mp4

@@ -10,9 +10,6 @@ order: 1
 order_all: 15
 description: ''
 credits: ''
-skills:
-  - Visual Direction
-  - Production
 color_theme: colorway-1
 thumbnail: IMG_8982.jpg
 media:

@@ -2,7 +2,7 @@
 title: 2017/2018 Season Campaign
 cat: Visual Direction, Brand Strategy, Production
 client: LA Philharmonic
-date: '2017'
+date: ''
 credits_list:
   - label: Photographer
     value: Erik Madigan Heck

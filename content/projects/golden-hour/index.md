@@ -2,7 +2,7 @@
 title: A Golden Hour Project
 cat: Curation, Visual Direction, Production
 client: ''
-date: '2025'
+date: ''
 credits_list:
   - label: Visual Direction & Production
     value: Sabrina Bajaj, Chelsea Gold, Gabrielle Sirkin and Audrey Viola
