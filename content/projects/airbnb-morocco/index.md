@@ -1,6 +1,6 @@
 ---
 title: 12 Days in Morocco
-cat: Visual Direction
+cat: Visual Direction, Production
 client: Airbnb Magazine
 date: '2018'
 credits_list:
