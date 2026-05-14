@@ -14,7 +14,7 @@ destination: ''
 skills:
   - Visual Direction
   - Production
-card_ratio: r-16-9
+color_theme: colorway-6
 thumbnail: upload-6d3504c7-e5ae-4877-a0c8-88b76d9407a4.webp
 media:
   - file: 01_ABB060118FEAJapan_lo-4.jpeg
@@ -23,6 +23,7 @@ media:
   - file: 04_ABB060118FEAJapan_lo-7.jpeg
   - file: 05_ABB060118FEAJapan_lo-8.jpeg
 filter: editorial
+card_ratio: r-16-9
 card_placeholder: Japan
 placeholder_count: 5
 ---
