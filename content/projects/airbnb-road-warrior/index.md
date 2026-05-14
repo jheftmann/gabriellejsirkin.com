@@ -7,13 +7,10 @@ order: 45
 order_all: 50
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Thomas Prior"
 skills:
   - Visual Direction
   - Production
-card_ratio: r-3-4
+color_theme: colorway-3
 thumbnail: ABB060119BarbadosTennis_lo-1.jpg
 media:
   - file: 01_ABB060119BarbadosTennis_lo-1.jpg
@@ -22,6 +19,12 @@ media:
   - file: 04_ABB060119BarbadosTennis_lo-4.jpg
   - file: 05_ABB060119BarbadosTennis_lo-5.jpg
   - file: 06_ABB060119BarbadosTennis_lo-6.jpg
+filter: editorial
+destination: ''
+bts: ''
+director: ''
+photographer: Thomas Prior
+card_ratio: r-3-4
 card_placeholder: Travel
 placeholder_count: 3
 ---
