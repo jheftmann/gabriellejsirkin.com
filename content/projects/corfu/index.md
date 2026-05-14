@@ -3,9 +3,7 @@ title: Corfu
 cat: Content Creation
 client: ''
 date: ''
-credits_list:
-  - label: Destination
-    value: Corfu, Greece
+credits_list: []
 order: 25
 order_all: 65
 description: ''
