@@ -1,23 +1,19 @@
 ---
 title: Made To Travel 2024
-cat: Brand Strategy
+cat: Visual Direction, Production, Brand Strategy
 client: Expedia
-date: '2024'
+date: ''
+credits_list:
+  - label: Photographer
+    value: Nico Therin
+  - label: Director
+    value: Adam Newport-Barra
+  - label: BTS
+    value: Gabrielle J Sirkin
 order: 5
 order_all: 1
 description: ''
 credits: ''
-credits_list:
-  - label: "Photographer"
-    value: "Nico Therin"
-  - label: "Director"
-    value: "Adam Newport Barra"
-  - label: "BTS"
-    value: "Gabrielle J Sirkin"
-skills:
-  - Visual Direction
-  - Production
-  - Brand Strategy
 color_theme: colorway-3
 thumbnail: 01_BEX_NMW_DOLOMITES_LAKEGARDA_SCOUT_THERIN_0143_V02_300dpi.jpg
 media:
@@ -72,6 +68,11 @@ media:
     bts: true
   - file: 25_BEX_NMW_SICILY_LAPRAIOLA_THERIN_1820_V03TUB.jpg
     caption: ''
+director: Adam Newport Barra
+bts: Gabrielle J Sirkin
+destination: ''
+filter: brand
+photographer: Nico Therin
 card_ratio: r-16-9
 card_placeholder: Dolomites · Rome · Sicily
 placeholder_count: 5
