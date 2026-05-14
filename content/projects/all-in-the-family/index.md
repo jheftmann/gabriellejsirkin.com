@@ -21,6 +21,11 @@ skills:
   - Production
 color_theme: colorway-5
 thumbnail: 01_PastaFamilies_11277.jpg
+filter: personal
+destination: ''
+bts: ''
+director: ''
+photographer: ''
 media:
   - 01_PastaFamilies_11277-1.jpg
   - 02_PastaFamilies_11749.jpg
