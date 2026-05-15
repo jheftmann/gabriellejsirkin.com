@@ -2,7 +2,7 @@
 title: Caraiva
 cat:
   - name: Visual Direction
-    position: 1
+    position: 55
   - name: Production
     position: 1
 client: Airbnb Magazine
@@ -19,10 +19,10 @@ media:
   - file: 01_ABB040118NYTBrazil_lo-1.jpg
   - file: 02_ABB040118NYTBrazil_lo-3.jpg
   - file: 03_ABB040118NYTBrazil_lo-4.jpg
-director: ''
-bts: ''
-destination: ''
 filter: editorial
+destination: ''
+bts: ''
+director: ''
 photographer: Pia Riverola
 card_ratio: r-4-3
 card_placeholder: Caraiva
