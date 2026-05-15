@@ -1,10 +1,8 @@
 ---
 title: Japanese Denim
 cat:
-  - name: Visual Direction
-    position: 30
   - name: Production
-    position: 30
+    position: 60
 client: Airbnb Magazine
 date: '2018'
 credits_list:
@@ -21,10 +19,10 @@ media:
   - file: 03_ABB060118FEAJapan_lo-6.jpeg
   - file: 04_ABB060118FEAJapan_lo-7.jpeg
   - file: 05_ABB060118FEAJapan_lo-8.jpeg
-director: ''
-bts: ''
-destination: ''
 filter: editorial
+destination: ''
+bts: ''
+director: ''
 photographer: Carol Sachs
 card_ratio: r-16-9
 card_placeholder: Japan
