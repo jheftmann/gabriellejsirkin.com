@@ -27,9 +27,9 @@ thumbnail: 01_AGHP_Post3.mp4
 media:
   - file: 01_AGHP_Post3.mp4
     caption: ''
-  - file: 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
+  - file: Screenshot 2026-03-07 at 5.37.55 PM.png
     caption: ''
-  - file: 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
+  - file: Screenshot 2026-03-07 at 5.38.06 PM.png
     caption: ''
   - file: 04_AGHP_Post-01.jpg
     caption: ''
