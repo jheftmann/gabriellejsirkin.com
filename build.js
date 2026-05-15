@@ -171,27 +171,39 @@ function loadProjects() {
         meta = {
           title:       fm.title    || id,
           client:      fm.client   || '',
-          // Accept cat as YAML list OR comma-separated string (fallback for legacy/manual edits)
-          cat:         (() => {
-                         const arr = Array.isArray(fm.cat) ? fm.cat
-                                   : typeof fm.cat === 'string' ? fm.cat.split(',').map(s => s.trim()).filter(Boolean)
-                                   : [];
-                         return arr.join(', ');
-                       })(),
-          filters:     (() => {
-                         const arr = Array.isArray(fm.cat) ? fm.cat
-                                   : typeof fm.cat === 'string' ? fm.cat.split(',').map(s => s.trim()).filter(Boolean)
-                                   : [];
-                         return arr.map(c => slugify(c)).filter(Boolean);
-                       })(),
-          filter:      (() => {
-                         const arr = Array.isArray(fm.cat) ? fm.cat
-                                   : typeof fm.cat === 'string' ? fm.cat.split(',').map(s => s.trim()).filter(Boolean)
-                                   : [];
-                         return slugify(arr[0] || '');
-                       })(),
+          // Normalize `cat` once. Accepts three legacy shapes for backward compat:
+          //   1. List of objects:   [{ name: 'Visual Direction', position: 1 }, ...]  (new)
+          //   2. List of strings:   ['Visual Direction', ...]                         (prior)
+          //   3. Comma-string:      'Visual Direction, Production'                    (oldest)
+          // Plus the project-level `order` field that used to set a single position.
+          ...(() => {
+            const raw = fm.cat;
+            const legacyOrder = fm.order != null ? parseInt(fm.order, 10) : null;
+            let cats = [];
+            if (Array.isArray(raw)) {
+              cats = raw.map(item =>
+                typeof item === 'string'
+                  ? { name: item.trim(), position: legacyOrder }
+                  : item && typeof item === 'object'
+                    ? { name: String(item.name || '').trim(),
+                        position: item.position != null ? parseInt(item.position, 10) : legacyOrder }
+                    : null
+              ).filter(c => c && c.name);
+            } else if (typeof raw === 'string' && raw.trim()) {
+              cats = raw.split(',').map(s => s.trim()).filter(Boolean)
+                .map(name => ({ name, position: legacyOrder }));
+            }
+            return {
+              cat:        cats.map(c => c.name).join(', '),
+              filters:    cats.map(c => slugify(c.name)),
+              filter:     slugify(cats[0]?.name || ''),
+              catOrders:  cats.reduce((m, c) => {
+                            if (c.position != null) m[slugify(c.name)] = c.position;
+                            return m;
+                          }, {}),
+            };
+          })(),
           date:        fm.date     || '',
-          order:       fm.order    != null ? parseInt(fm.order,    10) : null,
           orderAll:    fm.order_all != null ? parseInt(fm.order_all, 10) : null,
           description: fm.description || '',
           credits:     fm.credits     || '',
@@ -364,14 +376,18 @@ function renderCard(p, bgColor = '') {
         : cdnImg(src, p.title, { widths: [400, 800, 1200], sizes: '(max-width: 767px) 100vw, 50vw' }))
     : `<div class="thumb-ph">${ph}</div>`;
   const styleAttr    = bgColor ? ` style="background-color:${bgColor}"` : '';
-  const orderAttr    = p.order    != null ? ` data-order="${p.order}"`        : '';
+  // One data-order-<slug> attribute per category the project belongs to,
+  // plus data-order-all for the All tab. Sort logic in index.js picks the
+  // right attribute based on the active filter.
+  const orderAttrs = Object.entries(p.catOrders || {})
+    .map(([slug, pos]) => ` data-order-${slug}="${pos}"`).join('');
   const orderAllAttr = p.orderAll != null ? ` data-order-all="${p.orderAll}"` : '';
   // Caption: client (black) + title (muted), or just title (black) when no client
   const captionHtml = p.client
     ? `<p class="card-client">${p.client}</p><p class="card-title">${p.title}</p>`
     : `<p class="card-title card-title--solo">${p.title}</p>`;
   return (
-    `    <a class="project-card" data-category="${(p.filters && p.filters.length ? p.filters : [p.filter]).join(' ')}"${orderAttr}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
+    `    <a class="project-card" data-category="${(p.filters && p.filters.length ? p.filters : [p.filter]).join(' ')}"${orderAttrs}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
     `      <div class="thumb"${styleAttr}>${inner}</div>\n` +
     `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div></div>\n` +
     `    </a>`

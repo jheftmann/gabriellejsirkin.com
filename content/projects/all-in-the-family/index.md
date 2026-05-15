@@ -39,10 +39,10 @@ media:
   - 10_Bucatini.mp4
   - 11_7B07A93A-A6FD-44E2-AAF6-A22ECBC4D512_1_102_o.jpeg
   - 12_Bucatini.mp4
-director: ''
-bts: ''
-destination: ''
 filter: personal
+destination: ''
+bts: ''
+director: ''
 photographer: ''
 card_ratio: r-4-3
 card_placeholder: Personal Work
