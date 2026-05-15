@@ -2,9 +2,9 @@
 title: Jackie Russo Website
 cat:
   - name: All
-    position: 5
+    position: 100
   - name: Curation
-    position: 5
+    position: 1
 client: ''
 date: ''
 credits_list:
