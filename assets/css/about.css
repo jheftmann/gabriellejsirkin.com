@@ -82,7 +82,7 @@
   display: grid;
   grid-template-columns: calc(2 * var(--col) + 1.5rem) minmax(0, calc(5 * var(--col) + 6rem));
   column-gap: 1.5rem;
-  margin-bottom: calc(4.5rem + var(--leading-extra-lg));
+  margin-bottom: 4.5rem; /* 72px — Figma section gap (desktop) */
   align-items: baseline;
 }
 .row-label {
@@ -105,7 +105,7 @@
 }
 
 /* SKILLS (Subsection component) */
-.skill-item { margin-bottom: calc(1.5rem + var(--leading-extra-sm)); }
+.skill-item { margin-bottom: 1.5rem; } /* 24px — Figma between subsections */
 .skill-item:last-child { margin-bottom: 0; }
 .skill-name {
   font-family: var(--display);
@@ -114,7 +114,7 @@
   font-style: normal;
   line-height: 1.24;
   color: var(--text);
-  margin-bottom: calc(0.75rem + var(--leading-extra-sm)); /* 12px base + comp for collapsed leading */
+  margin-bottom: 0.75rem; /* 12px — Figma h3 → desc gap */
   transition: color var(--transition);
 }
 .skill-desc {
@@ -143,7 +143,7 @@
   font-style: normal;
   line-height: 1.28; /* Figma p — #50 */
   color: var(--muted);
-  margin-bottom: calc(1.5rem + var(--leading-extra-sm));
+  margin-bottom: 1.5rem; /* 24px — Figma p mb */
   transition: color var(--transition);
 }
 .bio-para:last-child { margin-bottom: 0; }
@@ -186,7 +186,7 @@ body[data-theme="services"] .about-layout > .about-headline {
 @media (max-width: 767px) {
   .about-layout {
     grid-template-columns: 1fr;
-    row-gap: 3rem;
+    row-gap: 3.75rem;       /* 60px — matches .about-row margin-bottom so sidebar→main and section→section gaps equal (#78) */
   }
   .about-headline { order: -2; }
   .about-sidebar {
@@ -210,8 +210,8 @@ body[data-theme="services"] .about-layout > .about-headline {
   .footer-links  { display: flex; }
   .about-row {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
-    margin-bottom: calc(3rem + var(--leading-extra-lg)); /* matches .about-layout row-gap so all section gaps equal (#78) */
+    gap: 2.25rem;          /* 36px — Figma h2 → first subsection on mobile */
+    margin-bottom: 3.75rem; /* 60px — Figma between-sections on mobile */
   }
   .row-label,
   .sidebar-label { font-size: 1.75rem; } /* 28px = Size/XL on mobile */
