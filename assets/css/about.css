@@ -114,7 +114,7 @@
   font-style: normal;
   line-height: 1.24;
   color: var(--text);
-  margin-bottom: 0.75rem; /* 12px gap */
+  margin-bottom: calc(0.75rem + var(--leading-extra-sm)); /* 12px base + comp for collapsed leading */
   transition: color var(--transition);
 }
 .skill-desc {
