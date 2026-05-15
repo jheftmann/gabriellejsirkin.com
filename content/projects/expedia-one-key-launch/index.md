@@ -1,6 +1,12 @@
 ---
 title: One Key Credit Card
-cat: Visual Direction, Production, Brand Strategy
+cat:
+  - name: Visual Direction
+    position: 10
+  - name: Production
+    position: 10
+  - name: Brand Strategy
+    position: 10
 client: Expedia
 date: '2023'
 credits_list:
@@ -8,7 +14,6 @@ credits_list:
     value: Ronan Gallagher
   - label: BTS
     value: Gabrielle J Sirkin
-order: 10
 order_all: 140
 description: ''
 credits: ''

@@ -1,12 +1,15 @@
 ---
 title: Mangal Dosha
-cat: Visual Direction, Curation
+cat:
+  - name: Visual Direction
+    position: 10
+  - name: Curation
+    position: 10
 client: Airbnb Magazine
 date: ''
 credits_list:
   - label: Photographer
     value: Julia Sellmann
-order: 10
 order_all: 135
 description: ''
 credits: ''

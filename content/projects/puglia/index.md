@@ -1,9 +1,10 @@
 ---
 title: Puglia
-cat: Content Creation
+cat:
+  - name: Content Creation
+    position: 10
 client: ''
 date: ''
-order: 10
 order_all: 90
 description: ''
 credits: ''

@@ -1,12 +1,17 @@
 ---
 title: Photo Library
-cat: Visual Direction, Production, Brand Strategy
+cat:
+  - name: Visual Direction
+    position: 15
+  - name: Production
+    position: 15
+  - name: Brand Strategy
+    position: 15
 client: Vrbo
 date: '2025'
 credits_list:
   - label: Photographer
     value: Anaïs & Dax
-order: 15
 order_all: 85
 description: ''
 credits: ''

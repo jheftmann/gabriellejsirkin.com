@@ -1,12 +1,17 @@
 ---
 title: Limited Edition
-cat: Visual Direction, Production, Brand Strategy
+cat:
+  - name: Visual Direction
+    position: 35
+  - name: Production
+    position: 35
+  - name: Brand Strategy
+    position: 35
 client: Beats by Dre
 date: ''
 credits_list:
   - label: Photographers & Directors
     value: Dan Hall, Wukda
-order: 35
 order_all: 130
 description: ''
 credits: ''

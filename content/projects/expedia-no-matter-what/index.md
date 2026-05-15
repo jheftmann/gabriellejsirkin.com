@@ -1,6 +1,12 @@
 ---
 title: Made To Travel
-cat: Visual Direction, Production, Brand Strategy
+cat:
+  - name: Visual Direction
+    position: 25
+  - name: Production
+    position: 25
+  - name: Brand Strategy
+    position: 25
 client: Expedia
 date: '2023'
 credits_list:
@@ -8,7 +14,6 @@ credits_list:
     value: Nico Therin, Joao Canziani
   - label: BTS
     value: Gabrielle J Sirkin
-order: 25
 order_all: 20
 description: ''
 credits: ''

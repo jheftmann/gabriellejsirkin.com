@@ -1,9 +1,10 @@
 ---
 title: South of France
-cat: Content Creation
+cat:
+  - name: Content Creation
+    position: 5
 client: ''
 date: ''
-order: 5
 order_all: 5
 description: ''
 credits: ''

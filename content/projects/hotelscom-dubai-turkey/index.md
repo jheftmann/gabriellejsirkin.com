@@ -1,12 +1,15 @@
 ---
 title: Photo Library
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 1
+  - name: Production
+    position: 1
 client: Hotels.com
 date: ''
 credits_list:
   - label: Photographers
     value: Maureen M Evans, Robert Rieger, Simon Watson
-order: 1
 order_all: 45
 description: ''
 credits: ''

@@ -1,6 +1,12 @@
 ---
 title: Lifestyle
-cat: Visual Direction, Production, Brand Strategy
+cat:
+  - name: Visual Direction
+    position: 20
+  - name: Production
+    position: 20
+  - name: Brand Strategy
+    position: 20
 client: Beats by Dre
 date: ''
 credits_list:
@@ -8,7 +14,6 @@ credits_list:
     value: Anthony Blasko, Jerry Buttles, Caitlin Cronenberg, Joshua Kissi, Clayton Vomero
   - label: BTS
     value: Gabrielle J Sirkin
-order: 20
 order_all: 115
 description: ''
 credits: ''

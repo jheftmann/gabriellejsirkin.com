@@ -1,12 +1,17 @@
 ---
 title: More Magazine
-cat: Visual Direction, Production, Curation
+cat:
+  - name: Visual Direction
+    position: 15
+  - name: Production
+    position: 15
+  - name: Curation
+    position: 15
 client: ''
 date: 2012 - 2015
 credits_list:
   - label: Photographers
     value: Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters
-order: 15
 order_all: 25
 description: ''
 credits: ''

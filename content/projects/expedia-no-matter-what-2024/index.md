@@ -1,6 +1,12 @@
 ---
 title: Made To Travel 2024
-cat: Visual Direction, Production, Brand Strategy
+cat:
+  - name: Visual Direction
+    position: 5
+  - name: Production
+    position: 5
+  - name: Brand Strategy
+    position: 5
 client: Expedia
 date: ''
 credits_list:
@@ -10,7 +16,6 @@ credits_list:
     value: Adam Newport-Barra
   - label: BTS
     value: Gabrielle J Sirkin
-order: 5
 order_all: 1
 description: ''
 credits: ''

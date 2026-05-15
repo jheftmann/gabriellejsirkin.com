@@ -1,12 +1,15 @@
 ---
 title: Japanese Denim
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 30
+  - name: Production
+    position: 30
 client: Airbnb Magazine
 date: '2018'
 credits_list:
   - label: Photographer
     value: Carol Sachs
-order: 30
 order_all: 110
 description: ''
 credits: ''

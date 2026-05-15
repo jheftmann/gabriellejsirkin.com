@@ -1,6 +1,12 @@
 ---
 title: 2017/2018 Season Campaign
-cat: Visual Direction, Brand Strategy, Production
+cat:
+  - name: Visual Direction
+    position: 30
+  - name: Brand Strategy
+    position: 30
+  - name: Production
+    position: 30
 client: LA Philharmonic
 date: ''
 credits_list:
@@ -8,7 +14,6 @@ credits_list:
     value: Erik Madigan Heck
   - label: BTS
     value: Gabrielle J Sirkin
-order: 30
 order_all: 55
 description: ''
 credits: ''

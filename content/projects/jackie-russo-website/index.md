@@ -1,14 +1,15 @@
 ---
 title: Jackie Russo Website
 cat:
-  - All
-  - Curation
+  - name: All
+    position: 5
+  - name: Curation
+    position: 5
 client: ''
 date: ''
 credits_list:
   - label: Photographer
     value: Jackie Russo
-order: 5
 order_all: 160
 description: ''
 credits: ''

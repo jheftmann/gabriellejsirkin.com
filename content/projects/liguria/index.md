@@ -1,9 +1,10 @@
 ---
 title: Liguria
-cat: Content Creation
+cat:
+  - name: Content Creation
+    position: 20
 client: ''
 date: ''
-order: 20
 order_all: 80
 description: ''
 credits: ''

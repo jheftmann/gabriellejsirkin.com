@@ -1,12 +1,15 @@
 ---
 title: Palermo
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 20
+  - name: Production
+    position: 20
 client: Airbnb Magazine
 date: '2019'
 credits_list:
   - label: Photographer
     value: Tyler Mitchelle
-order: 20
 order_all: 60
 description: ''
 credits: ''

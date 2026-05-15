@@ -1,12 +1,15 @@
 ---
 title: Dim Sum
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 35
+  - name: Production
+    position: 35
 client: Airbnb Magazine
 date: '2018'
 credits_list:
   - label: Photographer
     value: Marcus Nilsson
-order: 35
 order_all: 120
 description: ''
 credits: ''

@@ -1,12 +1,15 @@
 ---
 title: Caraiva
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 1
+  - name: Production
+    position: 1
 client: Airbnb Magazine
 date: '2018'
 credits_list:
   - label: Photographer
     value: Pia Riverola
-order: 1
 order_all: 15
 description: ''
 credits: ''

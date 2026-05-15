@@ -1,9 +1,10 @@
 ---
 title: French Basque Region
-cat: Content Creation
+cat:
+  - name: Content Creation
+    position: 1
 client: ''
 date: ''
-order: 1
 order_all: 10
 description: ''
 credits: ''
