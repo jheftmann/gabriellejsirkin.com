@@ -1,12 +1,15 @@
 ---
 title: Ramble On
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 50
+  - name: Production
+    position: 50
 client: Airbnb Magazine
 date: '2019'
 credits_list:
   - label: Photographer
     value: Carolyn Drake
-order: 50
 order_all: 150
 description: ''
 credits: ''

@@ -1,9 +1,10 @@
 ---
 title: Rome
-cat: Content Creation
+cat:
+  - name: Content Creation
+    position: 40
 client: ''
 date: ''
-order: 40
 order_all: 70
 description: ''
 credits: ''

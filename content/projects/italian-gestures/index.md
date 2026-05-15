@@ -1,6 +1,10 @@
 ---
 title: Italian Gestures for Modern Life
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 1
+  - name: Production
+    position: 1
 client: ''
 date: ''
 credits_list:
@@ -14,7 +18,6 @@ credits_list:
     value: Katie Malfa
   - label: Copy Writer
     value: Sarah Kasbeer
-order: 1
 order_all: 95
 description: 'When you find yourself in social situations and words just won’t do. If my Nonna and I were able to communicate with these basics, so can you. A project inspired by Bruno Munari’s minimalist guide to “Speak Italian: The Fine Art of the Italian Gesture”.'
 credits: ''

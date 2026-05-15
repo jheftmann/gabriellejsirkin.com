@@ -1,9 +1,10 @@
 ---
 title: Copenhagen
-cat: Content Creation
+cat:
+  - name: Content Creation
+    position: 30
 client: ''
 date: ''
-order: 30
 order_all: 100
 description: ''
 credits: ''

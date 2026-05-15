@@ -1,6 +1,12 @@
 ---
 title: A Golden Hour Project
-cat: Curation, Visual Direction, Production
+cat:
+  - name: Curation
+    position: 10
+  - name: Visual Direction
+    position: 10
+  - name: Production
+    position: 10
 client: ''
 date: ''
 credits_list:
@@ -10,7 +16,6 @@ credits_list:
     value: Samantha Kim
   - label: Printing
     value: Epilogue
-order: 10
 order_all: 145
 description: |-
   A Golden Hour Project is a joint creative fundraising initiative launched in response to the devastating California wildfires by myself, Chelsea Gold, Sabrina Bajaj and Audrey Viola. Bringing together a community of 100 photographers, the project sold curated prints to raise money for wildfire relief across Los Angeles.

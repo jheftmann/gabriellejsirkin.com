@@ -1,12 +1,15 @@
 ---
 title: The Road Warrior
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 45
+  - name: Production
+    position: 45
 client: Airbnb Magazine
 date: '2019'
 credits_list:
   - label: Photographer
     value: Thomas Prior
-order: 45
 order_all: 50
 description: ''
 credits: ''

@@ -1,6 +1,10 @@
 ---
 title: All in the Family
-cat: Visual Direction, Production
+cat:
+  - name: Visual Direction
+    position: 5
+  - name: Production
+    position: 5
 client: ''
 date: ''
 credits_list:
@@ -20,7 +24,6 @@ credits_list:
     value: Erin Ruffin
   - label: In Collaboration with
     value: Bucatini
-order: 5
 order_all: 40
 description: Pasta is the true language of Italy, the great connector. The photographs in All in the Family highlight a quintessential dish from each pasta family in their most natural setting — surrounded by loved ones and lively conversation. Collectible posters, postcards and a limited edition of fine art prints were available at a Pop Up Exhibition in the Fall of 2024 at Bucatini Los Angeles.
 credits: ''

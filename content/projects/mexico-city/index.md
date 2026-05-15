@@ -1,9 +1,10 @@
 ---
 title: Mexico City
-cat: Content Creation
+cat:
+  - name: Content Creation
+    position: 45
 client: ''
 date: ''
-order: 45
 order_all: 30
 description: ''
 credits: ''
