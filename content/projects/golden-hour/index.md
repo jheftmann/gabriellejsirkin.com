@@ -4,13 +4,13 @@ cat:
   - name: Curation
     position: 10
   - name: Visual Direction
-    position: 10
-  - name: Production
-    position: 10
+    position: 20
+  - name: Curation
+    position: 5
 client: ''
 date: ''
 credits_list:
-  - label: Visual Direction & Production
+  - label: Visual Direction and Production
     value: Sabrina Bajaj, Chelsea Gold, Gabrielle Sirkin and Audrey Viola
   - label: Design
     value: Samantha Kim
@@ -43,10 +43,10 @@ media:
     caption: ''
   - file: 10_IG-21.jpg
     caption: ''
-director: ''
-bts: ''
-destination: ''
 filter: personal
+destination: ''
+bts: ''
+director: ''
 photographer: Multiple
 card_ratio: r-3-4
 card_placeholder: Curation
