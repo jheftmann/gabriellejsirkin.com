@@ -13,6 +13,7 @@ on:
       - 'package-lock.json'
       - 'netlify.toml'
       - 'favicon.svg'
+      - 'favicon-32x32.png'
       - 'README.md'
       - 'CLAUDE.md'
 
@@ -37,11 +38,30 @@ jobs:
         run: |
           git checkout draft
           git pull origin draft
-          git checkout origin/main -- \
-            admin/ src/ assets/css/ assets/js/ build.js \
-            package.json package-lock.json scripts/ .github/ \
-            netlify.toml favicon.svg README.md CLAUDE.md \
-            2>/dev/null || true
+
+          # Managed paths — all of these mirror from main → draft, including deletions.
+          # NB: assets/ is now whole-directory so fonts and images sync too.
+          PATHS=(admin src assets scripts .github build.js \
+                 package.json package-lock.json netlify.toml \
+                 favicon.svg favicon-32x32.png README.md CLAUDE.md)
+
+          # 1) Pull main's current state for those paths (handles add/modify)
+          for p in "${PATHS[@]}"; do
+            git checkout origin/main -- "$p" 2>/dev/null || true
+          done
+
+          # 2) Delete files that exist on draft in managed paths but not on main
+          #    (handles deletes — previous workflow couldn't propagate these)
+          {
+            git ls-tree -r --name-only HEAD -- "${PATHS[@]}" 2>/dev/null | sort
+          } > /tmp/draft-files
+          {
+            git ls-tree -r --name-only origin/main -- "${PATHS[@]}" 2>/dev/null | sort
+          } > /tmp/main-files
+          comm -23 /tmp/draft-files /tmp/main-files | while IFS= read -r f; do
+            [ -n "$f" ] && git rm -f -- "$f" 2>/dev/null || true
+          done
+
           git add -A
           if git diff --cached --quiet; then
             echo "Nothing to sync."

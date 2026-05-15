@@ -12,10 +12,13 @@ function getStagger() {
 }
 
 function sortedCards(filter) {
-  var key = filter === 'all' ? 'orderAll' : 'order';
+  // Cards carry one data-order-<slug>="N" attribute per category they're in,
+  // plus data-order-all="N" for the All tab. Use getAttribute (not dataset)
+  // because attribute names contain hyphens, which dataset camelCases.
+  var attr = filter === 'all' ? 'data-order-all' : 'data-order-' + filter;
   return allCards.slice().sort(function (a, b) {
-    var av = a.dataset[key] !== undefined ? parseInt(a.dataset[key], 10) : Infinity;
-    var bv = b.dataset[key] !== undefined ? parseInt(b.dataset[key], 10) : Infinity;
+    var av = a.getAttribute(attr); av = av != null ? parseFloat(av) : Infinity;
+    var bv = b.getAttribute(attr); bv = bv != null ? parseFloat(bv) : Infinity;
     if (av !== bv) return av - bv;
     return (a.dataset.title || '').localeCompare(b.dataset.title || '');
   });

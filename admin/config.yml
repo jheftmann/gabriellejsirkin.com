@@ -34,8 +34,12 @@ collections:
         label: Categories
         widget: list
         required: false
-        hint: 'Click + to add each category. Names must match Settings → Global → Categories exactly. A project can be in multiple categories — add a row for each.'
-        field: { name: item, label: Category, widget: string }
+        hint: 'Each row is one category. Use Position to set the order within that category (lower = earlier). A project can be in multiple categories — click + to add another.'
+        fields:
+          - { name: name, label: Category, widget: string,
+              hint: 'Must match a category in Settings → Global → Categories.' }
+          - { name: position, label: 'Position in this category', widget: number, required: false, min: 1,
+              hint: 'Leave blank to sort after numbered entries.' }
 
       - { name: client, label: Client, widget: string, required: false }
       - { name: date,   label: Year,   widget: string, required: false }
@@ -49,10 +53,8 @@ collections:
           - { name: label, label: Label, widget: string }
           - { name: value, label: Value, widget: string }
 
-      - { name: order,     label: 'Order (within category)', widget: number, required: false,
-          hint: 'Controls position within its category tab. Leave blank to sort after numbered projects.' }
-      - { name: order_all, label: 'Order (All page)',        widget: number, required: false,
-          hint: 'Controls position on the All tab. Leave blank to sort after numbered projects.' }
+      - { name: order_all, label: 'Order on the All tab', widget: number, required: false,
+          hint: 'Controls position on the All tab. Leave blank to sort after numbered projects. (Per-category order is set inside each Categories row above.)' }
 
       - { name: description, label: Description, widget: text, required: false,
           hint: 'Shown in the project header above the meta fields.' }
