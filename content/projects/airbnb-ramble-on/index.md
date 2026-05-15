@@ -2,9 +2,7 @@
 title: Ramble On
 cat:
   - name: Visual Direction
-    position: 50
-  - name: Production
-    position: 50
+    position: 70
 client: Airbnb Magazine
 date: '2019'
 credits_list:
@@ -22,10 +20,10 @@ media:
   - file: 04_ABB040119Nidderdale_lo-4.jpg
   - file: 05_ABB040119Nidderdale_lo-5.jpg
   - file: 06_ABB040119Nidderdale_lo-6.jpg
-director: ''
-bts: ''
-destination: ''
 filter: editorial
+destination: ''
+bts: ''
+director: ''
 photographer: Carolyn Drake
 card_ratio: r-4-3
 card_placeholder: Travel
