@@ -283,6 +283,22 @@ When shared on social media, shows `sharecard.jpg` from the root folder. Replace
 
 ## Changelog
 
+### 2026-05-14 / 15
+- **Per-category project order (#86)** — `cat` field schema in admin/config.yml is now a list of `{name, position}` objects. Each project carries one `data-order-<slug>="N"` attribute per category it's in (plus `data-order-all`); index.js sorts by the attribute matching the active filter. All 33 projects auto-migrated by `scripts/migrate-cat-with-positions.js`. Top-level `order` field removed.
+- **Cannot add category (#84)** — same schema change: list widget now uses `fields:` (plural, object items) instead of `field:` (singular). Sveltia's "+ Add" button works reliably with this shape.
+- **Publish to live error (#85)** — root cause was `assets/css/travel.css` deleted from `main` in #83 but never propagated to `draft` (sync action only copied files). Cleaned up the orphan and improved `.github/workflows/sync-draft.yml` to mirror deletions going forward; also expanded managed paths to whole `assets/` and added `favicon-32x32.png`.
+- **Skills as a dynamic list** — replaced the 8 fixed `skill1_name`…`skill4_desc` fields with a single `skills_list` list widget. Gabrielle can add any number of skills via the CMS now.
+- **Card hover** — removed `filter: blur(2px)`; opacity 0.8 only. (#80)
+- **Dropdown arrow** — replaced inline SVG on `.filter-select` with the typeface's down-arrowhead glyph (U+2304) via `::after`, so it aligns with the select text in the same font. (#81)
+- **Markdown / links in text fields** — `marked.parseInline()` now runs on `bio`, `approach`, services/clients/cities list items, skill name + skill desc. `[text](url)` markdown links + raw HTML both work. Documented in README.
+- **Color theme update** — colorway-7 values changed to match Figma. (#75)
+- **Project page favicon** — coral circle on light-blue (Figma node 224:4154). PNG regenerated from SVG via sharp.
+- **About page color theme** — `#232b09` → `#232809`, `--text` to `#aac0c1` (#50, Figma node 223:3281).
+- **Typography fine-tuning (#50)** — many small fixes, see commit history. Notably font weights remapped: GT Standard Light → 300, Regular → 400 (was 400/500 range — was producing faux-bold).
+- **Leading-compensation pattern (`--gap-*` tokens)** — `site.css` has one `@supports (text-box-trim: trim-both)` block toggling four semantic gap tokens. Spots that need a gap only when leading is trimmed (project header lines, card-caption, project-desc paragraphs, travel-grid list items) read the token directly. Single source of truth.
+- **Heading / paragraph color swap on about page** — h2/h3 now use `--text` (foreground), body paragraphs use `--muted` (mid), per Figma node 223:3281.
+- **GitHub Pages disabled** — the repo had Pages turned on (source: main root) which was generating failure-build emails on every push since the site is actually deployed via Netlify. Pages turned off.
+
 ### 2026-05-13
 - **Flexible categories (#54, #66, #67)** — the filter bar is driven by `settings.categories` in the CMS; projects can belong to multiple categories. `cat` is now a YAML list field (was a single string select).
 - **Flexible credits (#54, #72)** — `photographer`/`director`/`bts`/`destination` fixed fields replaced by a `credits_list` of `{ label, value }` pairs. Existing data migrated via `scripts/migrate-credits-fixup.js`.
