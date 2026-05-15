@@ -93,8 +93,8 @@
     --gap-stacked-titles-sm: 0.375rem; /* 6px between card client + card title    */
     --gap-paragraph:         1.5rem;   /* 24px between project-desc paragraphs    */
     --gap-list-item:         1rem;     /* 16px between travel-grid items          */
-    --leading-extra-sm:      0.625rem; /* ~10px additive comp for body-text stacks */
-    --leading-extra-lg:      1.25rem;  /* ~20px additive comp for display stacks   */
+    --leading-extra-sm:      1rem;    /* ~16px additive comp for body-text stacks */
+    --leading-extra-lg:      2rem;    /* ~32px additive comp for display stacks   */
   }
 }
 
