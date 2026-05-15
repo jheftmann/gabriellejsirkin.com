@@ -2,13 +2,11 @@
 title: Italian Gestures for Modern Life
 cat:
   - name: Visual Direction
-    position: 1
-  - name: Production
-    position: 1
+    position: 30
 client: ''
 date: ''
 credits_list:
-  - label: Creative Direction, Concept & Hand Model
+  - label: Concept, Creative Direction and Hand Model
     value: Gabrielle J Sirkin
   - label: Photographer
     value: Julia Stotz
@@ -47,10 +45,10 @@ media:
   - file: 18_ItalianHandGestures_6489.jpg
   - file: 19_ItalianHandGestures_6325.jpg
   - file: 20_ItalianHandGestures_6348.jpg
-director: ''
-bts: ''
-destination: ''
 filter: personal
+destination: ''
+bts: ''
+director: ''
 photographer: ''
 card_ratio: r-16-9
 card_placeholder: Personal Work

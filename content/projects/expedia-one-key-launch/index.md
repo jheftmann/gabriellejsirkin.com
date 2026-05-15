@@ -2,11 +2,11 @@
 title: One Key Credit Card
 cat:
   - name: Visual Direction
-    position: 10
+    position: 5
   - name: Production
-    position: 10
+    position: 20
   - name: Brand Strategy
-    position: 10
+    position: 15
 client: Expedia
 date: '2023'
 credits_list:
@@ -80,10 +80,10 @@ media:
   - file: 28_C8CE1157-05E7-4989-9735-24CB455AFEAA_1_105_c.jpeg
     caption: ''
     bts: true
-director: ''
-bts: Gabrielle J Sirkin
-destination: ''
 filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: ''
 photographer: Ronan Gallagher
 card_ratio: r-16-9
 card_placeholder: Egypt · Mallorca · Madrid

@@ -4,7 +4,7 @@ cat:
   - name: Visual Direction
     position: 1
   - name: Production
-    position: 1
+    position: 30
 client: Hotels.com
 date: ''
 credits_list:
@@ -70,10 +70,10 @@ media:
     caption: ''
   - file: 27_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_1033.jpg
     caption: ''
-director: ''
-bts: ''
-destination: ''
 filter: brand
+destination: ''
+bts: ''
+director: ''
 photographer: Maureen M Evans, Robert Rieger, Simon Watson
 card_ratio: r-9-16
 card_placeholder: Dubai · Çeşme

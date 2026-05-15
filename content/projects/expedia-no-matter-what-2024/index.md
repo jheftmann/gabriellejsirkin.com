@@ -2,11 +2,9 @@
 title: Made To Travel 2024
 cat:
   - name: Visual Direction
-    position: 5
+    position: 10
   - name: Production
-    position: 5
-  - name: Brand Strategy
-    position: 5
+    position: 40
 client: Expedia
 date: ''
 credits_list:
@@ -73,10 +71,10 @@ media:
     bts: true
   - file: 25_BEX_NMW_SICILY_LAPRAIOLA_THERIN_1820_V03TUB.jpg
     caption: ''
-director: Adam Newport Barra
-bts: Gabrielle J Sirkin
-destination: ''
 filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: Adam Newport Barra
 photographer: Nico Therin
 card_ratio: r-16-9
 card_placeholder: Dolomites · Rome · Sicily
