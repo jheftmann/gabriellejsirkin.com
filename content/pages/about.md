@@ -24,6 +24,7 @@ bio: |-
 
   She is also a prolific traveler and storyteller. Bringing a strong sense of visual language, she  documents the world through photography and short films with the same curiosity and intention she brings to branded productions. She speaks Spanish conversationally and Italian fluently and holds dual citizenship. 
 
+  Recognition:
   Her work has been recognized with a Cannes Silver Lion, Emmy Nomination, ADC Awards, American Photography, and Gold, Silver & Merit awards from the Society of Publication Designers.
 og_title: ''
 og_description: ''
