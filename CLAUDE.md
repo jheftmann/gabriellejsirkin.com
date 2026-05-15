@@ -249,6 +249,22 @@ This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
 
 ## Changelog
 
+### 2026-05-14 / 15 — Per-category order + CMS bugs + spacing convergence (closes #50, #53, #57, #59, #62, #66, #69, #70, #75–88)
+- **Per-category project order (#86)** — `cat` is now a list of `{name, position}` objects. `build.js` emits one `data-order-<slug>="N"` per category on each card (+ `data-order-all`); `assets/js/index.js` sorts via `getAttribute('data-order-' + filter)`. Single migration script (`scripts/migrate-cat-with-positions.js`) ran against all 33 projects.
+- **Sveltia "+ Add" widget fix (#84)** — schema change above also flipped `field:` (singular) → `fields:` (plural) on the `cat` list widget, which makes Sveltia's Add button work reliably.
+- **Publish merge-conflict (#85)** — `assets/css/travel.css` was deleted from main in #83 but the sync-draft action only *copied* files. Removed the orphan from draft and rewrote `.github/workflows/sync-draft.yml` to mirror deletions: lists files in managed paths on both branches and `git rm` any present on draft but missing on main. Managed paths expanded to all of `assets/` (so `assets/fonts/` and `assets/images/` sync).
+- **Skills as dynamic list** — about-page skills replaced 8 fixed fields (`skill1_name`…`skill4_desc`) with `skills_list` list widget. build.js falls back to legacy fields if `skills_list` is absent.
+- **Leading-compensation pattern** — `site.css` `@supports (text-box-trim: trim-both)` toggles four semantic `--gap-*` tokens (one source of truth) for project header gap, card-caption gap, project-desc paragraph margin, travel-grid li margin. Used directly at each call site — adding a new spot is a one-liner with no per-file `@supports`.
+- **About-page spacing — Figma exact** — Figma itself uses `text-box-trim`, so its values are already trim-aware. Use them flat (no additive comp). The about page now pixel-matches Figma in trimmed engines (modern Chrome/Safari/iOS); untrimmed engines render slightly looser. Optimize for the trim engines.
+- **Card hover** — opacity 0.8 only (no blur). (#80)
+- **Filter-select arrow** — typeface down-arrowhead glyph (U+2304) via `::after`, not SVG. (#81)
+- **Markdown + links in CMS text fields** — `marked.parseInline()` on `bio`, `approach`, services/clients/cities lists, skill name/desc. `[text](url)` and raw HTML both work.
+- **Font weights** — remapped GT Standard `@font-face`: Light → `font-weight: 300`, Regular → `400`. Was 400/500 range with only Regular file, producing browser faux-bold. Verified per *A List Apart* "Say No to Faux Bold" article.
+- **Sveltia color theme #7** — values from Figma node 237:4416. (#75)
+- **Favicon** — coral circle on light-blue (Figma 224:4154). PNG regenerated via sharp.
+- **GitHub Pages disabled** — was sending failure-build emails on every main push since Netlify (not Pages) is the deploy target.
+- **Workflow**: standardized on `feature/<short-name>` branches → push branch → merge to main → push main → delete branch local + remote. Direct pushes to main only for trivial one-line fixes.
+
 ### 2026-05-13 — Layout & spacing pass (closes #54, #61, #63, #64, #65)
 - **Dynamic categories (#54):** `settings.categories` list field added to CMS; filter bar order is fully CMS-driven. Old hardcoded `FILTER_ORDER`/`CAT_TO_FILTER` removed from `build.js`. `cat` field changed from `select` → `string` widget
 - **Flexible credits_list:** `credits_list` YAML list replaces hardcoded `photographer`/`director`/`bts`/`destination` fields. Migration script at `scripts/migrate-categories-credits.js`
