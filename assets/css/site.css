@@ -81,6 +81,11 @@
   --gap-stacked-titles-sm: 0;       /* small display (card client + title)  */
   --gap-paragraph:         0;       /* 24px display paragraphs              */
   --gap-list-item:         0.375rem; /* 6px base — list items always need a little separation */
+  /* ADDITIVE leading-extra — for spots where the BASE margin/gap is already
+     non-zero (e.g. .bio-para has margin-bottom: 1.5rem). Combine via calc()
+     so trimmed engines get a small bump to mimic the lost leading. */
+  --leading-extra-sm:      0;       /* ~14–16px body text   */
+  --leading-extra-lg:      0;       /* ~24px display body   */
 }
 @supports (text-box-trim: trim-both) {
   :root {
@@ -88,6 +93,8 @@
     --gap-stacked-titles-sm: 0.375rem; /* 6px between card client + card title    */
     --gap-paragraph:         1.5rem;   /* 24px between project-desc paragraphs    */
     --gap-list-item:         1rem;     /* 16px between travel-grid items          */
+    --leading-extra-sm:      0.375rem; /* ~6px additive comp for body-text stacks */
+    --leading-extra-lg:      0.75rem;  /* ~12px additive comp for display stacks  */
   }
 }
 
