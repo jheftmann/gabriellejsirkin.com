@@ -90,6 +90,23 @@ git merge origin/draft --no-edit -X ours
 git push origin main
 ```
 
+### Verify publish-readiness after every deploy
+**Required final step** after pushing to `main` and before saying "deployed": confirm that the next time Gabrielle clicks **Publish to Live** in the CMS it will succeed. The publish tool POSTs `base=main, head=draft` to GitHub's `/merges` API — a 409 returns the red "Merge conflict between draft and main" banner she saw, which is bad UX and blocks her work.
+
+Run this check:
+```bash
+gh api repos/jheftmann/gabriellejsirkin.com/compare/main...draft \
+  --jq '{ahead_by, behind_by, status}'
+# Then also test the merge can resolve:
+git fetch origin
+git merge-tree --write-tree --no-messages origin/main origin/draft > /tmp/m.txt
+grep -E "^<<<<<<<|CONFLICT" /tmp/m.txt   # empty = clean merge
+```
+
+If `merge-tree` shows conflicts (typically when both branches edited the same content file): merge draft into main locally with `-X theirs` (favors Gabrielle's edits — she's the source of truth for content), push to main, then sync main → draft so they re-align. After resolving, re-run the check to confirm clean.
+
+**Especially important** when this session touched any file under `content/` — those are the files Gabrielle is also editing through the CMS, so they're prime conflict candidates.
+
 ## npm scripts
 - `npm start` — build watcher + live-server + auto-sync (all three in parallel)
 - `npm run sync` — pull latest content from origin/draft and rebuild (local preview)
