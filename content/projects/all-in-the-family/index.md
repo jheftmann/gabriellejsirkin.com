@@ -32,10 +32,10 @@ media:
     caption: "BUCATINI of the Spaghetti Family  REGION: Lazio, Central Italy RECIPE: Bucatini All'Amatriciana"
     bts: false
   - file: 02_PastaFamilies_11749.jpg
-    caption: ''
+    caption: 'BUSTATE of the Short Family  REGION: Sicily, Southern Italy RECIPE: Pesto Trapanese'
     bts: false
   - file: 03_PastaFamilies_12072.jpg
-    caption: ''
+    caption: 'GNOCCHI of the Dumpling Family  REGION: Piemonte, Veneto, Northern Italy RECIPE: Genovese Broccoli Pesto'
     bts: false
   - file: 04_PastaFamilies_12556-V2.jpg
     caption: ''
@@ -44,16 +44,16 @@ media:
     caption: ''
     bts: false
   - file: 06_PastaFamilies_11817.jpg
-    caption: ''
+    caption: 'RIGATONI of the Tubular Family  REGION: All of Southern Italy RECIPE: Alla Diavola'
     bts: false
   - file: 07_PastaFamilies_12212.jpg
-    caption: ''
+    caption: 'PASTINA of the Micro Family  REGION: All of Italy RECIPE: Pastina in Brodo'
     bts: false
   - file: 08_PastaFamilies_11550.jpg
-    caption: ''
+    caption: 'ORECCHIETTE of the Shell Family  REGION: Puglia, Southern Italy RECIPE: Orecchiette with Cime di Rapa'
     bts: false
   - file: 09_PastaFamilies_12371.jpg
-    caption: ''
+    caption: 'TORTELLI of the Stuffed Family  REGION: Parma, Northern Italy RECIPE: Brown Butter, Sage, and Ricotta Salata'
     bts: false
   - file: 10_Bucatini.mp4
     caption: ''
