@@ -8,8 +8,12 @@ cat:
 client: Beats by Dre
 date: ''
 credits_list:
-  - label: Photographers & Directors
+  - label: Photographer
     value: Dan Hall, Wukda
+  - label: Director
+    value: Wukda
+  - label: BTS
+    value: Gabrielle J Sirkin
 order_all: 130
 description: ''
 credits: ''
@@ -35,10 +39,10 @@ media:
     bts: true
   - file: 09_Beats-Mash-Harden-0200_Crop.jpeg
     caption: ''
-filter: brand
-destination: ''
-bts: Gabrielle J Sirkin
 director: Wukda
+bts: Gabrielle J Sirkin
+destination: ''
+filter: brand
 photographer: Dan Hall and Wukda
 card_ratio: r-4-3
 card_placeholder: Camo
