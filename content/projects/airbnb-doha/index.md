@@ -18,10 +18,18 @@ destination: ''
 bts: ''
 director: ''
 media:
-  - 01_ABB040118PHOTOMangalDosha_lo-1.jpg
-  - 02_ABB040118PHOTOMangalDosha_lo-2.jpg
-  - 03_ABB040118PHOTOMangalDosha_lo-3.jpg
-  - 04_ABB040118PHOTOMangalDosha_lo-4.jpg
+  - file: 01_ABB040118PHOTOMangalDosha_lo-1.jpg
+    caption: ""
+    bts: false
+  - file: 02_ABB040118PHOTOMangalDosha_lo-2.jpg
+    caption: ""
+    bts: false
+  - file: 03_ABB040118PHOTOMangalDosha_lo-3.jpg
+    caption: ""
+    bts: false
+  - file: 04_ABB040118PHOTOMangalDosha_lo-4.jpg
+    caption: ""
+    bts: false
 photographer: Julia Sellmann
 card_ratio: r-4-3
 card_placeholder: Doha

@@ -213,11 +213,12 @@ body[data-theme="services"] .about-layout > .about-headline {
     gap: 2.25rem;          /* 36px — Figma h2 → first subsection on mobile */
     margin-bottom: 3.75rem; /* 60px — Figma between-sections on mobile */
   }
-  .row-label,
-  .sidebar-label { font-size: 1.75rem; } /* 28px = Size/XL on mobile */
+  .row-label     { font-size: 1.75rem; } /* 28px = Size/XL on mobile (h2 section headings) */
+  .sidebar-label { font-size: 1.25rem; } /* 20px on mobile — same h3 scale as .skill-name (#89) */
   .skill-name    { font-size: 1.25rem; } /* 20px on mobile (was 16px) — keep hierarchy above 16px body */
   .bio-para,
   .services-text { font-size: 1rem; } /* 16px = Size/Base on mobile (applies to .bio-para inside .travel-grid li too) */
   .skill-desc { font-size: 1rem; }
-  .sidebar-bio  { font-size: 0.875rem; } /* 14px on mobile, 12px on laptop+ (#50 — p - style) */
+  .sidebar-bio,
+  .sidebar-email { font-size: 0.875rem; } /* 14px on mobile, 12px on laptop+ (#50 — p - style; #89 email matches bio) */
 }
