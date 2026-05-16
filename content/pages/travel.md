@@ -18,20 +18,20 @@ services:
   - Visual Strategy and Direction
   - Visual Research and Curation
   - Content Creation
-  - Shoot Production & Project Management
-  - Art Direction & Shoot Supervision
-  - Budget Optimization & Efficiency
+  - Production and Project Management
+  - Art Direction and Shoot Supervision
+  - Budget Optimization and Efficiency
   - Creative Team Building
-  - Collaborations & Special Projects
+  - Collaborations and Special Projects
   - Travel Trend Reporting
-  - Trip Planning & Creation
+  - Trip Planning and Creation
   - Personalized Digital Guidebooks
 clients:
-  - Emerging Hospitality & Travel Brands
-  - Hotel & Hospitality Groups
+  - Emerging Hospitality and Travel Brands
+  - Hotel and Hospitality Groups
   - Creative Agencies
   - Travel Advisors
-  - Tourism Boards & Organizations
+  - Tourism Boards and Organizations
   - + More
 city_guides_intro: Having spent many years building itineraries and maps around the world, I have put together city map guides for some of my favorite destinations. Designed specifically for the curious and engaged travelers who are never looking but find the unexpected. Included are some my favorite restaurants, bars, galleries, museums, shopping, activities and more.
 cities:
