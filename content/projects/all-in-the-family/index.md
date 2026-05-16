@@ -32,7 +32,7 @@ media:
     caption: "BUCATINI of the Spaghetti Family  REGION: Lazio, Central Italy RECIPE: Bucatini All'Amatriciana"
     bts: false
   - file: 02_PastaFamilies_11749.jpg
-    caption: 'BUSTATE of the Short Family  REGION: Sicily, Southern Italy RECIPE: Pesto Trapanese'
+    caption: 'BUSITATE of the Short Family  REGION: Sicily, Southern Italy RECIPE: Pesto Trapanese'
     bts: false
   - file: 03_PastaFamilies_12072.jpg
     caption: 'GNOCCHI of the Dumpling Family  REGION: Piemonte, Veneto, Northern Italy RECIPE: Genovese Broccoli Pesto'
