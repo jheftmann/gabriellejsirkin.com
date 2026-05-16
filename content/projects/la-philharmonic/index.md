@@ -2,11 +2,11 @@
 title: 2017/2018 Season Campaign
 cat:
   - name: Visual Direction
-    position: 30
+    position: 75
   - name: Brand Strategy
-    position: 30
+    position: 20
   - name: Production
-    position: 30
+    position: 45
 client: LA Philharmonic
 date: ''
 credits_list:
@@ -42,10 +42,10 @@ media:
   - file: LAPhil_BTS.mp4
     caption: ''
     bts: true
-director: ''
-bts: Gabrielle J Sirkin
-destination: ''
 filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: ''
 photographer: Erik Madigan Heck
 card_ratio: r-3-4
 card_placeholder: LA Philharmonic

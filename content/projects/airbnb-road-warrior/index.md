@@ -2,9 +2,9 @@
 title: The Road Warrior
 cat:
   - name: Visual Direction
-    position: 45
+    position: 60
   - name: Production
-    position: 45
+    position: 55
 client: Airbnb Magazine
 date: '2019'
 credits_list:
@@ -22,10 +22,10 @@ media:
   - file: 04_ABB060119BarbadosTennis_lo-4.jpg
   - file: 05_ABB060119BarbadosTennis_lo-5.jpg
   - file: 06_ABB060119BarbadosTennis_lo-6.jpg
-director: ''
-bts: ''
-destination: ''
 filter: editorial
+destination: ''
+bts: ''
+director: ''
 photographer: Thomas Prior
 card_ratio: r-3-4
 card_placeholder: Travel

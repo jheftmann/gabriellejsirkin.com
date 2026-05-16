@@ -1,12 +1,10 @@
 ---
 title: Limited Edition
 cat:
-  - name: Visual Direction
-    position: 35
   - name: Production
-    position: 35
+    position: 10
   - name: Brand Strategy
-    position: 35
+    position: 25
 client: Beats by Dre
 date: ''
 credits_list:
@@ -37,10 +35,10 @@ media:
     bts: true
   - file: 09_Beats-Mash-Harden-0200_Crop.jpeg
     caption: ''
-director: Wukda
-bts: Gabrielle J Sirkin
-destination: ''
 filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: Wukda
 photographer: Dan Hall and Wukda
 card_ratio: r-4-3
 card_placeholder: Camo

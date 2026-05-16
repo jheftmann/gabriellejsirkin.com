@@ -2,11 +2,9 @@
 title: More Magazine
 cat:
   - name: Visual Direction
-    position: 15
+    position: 40
   - name: Production
-    position: 15
-  - name: Curation
-    position: 15
+    position: 5
 client: ''
 date: 2012 - 2015
 credits_list:
@@ -20,6 +18,7 @@ color_theme: colorway-4
 thumbnail: 102-109+MR1015+WellClarissaWard-2 copy.jpg
 media:
   - file: 01_068-073+126+MR0515+JessicaAlbacoverstory-1.jpeg
+    caption: ''
   - file: 02_image-asset.jpeg
   - file: 03_102-109+MR1015+WellClarissaWard-2.jpeg
   - file: 04_098-105+MR0415+Radack-1.jpeg
@@ -29,9 +28,9 @@ media:
   - file: 08_015-024+MR0515+Best+of+the+Best-5.jpeg
   - file: 09_082-089+MR1112+Padma-1+copy.jpeg
   - file: 10_084-091+MR0216+Well_Hong+Kong_S-1.jpeg
-director: ''
-bts: ''
 destination: ''
+bts: ''
+director: ''
 photographer: Kenji Aoki, Karen Collins, Adrian Gaut, Peter Hapak, Derek Henderson, Nadav Kander, Phillipe Lacombe, Paul Jung, David Slijper, Dan Winters
 card_ratio: r-4-3
 ---

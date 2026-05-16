@@ -4,13 +4,13 @@ cat:
   - name: Curation
     position: 10
   - name: Visual Direction
-    position: 10
-  - name: Production
-    position: 10
+    position: 20
+  - name: Curation
+    position: 5
 client: ''
 date: ''
 credits_list:
-  - label: Visual Direction & Production
+  - label: Visual Direction and Production
     value: Sabrina Bajaj, Chelsea Gold, Gabrielle Sirkin and Audrey Viola
   - label: Design
     value: Samantha Kim
@@ -27,9 +27,9 @@ thumbnail: 01_AGHP_Post3.mp4
 media:
   - file: 01_AGHP_Post3.mp4
     caption: ''
-  - file: 02_Screenshot 2026-03-07 at 5.37.55 PM.jpg
+  - file: Screenshot 2026-03-07 at 5.37.55 PM.png
     caption: ''
-  - file: 03_Screenshot 2026-03-07 at 5.38.06 PM.jpg
+  - file: Screenshot 2026-03-07 at 5.38.06 PM.png
     caption: ''
   - file: 04_AGHP_Post-01.jpg
     caption: ''
@@ -43,10 +43,10 @@ media:
     caption: ''
   - file: 10_IG-21.jpg
     caption: ''
-director: ''
-bts: ''
-destination: ''
 filter: personal
+destination: ''
+bts: ''
+director: ''
 photographer: Multiple
 card_ratio: r-3-4
 card_placeholder: Curation

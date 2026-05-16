@@ -1,8 +1,6 @@
 ---
 title: The Forest and the Finca
 cat:
-  - name: Visual Direction
-    position: 25
   - name: Production
     position: 25
 client: Airbnb Magazine
@@ -18,11 +16,13 @@ color_theme: colorway-7
 thumbnail: ABB080119TravelWithPurpose_lo-1.jpg
 media:
   - file: ABB080119TravelWithPurpose_lo-1__layout.jpg
+    caption: ''
   - file: ABB080119TravelWithPurpose_lo-2.jpg
+    caption: ''
   - file: ABB080119TravelWithPurpose_lo-3.jpg
-director: ''
-bts: ''
 destination: ''
+bts: ''
+director: ''
 photographer: Rose Marie Cromwell
 card_ratio: r-4-3
 ---

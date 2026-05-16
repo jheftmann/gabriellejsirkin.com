@@ -2,11 +2,11 @@
 title: Made To Travel
 cat:
   - name: Visual Direction
-    position: 25
+    position: 45
   - name: Production
-    position: 25
+    position: 15
   - name: Brand Strategy
-    position: 25
+    position: 1
 client: Expedia
 date: '2023'
 credits_list:
@@ -68,10 +68,10 @@ media:
     bts: true
   - file: 22_BEX_SF OOH CAPTURE_IA.jpg
     caption: ''
-director: ''
-bts: Gabrielle J Sirkin
-destination: ''
 filter: brand
+destination: ''
+bts: Gabrielle J Sirkin
+director: ''
 photographer: Nico Therin and Joao Canziani
 card_ratio: r-3-4
 card_placeholder: Africa · Cape Town · Hoedspruit

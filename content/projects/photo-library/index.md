@@ -2,11 +2,9 @@
 title: Photo Library
 cat:
   - name: Visual Direction
-    position: 15
-  - name: Production
-    position: 15
+    position: 25
   - name: Brand Strategy
-    position: 15
+    position: 10
 client: Vrbo
 date: '2025'
 credits_list:
@@ -37,9 +35,9 @@ media:
     caption: ''
   - file: 09_VRB00101_Library_Shoot_Urban_Loft_AnaisDax_5643_R2_Final.jpg
     caption: ''
-director: ''
-bts: ''
 destination: ''
+bts: ''
+director: ''
 photographer: Anaïs and Dax
 card_ratio: r-4-3
 ---
