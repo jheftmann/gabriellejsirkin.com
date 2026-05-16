@@ -8,7 +8,7 @@ cat:
 client: Hotels.com
 date: ''
 credits_list:
-  - label: Photographers
+  - label: Photographer
     value: Maureen M Evans, Robert Rieger, Simon Watson
 order_all: 45
 description: ''
@@ -70,10 +70,10 @@ media:
     caption: ''
   - file: 27_PD2_00227_HCOM_ICA_DUBAI_BAB_AL_SHAMS_1033.jpg
     caption: ''
-filter: brand
-destination: ''
-bts: ''
 director: ''
+bts: ''
+destination: ''
+filter: brand
 photographer: Maureen M Evans, Robert Rieger, Simon Watson
 card_ratio: r-9-16
 card_placeholder: Dubai · Çeşme
