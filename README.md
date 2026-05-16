@@ -75,6 +75,8 @@ The category filter bar on the homepage ("All / Visual Direction / Content Creat
 
 If a project's Categories field is empty, it won't appear in any tab — including "All".
 
+**Setting position on each tab:** each Categories row has a **Position** number — that's the position on that tab. To control position on the **All** tab, you can either (a) fill in the **Order on the All tab** field below, or (b) add a Categories row named **All** with the desired Position — the row's position takes precedence if both are set.
+
 ### Credits
 
 The credits section on each project page is built from the **Credits** field (a list of label/value pairs). Examples: `Photographer / Julia Sellmann`, `Stylist / Jane Smith`, `Producer / John Doe`.

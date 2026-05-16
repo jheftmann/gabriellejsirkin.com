@@ -54,7 +54,7 @@ collections:
           - { name: value, label: Value, widget: string }
 
       - { name: order_all, label: 'Order on the All tab', widget: number, required: false,
-          hint: 'Controls position on the All tab. Leave blank to sort after numbered projects. (Per-category order is set inside each Categories row above.)' }
+          hint: 'Position on the All tab. Tip: you can also add a Categories row with name "All" — its position will override this field. Per-category order is set inside each Categories row above.' }
 
       - { name: description, label: Description, widget: text, required: false,
           hint: 'Shown in the project header above the meta fields.' }

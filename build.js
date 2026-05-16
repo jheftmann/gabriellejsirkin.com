@@ -32,6 +32,19 @@ function slugify(str) {
 // ─── Frontmatter parser ──────────────────────────────────────────────────────
 // Handles flat key: value pairs and simple YAML arrays (key: / - item)
 
+// Coerce a raw YAML scalar string to a JS value.
+// Quoted values stay as strings (caller already stripped quotes). For unquoted
+// scalars: `true`/`false` → boolean, empty `[]` → empty array, otherwise string.
+// Numbers are left as strings since most call sites parseInt them explicitly.
+function coerceScalar(raw, wasQuoted) {
+  if (wasQuoted) return raw;
+  if (raw === 'true')  return true;
+  if (raw === 'false') return false;
+  if (raw === 'null' || raw === '~') return null;
+  if (raw === '[]')    return [];
+  return raw;
+}
+
 function parseFrontmatter(text) {
   const fm = {};
   let body = text;
@@ -50,6 +63,14 @@ function parseFrontmatter(text) {
         fm[arrayKey].push(keys.length === 1 ? arrayItemObj[keys[0]] : arrayItemObj);
         arrayItemObj = null;
       }
+    }
+
+    // Strip surrounding quotes (single or double) and return [unquoted, wasQuoted].
+    function unquote(s) {
+      if ((s.startsWith("'") && s.endsWith("'")) || (s.startsWith('"') && s.endsWith('"'))) {
+        return [s.slice(1, -1), true];
+      }
+      return [s, false];
     }
 
     for (const line of lines) {
@@ -73,11 +94,11 @@ function parseFrontmatter(text) {
           const kv2 = v.match(/^(\w+):\s*(.*)$/);
           if (kv2) {
             // Object-style item: start accumulating a multi-key object
-            let val = kv2[2].trim();
-            if ((val.startsWith("'") && val.endsWith("'")) || (val.startsWith('"') && val.endsWith('"'))) val = val.slice(1, -1);
-            arrayItemObj = { [kv2[1]]: val };
+            const [val, wasQuoted] = unquote(kv2[2].trim());
+            arrayItemObj = { [kv2[1]]: coerceScalar(val, wasQuoted) };
           } else {
-            fm[arrayKey].push(v); // plain string item
+            const [val, wasQuoted] = unquote(v);
+            fm[arrayKey].push(coerceScalar(val, wasQuoted)); // plain item
           }
           continue;
         }
@@ -85,9 +106,8 @@ function parseFrontmatter(text) {
         if (arrayItemObj !== null) {
           const cont = line.match(/^\s+(\w+):\s*(.*)$/);
           if (cont) {
-            let val = cont[2].trim();
-            if ((val.startsWith("'") && val.endsWith("'")) || (val.startsWith('"') && val.endsWith('"'))) val = val.slice(1, -1);
-            arrayItemObj[cont[1]] = val;
+            const [val, wasQuoted] = unquote(cont[2].trim());
+            arrayItemObj[cont[1]] = coerceScalar(val, wasQuoted);
             continue;
           }
         }
@@ -102,11 +122,8 @@ function parseFrontmatter(text) {
       if (ka) { arrayKey = ka[1]; fm[arrayKey] = []; arrayItemObj = null; continue; }
       const kv = line.match(/^(\w+):\s*(.+)$/);
       if (kv) {
-        let val = kv[2].trim();
-        if ((val.startsWith("'") && val.endsWith("'")) || (val.startsWith('"') && val.endsWith('"'))) {
-          val = val.slice(1, -1);
-        }
-        fm[kv[1].trim()] = val;
+        const [val, wasQuoted] = unquote(kv[2].trim());
+        fm[kv[1].trim()] = coerceScalar(val, wasQuoted);
       }
     }
     // Flush any trailing block scalar or array item
@@ -193,18 +210,26 @@ function loadProjects() {
               cats = raw.split(',').map(s => s.trim()).filter(Boolean)
                 .map(name => ({ name, position: legacyOrder }));
             }
+            // "All" is a virtual filter tab — not a real category. If it appears in
+            // the cat list, treat its position as the All-tab order and remove it
+            // from the real category list so it doesn't double as a filter slug.
+            const allEntry = cats.find(c => c.name.toLowerCase() === 'all');
+            const realCats = cats.filter(c => c.name.toLowerCase() !== 'all');
+            const allFromCat = allEntry && allEntry.position != null ? allEntry.position : null;
+            const orderAllFromField = fm.order_all != null ? parseInt(fm.order_all, 10) : null;
             return {
-              cat:        cats.map(c => c.name).join(', '),
-              filters:    cats.map(c => slugify(c.name)),
-              filter:     slugify(cats[0]?.name || ''),
-              catOrders:  cats.reduce((m, c) => {
+              cat:        realCats.map(c => c.name).join(', '),
+              filters:    realCats.map(c => slugify(c.name)),
+              filter:     slugify(realCats[0]?.name || ''),
+              catOrders:  realCats.reduce((m, c) => {
                             if (c.position != null) m[slugify(c.name)] = c.position;
                             return m;
                           }, {}),
+              // Prefer the "All" cat-list entry's position; fall back to the legacy order_all field.
+              orderAll:   allFromCat != null ? allFromCat : orderAllFromField,
             };
           })(),
           date:        fm.date     || '',
-          orderAll:    fm.order_all != null ? parseInt(fm.order_all, 10) : null,
           description: fm.description || '',
           credits:     fm.credits     || '',
           creditsList: Array.isArray(fm.credits_list) ? fm.credits_list : [],
@@ -214,7 +239,7 @@ function loadProjects() {
           thumbnail:    fm.thumbnail    || '',
           cardImage:    { placeholder: fm.card_placeholder || '' },
           colorTheme:   fm.color_theme  || 'default',
-          comingSoon:   fm.coming_soon === 'true',
+          comingSoon:   fm.coming_soon === true || fm.coming_soon === 'true',
           media:        Array.isArray(fm.media) && fm.media.length > 0
                           ? fm.media
                           : (Array.isArray(fm.images) && fm.images.length > 0
