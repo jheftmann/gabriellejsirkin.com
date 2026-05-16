@@ -42,7 +42,7 @@ media:
     bts: false
   - file: 05_Bucatini.mp4
     caption: ''
-    bts: false
+    bts: true
   - file: 06_PastaFamilies_11817.jpg
     caption: 'RIGATONI of the Tubular Family  REGION: All of Southern Italy RECIPE: Alla Diavola'
     bts: false
@@ -57,10 +57,10 @@ media:
     bts: false
   - file: 10_Bucatini.mp4
     caption: ''
-    bts: false
+    bts: true
   - file: 11_7B07A93A-A6FD-44E2-AAF6-A22ECBC4D512_1_102_o.jpeg
     caption: ''
-    bts: false
+    bts: true
   - file: 12_Bucatini.mp4
     caption: ''
     bts: false
