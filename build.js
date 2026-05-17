@@ -230,7 +230,9 @@ function loadProjects() {
             };
           })(),
           date:        fm.date     || '',
-          description: fm.description || '',
+          // Parse description as full markdown at build time so links and other
+          // inline markdown work the same as the project markdown body / about-page bio.
+          description: fm.description ? marked.parse(fm.description) : '',
           credits:     fm.credits     || '',
           creditsList: Array.isArray(fm.credits_list) ? fm.credits_list : [],
           skills:      typeof fm.skills === 'string'
