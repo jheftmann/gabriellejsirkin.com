@@ -117,14 +117,20 @@ figcaption {
 /* MOBILE */
 @media (max-width: 767px) {
   .project-header { padding-top: 2rem; } /* matches Figma 94px title position on mobile */
-  .project-credits { flex-direction: column; gap: 1.125rem; } /* 18px — Figma mobile credits gap */
-  .credit-item { max-width: none; } /* unbound on mobile so values don't force unnecessary wrapping */
+  .project-credits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;        /* 24px between the two columns */
+    row-gap: 1.125rem;         /* 18px between rows */
+    flex-direction: initial;   /* override the desktop flex layout */
+  }
+  .credit-item { max-width: none; width: auto; } /* fill the grid cell, no desktop cap */
   .credit-value { font-size: 1rem; } /* 16px on mobile */
   .project-desc p { font-size: 1.125rem; } /* 18px on mobile */
 
   /* Single column with x stagger: odd flush left, even flush right, both 92% wide */
   .project-images { grid-template-columns: 1fr; }
-  .project-images > * { margin-bottom: 3rem; }
+  .project-images > * { margin-bottom: 4.5rem; } /* 72px — enough room when a figure has a multi-line caption */
   .project-images > *:nth-child(even) { margin-top: 0; width: 92%; margin-left: auto; }
   .project-images > *:nth-child(odd)  { width: 92%; }
   /* BTS images: half width, centered (#53) */
