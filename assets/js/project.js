@@ -49,8 +49,9 @@ function getParams() {
 
   document.getElementById('pCredits').innerHTML = credits;
 
-  // Description — prefer markdown body, fall back to description frontmatter field
-  var descText = (p.contentHtml && p.contentHtml.desc) || (p.description ? '<p>' + p.description.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') + '</p>' : null);
+  // Description — prefer markdown body, fall back to description frontmatter field.
+  // Both are parsed to HTML at build time, so use as-is.
+  var descText = (p.contentHtml && p.contentHtml.desc) || p.description || null;
   if (descText) {
     var descEl = document.getElementById('pDesc');
     descEl.innerHTML = descText;
