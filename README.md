@@ -101,7 +101,7 @@ The About bio, the Services intro/approach, the Services / Clients / City Guides
 
 Raw HTML (e.g. `<a href="…">…</a>`) also still works if you prefer.
 
-The project page **Description** (the long body text on a project) also accepts full markdown — paragraphs, lists, headings, links, the lot. The short frontmatter Description summary stays plain text by design.
+The project page **Description** field also accepts full markdown — paragraphs, lists, links, emphasis. Use blank lines to separate paragraphs.
 
 ---
 
