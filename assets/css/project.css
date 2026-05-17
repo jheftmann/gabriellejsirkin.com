@@ -13,7 +13,7 @@
   display: flex;
   gap: 3rem; /* 48px — Figma credits gap */
   align-items: flex-start;
-  padding: 2rem var(--side) 0;
+  padding: 3rem var(--side) 0; /* 48px — matches homepage block rhythm */
   flex-wrap: wrap;
 }
 .credit-item {
@@ -44,7 +44,7 @@
 
 /* DESCRIPTION */
 .project-desc {
-  padding: 2rem var(--side) 0;
+  padding: 3rem var(--side) 0; /* 48px — matches homepage block rhythm */
   max-width: calc(var(--side) + 746px);
 }
 .project-desc p {
