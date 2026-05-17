@@ -72,7 +72,11 @@
 .project-images img   { width: 100%; height: auto; display: block; }
 .project-images video { width: 100%; height: auto; display: block; }
 .project-images p     { display: contents; }
-.project-images figure { margin: 0; }
+/* Zero the default figure margins on top/sides only. Don't use the `margin` shorthand
+   here — it would set margin-bottom: 0 too, and because `.project-images figure` has
+   higher specificity than `.project-images > *`, it'd beat the bottom-gap rule below
+   and figures with captions would crowd the next image. */
+.project-images figure { margin-top: 0; margin-right: 0; margin-left: 0; }
 .project-images figure img,
 .project-images figure video { width: 100%; height: auto; display: block; }
 
