@@ -1,4 +1,4 @@
-.hero { padding: 4.5rem var(--side) 3rem; }
+.hero { padding: 4.5rem var(--side) var(--block-gap); }
 .hero-eyebrow {
   font-family: var(--base);
   font-size: 0.625rem;
@@ -20,7 +20,7 @@
   transition: color var(--transition);
 }
 
-.productions-wrap { padding: 3rem var(--side) 2.5rem; }
+.productions-wrap { padding: var(--block-gap) var(--side) 2.5rem; }
 .section-eyebrow {
   font-family: var(--base);
   font-size: 0.625rem;
@@ -109,7 +109,7 @@
 }
 
 @media (max-width: 767px) {
-  .hero { padding: 3rem var(--side) 2rem; }
+  .hero { padding: var(--block-gap) var(--side) 2rem; }
   .prod-table td.location,
   .prod-table th:nth-child(3) { display: none; }
 }

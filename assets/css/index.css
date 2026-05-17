@@ -1,5 +1,5 @@
 /* HERO */
-.hero { padding: 3rem var(--side) 3rem; }
+.hero { padding: var(--block-gap) var(--side); }
 .hero-title {
   letter-spacing: 0;
   color: var(--text);
@@ -8,7 +8,7 @@
 }
 
 /* FILTER BAR */
-.filter-wrap { padding: 0 var(--side) 3rem; }
+.filter-wrap { padding: 0 var(--side) var(--block-gap); }
 
 .filter-bar {
   display: flex;
@@ -165,7 +165,7 @@
 
 /* MOBILE */
 @media (max-width: 767px) {
-  .hero { padding: 2rem var(--side) 3rem; } /* top: 2rem matches Figma 94px title position; bottom: 3rem matches 48px gap to filter */
+  .hero { padding: 2rem var(--side) var(--block-gap); } /* top: 2rem matches Figma 94px title position on mobile; bottom: shared block-gap */
   .hero-title { max-width: 100%; }
   .filter-bar        { display: none; }
   .filter-select-wrap { display: inline-flex; }

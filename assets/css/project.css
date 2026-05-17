@@ -1,6 +1,6 @@
 /* PROJECT HEADER */
 .project-header {
-  padding: 3rem var(--side) 0;
+  padding: var(--block-gap) var(--side) 0;
   display: flex;
   flex-direction: column;
   gap: var(--gap-stacked-titles-lg); /* 0 in untrimmed engines (leading covers it), 18px when trimmed */
@@ -13,7 +13,7 @@
   display: flex;
   gap: 3rem; /* 48px — Figma credits gap */
   align-items: flex-start;
-  padding: 3rem var(--side) 0; /* 48px — matches homepage block rhythm */
+  padding: var(--block-gap) var(--side) 0;
   flex-wrap: wrap;
 }
 .credit-item {
@@ -44,8 +44,8 @@
 
 /* DESCRIPTION */
 .project-desc {
-  padding: 3rem var(--side) 0; /* 48px — matches homepage block rhythm */
-  max-width: calc(var(--side) + 746px);
+  padding: var(--block-gap) var(--side) 0;
+  max-width: calc(var(--side) + 50vw); /* half the viewport — same intent as .hero-title max-width: 50vw, accounting for side padding */
 }
 .project-desc p {
   font-family: var(--display);
@@ -61,7 +61,7 @@
 
 /* IMAGE GRID */
 .project-images {
-  padding: 3rem var(--side) 1.5rem;
+  padding: var(--block-gap) var(--side) 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: var(--col-gap);

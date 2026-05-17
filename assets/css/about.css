@@ -1,6 +1,6 @@
 /* ABOUT / TRAVEL PAGE LAYOUT */
 .about-page {
-  padding: 3rem var(--side) 1.5rem;
+  padding: var(--block-gap) var(--side) 1.5rem;
 }
 
 .about-layout {
