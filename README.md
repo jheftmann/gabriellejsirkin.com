@@ -90,7 +90,7 @@ The old fixed fields (Photographer, Director, BTS) were merged into this list. A
 
 ### Links and formatting in text fields
 
-The About bio, the Services intro/approach, the Services / Clients / City Guides lists, and the skill descriptions all accept **markdown** — so you can add links and basic emphasis without writing HTML.
+The About bio, the Services intro/approach, the Services / Clients / City Guides lists, the skill descriptions, the project Description, and image **Captions** all accept **markdown** — so you can add links and basic emphasis without writing HTML. Captions and project descriptions also let you use `<br>` for a line break inside a single field.
 
 | You type | What renders |
 |----------|--------------|

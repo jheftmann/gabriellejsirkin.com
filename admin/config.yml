@@ -105,7 +105,7 @@ collections:
         public_folder: ''
         fields:
           - { name: file, label: File, widget: file }
-          - { name: caption, label: Caption, widget: string, required: false, hint: 'Optional caption shown below the image.' }
+          - { name: caption, label: Caption, widget: string, required: false, hint: 'Optional caption shown below the image. Supports markdown links [text](url) and inline HTML — use <br> for a line break.' }
           - { name: bts, label: BTS, widget: boolean, required: false, default: false, hint: 'Mark this image as behind-the-scenes.' }
 
   # ── Pages ──────────────────────────────────────────────────────────────────

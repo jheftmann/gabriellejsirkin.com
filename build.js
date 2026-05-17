@@ -314,7 +314,7 @@ function loadProjects() {
                 ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline${btsAttr}></video>`
                 : cdnImg(src, '', { widths: [600, 900, 1200, 1800], sizes: '(max-width: 1100px) 50vw, 33vw', extra: btsAttr });
               return caption
-                ? `<figure${btsAttr}>${el}<figcaption>${caption}</figcaption></figure>`
+                ? `<figure${btsAttr}>${el}<figcaption>${marked.parseInline(caption)}</figcaption></figure>`
                 : el;
             })
             .join('\n');
