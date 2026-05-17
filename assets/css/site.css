@@ -131,13 +131,11 @@ a:focus-visible,
 button:focus-visible { border-radius: 1px; }
 
 /* INLINE LINKS — markdown-generated links inside content fields inherit the
-   surrounding text color and stay underlined. Class-bearing nav/footer/contact
-   links keep their own styles (they have .nav-links, .footer-links, .contact-link, .label). */
+   surrounding text color, no underline. Class-bearing nav/footer/contact links
+   keep their own styles (they have .nav-links, .footer-links, .contact-link, .label). */
 a:not([class]) {
   color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  text-decoration-thickness: 0.05em;
+  text-decoration: none;
 }
 
 @keyframes page-in {
