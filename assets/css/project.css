@@ -130,7 +130,7 @@ figcaption {
 
   /* Single column with x stagger: odd flush left, even flush right, both 92% wide */
   .project-images { grid-template-columns: 1fr; }
-  .project-images > * { margin-bottom: 4.5rem; } /* 72px — enough room when a figure has a multi-line caption */
+  .project-images > * { margin-bottom: 3rem; } /* 48px between images; figures with captions take their own additional height naturally */
   .project-images > *:nth-child(even) { margin-top: 0; width: 92%; margin-left: auto; }
   .project-images > *:nth-child(odd)  { width: 92%; }
   /* BTS images: half width, centered (#53) */
