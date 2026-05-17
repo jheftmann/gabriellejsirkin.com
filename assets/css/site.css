@@ -70,6 +70,7 @@
   --col:         calc((100vw - 2 * var(--side) - 11 * 1.5rem) / 12); /* 1 column of the 12-col grid */
   --display:     'GT Alpina', serif;
   --base:        'GT Standard', sans-serif;
+  --block-gap:   3rem; /* 48px — vertical breathing room between stacked page sections (hero/filter/grid, project header/credits/desc/images, etc.) */
 
   /* Leading-compensation gaps.
      In engines that don't support text-box-trim, the natural line-box leading
