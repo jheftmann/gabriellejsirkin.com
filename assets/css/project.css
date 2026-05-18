@@ -45,7 +45,11 @@
 /* DESCRIPTION */
 .project-desc {
   padding: var(--block-gap) var(--side) 0;
-  max-width: calc(var(--side) + 50vw); /* half the viewport — same intent as .hero-title max-width: 50vw, accounting for side padding */
+}
+@media (min-width: 768px) {
+  .project-desc {
+    max-width: calc(var(--side) + 50vw); /* half the viewport on laptop+; mobile stays full width */
+  }
 }
 .project-desc p {
   font-family: var(--display);
