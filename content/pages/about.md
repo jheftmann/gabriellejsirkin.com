@@ -6,7 +6,7 @@ sidebar_photo: /assets/images/about.jpg
 skills_list:
   - name: Visual Direction
     description: Through strategic planning and creative leadership, shapes the visual creative language and identity to tell compelling stories, build brand resonance and impact from concept through final delivery.
-  - name: Production & Project Management
+  - name: Production and Project Management
     description: Direct productions and on set supervision fostering highly collaborative environments while driving innovative, scalable cost effective solutions. Scalable systems and strategic thinking that keep complex, multi channel and market projects on time and visually aligned.
   - name: Content Creation
     description: Original immersive travel photography and short films for brands that need owned content. Approach is lead with curiosity, integrity and human connection.
@@ -16,15 +16,14 @@ skills_list:
     description: Build distinctive points of view through strategy led storytelling, campaign development, and visual direction, creating scalable brand systems that drive engagement, cultural relevance, and purposeful connection.
 services_text: Available for creative direction and brand strategy consulting for travel and hospitality brands, as well as independent artists seeking support with creative vision and portfolio development.
 bio: |-
-  Gabrielle J Sirkin brings a rare integration of creative vision and operational precision to every project with a proven ability to craft cohesive, high impact, multidisciplinary work that elevates brands and inspires audiences. 
+  Gabrielle J. Sirkin is a visual director and producer whose work lives at the intersection of craft, travel, and cultural curiosity.
 
-  With two decades of experience spanning major publications, global agencies, and in house at some of the world's most recognized tech brands, Gabrielle has shaped the visual language for brands such as Expedia, Hotels.com, Vrbo, Airbnb, Beats by Dre, Apple, Gatorade, and the LA Philharmonic. She currently serves as Director of Photography at Expedia Group.
+  With two decades of experience spanning major publications, global agencies, and in house at some of the world's most recognized brands, she has shaped the visual language for Expedia, Hotels.com, Vrbo, Airbnb, Beats by Dre, Apple, Gatorade, and the LA Philharmonic. She currently serves as Director of Photography at Expedia Group.
 
-  Her background across fashion, editorial, and branded content, combined with sharp instincts and a deep commitment to craft, allows her to deliver excellence at every stage. Her process is scalable and strategic. Her style is bold, timeless, and rooted in care, driving visual impact and genuine connection. 
+  Her background across fashion, editorial, and branded content gives her a rare ability to move fluidly between worlds bringing the same cohesive, high impact vision to a global campaign as to an intimate, place driven story. Her process is scalable and strategic. Her eye is bold, timeless, and deeply considered.
 
-  She is also a prolific traveler and storyteller. Bringing a strong sense of visual language, she  documents the world through photography and short films with the same curiosity and intention she brings to branded productions. She speaks Spanish conversationally and Italian fluently and holds dual citizenship. 
+  A fluent Italian speaker, conversational in Spanish, and a dual citizen, Gabrielle has spent much of her life moving through the world with intention. She documents the world through photography and short film, a practice that sharpens the same instinct she brings to every brand she works with.
 
-  Recognition:
   Her work has been recognized with a Cannes Silver Lion, Emmy Nomination, ADC Awards, American Photography, and Gold, Silver & Merit awards from the Society of Publication Designers.
 og_title: ''
 og_description: ''
