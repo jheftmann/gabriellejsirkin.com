@@ -9,7 +9,7 @@ skills_list:
   - name: Production & Project Management
     description: Direct productions and on set supervision fostering highly collaborative environments while driving innovative, scalable cost effective solutions. Scalable systems and strategic thinking that keep complex, multi channel and market projects on time and visually aligned.
   - name: Content Creation
-    description: Captures immersive travel photography and short films that explore the essence of a place, culture and people with deep curiosity, integrity and empathy.
+    description: Original immersive travel photography and short films for brands that need owned content. Approach is lead with curiosity, integrity and human connection.
   - name: Visual Curation
     description: With a refined editorial eye, Gabrielle curates and crafts visual libraries that bring clarity and depth to creative projects, brand identity, and storytelling. WIth a tiered approach, we can scale a library of content based on a brand’s particular needs to be distinctive and resonate with audiences.
   - name: Brand Strategy
