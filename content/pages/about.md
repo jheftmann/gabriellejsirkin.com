@@ -6,7 +6,7 @@ sidebar_photo: /assets/images/about.jpg
 skills_list:
   - name: Visual Direction
     description: Through strategic planning and creative leadership, shapes the visual creative language and identity to tell compelling stories, build brand resonance and impact from concept through final delivery.
-  - name: Production & Project Management
+  - name: Production and Project Management
     description: Direct productions and on set supervision fostering highly collaborative environments while driving innovative, scalable cost effective solutions. Scalable systems and strategic thinking that keep complex, multi channel and market projects on time and visually aligned.
   - name: Content Creation
     description: Original immersive travel photography and short films for brands that need owned content. Approach is lead with curiosity, integrity and human connection.
