@@ -38,7 +38,7 @@ media:
     caption: 'GNOCCHI of the Dumpling Family<br>REGION: Piemonte, Veneto, Northern Italy<br>RECIPE: Genovese Broccoli Pesto'
     bts: false
   - file: 04_PastaFamilies_12556-V2.jpg
-    caption: ''
+    caption: 'FETTUCCINE of the Ribbon Family<br>REGION: Umbria, Molise, Central Italy<br>RECIPE: Artichoke and Guanciale Sauce'
     bts: false
   - file: 05_Bucatini.mp4
     caption: ''
