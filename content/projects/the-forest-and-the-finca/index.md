@@ -12,7 +12,7 @@ order_all: 35
 description: ''
 credits: ''
 coming_soon: false
-color_theme: colorway-7
+color_theme: colorway-3
 thumbnail: ABB080119TravelWithPurpose_lo-1.jpg
 media:
   - file: ABB080119TravelWithPurpose_lo-1__layout.jpg
@@ -20,9 +20,9 @@ media:
   - file: ABB080119TravelWithPurpose_lo-2.jpg
     caption: ''
   - file: ABB080119TravelWithPurpose_lo-3.jpg
-destination: ''
-bts: ''
 director: ''
+bts: ''
+destination: ''
 photographer: Rose Marie Cromwell
 card_ratio: r-4-3
 ---
