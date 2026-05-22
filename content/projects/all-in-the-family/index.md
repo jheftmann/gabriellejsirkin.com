@@ -32,10 +32,10 @@ media:
     caption: "BUCATINI of the Spaghetti Family<br>REGION: Lazio, Central Italy<br>RECIPE: Bucatini All'Amatriciana"
     bts: false
   - file: 02_PastaFamilies_11749.jpg
-    caption: 'BUSIATE of the Short Family  REGION: Sicily, Southern Italy RECIPE: Pesto Trapanese'
+    caption: 'BUSIATE of the Short Family<br>REGION: Sicily, Southern Italy<br>RECIPE: Pesto Trapanese'
     bts: false
   - file: 03_PastaFamilies_12072.jpg
-    caption: 'GNOCCHI of the Dumpling Family  REGION: Piemonte, Veneto, Northern Italy RECIPE: Genovese Broccoli Pesto'
+    caption: 'GNOCCHI of the Dumpling Family<br>REGION: Piemonte, Veneto, Northern Italy<br>RECIPE: Genovese Broccoli Pesto'
     bts: false
   - file: 04_PastaFamilies_12556-V2.jpg
     caption: ''
@@ -44,16 +44,16 @@ media:
     caption: ''
     bts: true
   - file: 06_PastaFamilies_11817.jpg
-    caption: 'RIGATONI of the Tubular Family  REGION: All of Southern Italy RECIPE: Alla Diavola'
+    caption: 'RIGATONI of the Tubular Family<br>REGION: All of Southern Italy<br>RECIPE: Alla Diavola'
     bts: false
   - file: 07_PastaFamilies_12212.jpg
-    caption: 'PASTINA of the Micro Family  REGION: All of Italy RECIPE: Pastina in Brodo'
+    caption: 'PASTINA of the Micro Family<br>REGION: All of Italy<br>RECIPE: Pastina in Brodo'
     bts: false
   - file: 08_PastaFamilies_11550.jpg
-    caption: 'ORECCHIETTE of the Shell Family  REGION: Puglia, Southern Italy RECIPE: Orecchiette with Cime di Rapa'
+    caption: 'ORECCHIETTE of the Shell Family<br>REGION: Puglia, Southern Italy<br>RECIPE: Orecchiette with Cime di Rapa'
     bts: false
   - file: 09_PastaFamilies_12371.jpg
-    caption: 'TORTELLI of the Stuffed Family  REGION: Parma, Northern Italy RECIPE: Brown Butter, Sage, and Ricotta Salata'
+    caption: 'TORTELLI of the Stuffed Family<br>REGION: Parma, Northern Italy<br>RECIPE: Brown Butter, Sage, and Ricotta Salata'
     bts: false
   - file: 10_Bucatini.mp4
     caption: ''
@@ -64,10 +64,10 @@ media:
   - file: 12_Bucatini.mp4
     caption: ''
     bts: false
-filter: personal
-destination: ''
-bts: ''
 director: ''
+bts: ''
+destination: ''
+filter: personal
 photographer: ''
 card_ratio: r-4-3
 card_placeholder: Personal Work
