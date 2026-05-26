@@ -11,7 +11,7 @@ skills_list:
   - name: Content Creation
     description: Original immersive travel photography and short films for brands that need owned content. Approach is lead with curiosity, integrity and human connection.
   - name: Visual Curation
-    description: With a refined editorial eye, Gabrielle curates and crafts visual libraries that bring clarity and depth to creative projects, brand identity, and storytelling. WIth a tiered approach, we can scale a library of content based on a brand’s particular needs to be distinctive and resonate with audiences.
+    description: With a refined editorial eye, we curate and craft visual libraries that bring clarity and depth to brand identity and creative projects. With a tiered approach, we can handle all usage right negotiations and build scalable libraries of content based on a brand’s particular needs to be distinctive and resonate with audiences.
   - name: Brand Strategy
     description: Build distinctive points of view through strategy led storytelling, campaign development, and visual direction, creating scalable brand systems that drive engagement, cultural relevance, and purposeful connection.
 services_text: Available for creative direction and brand strategy consulting for travel and hospitality brands, as well as independent artists seeking support with creative vision and portfolio development.
