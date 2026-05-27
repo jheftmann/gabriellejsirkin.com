@@ -101,7 +101,7 @@
 figcaption {
   font-family: var(--display);
   font-size: 0.875rem; /* 14px */
-  font-weight: 400;
+  font-weight: 300;
   font-style: italic;
   color: var(--muted);
   margin-top: 0.5rem;
