@@ -45,11 +45,11 @@ cities:
   - French Basque Region
   - Copenhagen
   - Isle of Skye
+  - NYC
   - Mexico City
   - Baja, Mexico
   - Northern California
   - Southern California
-  - NYC
 og_title: ''
 og_description: ''
 ---
