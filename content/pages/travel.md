@@ -44,7 +44,7 @@ cities:
   - Marseille
   - French Basque Region
   - Copenhagen
-  - Isles of Skye
+  - Isle of Skye
   - Mexico City
   - Baja, Mexico
   - Northern California
