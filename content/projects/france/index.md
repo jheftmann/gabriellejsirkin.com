@@ -1,5 +1,5 @@
 ---
-title: Marseille
+title: South of France
 cat:
   - name: Content Creation
     position: 5
