@@ -4,8 +4,8 @@ backend:
   branch: draft
   base_url: https://sveltia-cms-auth.gabriellesirkin.workers.dev
 
-site_url: https://gabriellejsirkin.netlify.app
-display_url: https://gabriellejsirkin.netlify.app
+site_url: https://gabriellejsirkin.com
+display_url: https://gabriellejsirkin.com
 
 # Images upload to the project's own folder
 media_folder: assets/images
