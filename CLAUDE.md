@@ -1,8 +1,8 @@
 # Gabrielle J. Sirkin — Project Notes
 
 ## Key URLs
-- **Live site:** https://gabriellejsirkin.netlify.app
-- **CMS:** https://gabriellejsirkin.netlify.app/admin/
+- **Live site:** https://gabriellejsirkin.com
+- **CMS:** https://gabriellejsirkin.com/admin/
 - **GitHub repo:** https://github.com/jheftmann/gabriellejsirkin.com
 - **Local preview:** http://localhost:3000
 - **Draft preview (Netlify):** https://draft--gabriellejsirkin.netlify.app
@@ -265,6 +265,12 @@ The `new-design` branch was deleted (confirmed gone from remote). New design wor
 This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
 
 ## Changelog
+
+### 2026-05-26 — Launch prep: font licensing, spacing, CMS image bug, production domain (closes #87, #96, #97)
+- **Font cleanup (#87)** — Stripped 5 unused `@font-face` declarations (Alpina Light, Alpina Regular Italic, Standard Light, Standard Light Oblique, Standard Regular Oblique). 3 files remain: GT Alpina Light Italic, GT Alpina Regular, GT Standard M Regular. Switched `figcaption` from Alpina Regular Italic → Light Italic to eliminate the 4th file. Licensed fonts are identical binaries to the trial files — purchase covers legal use.
+- **About/services spacing (#96)** — Widened `.about-row` label column from 2 cols to 3 cols, shifting content 1 col right. More breathing room between row labels and body text; better centered between labels and sidebar.
+- **CMS sidebar image bug (#97)** — `sync-draft.yml` was syncing all of `assets/` from main → draft, deleting newly uploaded CMS images before Gabrielle could publish them. Scoped sync to `assets/css`, `assets/js`, `assets/fonts` only — `assets/images` is now excluded.
+- **Production domain** — DNS pointed from Squarespace to Netlify (`ALIAS @` → `apex-loadbalancer.netlify.com`, `CNAME www` → `gabriellejsirkin.netlify.app`). Updated `site_url`/`display_url` in `admin/config.yml` and `content/settings.md` to `gabriellejsirkin.com`. Domain transfer to Porkbun in progress (issue #98).
 
 ### 2026-05-14 / 15 — Per-category order + CMS bugs + spacing convergence (closes #50, #53, #57, #59, #62, #66, #69, #70, #75–88)
 - **Per-category project order (#86)** — `cat` is now a list of `{name, position}` objects. `build.js` emits one `data-order-<slug>="N"` per category on each card (+ `data-order-all`); `assets/js/index.js` sorts via `getAttribute('data-order-' + filter)`. Single migration script (`scripts/migrate-cat-with-positions.js`) ran against all 33 projects.
