@@ -14,7 +14,7 @@ approach: |-
   We offer visual direction, strategy, and creative content production at any stage of the journey from building a brand's visual identity to evolving it for what's next.
 services:
   - Visual Strategy and Direction
-  - Visual Research and Curation
+  - Visual Curation
   - Content Creation
   - Production and Project Management
   - Art Direction and Shoot Supervision
@@ -22,7 +22,7 @@ services:
   - Creative Team Building
   - Collaborations and Special Projects
   - Travel Trend Reporting
-  - Trip Planning and Creation
+  - Trip Creation and Planning
   - Personalized Digital Guidebooks
 clients:
   - Emerging Hospitality and Travel Brands
