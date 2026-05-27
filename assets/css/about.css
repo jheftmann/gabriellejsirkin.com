@@ -80,7 +80,7 @@
 /* SECTION ROW — label cols 1–2, content cols 3–7 of the 12-col grid */
 .about-row {
   display: grid;
-  grid-template-columns: calc(2 * var(--col) + 1.5rem) minmax(0, calc(5 * var(--col) + 6rem));
+  grid-template-columns: calc(3 * var(--col) + 3rem) minmax(0, calc(5 * var(--col) + 6rem));
   column-gap: 1.5rem;
   margin-bottom: 4.5rem; /* 72px — Figma section gap (desktop) */
   align-items: baseline;
