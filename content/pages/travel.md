@@ -2,7 +2,7 @@
 headline_1: Untold stories
 headline_2: Meant to be seen.
 sidebar_label: Start a project
-availability: Available for short, mid-term and long-term projects starting in July. Inquire for rates and availability.
+availability: Available for short, mid-term and long-term projects. Inquire for rates and availability.
 sidebar_photo: /assets/images/services.jpg
 approach: |-
   Gabrielle J. Sirkin runs a travel creative studio for the undiscovered. We partner with emerging hospitality brands and travel organizations boutique hotels, bed & breakfasts, intimate lodges, and independent travel services committed to creating meaningful, sustainable experiences that foster authentic connection between people and place.

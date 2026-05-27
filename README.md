@@ -103,6 +103,36 @@ Raw HTML (e.g. `<a href="…">…</a>`) also still works if you prefer.
 
 The project page **Description** field also accepts full markdown — paragraphs, lists, links, emphasis. Use blank lines to separate paragraphs.
 
+### GitHub access token (publish + upload)
+
+The **Publish to Live** and **Upload Images** tools both need a GitHub Personal Access Token (PAT) to write to the repo. The token is stored in your browser's localStorage on each device, so you'll need to set it up once on every new computer or browser.
+
+> **When you need a new token:**
+> - First time using a new computer or browser
+> - The current token expired
+> - You see a `401 Unauthorized` or "Invalid token" error in the publish/upload tools
+> - You signed out of GitHub or revoked the token
+
+**To create one:**
+
+1. Go to **https://github.com/settings/personal-access-tokens/new** (or: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token).
+2. **Token name** — anything, e.g. `GJS CMS publish`.
+3. **Expiration** — pick something reasonable (1 year is fine; longer if you'd rather not redo this annually).
+4. **Resource owner** — `jheftmann`. *If you don't see jheftmann in the dropdown, ask Jacob to add you as a collaborator on the repo first.*
+5. **Repository access** → "Only select repositories" → select `gabriellejsirkin.com`.
+6. **Repository permissions** → find **Contents** in the list → set to "Read and write".
+7. Click **Generate token** at the bottom.
+8. Copy the token (it starts with `github_pat_...`). **You can only see this once — copy it now.**
+
+**To use it:**
+
+1. Open the [Publish to Live](https://gabriellejsirkin.netlify.app/admin/publish.html) tool.
+2. Paste the token into the **GitHub Access Token** field.
+3. The token is saved in your browser for next time — you only have to do this once per device.
+4. Do the same paste in the [Upload Images](https://gabriellejsirkin.netlify.app/admin/upload.html) tool — same token works in both.
+
+**Never share the token, post it anywhere, or commit it to any repo** — anyone with this token can write to the site. If you suspect it's leaked, go to https://github.com/settings/tokens, revoke the old one, and create a fresh one.
+
 ---
 
 ## For Developers
