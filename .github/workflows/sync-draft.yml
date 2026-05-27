@@ -6,7 +6,9 @@ on:
     paths:
       - 'admin/**'
       - 'src/**'
-      - 'assets/**'
+      - 'assets/css/**'
+      - 'assets/js/**'
+      - 'assets/fonts/**'
       - 'scripts/**'
       - 'build.js'
       - 'package.json'
@@ -40,8 +42,8 @@ jobs:
           git pull origin draft
 
           # Managed paths — all of these mirror from main → draft, including deletions.
-          # NB: assets/ is now whole-directory so fonts and images sync too.
-          PATHS=(admin src assets scripts .github build.js \
+          # assets/images is intentionally excluded — those are CMS uploads (content, not code).
+          PATHS=(admin src assets/css assets/js assets/fonts scripts .github build.js \
                  package.json package-lock.json netlify.toml \
                  favicon.svg favicon-32x32.png README.md CLAUDE.md)
 
