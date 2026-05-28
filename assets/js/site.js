@@ -18,4 +18,12 @@
     document.body.style.opacity = '0';
     setTimeout(function () { window.location.href = href; }, 250);
   });
+
+  // When the browser restores a page from bfcache (back/forward button),
+  // body.style.opacity is still '0' from the exit fade — reset it so the
+  // page is visible (#102).
+  window.addEventListener('pageshow', function () {
+    document.body.style.opacity = '';
+    document.body.style.transition = '';
+  });
 })();
