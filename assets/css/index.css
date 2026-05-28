@@ -47,11 +47,11 @@
 /* MOBILE SELECT FILTER */
 .filter-select-wrap {
   display: none; /* shown on mobile via media query below */
-  align-items: baseline;
+  align-items: center; /* vertically center arrow glyph with select text (#101) */
 }
 .filter-select-wrap::after {
   content: '\2304'; /* ⌄ down arrowhead — rendered in GT Standard so it aligns with the select text (#81) */
-  margin-left: 6px;
+  margin-left: 4px; /* tightened from 6px (#101) */
   font-family: var(--base);
   font-size: 0.75rem;
   color: var(--text);
@@ -69,6 +69,8 @@
   appearance: none;
   padding: 0;
 }
+/* Safari shows a native focus ring on <select> after the picker closes — suppress it (#99) */
+.filter-select:focus { outline: none; }
 
 /* GRID */
 .grid-wrap { padding: 0 var(--side) 1.5rem; }

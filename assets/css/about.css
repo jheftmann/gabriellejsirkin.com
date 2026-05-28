@@ -166,16 +166,17 @@ body[data-theme="services"] .about-layout > .about-headline {
   margin-bottom: 0;
 }
 
-/* SERVICES LISTS — 2-column flow used for Services, Clients, City Guides */
+/* SERVICES LISTS — 2-column flow used for Services, Clients, City Guides.
+   Using CSS Grid instead of columns: mobile Safari has clipping/fragmentation
+   bugs with multi-column layouts and break-inside: avoid (#100). */
 .travel-grid {
-  columns: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   column-gap: 1.5rem;
   list-style: none;
 }
 .travel-grid li {
-  display: block;
   margin-bottom: var(--gap-list-item); /* 6px with natural leading, 16px when trimmed */
-  break-inside: avoid; /* keeps a wrapped item from splitting across columns */
 }
 .travel-grid li > .bio-para { margin-bottom: 0; } /* suppress the 24px paragraph margin inside list items */
 
