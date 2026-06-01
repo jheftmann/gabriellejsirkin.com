@@ -37,6 +37,7 @@ cities:
   - Venice
   - Liguria
   - Puglia
+  - Palermo
   - Lisbon
   - Prague
   - Marseille
@@ -44,9 +45,9 @@ cities:
   - Copenhagen
   - Barcelona
   - Isle of Skye
-  - NYC
   - Mexico City
   - Baja, Mexico
+  - NYC
   - Northern California
   - Southern California
 og_title: ''
