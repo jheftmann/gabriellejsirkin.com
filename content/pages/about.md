@@ -5,13 +5,13 @@ lead: Gabrielle J. Sirkin is a Visual Director based in Los Angeles specializing
 sidebar_photo: /assets/images/GABRIELLE_004.jpg
 skills_list:
   - name: Visual Direction
-    description: Through strategic planning and creative leadership, shapes the visual creative language and identity to tell compelling stories, build brand resonance and impact from concept through final delivery.
+    description: Through strategic planning and creative leadership, shapes the visual creative language and identity to tell compelling stories, build visual brand resonance and impact from concept through final delivery.
   - name: Production and Project Management
-    description: Direct productions and on set supervision fostering highly collaborative environments while driving innovative, scalable cost effective solutions. Scalable systems and strategic thinking that keep complex, multi channel and market projects on time and visually aligned.
+    description: Full production oversight from on set direction to delivery, built on collaborative environments and the strategic systems to keep complex, multi-market projects on time and on vision.
   - name: Content Creation
     description: Original immersive travel photography and short films for brands that need owned content. Approach is lead with curiosity, integrity and human connection.
   - name: Visual Curation
-    description: With a refined editorial eye, we source, curate and craft visual libraries that bring clarity and depth to brand identity and creative projects. With a tiered approach, we can handle all usage right negotiations and build scalable libraries of content based on a brand’s particular needs to be distinctive and resonate with audiences.
+    description: Visual libraries that bring clarity and depth to brand identity, built with a refined editorial eye and a scalable approach to content sourcing and usage rights.
   - name: Brand Strategy
     description: Build distinctive points of view through strategy led storytelling, campaign development, and visual direction, creating scalable brand systems that drive engagement, cultural relevance, and purposeful connection.
 services_text: Available for creative direction and brand strategy consulting for travel and hospitality brands, as well as independent artists seeking support with creative vision and portfolio development.
