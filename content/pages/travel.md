@@ -42,6 +42,7 @@ cities:
   - Marseille
   - French Basque Region
   - Copenhagen
+  - Barcelona
   - Isle of Skye
   - NYC
   - Mexico City
