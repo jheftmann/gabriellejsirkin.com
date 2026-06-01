@@ -31,19 +31,18 @@ clients:
   - Tourism Boards and Organizations
   - Creative Agencies
   - + More
-city_guides_intro: After years of building travel itineraries and happily getting lost in cities around the world, I started keeping notes. These are the maps I wish I'd had, for the curious traveler who isn't looking for anything in particular and somehow always finds the best thing in the room. Each guide includes my favorite restaurants, hotels, bars, beaches, shops, museums, galleries, and the kind of places that don't have a category but you'll be glad you went.
+city_guides_intro: After years of building travel itineraries and happily getting lost in cities around the world, we started keeping notes. These are the maps we wish we'd had, for the curious traveler who isn't looking for anything in particular and somehow always finds the best thing in the room. Each guide includes our favorite restaurants, hotels, bars, beaches, shops, museums, galleries, and the kind of places that don't have a category but you'll be glad you went.
 cities:
   - Rome
   - Venice
   - Liguria
   - Puglia
-  - Istanbul
-  - Paris
   - Lisbon
   - Prague
   - Marseille
   - French Basque Region
   - Copenhagen
+  - Barcelona
   - Isle of Skye
   - NYC
   - Mexico City
