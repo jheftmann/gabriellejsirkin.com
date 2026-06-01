@@ -38,7 +38,6 @@ cities:
   - Liguria
   - Puglia
   - Palermo
-  - Lisbon
   - Prague
   - Marseille
   - French Basque Region
