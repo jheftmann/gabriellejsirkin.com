@@ -24,7 +24,7 @@ bio: |-
 
   A fluent Italian speaker, conversational in Spanish, and a dual citizen, Gabrielle has spent much of her life moving through the world with intention. She documents the world through photography and short film, a practice that sharpens the same instinct she brings to every brand she works with.
 
-  Her work has been recognized with a Cannes Silver Lion, Emmy Nomination, ADC Awards, American Photography, and Gold, Silver & Merit awards from the Society of Publication Designers.
+  Her work has been recognized with a Cannes Silver Lion, Emmy Nomination, ADC Awards, American Photography, and Gold, Silver & Merit awards from the Society of Publication Designers. She has also served as a portfolio reviewer for organizations such as International Center of Photography, Los Angeles Center of Photography, and Society of Publishing Designers and regularly mentors photographers on the curation of their portfolios.
 og_title: ''
 og_description: ''
 ---
