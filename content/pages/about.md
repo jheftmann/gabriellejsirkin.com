@@ -20,7 +20,7 @@ bio: |-
 
   With two decades of experience spanning major publications, global agencies, and in house at some of the world's most recognized brands, she has shaped the visual language for Expedia, Hotels.com, Vrbo, Airbnb, Beats by Dre, Apple, Gatorade, and the LA Philharmonic. She currently serves as Director of Photography at Expedia Group.
 
-  Her background across fashion, editorial, and branded content gives her a rare ability to move fluidly between worlds bringing the same cohesive, high impact vision to a global campaign as to an intimate, place driven story. Her process is scalable and strategic. Her eye is bold, timeless, and deeply considered.
+  Her background across travel, fashion, editorial, and branded content gives her a rare ability to move fluidly between worlds bringing the same cohesive, high impact vision to a global campaign as to an intimate, place driven story. Her process is scalable and strategic. Her eye is bold, timeless, and deeply considered.
 
   A fluent Italian speaker, conversational in Spanish, and a dual citizen, Gabrielle has spent much of her life moving through the world with intention. She documents the world through photography and short film, a practice that sharpens the same instinct she brings to every brand she works with.
 
