@@ -33,7 +33,7 @@ clients:
   - + More
 city_guides_intro: After years of building travel itineraries and happily getting lost in cities around the world, we started keeping notes. These are the maps we wish we'd had, for the curious traveler who isn't looking for anything in particular and somehow always finds the best thing in the room. Each guide includes our favorite restaurants, hotels, bars, beaches, shops, museums, galleries, and the kind of places that don't have a category but you'll be glad you went.
 cities:
-  - Rome
+  - '[Rome] (https://gabriellejsirkin.recleague.com/collections/rome-travel-guide)'
   - Venice
   - Liguria
   - Puglia
