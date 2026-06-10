@@ -35,8 +35,8 @@ city_guides_intro: After years of building travel itineraries and happily gettin
 cities:
   - '[Rome](https://gabriellejsirkin.recleague.com/collections/rome-travel-guide)'
   - Venice
-  - Liguria
-  - Puglia
+  - '[Liguria](https://gabriellejsirkin.recleague.com/collections/liguria-travel-guide)'
+  - '[Puglia](https://gabriellejsirkin.recleague.com/collections/puglia-travel-guide-0443)'
   - Palermo
   - Prague
   - Marseille
@@ -46,7 +46,7 @@ cities:
   - Isle of Skye
   - Mexico City
   - Baja, Mexico
-  - NYC
+  - '[NYC](https://gabriellejsirkin.recleague.com/collections/new-york-city-travel-guide)'
   - Northern California
   - Southern California
 og_title: ''
