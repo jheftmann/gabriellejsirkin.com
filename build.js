@@ -582,7 +582,7 @@ async function build() {
   projects.forEach(p => {
     let html = projectTemplate;
     html = applyIncludes(html, partials);
-    html = html.replace('<!-- #meta -->', computePageMeta('project', {}, settings, null, p) + (gaSnippet ? '\n' + gaSnippet : ''));
+    html = html.replace('<!-- #meta -->', `<base href="/">\n` + computePageMeta('project', {}, settings, null, p) + (gaSnippet ? '\n' + gaSnippet : ''));
     html = applySettings(html, { ...settings });
     html = html.replace('<!-- #projects-data -->', projectsJson);
     if (p.colorTheme && p.colorTheme !== 'default') {
