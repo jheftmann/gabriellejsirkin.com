@@ -47,7 +47,7 @@ cities:
   - Isle of Skye
   - Mexico City
   - Baja, Mexico
-  - '[NYC](https://gabriellejsirkin.recleague.com/collections/new-york-city-travel-guide)'
+  - <a href="https://gabriellejsirkin.recleague.com/collections/new-york-city-travel-guide-f912" target="_blank">New York City</a>
   - Northern California
   - Southern California
 og_title: ''
