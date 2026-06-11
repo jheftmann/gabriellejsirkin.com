@@ -205,7 +205,8 @@ collections:
         file: content/settings.md
         fields:
           - { name: site_title,       label: Site Title,       widget: string }
-          - { name: site_description, label: Site Description, widget: string }
+          - { name: site_description, label: Site Description, widget: text,
+              hint: 'Used for SEO and social sharing. Aim for 120–160 characters.' }
           - { name: site_url,         label: Site URL,         widget: string }
           - { name: contact_email,    label: Contact Email,    widget: string }
           - { name: contact_instagram, label: Instagram URL,   widget: string }
