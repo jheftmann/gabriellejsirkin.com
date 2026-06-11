@@ -46,7 +46,7 @@ cities:
   - Copenhagen
   - Barcelona
   - Isle of Skye
-  - Mexico City
+  - <a href="https://gabriellejsirkin.recleague.com/collections/mexico-city-travel-guide" target="_blank">Mexico City</a>
   - Baja, Mexico
   - Northern California
   - Southern California
