@@ -364,7 +364,7 @@ function computePageMeta(page, pageContent, settings, firstProjectSrc, projectDa
     if (pageContent.og_image) {
       const raw = pageContent.og_image;
       ogImage = /^https?:\/\//.test(raw) ? raw : `${siteUrl}/${raw.replace(/^\//, '')}`;
-    } else if (page === 'index' && firstProjectSrc) {
+    } else if ((page === 'index' || page === 'project') && firstProjectSrc) {
       ogImage = `${siteUrl}/${firstProjectSrc}`;
     }
     const ogUrls = {
