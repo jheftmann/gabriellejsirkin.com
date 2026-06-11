@@ -266,6 +266,14 @@ This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
 
 ## Changelog
 
+### 2026-06-10 — Mobile Safari fixes, Travel Guides CMS field, per-project OG meta, DNS (closes #99–#102, #104, #105, #42)
+- **Mobile Safari bugs (#99–#102)** — Fixed select border (removed native border), select arrow alignment (baseline → center, 6px → 4px margin), city guides list clipping (columns → CSS Grid), blank page on back button (bfcache restores body with opacity:0 still set — pageshow listener resets it).
+- **Travel Guides heading (#104)** — `city_guides_label` field added to CMS (`content/pages/travel.md` + `admin/config.yml`); `src/services.html` uses `{{SETTING:city_guides_label}}` instead of hardcoded "City Guides".
+- **Per-project OG meta (#105, #42)** — `build.js` now generates `projects/{slug}/index.html` for all 33 projects at build time, each with correct `og:title` (client / project name) and `og:image` (project thumbnail). Project cards link to `projects/{slug}/?filter=…`. `project.js` reads slug from pathname with `?id=` fallback for old URLs.
+- **`<base href="/">` on project pages** — Per-project pages live in `projects/{slug}/`; injecting `<base href="/">` fixes all relative asset/nav paths. Also required changing `window.location.href = href` → `window.location.href = a.href` in `site.js` (raw attribute string resolves against current URL in JS, not against `<base>`).
+- **OG image fallback** — `firstProjectSrc` fallback in `computePageMeta` now applies to all pages (was restricted to index/project); services/about/travel now get a valid OG image when no explicit `og_image` is set.
+- **DNS** — Domain transferred to Porkbun. Fixed two-zone NS1 issue (domain still pointed to orphaned p05 zone after transfer); switched nameservers to Porkbun's (curitiba.porkbun.com etc.) so p06 zone is authoritative. Added ALIAS @ → apex-loadbalancer.netlify.com, CNAME www → gabriellejsirkin.netlify.app.
+
 ### 2026-05-26 — Launch prep: font licensing, spacing, CMS image bug, production domain (closes #87, #96, #97)
 - **Font cleanup (#87)** — Stripped 5 unused `@font-face` declarations (Alpina Light, Alpina Regular Italic, Standard Light, Standard Light Oblique, Standard Regular Oblique). 3 files remain: GT Alpina Light Italic, GT Alpina Regular, GT Standard M Regular. Switched `figcaption` from Alpina Regular Italic → Light Italic to eliminate the 4th file. Licensed fonts are identical binaries to the trial files — purchase covers legal use.
 - **About/services spacing (#96)** — Widened `.about-row` label column from 2 cols to 3 cols, shifting content 1 col right. More breathing room between row labels and body text; better centered between labels and sidebar.
