@@ -2,6 +2,9 @@
   command   = "npm ci && node build.js"
   publish   = "."
 
+[build.processing.html]
+  pretty_urls = true
+
 # Branch deploys (e.g. draft branch)
 [context.branch-deploy]
   command = "npm ci && node build.js"

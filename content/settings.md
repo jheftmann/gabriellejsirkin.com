@@ -6,9 +6,9 @@ contact_email: info@gabriellejsirkin.com
 contact_instagram: https://www.instagram.com/gabril
 contact_linkedin: https://www.linkedin.com/in/gsirkin/
 nav:
-  - Work|index.html
-  - Services|services.html
-  - About|about.html
+  - Work|/
+  - Services|/services
+  - About|/about
 og_title_base: Gabrielle J. Sirkin, Visual Director
 sharecard_url: https://gabriellejsirkin.com/sharecard.jpg
 ga_tracking_id: G-2LJ21YTZZJ

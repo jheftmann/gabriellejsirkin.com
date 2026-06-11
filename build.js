@@ -369,10 +369,10 @@ function computePageMeta(page, pageContent, settings, firstProjectSrc, projectDa
     }
     const ogUrls = {
       index:       `${siteUrl}/`,
-      about:       `${siteUrl}/about.html`,
-      services:    `${siteUrl}/services.html`,
-      productions: `${siteUrl}/productions.html`,
-      project:     `${siteUrl}/project.html`,
+      about:       `${siteUrl}/about`,
+      services:    `${siteUrl}/services`,
+      productions: `${siteUrl}/productions`,
+      project:     `${siteUrl}/project`,
     };
     ogUrl = ogUrls[page] || `${siteUrl}/`;
   }

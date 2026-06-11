@@ -49,9 +49,9 @@
   display: none; /* shown on mobile via media query below */
   align-items: center; /* vertically center arrow glyph with select text (#101) */
 }
-.filter-select-wrap::after {
-  content: '\2304'; /* ⌄ down arrowhead — rendered in GT Standard so it aligns with the select text (#81) */
-  margin-left: 4px; /* tightened from 6px (#101) */
+.filter-select-wrap::before {
+  content: '\2304'; /* ⌄ down arrowhead */
+  margin-right: 4px;
   font-family: var(--base);
   font-size: 0.75rem;
   color: var(--text);
