@@ -37,7 +37,7 @@ cities:
   - <a href="https://gabriellejsirkin.recleague.com/collections/rome-travel-guide-f846" target="_blank">Rome</a>
   - Venice
   - <a href="https://gabriellejsirkin.recleague.com/collections/liguria-travel-guide-5972" target="_blank">Liguria</a>
-  - '[Puglia](https://gabriellejsirkin.recleague.com/collections/puglia-travel-guide-0443)'
+  - <a href="https://gabriellejsirkin.recleague.com/collections/puglia-travel-guide" target="_blank">Puglia</a>
   - Palermo
   - Prague
   - Marseille
