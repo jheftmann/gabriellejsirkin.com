@@ -331,37 +331,51 @@ function loadProjects() {
 
 // ─── Page metadata ───────────────────────────────────────────────────────────
 
-function computePageMeta(page, pageContent, settings, firstProjectSrc) {
-  const base    = settings.og_title_base || 'Gabrielle J. Sirkin, Creative Studio for Travel';
+// projectData: optional — when set, generates per-project meta instead of static page meta
+function computePageMeta(page, pageContent, settings, firstProjectSrc, projectData) {
+  const base    = settings.og_title_base || 'Gabrielle J. Sirkin, Visual Director';
   const siteUrl = (settings.site_url || '').replace(/\/$/, '');
 
   const defaultTitles = {
     index:       base,
-    about:       `${base} – Information`,
+    about:       `${base} – About`,
     services:    `${base} – Services`,
     productions: `${base} – Productions`,
     project:     base,
   };
 
-  const title   = pageContent.page_title || defaultTitles[page] || base;
-  const ogTitle = pageContent.og_title   || title;
-  const ogDesc  = pageContent.og_description || settings.site_description || '';
+  let title, ogTitle, ogDesc, ogImage, ogUrl;
 
-  let ogImage = settings.sharecard_url || '';
-  if (pageContent.og_image) {
-    const raw = pageContent.og_image;
-    ogImage = /^https?:\/\//.test(raw) ? raw : `${siteUrl}/${raw.replace(/^\//, '')}`;
-  } else if ((page === 'index' || page === 'project') && firstProjectSrc) {
-    ogImage = `${siteUrl}/${firstProjectSrc}`;
+  if (projectData) {
+    const proj = projectData.client ? `${projectData.client} / ${projectData.title}` : projectData.title;
+    title   = `${base} – ${proj}`;
+    ogTitle = title;
+    ogDesc  = projectData.description || settings.site_description || '';
+    const thumbSrc = projectData.cardImage && projectData.cardImage.src;
+    ogImage = (thumbSrc && !/^https?:\/\//.test(thumbSrc))
+      ? `${siteUrl}/${thumbSrc}`
+      : (thumbSrc || settings.sharecard_url || '');
+    ogUrl   = `${siteUrl}/projects/${projectData.id}/`;
+  } else {
+    title   = pageContent.page_title || defaultTitles[page] || base;
+    ogTitle = pageContent.og_title   || title;
+    ogDesc  = pageContent.og_description || settings.site_description || '';
+    ogImage = settings.sharecard_url || '';
+    if (pageContent.og_image) {
+      const raw = pageContent.og_image;
+      ogImage = /^https?:\/\//.test(raw) ? raw : `${siteUrl}/${raw.replace(/^\//, '')}`;
+    } else if (page === 'index' && firstProjectSrc) {
+      ogImage = `${siteUrl}/${firstProjectSrc}`;
+    }
+    const ogUrls = {
+      index:       `${siteUrl}/`,
+      about:       `${siteUrl}/about.html`,
+      services:    `${siteUrl}/services.html`,
+      productions: `${siteUrl}/productions.html`,
+      project:     `${siteUrl}/project.html`,
+    };
+    ogUrl = ogUrls[page] || `${siteUrl}/`;
   }
-
-  const ogUrls = {
-    index:       `${siteUrl}/`,
-    about:       `${siteUrl}/about.html`,
-    services:    `${siteUrl}/services.html`,
-    productions: `${siteUrl}/productions.html`,
-    project:     `${siteUrl}/project.html`,
-  };
 
   return [
     `<title>${title}</title>`,
@@ -372,7 +386,7 @@ function computePageMeta(page, pageContent, settings, firstProjectSrc) {
     `<meta property="og:title" content="${ogTitle}">`,
     `<meta property="og:description" content="${ogDesc}">`,
     `<meta property="og:image" content="${ogImage}">`,
-    `<meta property="og:url" content="${ogUrls[page] || siteUrl + '/'}">`,
+    `<meta property="og:url" content="${ogUrl}">`,
     `<meta property="og:type" content="website">`,
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${ogTitle}">`,
@@ -414,7 +428,7 @@ function renderCard(p, bgColor = '') {
     ? `<p class="card-client">${p.client}</p><p class="card-title">${p.title}</p>`
     : `<p class="card-title card-title--solo">${p.title}</p>`;
   return (
-    `    <a class="project-card" data-category="${(p.filters && p.filters.length ? p.filters : [p.filter]).join(' ')}"${orderAttrs}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="project.html#?id=${p.id}&filter=${p.filter}">\n` +
+    `    <a class="project-card" data-category="${(p.filters && p.filters.length ? p.filters : [p.filter]).join(' ')}"${orderAttrs}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="projects/${p.id}/?filter=${p.filter}">\n` +
     `      <div class="thumb"${styleAttr}>${inner}</div>\n` +
     `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div></div>\n` +
     `    </a>`
@@ -553,6 +567,31 @@ async function build() {
     fs.writeFileSync(`${page}.html`, html);
     console.log(`  → wrote ${page}.html`);
   });
+
+  // Generate per-project HTML pages at projects/{slug}/index.html
+  // Each gets project-specific OG meta (title + thumbnail image).
+  // The JS reads the project ID from the URL pathname (/projects/{slug}/).
+  const projectTemplate = fs.readFileSync('src/project.html', 'utf8');
+  const projectsObj = {};
+  projects.forEach(p => { const { id, ...rest } = p; projectsObj[id] = rest; });
+  const projectsJson = JSON.stringify(projectsObj);
+  const gaSnippet = settings.ga_tracking_id
+    ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${settings.ga_tracking_id}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${settings.ga_tracking_id}');</script>`
+    : '';
+
+  projects.forEach(p => {
+    let html = projectTemplate;
+    html = applyIncludes(html, partials);
+    html = html.replace('<!-- #meta -->', computePageMeta('project', {}, settings, null, p) + (gaSnippet ? '\n' + gaSnippet : ''));
+    html = applySettings(html, { ...settings });
+    html = html.replace('<!-- #projects-data -->', projectsJson);
+    if (p.colorTheme && p.colorTheme !== 'default') {
+      html = html.replace('<body>', `<body data-theme="${p.colorTheme}">`);
+    }
+    fs.mkdirSync(`projects/${p.id}`, { recursive: true });
+    fs.writeFileSync(`projects/${p.id}/index.html`, html);
+  });
+  console.log(`  → wrote ${projects.length} project pages`);
 
   console.log('[build] done');
 }
