@@ -182,6 +182,8 @@ collections:
             widget: list
             field: { name: item, label: Client Type, widget: string }
 
+          - { name: city_guides_label, label: City Guides — Section Heading, widget: string, default: 'Travel Guides',
+              hint: 'Heading shown above the city guides list, e.g. "Travel Guides".' }
           - { name: city_guides_intro, label: City Guides — Intro, widget: string }
 
           - name: cities
