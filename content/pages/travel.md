@@ -34,9 +34,9 @@ clients:
 city_guides_label: Travel Guides
 city_guides_intro: After years of building travel itineraries and happily getting lost in cities around the world, we started keeping notes. These are the maps we wish we'd had, for the curious traveler who isn't looking for anything in particular and somehow always finds the best thing in the room. Each guide includes our favorite restaurants, hotels, bars, beaches, shops, museums, galleries, and the kind of places that don't have a category but you'll be glad you went.
 cities:
-  - '[Rome](https://gabriellejsirkin.recleague.com/collections/rome-travel-guide)'
+  - <a href="https://gabriellejsirkin.recleague.com/collections/rome-travel-guide-f846" target="_blank">Rome</a>
   - Venice
-  - '[Liguria](https://gabriellejsirkin.recleague.com/collections/liguria-travel-guide)'
+  - <a href="https://gabriellejsirkin.recleague.com/collections/liguria-travel-guide-5972" target="_blank">Liguria</a>
   - '[Puglia](https://gabriellejsirkin.recleague.com/collections/puglia-travel-guide-0443)'
   - Palermo
   - Prague
