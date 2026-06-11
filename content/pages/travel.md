@@ -40,7 +40,7 @@ cities:
   - <a href="https://gabriellejsirkin.recleague.com/collections/puglia-travel-guide" target="_blank">Puglia</a>
   - Palermo
   - Prague
-  - Marseille
+  - <a href="https://gabriellejsirkin.recleague.com/collections/marseille-travel-guide" target="_blank">Marseille</a>
   - French Basque Region
   - Copenhagen
   - Barcelona
