@@ -9,7 +9,7 @@ nav:
   - Work|index.html
   - Services|services.html
   - About|about.html
-og_title_base: Gabrielle J Sirkin
+og_title_base: Gabrielle J. Sirkin, Visual Director
 sharecard_url: https://gabriellejsirkin.com/sharecard.jpg
 ga_tracking_id: G-2LJ21YTZZJ
 categories:
