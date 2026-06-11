@@ -10,7 +10,11 @@ function getParams() {
 
 (function () {
   var params = getParams();
-  var id     = params.get('id');
+  // Support clean URLs: /projects/{slug}/ (no ?id= needed)
+  var id = params.get('id') || (function () {
+    var m = window.location.pathname.match(/\/projects\/([^\/]+)\/?/);
+    return m ? m[1] : null;
+  })();
   var filter = params.get('filter') || 'all';
   var p      = projects[id];
 
@@ -18,7 +22,7 @@ function getParams() {
 
   if (p.colorTheme && p.colorTheme !== 'default') document.body.dataset.theme = p.colorTheme;
 
-  document.title = (p.client ? p.client + ' / ' + p.title : p.title) + ' — Gabrielle J. Sirkin, Creative Studio for Travel';
+  document.title = 'Gabrielle J. Sirkin, Visual Director – ' + (p.client ? p.client + ' / ' + p.title : p.title);
 
   // Header: client above title
   var clientEl = document.getElementById('pClient');
