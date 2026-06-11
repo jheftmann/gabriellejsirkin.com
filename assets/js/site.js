@@ -16,7 +16,7 @@
     e.preventDefault();
     document.body.style.transition = 'opacity 0.25s ease';
     document.body.style.opacity = '0';
-    setTimeout(function () { window.location.href = href; }, 250);
+    setTimeout(function () { window.location.href = a.href; }, 250);
   });
 
   // When the browser restores a page from bfcache (back/forward button),
