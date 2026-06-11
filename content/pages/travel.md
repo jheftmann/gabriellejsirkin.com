@@ -35,19 +35,19 @@ city_guides_label: Travel Guides
 city_guides_intro: After years of building travel itineraries and happily getting lost in cities around the world, we started keeping notes. These are the maps we wish we'd had, for the curious traveler who isn't looking for anything in particular and somehow always finds the best thing in the room. Each guide includes our favorite restaurants, hotels, bars, beaches, shops, museums, galleries, and the kind of places that don't have a category but you'll be glad you went.
 cities:
   - <a href="https://gabriellejsirkin.recleague.com/collections/rome-travel-guide-f846" target="_blank">Rome</a>
-  - Venice
   - <a href="https://gabriellejsirkin.recleague.com/collections/liguria-travel-guide-5972" target="_blank">Liguria</a>
   - <a href="https://gabriellejsirkin.recleague.com/collections/puglia-travel-guide" target="_blank">Puglia</a>
+  - <a href="https://gabriellejsirkin.recleague.com/collections/marseille-travel-guide" target="_blank">Marseille</a>
+  - <a href="https://gabriellejsirkin.recleague.com/collections/new-york-city-travel-guide-f912" target="_blank">New York City</a>
+  - Venice
   - Palermo
   - Prague
-  - <a href="https://gabriellejsirkin.recleague.com/collections/marseille-travel-guide" target="_blank">Marseille</a>
   - French Basque Region
   - Copenhagen
   - Barcelona
   - Isle of Skye
   - Mexico City
   - Baja, Mexico
-  - <a href="https://gabriellejsirkin.recleague.com/collections/new-york-city-travel-guide-f912" target="_blank">New York City</a>
   - Northern California
   - Southern California
 og_title: ''
