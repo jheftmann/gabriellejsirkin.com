@@ -1,8 +1,11 @@
 // Active nav link
 (function () {
-  var page = location.pathname.split('/').pop() || 'index.html';
+  var pathname = location.pathname;
   document.querySelectorAll('.nav-links a').forEach(function (a) {
-    if (a.getAttribute('href') === page) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); a.removeAttribute('href'); }
+    var href = a.getAttribute('href');
+    var match = href === pathname ||
+      (href === '/' && (pathname === '/' || pathname === '/index.html'));
+    if (match) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); a.removeAttribute('href'); }
   });
 })();
 
