@@ -331,6 +331,18 @@ function loadProjects() {
 
 // ─── Page metadata ───────────────────────────────────────────────────────────
 
+// Returns an OG-safe absolute image URL: on Netlify, routes through Image CDN
+// cropped to 1200×630 (1.91:1) so aspect ratio and file size are always correct.
+function toOgImageUrl(src, siteUrl) {
+  if (!src) return '';
+  if (/^https?:\/\//.test(src)) return src;
+  const clean = src.replace(/^\//, '');
+  if (USE_CDN) {
+    return `${siteUrl}/.netlify/images?url=${encodeURIComponent('/' + clean)}&w=1200&h=630&fit=cover&fm=webp&q=85`;
+  }
+  return `${siteUrl}/${clean}`;
+}
+
 // projectData: optional — when set, generates per-project meta instead of static page meta
 function computePageMeta(page, pageContent, settings, firstProjectSrc, projectData) {
   const base    = settings.og_title_base || 'Gabrielle J. Sirkin, Visual Director';
@@ -352,9 +364,7 @@ function computePageMeta(page, pageContent, settings, firstProjectSrc, projectDa
     ogTitle = title;
     ogDesc  = projectData.description || settings.site_description || '';
     const thumbSrc = projectData.cardImage && projectData.cardImage.src;
-    ogImage = (thumbSrc && !/^https?:\/\//.test(thumbSrc))
-      ? `${siteUrl}/${thumbSrc}`
-      : (thumbSrc || settings.sharecard_url || '');
+    ogImage = toOgImageUrl(thumbSrc, siteUrl) || settings.sharecard_url || '';
     ogUrl   = `${siteUrl}/projects/${projectData.id}/`;
   } else {
     title   = pageContent.page_title || defaultTitles[page] || base;
@@ -362,10 +372,9 @@ function computePageMeta(page, pageContent, settings, firstProjectSrc, projectDa
     ogDesc  = pageContent.og_description || settings.site_description || '';
     ogImage = settings.sharecard_url || '';
     if (pageContent.og_image) {
-      const raw = pageContent.og_image;
-      ogImage = /^https?:\/\//.test(raw) ? raw : `${siteUrl}/${raw.replace(/^\//, '')}`;
+      ogImage = toOgImageUrl(pageContent.og_image, siteUrl);
     } else if (firstProjectSrc) {
-      ogImage = `${siteUrl}/${firstProjectSrc}`;
+      ogImage = toOgImageUrl(firstProjectSrc, siteUrl);
     }
     const ogUrls = {
       index:       `${siteUrl}/`,
