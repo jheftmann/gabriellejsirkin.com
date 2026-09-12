@@ -5,13 +5,13 @@ sidebar_label: Start a project
 availability: Available for short, mid-term and long-term projects. Inquire for rates and availability.
 sidebar_photo: /assets/images/services.jpg
 approach: |-
-  Gabrielle J. Sirkin runs a travel creative studio for the undiscovered. We partner with emerging hospitality brands and travel organizations boutique hotels, bed & breakfasts, intimate lodges, and independent travel services committed to creating meaningful, sustainable experiences that foster authentic connection between people and place.
+  Gabrielle J. Sirkin runs a travel creative studio for the undiscovered. We partner with hotel groups, boutique hotels, emerging hospitality brands and travel organizations committed to creating meaningful experiences that foster authentic connection between people and place.
 
-  At the intersection of curiosity and integrity, we craft immersive visual storytelling that helps brands define their voice, build emotional resonance, and earn lasting trust with travelers.
+  At the intersection of curiosity and integrity, we bring ambitious ideas to life without compromising craft. We build immersive visual storytelling that helps brands define their voice, build emotional resonance, and earn lasting trust with travelers.
 
   Our approach is intentional and collaborative. We work with partners who believe, as we do, that how a place is seen shapes how it is treated and who are dedicated to creating experiences that are both transformative and responsible.
 
-  We offer visual direction, strategy, and creative content production at any stage of the journey from building a brand's visual identity to evolving it for what's next.
+  We offer visual direction, brand strategy, and creative content production at any stage of the journey, from building a brand's visual identity to evolving it for what's next. We're most drawn to travel and hospitality brands at an inflection point: a rebrand, a rebuild, a new vertical, or a fresh start, where visual identity shifts perception and changes what people expect.
 services:
   - Visual Strategy and Direction
   - Visual Curation
@@ -19,11 +19,10 @@ services:
   - Production and Project Management
   - Art Direction and Shoot Supervision
   - Budget Optimization and Efficiency
-  - Creative Team Building
+  - Creative Operations Management
   - Collaborations and Special Projects
   - Travel Trend Reporting
   - Trip Creation and Planning
-  - Personalized Digital Guidebooks
 clients:
   - Hospitality and Travel Brands
   - Hotel and Hospitality Groups
