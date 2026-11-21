@@ -11,7 +11,7 @@ description: ''
 credits: ''
 skills: []
 coming_soon: false
-color_theme: default
+color_theme: colorway-2
 thumbnail: R0000794.jpg
 media: []
 ---
