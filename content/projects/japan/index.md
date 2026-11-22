@@ -71,4 +71,7 @@ media:
   - file: R0000095.jpg
     caption: ''
     bts: false
+  - file: R0000422.jpg
+    caption: ''
+    bts: false
 ---
