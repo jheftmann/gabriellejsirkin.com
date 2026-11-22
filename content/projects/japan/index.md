@@ -32,4 +32,10 @@ media:
   - file: R0000589.jpg
     caption: ''
     bts: false
+  - file: R0000794.jpg
+    caption: ''
+    bts: false
+  - file: R0000427.jpg
+    caption: ''
+    bts: false
 ---
