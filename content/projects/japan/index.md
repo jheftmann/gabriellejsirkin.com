@@ -13,5 +13,8 @@ skills: []
 coming_soon: false
 color_theme: colorway-2
 thumbnail: R0000794.jpg
-media: []
+media:
+  - file: R0000609.jpg
+    caption: ''
+    bts: false
 ---
