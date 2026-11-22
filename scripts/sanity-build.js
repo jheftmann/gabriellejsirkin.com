@@ -16,7 +16,7 @@
 
 const { marked } = require('marked');
 
-const PROJECT_ID  = process.env.SANITY_PROJECT_ID;
+const PROJECT_ID  = process.env.SANITY_PROJECT_ID || 't4atn37a';
 const DATASET     = process.env.SANITY_DATASET || 'production';
 const TOKEN       = process.env.SANITY_API_TOKEN || '';
 const PERSPECTIVE = process.env.SANITY_API_PERSPECTIVE || 'publishedOnly';

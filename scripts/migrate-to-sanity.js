@@ -26,7 +26,7 @@ const https = require('https');
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
-const PROJECT_ID = process.env.SANITY_PROJECT_ID;
+const PROJECT_ID = process.env.SANITY_PROJECT_ID || 't4atn37a';
 const DATASET    = process.env.SANITY_DATASET || 'production';
 const TOKEN      = process.env.SANITY_API_TOKEN;
 const API_VER    = '2024-01-01';

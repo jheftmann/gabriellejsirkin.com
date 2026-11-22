@@ -12,7 +12,7 @@ export default defineConfig({
   name: 'gabrielle-sirkin',
   title: 'Gabrielle J. Sirkin',
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 't4atn37a',
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
   plugins: [
