@@ -47,7 +47,4 @@ media:
   - file: R0000524.jpg
     caption: ''
     bts: false
-  - file: R0000605.jpg
-    caption: ''
-    bts: false
 ---
