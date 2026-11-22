@@ -47,4 +47,22 @@ media:
   - file: R0000524.jpg
     caption: ''
     bts: false
+  - file: R0000605.jpg
+    caption: ''
+    bts: false
+  - file: R0000552.jpg
+    caption: ''
+    bts: false
+  - file: R0000489.jpg
+    caption: ''
+    bts: false
+  - file: R0000368.jpg
+    caption: ''
+    bts: false
+  - file: R0000846.jpg
+    caption: ''
+    bts: false
+  - file: R0000300.jpg
+    caption: ''
+    bts: false
 ---
