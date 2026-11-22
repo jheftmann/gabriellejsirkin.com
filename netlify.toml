@@ -5,12 +5,20 @@
 [build.processing.html]
   pretty_urls = true
 
-# Branch deploys (e.g. draft branch)
+# Production — always build from published Sanity content
+[context.production.environment]
+  SANITY_API_PERSPECTIVE = "publishedOnly"
+
+# Branch / preview deploys — build from Sanity drafts so editors can preview
+# unpublished changes before hitting Publish in the Studio.
 [context.branch-deploy]
   command = "npm ci && node build.js"
   publish = "."
 
-# Explicit draft branch config
+[context.branch-deploy.environment]
+  SANITY_API_PERSPECTIVE = "previewDrafts"
+
+# Explicit draft branch config (kept for Sveltia CMS compat during migration)
 [context.draft]
   command = "npm ci && node build.js"
   publish = "."
