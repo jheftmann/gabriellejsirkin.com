@@ -23,7 +23,7 @@ media:
   - file: R0000833.jpg
     caption: ''
     bts: false
-  - file: R0000397-1.jpg
+  - file: R0000397-2.jpg
     caption: ''
     bts: false
 ---
