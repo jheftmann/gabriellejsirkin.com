@@ -26,4 +26,7 @@ media:
   - file: R0000397-2.jpg
     caption: ''
     bts: false
+  - file: R0001086.jpg
+    caption: ''
+    bts: false
 ---
