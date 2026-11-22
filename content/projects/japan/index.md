@@ -59,4 +59,7 @@ media:
   - file: R0000368.jpg
     caption: ''
     bts: false
+  - file: R0000846.jpg
+    caption: ''
+    bts: false
 ---
