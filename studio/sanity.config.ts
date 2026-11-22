@@ -2,6 +2,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
+import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemaTypes'
 
 const singletonTypes = new Set(['siteSettings', 'homePage', 'aboutPage', 'servicesPage'])
@@ -47,6 +48,7 @@ export default defineConfig({
           ]),
     }),
     visionTool(),
+    media(),
   ],
 
   schema: {
