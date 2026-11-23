@@ -438,6 +438,7 @@ function renderCard(p, bgColor = '') {
         ? `<video src="${encodeSrc(src)}" autoplay loop muted playsinline aria-hidden="true"></video>`
         : cdnImg(src, p.title, { widths: [400, 800, 1200], sizes: '(max-width: 767px) 100vw, 50vw' }))
     : `<div class="thumb-ph">${ph}</div>`;
+  const ratioClass   = p.cardRatio ? ` ${p.cardRatio}` : ' r-4-3';
   const styleAttr    = bgColor ? ` style="background-color:${bgColor}"` : '';
   // One data-order-<slug> attribute per category the project belongs to,
   // plus data-order-all for the All tab. Sort logic in index.js picks the
@@ -451,7 +452,7 @@ function renderCard(p, bgColor = '') {
     : `<p class="card-title card-title--solo">${p.title}</p>`;
   return (
     `    <a class="project-card" data-category="${(p.filters && p.filters.length ? p.filters : [p.filter]).join(' ')}"${orderAttrs}${orderAllAttr} data-title="${p.title.replace(/"/g, '&quot;')}" href="projects/${p.id}/?filter=${p.filter}">\n` +
-    `      <div class="thumb"${styleAttr}>${inner}</div>\n` +
+    `      <div class="thumb${ratioClass}"${styleAttr}>${inner}</div>\n` +
     `      <div class="card-info">${cs}<div class="card-caption">${captionHtml}</div></div>\n` +
     `    </a>`
   );

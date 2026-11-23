@@ -267,6 +267,7 @@ async function loadAllFromSanity() {
       creditsList: Array.isArray(doc.credits_list) ? doc.credits_list : [],
       skills:      Array.isArray(doc.skills) ? doc.skills : [],
       cardImage:   { src: cardSrc, placeholder: '' },
+      cardRatio:   doc.card_ratio || '',
       colorTheme:  doc.color_theme || 'default',
       comingSoon:  !!doc.coming_soon,
       contentHtml: imgsHtml || descHtml ? { desc: descHtml, images: imgsHtml } : null,
