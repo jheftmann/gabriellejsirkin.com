@@ -1,5 +1,6 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
 import {orderRankField, orderRankOrdering} from '@sanity/orderable-document-list'
+import {ColorThemeInput} from '../components/ColorThemeInput'
 
 const COLOR_THEMES = [
   {title: 'Default', value: 'default'},
@@ -116,9 +117,9 @@ export const project = defineType({
       name: 'color_theme',
       title: 'Color Theme',
       type: 'string',
+      components: {input: ColorThemeInput},
       options: {
         list: COLOR_THEMES,
-        layout: 'radio',
       },
       initialValue: 'default',
     }),

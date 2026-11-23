@@ -2,59 +2,58 @@
 
 ## Key URLs
 - **Live site:** https://gabriellejsirkin.com
-- **CMS:** https://gabriellejsirkin.com/admin/
 - **GitHub repo:** https://github.com/jheftmann/gabriellejsirkin.com
+- **Sanity Studio:** https://gabrielle-sirkin.sanity.studio
+- **Sanity project:** `t4atn37a` / dataset: `production`
 - **Local preview:** http://localhost:3000
-- **Draft preview (Netlify):** https://draft--gabriellejsirkin.netlify.app
 
 ## Local dev
 ```
 cd "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com"
 npm start
 ```
-Watches `src/` and `content/`, auto-reloads browser at localhost:3000.
-Also runs `scripts/auto-sync.js` every 2 minutes to pull CMS content from `origin/draft`.
+Watches `src/`, auto-reloads browser at localhost:3000. Content is fetched from Sanity at build time — no local content files to sync.
+
+For draft preview (unpublished Sanity content), set `SANITY_API_PERSPECTIVE=previewDrafts` in `.env`:
+```
+SANITY_API_PERSPECTIVE=previewDrafts SANITY_API_TOKEN=<token> npm start
+```
 
 ## Start a session
-Open all of the following:
-1. **Terminal** — run `open -a Terminal "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com"` then start the dev server with `osascript -e 'tell app "Terminal" to do script "cd \"/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com\" && npm start" in front window'`
+1. **Terminal** — start dev server: `cd "/Users/studio/Dev/gabrielle-website/gabriellejsirkin.com" && npm start`
 2. **Local preview** — http://localhost:3000
-3. **Production site** — https://gabriellejsirkin.netlify.app
+3. **Production site** — https://gabriellejsirkin.com
 4. **GitHub repo** — https://github.com/jheftmann/gabriellejsirkin.com
-5. **CMS** — https://gabriellejsirkin.netlify.app/admin/
-6. **Publish tool** — https://gabriellejsirkin.netlify.app/admin/publish.html
-7. **Draft preview** — https://draft--gabriellejsirkin.netlify.app
+5. **Sanity Studio** — https://gabrielle-sirkin.sanity.studio
 
 ## What we're building
-Portfolio website for **Gabrielle J. Sirkin** — Visual Director and photographer based in Los Angeles. The site showcases her work across four categories: Brand Work, Editorial, Content Creation, and Personal.
+Portfolio website for **Gabrielle J. Sirkin** — Visual Director and photographer based in Los Angeles. The site showcases her work across five categories: Brand Strategy, Content Creation, Curation, Production, and Visual Direction.
 
 ## Tech stack
 - **Custom static site builder** — `build.js` (Node.js, no framework)
-- **Build flow:** `src/*.html` templates + `content/` markdown → compiled output HTML files at project root
-- **Markdown parser:** `marked` for project content
-- **CMS:** Sveltia CMS (git-based, admin config in `admin/`)
-- **Auth:** Cloudflare Worker at `https://sveltia-cms-auth.orsa.workers.dev` (Jacob's worker — Gabrielle to set up her own, see issue #4)
-- **Deployment:** Netlify (main branch → production, draft branch → preview)
+- **Build flow:** `src/*.html` templates + Sanity CMS content → compiled output HTML files at project root
+- **Markdown parser:** `marked` for project description fields
+- **CMS:** Sanity v3 (hosted Studio at `gabrielle-sirkin.sanity.studio`)
+- **Sanity content layer:** `scripts/sanity-build.js` — fetches all content via GROQ and returns it in the shape `build.js` expects
+- **Deployment:** Netlify (main branch → production `publishedOnly`; feature branches → preview `previewDrafts`)
 - **Live server:** `live-server` + `chokidar` for local dev
+- **Studio:** `studio/` — Sanity Studio v3 app, deployed separately at `gabrielle-sirkin.sanity.studio`
 
 ## Project structure
 - `src/` — HTML templates and source CSS/JS (edit these, not root HTML)
   - `src/index.html`, `src/about.html`, `src/project.html`, `src/travel.html`
   - `src/partials/_head.html`, `_nav.html`, `_footer.html`
-- `content/` — Markdown content (projects, pages, settings)
-  - `content/projects/{slug}/index.md` — one folder per project
-  - `content/settings.md` — site-wide settings (nav items, site URL, etc.)
-  - `content/pages/home.md` — homepage-specific content
+- `studio/` — Sanity Studio v3 app
+  - `studio/schemaTypes/` — content schemas (project, landingPage, siteSettings, homePage, aboutPage, servicesPage)
+  - `studio/sanity.config.ts` — Studio config with structure, media plugin
+- `scripts/` — build tooling
+  - `scripts/sanity-build.js` — fetches all content from Sanity (settings, pages, projects, landing pages)
+  - `scripts/create-landing-pages.js` — one-shot migration script (already ran; keep for reference)
 - `assets/` — compiled CSS and JS
-- `admin/` — CMS config and tools
-  - `admin/config.yml` — Sveltia CMS config (repo: jheftmann/gabriellejsirkin.com)
-  - `admin/upload.html` — batch image/video uploader (uses GitHub API)
-  - `admin/publish.html` — merge draft → main (uses GitHub API)
-- `scripts/` — dev tooling
-  - `scripts/auto-sync.js` — pulls content from origin/draft every 2min during npm start
-  - `scripts/sync-draft.sh` — safely syncs code files from main to draft (never touches content/)
-- `build.js` — static site builder
+- `build.js` — static site builder (uses `sanity-build.js` when `SANITY_PROJECT_ID` is set)
 - Root `*.html` files — **build output**, do not edit directly
+- `docs/` — project documentation
+  - `docs/studio-guide.md` — user guide for Gabrielle
 
 ## IMPORTANT: Never edit root HTML files directly
 The root `index.html`, `about.html`, `project.html`, `travel.html` are **generated by `build.js`**. Always edit the source templates in `src/`.
@@ -66,111 +65,89 @@ The root `index.html`, `about.html`, `project.html`, `travel.html` are **generat
 git checkout -b feature/my-change   # start a new branch
 # make changes, commit
 git push origin feature/my-change
-git checkout main
-git merge feature/my-change
-git push origin main
+# open PR → merge to main
 git branch -d feature/my-change
 ```
 
-Then sync code changes to draft (so Netlify preview stays current):
-```
-npm run sync-draft
-```
+Netlify auto-deploys `main` to production. No manual publish step needed — content changes go through Sanity Studio (Gabrielle clicks Publish there), code changes go through PRs.
 
 **Branch roles:**
-- `main` — production code; Netlify deploys to gabriellejsirkin.netlify.app
-- `draft` — CMS content only (Sveltia commits here); Netlify deploys to draft--gabriellejsirkin.netlify.app
-- `feature/*` — all dev work happens here, then merged into main
-
-**Merge conflicts should no longer occur** — `publish.html` now merges main → draft after every publish, keeping the two branches aligned. If one ever does appear:
-```
-git fetch origin
-git checkout main
-git merge origin/draft --no-edit -X ours
-git push origin main
-```
-
-### Verify publish-readiness after every deploy
-**Required final step** after pushing to `main` and before saying "deployed": confirm that the next time Gabrielle clicks **Publish to Live** in the CMS it will succeed. The publish tool POSTs `base=main, head=draft` to GitHub's `/merges` API — a 409 returns the red "Merge conflict between draft and main" banner she saw, which is bad UX and blocks her work.
-
-Run this check:
-```bash
-gh api repos/jheftmann/gabriellejsirkin.com/compare/main...draft \
-  --jq '{ahead_by, behind_by, status}'
-# Then also test the merge can resolve:
-git fetch origin
-git merge-tree --write-tree --no-messages origin/main origin/draft > /tmp/m.txt
-grep -E "^<<<<<<<|CONFLICT" /tmp/m.txt   # empty = clean merge
-```
-
-If `merge-tree` shows conflicts (typically when both branches edited the same content file): merge draft into main locally with `-X theirs` (favors Gabrielle's edits — she's the source of truth for content), push to main, then sync main → draft so they re-align. After resolving, re-run the check to confirm clean.
-
-**Especially important** when this session touched any file under `content/` — those are the files Gabrielle is also editing through the CMS, so they're prime conflict candidates.
-
-## npm scripts
-- `npm start` — build watcher + live-server + auto-sync (all three in parallel)
-- `npm run sync` — pull latest content from origin/draft and rebuild (local preview)
-- `npm run sync-draft` — run scripts/sync-draft.sh (manual fallback; normally handled by GH Action)
+- `main` — production code; Netlify deploys to gabriellejsirkin.com
+- `feature/*` — all dev work happens here, then merged into main via PR
 
 ## How build.js works
-1. Loads `content/settings.md` for site-wide tokens (`{{SETTING:key}}`)
-2. Loads partials from `src/partials/`
-3. Loads all projects from `content/projects/` (reads `index.md` frontmatter)
-4. For `index` page: injects filter bar buttons and project cards
-5. For `project` page: injects all project data as a JSON blob
-6. Outputs compiled HTML to project root
+When `SANITY_PROJECT_ID` is set (always on Netlify; locally via env):
+1. `sanity-build.js` runs all GROQ queries in parallel (settings, pages, projects, landing pages)
+2. Projects are sorted by `orderRank` (global drag-drop order in Studio → "All" filter)
+3. Per-category order comes from `landingPage` documents (one per category, ordered project refs)
+4. `catOrders` map (`{ categorySlug: position }`) is built from landing pages → emitted as `data-order-<slug>` attrs on HTML cards
+5. `orderAll = orderIdx + 1` from the GROQ result → `data-order-all` attr
+6. `index.js` `sortedCards(filter)` reads these attrs for client-side card sorting
 
-## Project frontmatter fields (`content/projects/{slug}/index.md`)
-```yaml
-title: Project Title
-client: Client Name
-cat: Brand Work | Editorial | Content Creation | Personal
-filter: brand | editorial | content | personal  # auto-derived from cat if omitted
-photographer: Photographer Name
-date: '2024'
-description: Prose shown above meta fields on project page.
-credits: Full credits line shown after the year.
-destination: For Content Creation projects only.
-skills:
-  - Visual Direction
-  - Production
-thumbnail: filename.jpg  # optional, defaults to first media item
-card_ratio: r-4-3        # r-16-9, r-3-4, r-2-3, r-9-16, r-3-2, r-3-4
-coming_soon: true        # optional
-media:                   # optional ordered list; auto-discovers folder files if omitted
-  - 01_hero.jpg
-  - 02_clip.mp4
-  - 03_detail.jpg
-```
-Images/videos not in `media:` are still auto-discovered alphabetically. Use numeric prefixes (e.g. `01_`, `02_`) to control sort order when relying on auto-discovery.
+## Sanity content model
 
-## Admin tools
-### Upload Images (`admin/upload.html`)
-- Drag & drop batch uploader for images and mp4 videos
-- Uploads directly to `content/projects/{slug}/` on the `draft` branch via GitHub API
-- Requires a GitHub fine-grained PAT with **Contents: Read & Write** on `jheftmann/gabriellejsirkin.com`
-- Token is stored in `localStorage` under key `gjs_gh_token`
-- After uploading, open the project in the CMS and add filenames to the **Media** field to control display order
+### Projects
+Main content type. Key fields:
+- `title`, `slug` — required
+- `cat` — plain `[string]` array of category names (e.g. `["Brand Strategy", "Visual Direction"]`)
+- `orderRank` — drag-drop rank from `@sanity/orderable-document-list`; controls "All" filter order
+- `thumbnail`, `media[]` — Sanity image/file assets
+- `card_ratio` — aspect ratio class for the card image
+- `coming_soon` — hides from filters, shows placeholder card
+- `color_theme`, `og_title`, `og_description`, `og_image`
 
-### Publish to Live (`admin/publish.html`)
-- Merges `draft → main` via GitHub API
-- Then immediately merges `main → draft` to realign branches (no future conflicts)
-- Same PAT as upload tool
-- Netlify builds and deploys main (~30s)
+### Landing Pages
+One document per category (Brand Strategy, Content Creation, Curation, Production, Visual Direction). Controls per-category project order. The `projects[]` reference array is drag-to-reorder in Studio.
 
-### GitHub Action: Sync code to draft (`.github/workflows/sync-draft.yml`)
-- Triggers automatically on every push to `main` that touches code/config files
-- Copies non-content files from `main` → `draft` so the Netlify draft preview stays current
-- No longer uses `[skip ci]` — removed so Netlify rebuilds the draft preview on every sync
-- Replaces the need to manually run `npm run sync-draft` after code changes
+Slug must match the slugified category name exactly (e.g. "Brand Strategy" → `brand-strategy`). `sanity-build.js` uses `categoryPositions[slug][projectId]` to populate `data-order-<slug>`.
 
-## GitHub API token
-Fine-grained PAT requirements:
-- **Resource owner:** `jheftmann`
-- **Repository:** `gabriellejsirkin.com`
-- **Permissions → Contents:** Read and write
-- Create at: https://github.com/settings/personal-access-tokens/new
-- **Never commit the token to the repo** — it's stored in browser localStorage only
+### Singleton pages
+`homePage`, `aboutPage`, `servicesPage`, `siteSettings` — one document each, accessed by `_type` in GROQ.
+
+## Ordering system
+- **Homepage / "All" filter order** — drag projects in Studio → Projects list (uses `orderRank`)
+- **Per-category order** — open the matching Landing Page document, drag the project refs
+
+Both are independent. A project's position in "All" has no effect on its position in a category filter.
+
+## Image optimization
+Sanity CDN handles image transforms automatically. `sanity-build.js` generates responsive `<img>` tags with `srcset` at 600/900/1200/1800w and `sizes="(max-width: 1100px) 50vw, 33vw"`. Format is always `webp`, quality 85. No manual optimization needed — upload originals to Studio.
+
+## Env vars (Netlify + local)
+| Var | Value | Required |
+|-----|-------|----------|
+| `SANITY_PROJECT_ID` | `t4atn37a` | yes |
+| `SANITY_DATASET` | `production` | no (default) |
+| `SANITY_API_TOKEN` | Editor-role token | yes (for drafts/builds) |
+| `SANITY_API_PERSPECTIVE` | `publishedOnly` / `previewDrafts` | no (default: publishedOnly) |
+
+**Never commit the API token.** It's in Netlify env vars only.
+
+## npm scripts
+- `npm start` — build watcher + live-server (content fetched from Sanity at each rebuild)
+- `npm run build` — single build pass (used by Netlify)
+
+## Publish workflow (Gabrielle's perspective)
+Sanity uses per-document draft/published state:
+- Edits in Studio auto-save as drafts; a green "Publish" button in the document makes changes live
+- Netlify fetches only `publishedOnly` content on production builds
+- Branch/PR deploys fetch `previewDrafts` (unpublished changes visible in preview)
+
+No manual "publish to live" tool needed — Sanity publish + Netlify auto-deploy handles it.
+
+## End-of-session checklist
+1. **Clean working tree** — `git status` shows nothing uncommitted
+2. **All feature branches merged and deleted**
+   ```
+   git branch -d feature/my-change
+   git push origin --delete feature/my-change
+   ```
+3. **Stale PRs closed** — check `gh pr list`
+4. **Remote refs pruned** — `git remote prune origin`
+5. **GitHub issues up to date** — close resolved; open new for deferred work
+6. **README changelog updated** — add an entry for everything shipped
+7. **CLAUDE.md up to date** — commit any new context or decisions
+8. **main pushed** — `git status` shows "up to date with origin/main"
 
 ## Typography
 - **Serif:** EB Garamond (400, 500, italic)
@@ -222,98 +199,32 @@ Fine-grained PAT requirements:
 
 **Color theming:** Per-category color schemes are a separate task. Current phase focuses on layout, spacing, and typography only — all pages stay cream (`#f2ede6`).
 
-## Publish workflow (Gabrielle's perspective)
-CMS saves go to the `draft` branch. To publish to production:
-1. Editor visits `admin/publish.html` and clicks "Publish to Live Site"
-2. This merges `draft → main` via GitHub API
-3. Netlify builds and deploys (~30s)
-
-## Preview workflow (Netlify)
-The `draft` branch auto-deploys to Netlify for live previews before publishing.
-- Every CMS save → `draft` branch → Netlify builds automatically → preview URL
-- Preview URL: `https://draft--gabriellejsirkin.netlify.app`
-- Production URL: `https://gabriellejsirkin.netlify.app`
-
-## End-of-session checklist
-Run through this before wrapping up any session:
-
-1. **Clean working tree** — no staged or unstaged changes left over from local sync
-   ```
-   git restore .
-   git clean -fd content/
-   ```
-2. **All feature branches merged and deleted**
-   ```
-   git branch -d feature/my-change          # delete local
-   git push origin --delete feature/my-change  # delete remote
-   ```
-3. **Stale PRs closed** — check `gh pr list` and close anything superseded
-4. **Remote refs pruned**
-   ```
-   git remote prune origin
-   ```
-5. **GitHub issues up to date** — close resolved issues with a comment; open issues for anything deferred
-6. **README changelog updated** — add an entry for everything shipped this session
-7. **CLAUDE.md up to date** — commit any new context, workflow changes, or decisions made this session
-8. **main pushed** — `git status` shows "up to date with origin/main"
-9. **draft synced automatically** — GH Action syncs code to draft on every push; no manual step needed
-
-The `new-design` branch was deleted (confirmed gone from remote). New design work branches off `main`.
-
-## Auth worker
-`https://sveltia-cms-auth.orsa.workers.dev` — Cloudflare Worker handling GitHub OAuth for the CMS.
-This is Jacob's worker. Gabrielle should set up her own — see GitHub issue #4.
-
 ## Changelog
 
+### 2026-11-22 — Sanity CMS migration (closes #113)
+- **Replaced Sveltia CMS with Sanity v3** — Studio at `gabrielle-sirkin.sanity.studio`; all content migrated
+- **Landing pages** — new `landingPage` document type for per-category drag-to-reorder; one document per category (Brand Strategy, Content Creation, Curation, Production, Visual Direction)
+- **`scripts/sanity-build.js`** — GROQ-based content layer replacing markdown loaders; supports landing page ordering, responsive image URLs, `previewDrafts` perspective
+- **`studio/`** — Sanity Studio with orderable-document-list, media plugin, structured nav
+- **Sveltia archived** — git tag `archive/sveltia-cms` on last Sveltia state
+- **`cat` field simplified** — from `[{name, position}]` objects to plain `[string]`
+- **Media library** — `sanity-plugin-media@3.0.5` added to Studio (v3 for React 18 compat)
+- **Docs** — `docs/studio-guide.md` user guide for Gabrielle
+
 ### 2026-06-10 — Mobile Safari fixes, Travel Guides CMS field, per-project OG meta, DNS (closes #99–#102, #104, #105, #42)
-- **Mobile Safari bugs (#99–#102)** — Fixed select border (removed native border), select arrow alignment (baseline → center, 6px → 4px margin), city guides list clipping (columns → CSS Grid), blank page on back button (bfcache restores body with opacity:0 still set — pageshow listener resets it).
-- **Travel Guides heading (#104)** — `city_guides_label` field added to CMS (`content/pages/travel.md` + `admin/config.yml`); `src/services.html` uses `{{SETTING:city_guides_label}}` instead of hardcoded "City Guides".
-- **Per-project OG meta (#105, #42)** — `build.js` now generates `projects/{slug}/index.html` for all 33 projects at build time, each with correct `og:title` (client / project name) and `og:image` (project thumbnail). Project cards link to `projects/{slug}/?filter=…`. `project.js` reads slug from pathname with `?id=` fallback for old URLs.
-- **`<base href="/">` on project pages** — Per-project pages live in `projects/{slug}/`; injecting `<base href="/">` fixes all relative asset/nav paths. Also required changing `window.location.href = href` → `window.location.href = a.href` in `site.js` (raw attribute string resolves against current URL in JS, not against `<base>`).
-- **OG image fallback** — `firstProjectSrc` fallback in `computePageMeta` now applies to all pages (was restricted to index/project); services/about/travel now get a valid OG image when no explicit `og_image` is set.
-- **DNS** — Domain transferred to Porkbun. Fixed two-zone NS1 issue (domain still pointed to orphaned p05 zone after transfer); switched nameservers to Porkbun's (curitiba.porkbun.com etc.) so p06 zone is authoritative. Added ALIAS @ → apex-loadbalancer.netlify.com, CNAME www → gabriellejsirkin.netlify.app.
+- **Mobile Safari bugs (#99–#102)** — Fixed select border, arrow alignment, city guides list clipping, blank page on back button (bfcache pageshow listener).
+- **Travel Guides heading (#104)** — `city_guides_label` field; `src/services.html` uses `{{SETTING:city_guides_label}}`.
+- **Per-project OG meta (#105, #42)** — `build.js` generates `projects/{slug}/index.html` for all projects with correct `og:title` and `og:image`. `<base href="/">` injected on project pages.
+- **DNS** — Domain transferred to Porkbun. Switched nameservers; added ALIAS @ → apex-loadbalancer.netlify.com.
 
 ### 2026-05-26 — Launch prep: font licensing, spacing, CMS image bug, production domain (closes #87, #96, #97)
-- **Font cleanup (#87)** — Stripped 5 unused `@font-face` declarations (Alpina Light, Alpina Regular Italic, Standard Light, Standard Light Oblique, Standard Regular Oblique). 3 files remain: GT Alpina Light Italic, GT Alpina Regular, GT Standard M Regular. Switched `figcaption` from Alpina Regular Italic → Light Italic to eliminate the 4th file. Licensed fonts are identical binaries to the trial files — purchase covers legal use.
-- **About/services spacing (#96)** — Widened `.about-row` label column from 2 cols to 3 cols, shifting content 1 col right. More breathing room between row labels and body text; better centered between labels and sidebar.
-- **CMS sidebar image bug (#97)** — `sync-draft.yml` was syncing all of `assets/` from main → draft, deleting newly uploaded CMS images before Gabrielle could publish them. Scoped sync to `assets/css`, `assets/js`, `assets/fonts` only — `assets/images` is now excluded.
-- **Production domain** — DNS pointed from Squarespace to Netlify (`ALIAS @` → `apex-loadbalancer.netlify.com`, `CNAME www` → `gabriellejsirkin.netlify.app`). Updated `site_url`/`display_url` in `admin/config.yml` and `content/settings.md` to `gabriellejsirkin.com`. Domain transfer to Porkbun in progress (issue #98).
+- **Font cleanup (#87)** — Stripped 5 unused `@font-face` declarations.
+- **About/services spacing (#96)** — `.about-row` label column widened.
+- **CMS sidebar image bug (#97)** — Scoped sync-draft to `assets/css`, `assets/js`, `assets/fonts` only.
+- **Production domain** — DNS pointed from Squarespace to Netlify.
 
-### 2026-05-14 / 15 — Per-category order + CMS bugs + spacing convergence (closes #50, #53, #57, #59, #62, #66, #69, #70, #75–88)
-- **Per-category project order (#86)** — `cat` is now a list of `{name, position}` objects. `build.js` emits one `data-order-<slug>="N"` per category on each card (+ `data-order-all`); `assets/js/index.js` sorts via `getAttribute('data-order-' + filter)`. Single migration script (`scripts/migrate-cat-with-positions.js`) ran against all 33 projects.
-- **Sveltia "+ Add" widget fix (#84)** — schema change above also flipped `field:` (singular) → `fields:` (plural) on the `cat` list widget, which makes Sveltia's Add button work reliably.
-- **Publish merge-conflict (#85)** — `assets/css/travel.css` was deleted from main in #83 but the sync-draft action only *copied* files. Removed the orphan from draft and rewrote `.github/workflows/sync-draft.yml` to mirror deletions: lists files in managed paths on both branches and `git rm` any present on draft but missing on main. Managed paths expanded to all of `assets/` (so `assets/fonts/` and `assets/images/` sync).
-- **Skills as dynamic list** — about-page skills replaced 8 fixed fields (`skill1_name`…`skill4_desc`) with `skills_list` list widget. build.js falls back to legacy fields if `skills_list` is absent.
-- **Leading-compensation pattern** — `site.css` `@supports (text-box-trim: trim-both)` toggles four semantic `--gap-*` tokens (one source of truth) for project header gap, card-caption gap, project-desc paragraph margin, travel-grid li margin. Used directly at each call site — adding a new spot is a one-liner with no per-file `@supports`.
-- **About-page spacing — Figma exact** — Figma itself uses `text-box-trim`, so its values are already trim-aware. Use them flat (no additive comp). The about page now pixel-matches Figma in trimmed engines (modern Chrome/Safari/iOS); untrimmed engines render slightly looser. Optimize for the trim engines.
-- **Card hover** — opacity 0.8 only (no blur). (#80)
-- **Filter-select arrow** — typeface down-arrowhead glyph (U+2304) via `::after`, not SVG. (#81)
-- **Markdown + links in CMS text fields** — `marked.parseInline()` on `bio`, `approach`, services/clients/cities lists, skill name/desc. `[text](url)` and raw HTML both work.
-- **Font weights** — remapped GT Standard `@font-face`: Light → `font-weight: 300`, Regular → `400`. Was 400/500 range with only Regular file, producing browser faux-bold. Verified per *A List Apart* "Say No to Faux Bold" article.
-- **Sveltia color theme #7** — values from Figma node 237:4416. (#75)
-- **Favicon** — coral circle on light-blue (Figma 224:4154). PNG regenerated via sharp.
-- **GitHub Pages disabled** — was sending failure-build emails on every main push since Netlify (not Pages) is the deploy target.
-- **Workflow**: standardized on `feature/<short-name>` branches → push branch → merge to main → push main → delete branch local + remote. Direct pushes to main only for trivial one-line fixes.
-
-### 2026-05-13 — Layout & spacing pass (closes #54, #61, #63, #64, #65)
-- **Dynamic categories (#54):** `settings.categories` list field added to CMS; filter bar order is fully CMS-driven. Old hardcoded `FILTER_ORDER`/`CAT_TO_FILTER` removed from `build.js`. `cat` field changed from `select` → `string` widget
-- **Flexible credits_list:** `credits_list` YAML list replaces hardcoded `photographer`/`director`/`bts`/`destination` fields. Migration script at `scripts/migrate-categories-credits.js`
-- **Image grid (#61):** 2-column desktop with 4-cycle width stagger (100%/85%/85%/100%) and 2.625rem vertical offset on even items; 1-column mobile with 92%-wide alternating left/right
-- **Title line gap (#63):** `.project-header` gap set to `0`; visual ~21px dead space approximates Figma 18px. Added `text-box-trim`/`text-box-edge` longhands to `*` reset for Safari 17.5+ coverage
-- **Project description (#64):** `.project-desc p` updated to `1.5rem / 400 / normal` (desktop), `1.125rem` mobile — matches Figma Size/XL
-- **Footer year (#65):** Auto-derived in `build.js` from `new Date().getFullYear()`; removed from CMS and settings.md
-- **Sticky footer:** `body { display:flex; flex-direction:column; min-height:100dvh }` + `.page-content { flex:1 }`
-- **Hero width:** `.hero-title { max-width:50vw }` on desktop (half viewport = visual page center); full-width mobile
-- **Consistent page title position:** All page titles (hero, project, about, services) share `padding-top: 3rem` desktop / `2rem` mobile so the title lands at the same vertical position across page transitions. Both match Figma's `top: 106px` (desktop) / `94px` (mobile) for the title block
-
-### 2026-05-09 — Design refinements (feature/design-refinements)
-- **Grid row-gap:** Set to `9rem` (144px) to match Figma card spacing
-- **Card caption gap:** Reduced to `2px` (visual calibration — code says 8px, Figma says 8px, but glyph-to-glyph with `text-box` trim requires a much smaller value to match visual intent)
-- **Card info baseline:** `.card-info` uses `align-items: baseline` so category label and client name share a baseline
-- **Global `text-box` trim:** `text-box: trim-both cap alphabetic` added to the `*` reset in `site.css` — matches Figma's `leadingTrim: "CAP_HEIGHT"` so all gap measurements are glyph-to-glyph
-- **Nav 12-column grid:** Nav switched from flex/space-between to `grid-template-columns: repeat(12, 1fr)` — brand in col 1, links spanning cols 10–12 (matches Figma grid exactly)
-- **Nav brand no-wrap:** `white-space: nowrap` on `.nav-brand` prevents "Gabrielle J Sirkin" from wrapping at narrow widths
-- **Services headline full-width:** On the Services page, `<h1>` moved to span `grid-column: 1 / -1` above the two-column layout, so "Start a project" sidebar sits below the headline
-- **Hero Line 2 optional:** `hero_accent` field in CMS made `required: false`; `build.js` omits the `<br>` when the field is empty
-
+### 2026-05-14 / 15 — Per-category order + CMS bugs + spacing convergence (closes #50–#88)
+- **Per-category project order (#86)** — `cat` list of `{name, position}` objects; `data-order-<slug>` attrs on cards.
+- **Skills as dynamic list** — `skills_list` replaces fixed skill fields.
+- **Leading-compensation pattern** — `@supports (text-box-trim)` toggles semantic gap tokens.
+- **Workflow**: standardized on `feature/<short-name>` branches.
