@@ -7,7 +7,8 @@ const { marked } = require('marked');
 const sharp = require('sharp');
 
 const WATCH = process.argv.includes('--watch');
-const USE_CDN = !!process.env.NETLIFY;
+const USE_CDN    = !!process.env.NETLIFY;
+const USE_SANITY = !!process.env.SANITY_PROJECT_ID;
 
 // URL-encode each path segment (handles spaces/special chars in filenames)
 function encodeSrc(p) {
@@ -15,7 +16,14 @@ function encodeSrc(p) {
 }
 
 // Netlify Image CDN — only active on Netlify (USE_CDN). Falls back to plain <img> locally.
+// When src is already an absolute URL (Sanity CDN), uses Sanity's own transform params.
 function cdnImg(src, alt, { widths, sizes, extra = '' } = {}) {
+  if (/^https?:\/\//.test(src)) {
+    // Absolute URL (e.g. Sanity CDN): use provider's own image transforms
+    const srcset = widths.map(w => `${src}?auto=format&fm=webp&q=85&w=${w} ${w}w`).join(', ');
+    const fallback = `${src}?auto=format&fm=webp&q=85&w=${widths[widths.length - 1]}`;
+    return `<img src="${fallback}" srcset="${srcset}" sizes="${sizes}" alt="${alt}"${extra}>`;
+  }
   if (!USE_CDN) return `<img src="${encodeSrc(src)}" alt="${alt}"${extra}>`;
   const url = encodeURIComponent('/' + src);
   const base = `/.netlify/images?url=${url}&fm=webp&q=85`;
@@ -333,8 +341,12 @@ function loadProjects() {
 
 // Returns an OG-safe absolute image URL: on Netlify, routes through Image CDN
 // cropped to 1200×630 (1.91:1) so aspect ratio and file size are always correct.
+// For Sanity CDN URLs, uses Sanity's own transform params.
 function toOgImageUrl(src, siteUrl) {
   if (!src) return '';
+  if (/^https:\/\/cdn\.sanity\.io\//.test(src)) {
+    return `${src}?auto=format&fm=webp&q=85&w=1200&h=630&fit=crop`;
+  }
   if (/^https?:\/\//.test(src)) return src;
   const clean = src.replace(/^\//, '');
   if (USE_CDN) {
@@ -461,9 +473,22 @@ function renderFilterBar(projects, settings) {
 
 async function build() {
   console.log('[build] starting…');
-  const settings = loadSettings();
-  const partials  = loadPartials();
-  const projects  = loadProjects();
+
+  let settings, projects, pageContentsOverride;
+
+  if (USE_SANITY) {
+    const { loadAllFromSanity } = require('./scripts/sanity-build');
+    const sanityData = await loadAllFromSanity();
+    settings = sanityData.settings;
+    projects = sanityData.projects;
+    pageContentsOverride = sanityData.pageContents;
+  } else {
+    settings = loadSettings();
+    projects = loadProjects();
+    pageContentsOverride = null;
+  }
+
+  const partials = loadPartials();
 
   // Pre-render nav partial with items from settings
   const navItems = Array.isArray(settings.nav) ? settings.nav : [];
@@ -501,7 +526,10 @@ async function build() {
 
     // Merge page-specific content into settings, then apply tokens
     const pageContentMap = { index: 'home', about: 'about', services: 'travel' };
-    const pageContent = pageContentMap[page] ? loadPageContent(pageContentMap[page]) : {};
+    const contentKey = pageContentMap[page];
+    const pageContent = contentKey
+      ? (pageContentsOverride ? (pageContentsOverride[contentKey] || {}) : loadPageContent(contentKey))
+      : {};
     const pageSettings = { ...settings, ...pageContent };
 
     // Inject computed meta block
