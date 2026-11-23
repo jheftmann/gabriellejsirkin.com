@@ -7,7 +7,7 @@
 
 # Production — always build from published Sanity content
 [context.production.environment]
-  SANITY_API_PERSPECTIVE = "publishedOnly"
+  SANITY_API_PERSPECTIVE = "published"
 
 # Branch / preview deploys — build from Sanity drafts so editors can preview
 # unpublished changes before hitting Publish in the Studio.
