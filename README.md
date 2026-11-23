@@ -29,20 +29,26 @@ Go to **https://gabrielle-sirkin.sanity.studio**. All content is managed here.
 - **Edit page content** → Pages → Home / About / Services
 - **Edit site-wide settings** → Site Settings
 
-Changes save automatically as a draft while you work.
+Changes **auto-save as a draft** while you type — you'll see a yellow "Edited" indicator at the top of the document. A draft is only visible to you in Studio; it does **not** appear on the live site until you publish.
 
 #### Step 3 — Publish
-When you're ready for changes to go live, click the **Publish** button (green, top right of the document). The live site updates within about 30 seconds.
+When you're ready for changes to go live, click the **Publish** button (green, top right of the document). The yellow "Edited" badge disappears, and the live site updates within about 30 seconds.
+
+> **Draft vs. Published — the key rule:** anything you do in Studio is a draft until you click Publish. The live site only ever shows published content. If a change isn't showing up on the live site, check whether you've published it.
 
 ---
 
 ### Reordering projects
 
-**Homepage / "All" order** — drag the ⠿ handle next to each project in the Projects list.
+**Homepage / "All" order:**
+1. Drag the ⠿ handle next to each project in the Projects list to set the order
+2. **Open each project you moved and click Publish** — the new order won't appear on the live site until the affected projects are published
 
-**Per-category order** — open **Landing Pages** in the sidebar → open the category → drag projects into order → Publish.
+**Per-category order** — open **Landing Pages** in the sidebar → open the category → drag projects into order → **Publish the Landing Page document**.
 
-The two orderings are independent.
+The two orderings are independent. A project's position in "All" has no effect on its position in a category filter.
+
+> **Why you have to publish after reordering:** Sanity saves all changes — including position — as a draft first. Publishing makes it live.
 
 ---
 
