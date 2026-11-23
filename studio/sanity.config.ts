@@ -24,7 +24,7 @@ export default defineConfig({
           .items([
             S.documentTypeListItem('project').title('Projects'),
             S.listItem()
-              .title('Homepage Order')
+              .title('Homepage')
               .child(S.document().schemaType('projectOrder').documentId('projectOrder')),
             S.divider(),
             S.documentTypeListItem('landingPage').title('Landing Pages'),

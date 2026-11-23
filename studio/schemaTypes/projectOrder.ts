@@ -2,7 +2,7 @@ import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export const projectOrder = defineType({
   name: 'projectOrder',
-  title: 'Homepage Order',
+  title: 'Homepage',
   type: 'document',
   liveEdit: true,
 
