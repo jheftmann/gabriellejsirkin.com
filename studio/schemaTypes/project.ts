@@ -19,6 +19,7 @@ export const project = defineType({
   name: 'project',
   title: 'Project',
   type: 'document',
+  liveEdit: true,
 
   orderings: [orderRankOrdering],
 
