@@ -141,7 +141,7 @@ export const project = defineType({
       title: 'Media',
       type: 'array',
       group: 'media',
-      description: 'Images and videos in display order. Drag to reorder. Mix stills and video freely. The first image (not video) is used as the card thumbnail if no override is set below.',
+      description: 'Images and videos in display order. Drag to reorder. Mix stills and video freely. The first item is used as the card thumbnail if no override is set below.',
       of: [
         defineArrayMember({
           type: 'object',

@@ -12,6 +12,7 @@ const USE_SANITY = !!process.env.SANITY_PROJECT_ID;
 
 // URL-encode each path segment (handles spaces/special chars in filenames)
 function encodeSrc(p) {
+  if (/^https?:\/\//.test(p)) return p;
   return p.split('/').map(s => encodeURIComponent(s)).join('/');
 }
 
