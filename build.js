@@ -517,6 +517,10 @@ async function build() {
     if (src && !/^https?:\/\//.test(src) && !/\.mp4$/i.test(src)) {
       colorMap[p.id] = await getDominantColor(src);
     }
+    // Fall back to Sanity palette color (used when src is a CDN URL)
+    if (!colorMap[p.id] && p.cardColor) {
+      colorMap[p.id] = p.cardColor;
+    }
   }));
 
   const pages = ['index', 'about', 'project', 'services', 'productions'];

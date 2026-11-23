@@ -84,15 +84,14 @@
 .project-images figure img,
 .project-images figure video { width: 100%; height: auto; display: block; }
 
-/* Loading skeleton: neutral background while media fetches, fade in on load */
+/* Media wrapper: holds dominant palette color as loader background */
+.media-wrap { display: block; min-height: 2rem; }
+
+/* Fade in images and videos once ready; background-color on the wrapper shows during loading */
 .project-images img,
 .project-images video { transition: opacity .4s ease; }
 .project-images img.loading,
-.project-images video.loading {
-  opacity: 0;
-  background: rgba(0,0,0,0.05);
-  min-height: 4rem;
-}
+.project-images video.loading { opacity: 0; }
 
 /* Desktop stagger */
 @media (min-width: 768px) {
