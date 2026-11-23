@@ -201,6 +201,15 @@ No manual "publish to live" tool needed — Sanity publish + Netlify auto-deploy
 
 ## Changelog
 
+### 2026-11-23 — Media loading, Studio thumbnails, video card fix (closes #116, #118–#120)
+- **`encodeSrc()` bug fix (#118)** — absolute CDN URLs were being double-encoded (e.g. `https:` → `https%3A`), breaking all mp4 card thumbnails and project-page videos. Guard added for `^https?://` URLs.
+- **Studio thumbnails (#118, #119)** — projects and media array items now show image thumbnails or a dark ▶ tile for videos in the Studio list view. Uses `metadata` from Sanity palette; no schema migration required.
+- **Media array description (#118)** — updated Studio helper text to note the first item is used as the card thumbnail if no override is set.
+- **Card grid layout shift eliminated (#120)** — `card_ratio` from Sanity is now wired to a CSS `aspect-ratio` class on `.thumb` (defaults to 4:3), so grid cells are sized before media loads.
+- **Dominant color loaders (#120)** — `metadata.palette.dominant.background` fetched via GROQ for card thumbnails and each media item. Card `.thumb` and project-page `.media-wrap` wrappers show the palette color while media fades in.
+- **Image dimensions (#120)** — `metadata.dimensions.width/height` added to `<img>` tags on project pages so browsers reserve exact layout space; eliminates shift for images entirely.
+- **Video placeholder (#120)** — project-page `<video>` elements use `aspect-ratio: auto 9/16` (portrait fallback, snaps to intrinsic ratio after metadata loads).
+
 ### 2026-11-22 — Sanity CMS migration (closes #113)
 - **Replaced Sveltia CMS with Sanity v3** — Studio at `gabrielle-sirkin.sanity.studio`; all content migrated
 - **Landing pages** — new `landingPage` document type for per-category drag-to-reorder; one document per category (Brand Strategy, Content Creation, Curation, Production, Visual Direction)

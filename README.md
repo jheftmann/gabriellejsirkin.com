@@ -255,6 +255,14 @@ When shared on social media, shows `sharecard.jpg` from the root folder. Replace
 
 ## Changelog
 
+### 2026-11-23 — Media loading, Studio thumbnails, video card fix (closes #116, #118–#120)
+- **mp4 card thumbnails fixed** — `encodeSrc()` was double-encoding CDN URLs, breaking video card thumbnails and project-page videos.
+- **Studio thumbnails** — projects and media items show image or ▶ video indicators in the Studio list view.
+- **Card grid layout shift** — cards have a reserved aspect ratio before media loads; no more grid jump.
+- **Dominant color loaders** — card thumbnails and project-page media show the image's dominant color as a placeholder while loading.
+- **Image dimensions** — `width`/`height` attrs on project-page images prevent layout shift entirely.
+- **Video placeholder** — project-page videos default to 9:16 aspect ratio before metadata loads.
+
 ### 2026-11-22 — Post-migration fixes
 
 - **Build perspective fix** — `publishedOnly` → `published` in `netlify.toml` and `sanity-build.js`; production builds were silently failing since the Sanity migration due to an invalid HTTP API perspective value
