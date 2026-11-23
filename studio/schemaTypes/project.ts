@@ -51,33 +51,9 @@ export const project = defineType({
       name: 'cat',
       title: 'Categories',
       type: 'array',
-      description:
-        'Each row is one category. Use Position to set order within that category. A project can appear in multiple categories.',
-      of: [
-        defineArrayMember({
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'name',
-              title: 'Category',
-              type: 'string',
-              description: 'Must match a category in Site Settings → Categories.',
-            }),
-            defineField({
-              name: 'position',
-              title: 'Position in this category',
-              type: 'number',
-              description: 'Lower = earlier. Leave blank to sort after numbered entries.',
-            }),
-          ],
-          preview: {
-            select: {title: 'name', subtitle: 'position'},
-            prepare({title, subtitle}) {
-              return {title, subtitle: subtitle ? `Position ${subtitle}` : 'No position'}
-            },
-          },
-        }),
-      ],
+      description: 'Which categories this project appears in. Must match categories in Site Settings.',
+      of: [defineArrayMember({type: 'string'})],
+      options: {layout: 'tags'},
     }),
 
     defineField({

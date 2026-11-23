@@ -88,7 +88,7 @@ function slugify(str) {
 async function loadAllFromSanity() {
   console.log(`[sanity] fetching from project ${PROJECT_ID} / ${DATASET} (${PERSPECTIVE})…`);
 
-  const [settingsDoc, homeDoc, aboutDoc, servicesDoc, projectDocs] = await Promise.all([
+  const [settingsDoc, homeDoc, aboutDoc, servicesDoc, projectDocs, landingPageDocs] = await Promise.all([
     groqFetch(`*[_type == "siteSettings"][0] {
       site_title, site_description, site_url, contact_email,
       contact_instagram, contact_linkedin, nav, og_title_base,
@@ -126,6 +126,11 @@ async function loadAllFromSanity() {
       },
       og_title, og_description,
       "og_image": og_image.asset->url
+    }`),
+    groqFetch(`*[_type == "landingPage"] {
+      title,
+      "slug": slug.current,
+      "projectIds": projects[]._ref
     }`),
   ]);
 
@@ -170,21 +175,30 @@ async function loadAllFromSanity() {
     travel:  servicesContent,  // build.js uses 'travel' key for services page
   };
 
+  // ── Build per-category position map from landing pages ───────────────────
+  // { categorySlug: { projectId: 1-based position } }
+  const categoryPositions = {};
+  for (const lp of (landingPageDocs || [])) {
+    const slug = lp.slug;
+    if (!slug) continue;
+    categoryPositions[slug] = {};
+    (lp.projectIds || []).forEach((id, i) => {
+      categoryPositions[slug][id] = i + 1;
+    });
+  }
+
   // ── Transform projects ────────────────────────────────────────────────────
 
   const projects = (projectDocs || []).map((doc, orderIdx) => {
     const slug = doc.id || doc._id.replace('project-', '');
 
-    // Categories → same normalization as loadProjects()
-    const rawCat = Array.isArray(doc.cat) ? doc.cat : [];
-    const cats = rawCat.map(c => ({
-      name: c?.name || '',
-      position: c?.position ?? null,
-    })).filter(c => c.name);
+    // cat is now a plain [string] array
+    const cats = (Array.isArray(doc.cat) ? doc.cat : [])
+      .map(c => (typeof c === 'string' ? c : c?.name))
+      .filter(Boolean)
+      .filter(n => n.toLowerCase() !== 'all');
 
-    const allEntry  = cats.find(c => c.name.toLowerCase() === 'all');
-    const realCats  = cats.filter(c => c.name.toLowerCase() !== 'all');
-    const orderAll  = allEntry?.position ?? (orderIdx + 1);
+    const orderAll = orderIdx + 1;
 
     // Media: transform Sanity asset URLs → { src, caption, bts }
     const resolvedImages = Array.isArray(doc.media)
@@ -219,17 +233,22 @@ async function loadAllFromSanity() {
       ? marked.parse(doc.description)
       : null;
 
+    // Per-category positions from landing page documents
+    const catOrders = cats.reduce((m, name) => {
+      const catSlug = slugify(name);
+      const pos = categoryPositions[catSlug]?.[doc._id];
+      if (pos != null) m[catSlug] = pos;
+      return m;
+    }, {});
+
     return {
       id:          slug,
       title:       doc.title || slug,
       client:      doc.client || '',
-      cat:         realCats.map(c => c.name).join(', '),
-      filters:     realCats.map(c => slugify(c.name)),
-      filter:      slugify(realCats[0]?.name || ''),
-      catOrders:   realCats.reduce((m, c) => {
-                     if (c.position != null) m[slugify(c.name)] = c.position;
-                     return m;
-                   }, {}),
+      cat:         cats.join(', '),
+      filters:     cats.map(slugify),
+      filter:      slugify(cats[0] || ''),
+      catOrders,
       orderAll,
       date:        doc.date || '',
       description: descHtml || '',

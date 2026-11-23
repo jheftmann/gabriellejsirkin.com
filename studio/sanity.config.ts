@@ -7,6 +7,7 @@ import {schemaTypes} from './schemaTypes'
 
 const singletonTypes = new Set(['siteSettings', 'homePage', 'aboutPage', 'servicesPage'])
 
+
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 
 export default defineConfig({
@@ -23,6 +24,8 @@ export default defineConfig({
           .title('Content')
           .items([
             orderableDocumentListDeskItem({type: 'project', title: 'Projects', S, context}),
+            S.divider(),
+            S.documentTypeListItem('landingPage').title('Landing Pages'),
             S.divider(),
             S.listItem()
               .title('Pages')
