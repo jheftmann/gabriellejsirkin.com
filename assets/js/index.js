@@ -108,3 +108,10 @@ document.querySelectorAll('.thumb img').forEach(function (img) {
   img.classList.add('loading');
   img.addEventListener('load', function () { img.classList.remove('loading'); }, { once: true });
 });
+
+// Video loading state: fade in once metadata (dimensions) are known
+document.querySelectorAll('.thumb video').forEach(function (vid) {
+  if (vid.readyState >= 1) return;
+  vid.classList.add('loading');
+  vid.addEventListener('loadedmetadata', function () { vid.classList.remove('loading'); }, { once: true });
+});

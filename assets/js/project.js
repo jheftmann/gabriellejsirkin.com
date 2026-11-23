@@ -68,6 +68,18 @@ function getParams() {
   } else {
     renderPlaceholders(p);
   }
+
+  // Loading states: fade in images and videos once they're ready
+  document.querySelectorAll('#pImages img').forEach(function (img) {
+    if (img.complete && img.naturalWidth > 0) return;
+    img.classList.add('loading');
+    img.addEventListener('load', function () { img.classList.remove('loading'); }, { once: true });
+  });
+  document.querySelectorAll('#pImages video').forEach(function (vid) {
+    if (vid.readyState >= 1) return;
+    vid.classList.add('loading');
+    vid.addEventListener('loadedmetadata', function () { vid.classList.remove('loading'); }, { once: true });
+  });
 })();
 
 function creditField(label, value) {

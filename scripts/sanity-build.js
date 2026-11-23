@@ -119,9 +119,13 @@ async function loadAllFromSanity() {
       credits_list, skills, color_theme, card_ratio,
       "thumbnail": thumbnail.asset->url,
       "thumbnailFilename": thumbnail.asset->originalFilename,
+      "thumbnailColor": thumbnail.asset->metadata.palette.dominant.background,
       "media": media[] {
         "file": file.asset->url,
         "filename": file.asset->originalFilename,
+        "color": file.asset->metadata.palette.dominant.background,
+        "width": file.asset->metadata.dimensions.width,
+        "height": file.asset->metadata.dimensions.height,
         caption, bts
       },
       og_title, og_description,
@@ -211,31 +215,36 @@ async function loadAllFromSanity() {
 
     const orderAll = orderIdx + 1;
 
-    // Media: transform Sanity asset URLs → { src, caption, bts }
+    // Media: transform Sanity asset URLs → { src, caption, bts, color, width, height }
     const resolvedImages = Array.isArray(doc.media)
       ? doc.media.filter(m => m?.file).map(m => ({
           src:     m.file,
           caption: m.caption || '',
           bts:     !!m.bts,
+          color:   m.color || '',
+          width:   m.width  || 0,
+          height:  m.height || 0,
         }))
       : [];
 
     // Thumbnail / card image
-    const cardSrc = doc.thumbnail || (resolvedImages[0]?.src) || '';
+    const cardSrc   = doc.thumbnail || (resolvedImages[0]?.src) || '';
+    const cardColor = doc.thumbnailColor || (resolvedImages[0]?.color) || '';
 
     // Build contentHtml
     let imgsHtml = null;
     if (resolvedImages.length > 0) {
       imgsHtml = resolvedImages
-        .map(({ src, caption, bts }) => {
-          const btsAttr = bts ? ' data-bts="true"' : '';
-          const isVideo = /\.mp4(\?|$)/i.test(src);
+        .map(({ src, caption, bts, color, width, height }) => {
+          const btsAttr  = bts   ? ' data-bts="true"' : '';
+          const bgStyle  = color ? ` style="background-color:${color}"` : '';
+          const isVideo  = /\.mp4(\?|$)/i.test(src);
           const el = isVideo
-            ? `<video src="${src}" autoplay loop muted playsinline${btsAttr}></video>`
-            : sanityMediaImg(src, btsAttr);
+            ? `<video src="${src}" autoplay loop muted playsinline></video>`
+            : sanityMediaImg(src, width, height);
           return caption
-            ? `<figure${btsAttr}>${el}<figcaption>${marked.parseInline(caption)}</figcaption></figure>`
-            : el;
+            ? `<figure class="media-wrap"${btsAttr}${bgStyle}>${el}<figcaption>${marked.parseInline(caption)}</figcaption></figure>`
+            : `<div class="media-wrap"${btsAttr}${bgStyle}>${el}</div>`;
         })
         .join('\n');
     }
@@ -267,6 +276,8 @@ async function loadAllFromSanity() {
       creditsList: Array.isArray(doc.credits_list) ? doc.credits_list : [],
       skills:      Array.isArray(doc.skills) ? doc.skills : [],
       cardImage:   { src: cardSrc, placeholder: '' },
+      cardColor:   cardColor,
+      cardRatio:   doc.card_ratio || '',
       colorTheme:  doc.color_theme || 'default',
       comingSoon:  !!doc.coming_soon,
       contentHtml: imgsHtml || descHtml ? { desc: descHtml, images: imgsHtml } : null,
@@ -277,11 +288,13 @@ async function loadAllFromSanity() {
 }
 
 // Generates a responsive <img> for a Sanity CDN image URL.
-function sanityMediaImg(url, extraAttr = '') {
+// width/height from asset metadata let browsers reserve layout space before the image loads.
+function sanityMediaImg(url, width = 0, height = 0) {
   const widths = [600, 900, 1200, 1800];
   const srcset = widths.map(w => `${sanityImgUrl(url, { w, fm: 'webp' })} ${w}w`).join(', ');
   const src    = sanityImgUrl(url, { w: 1200, fm: 'webp' });
-  return `<img src="${src}" srcset="${srcset}" sizes="(max-width: 1100px) 50vw, 33vw" alt=""${extraAttr}>`;
+  const dims   = (width && height) ? ` width="${width}" height="${height}"` : '';
+  return `<img src="${src}" srcset="${srcset}" sizes="(max-width: 1100px) 50vw, 33vw" alt=""${dims}>`;
 }
 
 module.exports = { loadAllFromSanity, sanityImgUrl };
