@@ -97,11 +97,19 @@
 .grid:has(.project-card:hover) .project-card:not(:hover) { opacity: 0.8; transition: opacity 0.2s ease; }
 
 /* THUMB */
-.thumb { width: 100%; overflow: hidden; }
+.thumb { width: 100%; overflow: hidden; position: relative; }
+.thumb.r-4-3  { aspect-ratio: 4/3; }
+.thumb.r-16-9 { aspect-ratio: 16/9; }
+.thumb.r-3-4  { aspect-ratio: 3/4; }
+.thumb.r-2-3  { aspect-ratio: 2/3; }
+.thumb.r-9-16 { aspect-ratio: 9/16; }
+.thumb.r-3-2  { aspect-ratio: 3/2; }
 .thumb img,
-.thumb video { display: block; width: 100%; height: auto; }
-.thumb img { transition: opacity .3s ease; }
-.thumb img.loading { opacity: 0; }
+.thumb video { display: block; width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.thumb img,
+.thumb video { transition: opacity .35s ease; }
+.thumb img.loading,
+.thumb video.loading { opacity: 0; }
 
 .thumb-ph {
   width: 100%; height: 100%;

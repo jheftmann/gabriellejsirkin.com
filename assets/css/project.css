@@ -74,7 +74,7 @@
 }
 
 .project-images img   { width: 100%; height: auto; display: block; }
-.project-images video { width: 100%; height: auto; display: block; }
+.project-images video { width: 100%; height: auto; display: block; aspect-ratio: auto 9/16; }
 .project-images p     { display: contents; }
 /* Zero the default figure margins on top/sides only. Don't use the `margin` shorthand
    here — it would set margin-bottom: 0 too, and because `.project-images figure` has
@@ -82,7 +82,16 @@
    and figures with captions would crowd the next image. */
 .project-images figure { margin-top: 0; margin-right: 0; margin-left: 0; }
 .project-images figure img,
-.project-images figure video { width: 100%; height: auto; display: block; }
+.project-images figure video { width: 100%; height: auto; display: block; aspect-ratio: auto 9/16; }
+
+/* Media wrapper: holds dominant palette color as loader background */
+.media-wrap { display: block; min-height: 2rem; }
+
+/* Fade in images and videos once ready; background-color on the wrapper shows during loading */
+.project-images img,
+.project-images video { transition: opacity .4s ease; }
+.project-images img.loading,
+.project-images video.loading { opacity: 0; }
 
 /* Desktop stagger */
 @media (min-width: 768px) {
