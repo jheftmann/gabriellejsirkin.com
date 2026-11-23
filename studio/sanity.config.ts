@@ -23,6 +23,7 @@ export default defineConfig({
           .title('Content')
           .items([
             S.documentTypeListItem('project').title('Projects'),
+            S.divider(),
             S.listItem()
               .title('Homepage')
               .child(S.document().schemaType('projectOrder').documentId('projectOrder')),
