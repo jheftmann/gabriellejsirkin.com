@@ -1,5 +1,4 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
-import {orderRankField, orderRankOrdering} from '@sanity/orderable-document-list'
 import {ColorThemeInput} from '../components/ColorThemeInput'
 
 const COLOR_THEMES = [
@@ -20,8 +19,6 @@ export const project = defineType({
   title: 'Project',
   type: 'document',
 
-  orderings: [orderRankOrdering],
-
   groups: [
     {name: 'content', title: 'Content', default: true},
     {name: 'media',   title: 'Media'},
@@ -29,8 +26,6 @@ export const project = defineType({
   ],
 
   fields: [
-    orderRankField({type: 'project'}),
-
     // ── Content ──────────────────────────────────────────────────────────────
 
     defineField({
