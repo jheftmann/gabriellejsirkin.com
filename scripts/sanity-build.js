@@ -220,8 +220,10 @@ async function loadAllFromSanity() {
         }))
       : [];
 
-    // Thumbnail / card image
-    const cardSrc = doc.thumbnail || (resolvedImages[0]?.src) || '';
+    // Thumbnail / card image — skip mp4 files; cards render <img> not <video>
+    const isVideo = (url) => /\.mp4(\?|$)/i.test(url || '');
+    const firstImgSrc = resolvedImages.find(m => !isVideo(m.src))?.src || '';
+    const cardSrc = (!isVideo(doc.thumbnail) && doc.thumbnail) ? doc.thumbnail : firstImgSrc;
 
     // Build contentHtml
     let imgsHtml = null;
