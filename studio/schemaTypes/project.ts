@@ -1,5 +1,12 @@
+import React from 'react'
 import {defineType, defineField, defineArrayMember} from 'sanity'
 import {ColorThemeInput} from '../components/ColorThemeInput'
+
+function mediaThumb(url: string | undefined) {
+  if (!url || url.match(/\.mp4(\?|$)/i)) return undefined
+  const src = url.includes('cdn.sanity.io/images/') ? `${url}?w=200&q=70` : url
+  return () => React.createElement('img', {src, style: {objectFit: 'cover', width: '100%', height: '100%'}})
+}
 
 const COLOR_THEMES = [
   {title: 'Default', value: 'default'},
@@ -161,9 +168,10 @@ export const project = defineType({
             }),
           ],
           preview: {
-            select: {title: 'file.asset.originalFilename', subtitle: 'caption'},
-            prepare({title, subtitle}) {
-              return {title: title || 'Media item', subtitle}
+            select: {title: 'file.asset.originalFilename', subtitle: 'caption', url: 'file.asset.url'},
+            prepare(selection) {
+              const {title, subtitle, url} = selection as {title: string; subtitle: string; url: string}
+              return {title: title || 'Media item', subtitle, media: mediaThumb(url)}
             },
           },
         }),
@@ -239,13 +247,15 @@ export const project = defineType({
     select: {
       title: 'title',
       client: 'client',
-      media: 'thumbnail',
+      thumbnailUrl: 'thumbnail.asset.url',
+      firstMediaUrl: 'media.0.file.asset.url',
     },
-    prepare({title, client, media}) {
+    prepare(selection) {
+      const {title, client, thumbnailUrl, firstMediaUrl} = selection as {title: string; client: string; thumbnailUrl: string; firstMediaUrl: string}
       return {
         title,
         subtitle: client || '',
-        media,
+        media: mediaThumb(thumbnailUrl) ?? mediaThumb(firstMediaUrl),
       }
     },
   },
