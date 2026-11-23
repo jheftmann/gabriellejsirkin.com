@@ -40,15 +40,11 @@ When you're ready for changes to go live, click the **Publish** button (green, t
 
 ### Reordering projects
 
-**Homepage / "All" order:**
-1. Drag the ⠿ handle next to each project in the Projects list to set the order
-2. **Open each project you moved and click Publish** — the new order won't appear on the live site until the affected projects are published
+**Homepage / "All" order** — open **Homepage** in the Studio sidebar → drag projects into order. Changes are **live immediately** — no Publish needed.
 
 **Per-category order** — open **Landing Pages** in the sidebar → open the category → drag projects into order → **Publish the Landing Page document**.
 
-The two orderings are independent. A project's position in "All" has no effect on its position in a category filter.
-
-> **Why you have to publish after reordering:** Sanity saves all changes — including position — as a draft first. Publishing makes it live.
+The two orderings are independent.
 
 ---
 
@@ -156,8 +152,8 @@ All content is managed in Sanity. Key document types:
 | `siteSettings` | Nav, contact info, categories, global SEO |
 
 **Project ordering:**
-- Homepage / "All" filter — drag-to-reorder in Studio Projects list (`orderRank`)
-- Per-category — drag refs inside each `landingPage` document
+- Homepage / "All" filter — drag in Studio **Homepage** sidebar item (`projectOrder` singleton, `liveEdit: true` — instant, no Publish)
+- Per-category — drag refs inside each `landingPage` document, then Publish
 
 **Build:**
 `scripts/sanity-build.js` fetches all content via GROQ, builds `catOrders` and `orderAll` maps, and emits `data-order-<slug>` / `data-order-all` attributes on each card for client-side sorting.
@@ -258,6 +254,13 @@ When shared on social media, shows `sharecard.jpg` from the root folder. Replace
 ---
 
 ## Changelog
+
+### 2026-11-22 — Post-migration fixes
+
+- **Build perspective fix** — `publishedOnly` → `published` in `netlify.toml` and `sanity-build.js`; production builds were silently failing since the Sanity migration due to an invalid HTTP API perspective value
+- **Sanity → Netlify webhook** — publishes in Studio now auto-trigger a Netlify rebuild (~1 min); webhook filter: `project`, `landingPage`, `projectOrder`
+- **Homepage ordering** — new `projectOrder` singleton (`liveEdit: true`); drag in Studio → Homepage sidebar item → instantly live, no Publish needed; replaces per-project `orderRank`
+- **Studio** — tabs (Content / Media / SEO), color theme swatches, sidebar dividers deployed via `npx sanity deploy`
 
 ### 2026-11-22 — Sanity CMS migration
 - **Replaced Sveltia CMS with Sanity v3** — Studio at `gabrielle-sirkin.sanity.studio`; all 36 projects, pages, and settings migrated
