@@ -1,11 +1,10 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
-import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemaTypes'
 
-const singletonTypes = new Set(['siteSettings', 'homePage', 'aboutPage', 'servicesPage'])
+const singletonTypes = new Set(['siteSettings', 'homePage', 'aboutPage', 'servicesPage', 'projectOrder'])
 
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
@@ -19,11 +18,14 @@ export default defineConfig({
 
   plugins: [
     structureTool({
-      structure: (S, context) =>
+      structure: (S) =>
         S.list()
           .title('Content')
           .items([
-            orderableDocumentListDeskItem({type: 'project', title: 'Projects', S, context}),
+            S.documentTypeListItem('project').title('Projects'),
+            S.listItem()
+              .title('Homepage Order')
+              .child(S.document().schemaType('projectOrder').documentId('projectOrder')),
             S.divider(),
             S.documentTypeListItem('landingPage').title('Landing Pages'),
             S.divider(),

@@ -88,7 +88,7 @@ function slugify(str) {
 async function loadAllFromSanity() {
   console.log(`[sanity] fetching from project ${PROJECT_ID} / ${DATASET} (${PERSPECTIVE})…`);
 
-  const [settingsDoc, homeDoc, aboutDoc, servicesDoc, projectDocs, landingPageDocs] = await Promise.all([
+  const [settingsDoc, homeDoc, aboutDoc, servicesDoc, projectDocs, landingPageDocs, projectOrderDoc] = await Promise.all([
     groqFetch(`*[_type == "siteSettings"][0] {
       site_title, site_description, site_url, contact_email,
       contact_instagram, contact_linkedin, nav, og_title_base,
@@ -132,6 +132,7 @@ async function loadAllFromSanity() {
       "slug": slug.current,
       "projectIds": projects[]._ref
     }`),
+    groqFetch(`*[_type == "projectOrder"][0]{ "projectIds": projects[]._ref }`),
   ]);
 
   // ── Transform settings ────────────────────────────────────────────────────
@@ -187,9 +188,19 @@ async function loadAllFromSanity() {
     });
   }
 
+  // ── Sort projects by projectOrder doc (falls back to orderRank GROQ order) ─
+
+  const projectOrderIds = projectOrderDoc?.projectIds || [];
+  const orderMap = Object.fromEntries(projectOrderIds.map((id, i) => [id, i]));
+  const sortedProjectDocs = [...(projectDocs || [])].sort((a, b) => {
+    const posA = orderMap[a._id] ?? Infinity;
+    const posB = orderMap[b._id] ?? Infinity;
+    return posA - posB;
+  });
+
   // ── Transform projects ────────────────────────────────────────────────────
 
-  const projects = (projectDocs || []).map((doc, orderIdx) => {
+  const projects = sortedProjectDocs.map((doc, orderIdx) => {
     const slug = doc.id || doc._id.replace('project-', '');
 
     // cat is now a plain [string] array
