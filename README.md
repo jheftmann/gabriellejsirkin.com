@@ -1,6 +1,6 @@
 # gabriellejsirkin.com
 
-**https://gabriellejsirkin.netlify.app**
+**https://gabriellejsirkin.com**
 
 Portfolio website for Gabrielle J. Sirkin.
 
@@ -12,126 +12,59 @@ Portfolio website for Gabrielle J. Sirkin.
 
 | Tool | URL |
 |------|-----|
-| **CMS** (edit content) | https://gabriellejsirkin.netlify.app/admin/ |
-| **Upload Images** | https://gabriellejsirkin.netlify.app/admin/upload.html |
-| **Publish to Live** | https://gabriellejsirkin.netlify.app/admin/publish.html |
-| **Preview site** | https://draft--gabriellejsirkin.netlify.app |
-| **Live site** | https://gabriellejsirkin.netlify.app |
+| **Studio** (edit content) | https://gabrielle-sirkin.sanity.studio |
+| **Live site** | https://gabriellejsirkin.com |
+
+**Full guide:** [docs/studio-guide.md](docs/studio-guide.md)
 
 ---
 
 ### Editing workflow
 
-#### Step 1 — Upload images or videos
-Go to the **Upload Images** tool. Drag and drop your files, select the project folder, and upload. Accepts JPG, PNG, and MP4.
+#### Step 1 — Open Studio
+Go to **https://gabrielle-sirkin.sanity.studio**. All content is managed here.
 
-#### Step 2 — Edit in the CMS
-Go to the **CMS**. Log in with GitHub. From here you can:
-- Add or edit projects (text, images, metadata)
-- Edit the About and Travel pages
-- Edit homepage copy
-- Edit site-wide settings
+#### Step 2 — Make your changes
+- **Add or edit a project** → Projects in the sidebar
+- **Edit page content** → Pages → Home / About / Services
+- **Edit site-wide settings** → Site Settings
 
-Make your changes and click **Save**. This saves to the **preview site only** — nothing changes on the live site yet.
+Changes save automatically as a draft while you work.
 
-#### Step 3 — Review on preview
-Check your changes at the **preview site**: https://draft--gabriellejsirkin.netlify.app
-
-The preview updates within about 30 seconds of saving.
-
-#### Step 4 — Publish to live
-When you're happy with the preview, go to the **Publish to Live** tool and click **Publish to Live Site**. The live site updates within about 30 seconds.
+#### Step 3 — Publish
+When you're ready for changes to go live, click the **Publish** button (green, top right of the document). The live site updates within about 30 seconds.
 
 ---
 
-### Important notes
+### Reordering projects
 
-> **Order fields — leave blank or enter a number, don't clear after setting**
-> The "Order (within category)" and "Order (All page)" fields control where a project appears in its tab. If you set a number and then delete it, save the project again with the field left blank — don't leave it half-edited. If a project ever appears blank in the CMS, open it, clear both Order fields, and save again.
+**Homepage / "All" order** — drag the ⠿ handle next to each project in the Projects list.
 
-> **Uploading images vs. adding to Media list**
-> Uploading a file adds it to the project folder but doesn't put it on the page. After uploading, open the project in the CMS and add the filename to the **Media** list to control where it appears.
+**Per-category order** — open **Landing Pages** in the sidebar → open the category → drag projects into order → Publish.
 
-> **Thumbnail — image or video**
-> The Card Thumbnail field accepts both images and MP4 videos. Leave it blank to use the first item in the Media list automatically.
-
-> **Coming Soon**
-> Toggle "Coming Soon" on a project to show a badge on the card without publishing the full project.
-
-> **Backups**
-> Content is automatically backed up on the 1st of every month. Backups are stored as zip files in the [Releases](https://github.com/jheftmann/gabriellejsirkin.com/releases) tab on GitHub. To trigger a backup manually: GitHub → Actions → "Monthly content backup" → Run workflow.
+The two orderings are independent.
 
 ---
 
-### Categories
+### Uploading images
 
-The category filter bar on the homepage ("All / Visual Direction / Content Creation / …") is fully driven by the CMS.
+Upload images and videos directly in Studio:
+- Inside a project → click any image or media field → Upload
+- Or use the **Media** tab in the sidebar to manage all assets in one place
 
-**To add, remove, rename, or reorder the filter tabs:** CMS → **Settings** → **Categories** list. The order you set there is the order they appear in on the homepage.
+Supported formats: JPG, PNG, WebP, GIF, MP4. Upload originals — the site generates optimized sizes automatically.
 
-**To put a project in a category:** open the project → **Categories** field → click the **+** button to add a row → type the category name. Repeat for each additional category. Each name must match a category in Settings exactly (case-insensitive, but no typos).
-
-**A project can be in more than one category.** Add one row per category — the project will appear in each of those filter tabs (and in "All"). If you see the categories rendered as a single comma-separated line (e.g. `Visual Direction, Content Creation`), that also works as a fallback — the build splits on commas — but the per-row UI is the intended way.
-
-If a project's Categories field is empty, it won't appear in any tab — including "All".
-
-**Setting position on each tab:** each Categories row has a **Position** number — that's the position on that tab. To control position on the **All** tab, you can either (a) fill in the **Order on the All tab** field below, or (b) add a Categories row named **All** with the desired Position — the row's position takes precedence if both are set.
-
-### Credits
-
-The credits section on each project page is built from the **Credits** field (a list of label/value pairs). Examples: `Photographer / Julia Sellmann`, `Stylist / Jane Smith`, `Producer / John Doe`.
-
-**To edit:** open a project → scroll to **Credits** → click **Add Credit** to add a row, or edit/remove existing rows. The label can be anything you want.
-
-The old fixed fields (Photographer, Director, BTS) were merged into this list. All existing values were carried over — you can edit or remove them just like any other credit row.
-
-> **Tip — order long credits last**
-> The credit columns each size to their own content (capped at ~196px). When one column's value wraps to multiple lines and ends on a short last line, the whitespace between *that* line and the next column can look bigger than the spacing between full-width lines and the next column — it's a natural side-effect of left-aligned ragged-right text. To minimise this, put any long-list credit (e.g. "Sabrina Bajaj, Chelsea Gold, Gabrielle Sirkin and Audrey Viola") as the **last** credit row so the wrap happens at the right edge of the layout where there's nothing next to it.
+---
 
 ### Links and formatting in text fields
 
-The About bio, the Services intro/approach, the Services / Clients / City Guides lists, the skill descriptions, the project Description, and image **Captions** all accept **markdown** — so you can add links and basic emphasis without writing HTML. Captions and project descriptions also let you use `<br>` for a line break inside a single field.
+The Description, bio, and caption fields accept basic **markdown**:
 
 | You type | What renders |
 |----------|--------------|
-| `[A Golden Hour Project](https://www.agoldenhourproject.com)` | a clickable link |
-| `[Email me](mailto:gabriellejsirkin@gmail.com)` | a mail link |
+| `[Link text](https://example.com)` | a clickable link |
 | `*italic*` | *italic* |
 | `**bold**` | **bold** |
-
-Raw HTML (e.g. `<a href="…">…</a>`) also still works if you prefer.
-
-The project page **Description** field also accepts full markdown — paragraphs, lists, links, emphasis. Use blank lines to separate paragraphs.
-
-### GitHub access token (publish + upload)
-
-The **Publish to Live** and **Upload Images** tools both need a GitHub Personal Access Token (PAT) to write to the repo. The token is stored in your browser's localStorage on each device, so you'll need to set it up once on every new computer or browser.
-
-> **When you need a new token:**
-> - First time using a new computer or browser
-> - The current token expired
-> - You see a `401 Unauthorized` or "Invalid token" error in the publish/upload tools
-> - You signed out of GitHub or revoked the token
-
-**To create one:**
-
-1. Go to **https://github.com/settings/personal-access-tokens/new** (or: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token).
-2. **Token name** — anything, e.g. `GJS CMS publish`.
-3. **Expiration** — pick something reasonable (1 year is fine; longer if you'd rather not redo this annually).
-4. **Resource owner** — `jheftmann`. *If you don't see jheftmann in the dropdown, ask Jacob to add you as a collaborator on the repo first.*
-5. **Repository access** → "Only select repositories" → select `gabriellejsirkin.com`.
-6. **Repository permissions** → find **Contents** in the list → set to "Read and write".
-7. Click **Generate token** at the bottom.
-8. Copy the token (it starts with `github_pat_...`). **You can only see this once — copy it now.**
-
-**To use it:**
-
-1. Open the [Publish to Live](https://gabriellejsirkin.netlify.app/admin/publish.html) tool.
-2. Paste the token into the **GitHub Access Token** field.
-3. The token is saved in your browser for next time — you only have to do this once per device.
-4. Do the same paste in the [Upload Images](https://gabriellejsirkin.netlify.app/admin/upload.html) tool — same token works in both.
-
-**Never share the token, post it anywhere, or commit it to any repo** — anyone with this token can write to the site. If you suspect it's leaked, go to https://github.com/settings/tokens, revoke the old one, and create a fresh one.
 
 ---
 
@@ -141,53 +74,58 @@ The **Publish to Live** and **Upload Images** tools both need a GitHub Personal 
 
 | | URL |
 |---|---|
-| **Live site** | https://gabriellejsirkin.netlify.app |
-| **Preview** | https://draft--gabriellejsirkin.netlify.app |
-| **CMS** | https://gabriellejsirkin.netlify.app/admin/ |
+| **Live site** | https://gabriellejsirkin.com |
+| **Studio** | https://gabrielle-sirkin.sanity.studio |
 | **GitHub repo** | https://github.com/jheftmann/gabriellejsirkin.com |
 | **Local (dev)** | http://localhost:3000 — run `npm start` |
+| **Sanity project** | `t4atn37a` / dataset: `production` |
 
 ### Local setup
 
 Install [Node.js](https://nodejs.org) (one-time), then:
 
 ```
-npm install   # first time only
-npm start     # starts dev server at localhost:3000
+cp .env.example .env   # fill in SANITY_API_TOKEN
+npm install
+npm start              # starts dev server at localhost:3000
 ```
 
-`npm start` pulls the latest CMS content from the `draft` branch, builds, and watches for changes.
+Content is fetched from Sanity at build time. No local content files to sync.
 
 ### Tech stack
 
 - **Builder:** `build.js` — custom Node.js static site generator (no framework)
 - **Templates:** `src/*.html` → compiled to root `*.html` (never edit root files directly)
-- **Content:** `content/projects/*/index.md` + `content/pages/*.md` + `content/settings.md`
-- **CMS:** Sveltia CMS (git-based), config in `admin/config.yml`, pinned to 0.146.10
-- **Hosting:** Netlify — `main` → production, `draft` → preview
-- **Auth:** Cloudflare Worker at `https://sveltia-cms-auth.orsa.workers.dev` (see issue #4)
+- **Content:** Sanity v3 CMS — fetched at build time via `scripts/sanity-build.js`
+- **Hosting:** Netlify — `main` → production (`publishedOnly`); branch deploys → preview (`previewDrafts`)
+- **Studio:** `studio/` — Sanity Studio v3, deployed at `gabrielle-sirkin.sanity.studio`
 
 ### Branches
 
 | Branch | Purpose |
 |--------|---------|
-| `main` | Production — deploys to gabriellejsirkin.netlify.app |
-| `draft` | CMS content — deploys to draft--gabriellejsirkin.netlify.app |
-| `feature/*` | All dev work — merge into main when ready |
+| `main` | Production — auto-deploys to gabriellejsirkin.com |
+| `feature/*` | All dev work — merge into main via PR |
 
-Never commit directly to `main`. Use a feature branch and merge.
+Never commit directly to `main`. Use a feature branch and PR.
 
 ### Deploying code changes
 
 ```
 git checkout -b feature/my-change
-# make changes, commit
-git push origin feature/my-change
-git checkout main && git merge feature/my-change && git push origin main
+# make changes, commit, push
+gh pr create   # open PR → merge to main → Netlify auto-deploys
 git branch -d feature/my-change
 ```
 
-Code changes on `main` automatically sync to `draft` via GitHub Actions.
+### Deploying Studio changes
+
+```
+cd studio
+npx sanity deploy
+```
+
+Studio changes (schema, structure, plugins) must be deployed separately — merging to main doesn't update the Studio.
 
 ### Pages
 
@@ -198,43 +136,43 @@ Code changes on `main` automatically sync to `draft` via GitHub Actions.
 | Travel Creative Services | `/travel.html` |
 | Project (individual) | `/project.html` (loaded dynamically) |
 
-### Project frontmatter fields
+### Content model
 
-| Field | Required | Notes |
-|-------|----------|-------|
-| `title` | yes | Project name |
-| `client` | no | Client or publication |
-| `cat` | no | YAML list of category names; must match entries in `settings.categories` (slugified for filter matching). A project can be in multiple categories. |
-| `date` | no | Year |
-| `description` | no | Paragraph shown above project details |
-| `credits_list` | no | List of `{ label, value }` objects rendered as the project credits section |
-| `credits` | no | Free-form trailing credits text (rendered after `credits_list`) |
-| `skills` | no | List of tags shown on card and project page |
-| `card_ratio` | no | Card shape: `r-16-9`, `r-4-3`, `r-3-4`, `r-3-2`, `r-2-3`, `r-1-1` |
-| `thumbnail` | no | Card image or video. Defaults to first media item. |
-| `order` | no | Position within category tab (blank = after numbered projects) |
-| `order_all` | no | Position on All tab (blank = after numbered projects) |
-| `coming_soon` | no | Shows Coming Soon badge on card |
+All content is managed in Sanity. Key document types:
 
-The filter bar order is derived from `settings.categories` in `content/settings.md`. Each project's `cat` array is slugified into `filters` and emitted on the card as `data-category="slug1 slug2"`; the homepage JS does `dataset.category.split(' ').includes(f)` to determine matches.
+| Type | Purpose |
+|------|---------|
+| `project` | Portfolio projects — orderable via `orderRank` |
+| `landingPage` | Per-category project order (one doc per category) |
+| `homePage` | Homepage hero + SEO |
+| `aboutPage` | About page content |
+| `servicesPage` | Services/travel page content |
+| `siteSettings` | Nav, contact info, categories, global SEO |
+
+**Project ordering:**
+- Homepage / "All" filter — drag-to-reorder in Studio Projects list (`orderRank`)
+- Per-category — drag refs inside each `landingPage` document
+
+**Build:**
+`scripts/sanity-build.js` fetches all content via GROQ, builds `catOrders` and `orderAll` maps, and emits `data-order-<slug>` / `data-order-all` attributes on each card for client-side sorting.
 
 ### Page titles, meta tags, and OG images
 
 Each page gets a `<title>`, Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`), and matching Twitter Card tags. These are generated by `computePageMeta()` in `build.js` at build time.
 
-#### CMS-editable fields (per page)
+#### Studio-editable fields (per page)
 
-Open any page in the CMS (Home, About, Travel) and scroll to the **SEO / Social** section:
+Open any page or project in Studio and go to the **SEO** tab:
 
-| CMS field | What it controls |
-|-----------|-----------------|
-| **OG Title** | The `og:title` and `twitter:title` values. Leave blank to fall back to the page default. |
-| **OG Description** | The `og:description` and `twitter:description` values. |
-| **OG Image** | The image shown when the page is shared on social. Upload a **1200 × 630 px** JPG/PNG. |
+| Field | What it controls |
+|-------|-----------------|
+| **Title override** | The `og:title` and `twitter:title`. Leave blank to fall back to the page default. |
+| **Description** | The `og:description` and `twitter:description`. |
+| **Share image** | Shown when shared on social. Use a **1200 × 630 px** image. Defaults to the project thumbnail. |
 
 #### Global settings
 
-In the CMS under **Settings**:
+In Studio under **Site Settings**:
 
 | Field | What it controls |
 |-------|-----------------|
@@ -267,9 +205,9 @@ If no **OG Image** is set for a page, `og:image` falls back to `{site_url}/share
 
 Each project page, and the About and Services pages, can have an individually assigned color theme. The theme controls background, text, and nav link colors.
 
-**To set a theme on a project:** open the project in the CMS → find the **Color Theme** field → choose from the dropdown → save and publish.
+**To set a theme on a project:** open the project in Studio → **Media** tab → **Color Theme** → pick a swatch → Publish.
 
-**To change the About or Services page theme:** go to the CMS → Pages → About (or Services) → **Color Theme** field.
+**To change the About or Services page theme:** Studio → Pages → About (or Services) → **Color Theme** field.
 
 **Available themes:**
 
@@ -292,12 +230,12 @@ The Home and Category pages are always Default — the theme picker on the Home 
 
 ### Google Analytics
 
-To enable Google Analytics, add your **GA4 Measurement ID** to the CMS:
+To enable Google Analytics, add your **GA4 Measurement ID** in Studio:
 
-1. Go to the CMS → **Settings**
+1. Go to Studio → **Site Settings**
 2. Find the **Google Analytics Tracking ID** field
 3. Enter your Measurement ID — it looks like `G-XXXXXXXXXX`
-4. Save and publish
+4. Publish
 
 The GA4 snippet is injected into every page at build time. Leave the field blank to disable analytics entirely — no tracking code will be included in the output.
 
@@ -314,6 +252,16 @@ When shared on social media, shows `sharecard.jpg` from the root folder. Replace
 ---
 
 ## Changelog
+
+### 2026-11-22 — Sanity CMS migration
+- **Replaced Sveltia CMS with Sanity v3** — Studio at `gabrielle-sirkin.sanity.studio`; all 36 projects, pages, and settings migrated
+- **`studio/`** — Sanity Studio v3 with orderable-document-list, media plugin, and custom ColorThemeInput swatch picker
+- **`scripts/sanity-build.js`** — GROQ-based content layer; replaces markdown loaders; supports `previewDrafts` perspective for branch deploys
+- **Landing pages** — new `landingPage` document type for per-category drag-to-reorder (Brand Strategy, Content Creation, Curation, Production, Visual Direction)
+- **Project schema** — reorganized into Content / Media / SEO tabs; `cat` simplified to plain `[string]`; color theme shows color swatches
+- **`scripts/fix-thumbnails-og.js`** — clears broken thumbnail refs; backfills `og_image` from thumbnail for all projects
+- **`docs/studio-guide.md`** — user guide for Gabrielle
+- **Git tag `archive/sveltia-cms`** — marks last Sveltia state for rollback reference
 
 ### 2026-05-14 / 15
 - **Per-category project order (#86)** — `cat` field schema in admin/config.yml is now a list of `{name, position}` objects. Each project carries one `data-order-<slug>="N"` attribute per category it's in (plus `data-order-all`); index.js sorts by the attribute matching the active filter. All 33 projects auto-migrated by `scripts/migrate-cat-with-positions.js`. Top-level `order` field removed.
