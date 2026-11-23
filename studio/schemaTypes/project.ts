@@ -3,7 +3,14 @@ import {defineType, defineField, defineArrayMember} from 'sanity'
 import {ColorThemeInput} from '../components/ColorThemeInput'
 
 function mediaThumb(url: string | undefined) {
-  if (!url || url.match(/\.mp4(\?|$)/i)) return undefined
+  if (!url) return undefined
+  if (url.match(/\.mp4(\?|$)/i)) {
+    return () => React.createElement(
+      'div',
+      {style: {width: '100%', height: '100%', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center'}},
+      React.createElement('span', {style: {fontSize: 20, color: '#fff', opacity: 0.9}}, '▶')
+    )
+  }
   const src = url.includes('cdn.sanity.io/images/') ? `${url}?w=200&q=70` : url
   return () => React.createElement('img', {src, style: {objectFit: 'cover', width: '100%', height: '100%'}})
 }
